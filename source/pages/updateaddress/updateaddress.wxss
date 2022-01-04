@@ -1,0 +1,18 @@
+/* pages/updateaddress/updateaddress.wxss */
+Page{
+  background: #f3f3f3;
+}
+.address_block{
+  margin: 30rpx;
+  background: white;
+  border-radius: 10rpx;
+  padding: 20rpx 30rpx 20rpx 30rpx;
+}
+.default{
+  width: 60rpx;
+  height: 36rpx;
+}
+.chooseicon {
+  width: 36rpx;
+  height: 36rpx;
+}

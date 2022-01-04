@@ -1,0 +1,76 @@
+<!--pages/goodstype/goodstype.wxml-->
+
+<view class="flex-row flex-center padding-top-20" style="border-bottom:2rpx solid #EEEEEE">
+
+  <view class="flex-row flex-column flex-1" bindtap="choosetype" id="A">
+    <view class="{{type=='A'?'txt-orange ':''}} h5 txt-bold">综合</view>
+    <view class="underblock {{type=='A'?'bg-orange':''}} margin-top-20"></view>
+  </view>
+
+  <view class=" flex-row flex-column  flex-1" bindtap="choosetype" id="B">
+    <view class="{{type=='B'?'txt-orange ':''}} h5 txt-bold">销量</view>
+    <view class="underblock {{type=='B'?'bg-orange':''}} margin-top-20"></view>
+  </view>
+
+  <view class="flex-row flex-column  flex-1" bindtap="choosetype" id="C">
+
+    <view class="flex-row flex-center">
+      <view class="{{type=='C'?'txt-orange ':''}} h5 txt-bold">价格</view>
+      <image wx:if="{{price_seq==0||price_seq==1}}" src="{{uploadpath}}resource/{{res.moren}}" class="price"></image>
+      <image wx:if="{{price_seq==2}}" src="{{uploadpath}}resource/{{res.sheng}}" class="price"></image>
+      <image wx:if="{{price_seq==3}}" src="{{uploadpath}}resource/{{res.jiang}}" class="price"></image>
+    </view>
+    <view class="underblock  margin-top-20"></view>
+  </view>
+
+</view>
+
+<view class="flex-row flex-center flex-wrap  padding-left-10">
+  <view class="{{item.id==filtrate_id?'txt-orange':''}} label h6 margin-left-20 margin-top-10" wx:for="{{typelist}}"
+    bindtap="bindfiltrate" id="{{item.id}}">{{item.name}}</view>
+</view>
+
+
+<view class="flex-row   padding-30">
+
+  <view>
+    <view class="card" wx:for="{{goodslist}}" wx:key='g' wx:for-index="idx" wx:if="{{idx%2==0}}" bindtap="navtoPage"
+      data-page="goodsinfo" data-param="id={{item.id}}">
+      <image src="{{uploadpath}}goods/{{item.coverimage}}" class="coverimg" mode="aspectFill"></image>
+
+      <view class="padding-10">
+        <view class="h6 chaochu2 ">{{item.name}}</view>
+
+        <view class="flex-row flex-center margin-top-10">
+          <view class="h7   txt-orange">￥</view>
+          <view class="h5   txt-orange">{{item.price}}</view>
+          <view class="txt-gray h7 flex-1 margin-left-10" style="text-decoration:line-through">￥{{item.original_price}}
+          </view>
+
+          <view class="txt-gray h7">已售 {{item.sales}}</view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class="flex-1"></view>
+  <view>
+    <view class="card" wx:for="{{goodslist}}" wx:key='g' wx:for-index="idx" wx:if="{{idx%2>0}}" bindtap="navtoPage"
+      data-page="goodsinfo" data-param="id={{item.id}}">
+      <image src="{{uploadpath}}goods/{{item.coverimage}}" class="coverimg" mode="aspectFill"></image>
+      <view class="padding-10">
+        <view class="h6 chaochu2 ">{{item.summary}}</view>
+
+        <view class="flex-row flex-center margin-top-10">
+          <view class="h7   txt-orange">￥</view>
+          <view class="h5   txt-orange">{{item.price}}</view>
+          <view class="txt-gray h7 flex-1 margin-left-10" style="text-decoration:line-through">￥{{item.original_price}}
+          </view>
+
+          <view class="txt-gray h7">已售 {{item.sales}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

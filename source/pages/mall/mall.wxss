@@ -1,0 +1,5 @@
+/* pages/mall/mall.wxss */
+ .topimg{
+   width: 100vw;
+   height: 330rpx;
+ }

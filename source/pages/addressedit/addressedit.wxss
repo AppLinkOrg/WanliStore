@@ -1,0 +1,19 @@
+/* pages/addressedit/addressedit.wxss */
+Page{
+  background: #f3f3f3;
+}
+.inputstyle{
+  padding: 20rpx 0 20rpx 0;
+  margin: 0 30rpx 0 30rpx;
+  border-bottom: 2rpx solid #EEEEEE;
+}
+.width-120{
+  width: 130rpx;
+}
+.check_button{
+  width: 70rpx;
+  height: 40rpx;
+}
+.bg-gray{
+  background: rgb(175, 175, 175);
+}

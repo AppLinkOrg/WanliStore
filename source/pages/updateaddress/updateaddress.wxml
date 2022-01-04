@@ -1,0 +1,30 @@
+<!--pages/updateaddress/updateaddress.wxml-->
+<view class="padding-40 bg-white">
+  <view class="h5 txt-bold">原地址：</view>
+  <view class="h5 margin-top-10">{{info.region}} {{info.address_name}}</view>
+  <view class="txt-gray h5 margin-top-10">{{info.name}} {{info.mobile}}</view>
+</view>
+
+
+<view class="address_block flex-row flex-center" wx:for="{{list}}" wx:for-index="idx" bindtap="bindchoose"
+  id="{{item.id}}">
+  <image src="{{uploadpath}}resource/{{item.id==address_id?res.chooseicon:res.notchooseicon}}" class="chooseicon" bindtap="choose_all"></image>
+  <view class="flex-1 margin-left-20">
+    <view class="flex-row flex-center">
+      <image src="{{uploadpath}}resource/{{res.dizhimoren}}" class="default margin-right-20"
+        wx:if="{{item.isdefault_value=='Y'}}"></image>
+      <view class="f-30 chaochu flex-1">{{item.region}} {{item.address_name}}</view>
+    </view>
+    <view class="txt-gray h6 margin-top-20">{{item.name}} {{item.mobile}}</view>
+  </view>
+  <image src="{{uploadpath}}resource/{{res.right}}" class="right margin-left-20"></image>
+</view>
+
+
+<view class="under_block ">
+  <view class=" padding-20">
+    <view class="under_button bg-orange txt-white h5 " bindtap="confirm">提交修改
+    </view>
+  </view>
+  <view class="height-40"></view>
+</view>

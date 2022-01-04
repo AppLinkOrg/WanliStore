@@ -1,0 +1,28 @@
+<!--pages/addresslist/addresslist.wxml-->
+
+<view class="address_block flex-row flex-center" wx:for="{{list}}" wx:for-index="idx"  
+  bindtap="chooseaddress" id="{{item.id}}">
+  <view class="flex-1">
+    <view class="flex-row flex-center">
+      <image src="{{uploadpath}}resource/{{res.dizhimoren}}" class="default margin-right-20" wx:if="{{item.isdefault_value=='Y'}}"></image>
+      <view class="f-30">{{item.region}} {{item.address_name}}</view>
+    </view>
+    <view class="txt-gray h6 margin-top-20">{{item.name}} {{item.mobile}}</view>
+  </view>
+  <image src="{{uploadpath}}resource/{{res.right}}" class="right"></image>
+</view>
+
+<view class="text-center" wx:if="{{list.length==0}}">
+  <image src="{{uploadpath}}resource/{{res.nodata}}" class="nodata" /> 
+</view>
+
+
+
+<view class="height-150"></view>
+<view class="under_block ">
+  <view class=" padding-20">
+    <view class="under_button bg-orange txt-white h5 " bindtap="navtoPage" data-page="addressedit">添加新地址
+    </view>
+  </view>
+  <view class="height-40"></view>
+</view>

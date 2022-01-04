@@ -1,0 +1,7 @@
+/* pages/memberxieyi/memberxieyi.wxss */
+
+.nostyle view,navigator,input,text,textarea{
+  color:#333333;
+  font-size:24rpx;
+  word-break: normal;
+}

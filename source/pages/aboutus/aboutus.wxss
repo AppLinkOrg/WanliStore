@@ -1,0 +1,19 @@
+/* pages/aboutus/aboutus.wxss */
+Page {
+  background: #F9F9F8;
+}
+.cover {
+  width: 256rpx;
+  height: 256rpx;
+}
+
+.padding50 {
+  padding: 60rpx 50rpx;
+  margin-top: 10rpx;
+}
+
+.nostyle view,navigator,input,text,textarea{
+  color:unset;
+  font-size:unset;
+  word-break: normal;
+}

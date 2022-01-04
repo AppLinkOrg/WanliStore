@@ -1,0 +1,23 @@
+/* pages/orderlist/orderlist.wxss */
+Page{
+  background: #f3f3f3;
+}
+
+.margin_block{
+  margin: 30rpx 30rpx 0 30rpx;
+}
+.order_btn{
+   padding:14rpx 30rpx 14rpx 30rpx; 
+background: #FFFFFF;
+
+border-radius: 25px;
+}
+
+.txt-gray{
+  color: #666666;
+}
+.line{
+  width: 100%;
+  height: 2rpx;
+  background: #EEEEEE;
+}

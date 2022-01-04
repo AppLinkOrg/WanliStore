@@ -1,0 +1,215 @@
+<!--pages/orderinfo/orderinfo.wxml-->
+
+<view class="back_block" bindtap="backPage" wx:if="{{type!=0}}">
+  <image src="{{uploadpath}}resource/{{res.whiteback}}" class="icon_back"></image>
+</view>
+<view class="home_block" bindtap="reLaunch" data-page="mall" wx:if="{{alltype==0}}">
+  <image src="{{uploadpath}}resource/{{res.backhome}}" class="icon_backhome"></image>
+</view>
+
+
+<view class="" style="background-image:url({{uploadpath}}resource/{{res.bg1}});background-size:100% 100%;">
+  <view class="height-150"></view>
+  <view class="flex-row flex-center margin-30">
+    <view class="txt-bold txt-white h4 flex-1">{{info.order_status_name}}</view>
+    <!-- <view class="txt-white h5" wx:if="{{info.order_status=='A'}}">剩余支付时间为09:00</view> -->
+  </view>
+
+  <view class="address_block flex-row flex-center" bindtap="navtoPage" data-page="addresslist" data-param="type=A">
+    <view class="flex-1">
+      <view class="f-30 chaochu">{{addressinfo.region}} {{addressinfo.address_name}}</view>
+      <view class="txt-gray h6 margin-top-20">{{addressinfo.name}} {{addressinfo.mobile}}</view>
+    </view>
+    <image src="{{uploadpath}}resource/{{res.right}}" class="right margin-left-20"></image>
+  </view>
+</view>
+
+<view class="margin-30 ">
+
+  <view class="padding-20  radius-10 bg-white">
+
+    <view wx:for="{{list}}" wx:for-index="idx">
+
+
+      <view class="flex-row flex-center {{idx>0?'margin-top-20':''}}">
+        <image src="{{uploadpath}}goods/{{item.coverimg}}" class="icon-80"></image>
+        <view class="margin-left-20 flex-1">
+
+          <view class="h6 txt-bold">{{item.goods_name}}</view>
+          <view class="h7 txt-gray margin-top-30">{{item.specifications_name}}</view>
+
+          <view class="flex-row flex-center margin-top-30">
+            <view class="h7   txt-orange">￥</view>
+            <view class="h6   txt-orange txt-bold flex-1 ">{{item.unitprice}}</view>
+            <!-- <view class="txt-gray h7 flex-1 margin-left-10" style="text-decoration:line-through">
+              ￥{{item.goods_original_price}}
+            </view> -->
+            <view class="txt-gray h7">x{{item.number}}</view>
+          </view>
+
+        </view>
+      </view>
+
+      <view class="flex-row margin-top-20" wx:if="{{item.aftersale=='N'}}">
+        <view class="flex-1"></view>
+        <view class="button2 h6 " bindtap="navtoPage" data-page="creataftersale"
+          data-param="id={{item.id}}&order_id={{info.id}}" wx:if="{{info.order_status=='D'||info.order_status=='E'}}">
+          申请售后</view>
+
+      </view>
+
+
+    </view>
+
+  </view>
+
+  <view class="padding_block  radius-10 bg-white margin-top-20">
+    <view class="flex-row flex-center">
+      <view class="txt-bold h5 flex-1">商品总额</view>
+
+      <!-- <view class="txt-gray h7   " style="text-decoration:line-through">
+        ￥{{info.payment_amount}}
+      </view> -->
+      <view class="h7 margin-left-10">￥</view>
+      <view class="h6 txt-bold  ">{{info.rental}}</view>
+      <view class="right margin-left-20"></view>
+
+    </view>
+
+    <!-- <view class="flex-row flex-center margin-top-30">
+      <view class=" h6 flex-1">运费</view>
+      <view class="h7" wx:if="{{info.freight>0}}">￥</view>
+      <view class="h6  ">{{info.freight==0?'包邮':info.freight}}</view>
+      <view class="right margin-left-20"></view>
+    </view> -->
+
+    <view class="flex-row flex-center margin-top-30">
+      <view class=" h6 flex-1">积分抵扣</view>
+      <view class="h7">￥</view>
+      <view class="h6  ">{{info.integration}}</view>
+      <view class="right margin-left-20"></view>
+    </view>
+
+    <view class="flex-row flex-center margin-top-30">
+      <view class=" h6 flex-1">优惠券</view>
+      <view class="h7" wx:if="{{info.coupon>0}}">￥</view>
+      <view class="h6  ">{{info.coupon==0?'未使用':info.coupon}}</view>
+      <!-- <image src="{{uploadpath}}resource/{{res.right}}" class="right margin-left-20"></image> -->
+      <view class="right margin-left-20"></view>
+    </view>
+
+    <view class="flex-row flex-center margin-top-30">
+      <view class=" h6 flex-1">实付</view>
+      <view class="h7  txt-orange">￥</view>
+      <view class="h6  txt-orange ">{{info.payment_amount}}</view>
+      <view class="right margin-left-20"></view>
+    </view>
+
+  </view>
+
+  <view class="padding-20    radius-10 bg-white margin-top-20">
+    <view class="flex-row flex-center">
+      <view class=" h6 flex-1">销售员</view>
+      <view class="txt-gray h6  ">{{info.salesperson_id_name}}</view>
+    </view>
+
+    <view class=" flex-row flex-center  margin-top-20">
+      <view class=" h6 flex-1">备注</view>
+      <view class="txt-gray h6">{{info.remarks}}</view>
+    </view>
+
+  </view>
+
+  <view class="padding-20    radius-10 bg-white margin-top-20">
+    <view class="flex-row flex-center">
+      <view class=" h6  ">订单编号</view>
+      <view class="txt-gray h6  margin-left-40">{{info.orderno}}</view>
+    </view>
+
+    <view class=" flex-row flex-center  margin-top-20">
+      <view class=" h6 ">下单时间</view>
+      <view class="txt-gray h6 margin-left-40">{{info.submit_time}}</view>
+    </view>
+
+    <view class=" flex-row flex-center  margin-top-20">
+      <view class=" h6  ">支付方式</view>
+      <view class="txt-gray h6 margin-left-40">{{info.payment_method_name}}</view>
+    </view>
+
+    <view wx:if="{{info.payment_method=='B'}}">
+
+      <view class=" flex-row flex-center  margin-top-20">
+        <view class=" h6  ">公司名称</view>
+        <view class="txt-gray h6 margin-left-40">{{instinfo.company}}</view>
+      </view>
+      <view class=" flex-row flex-center  margin-top-20">
+        <view class=" h6  ">开户银行</view>
+        <view class="txt-gray h6 margin-left-40">{{instinfo.bank}}</view>
+      </view>
+      <view class=" flex-row flex-center  margin-top-20">
+        <view class=" h6  ">开户账号</view>
+        <view class="txt-gray h6 margin-left-40">{{instinfo.zhanghao}}</view>
+      </view>
+    </view>
+
+    <view class="text-center h6 txt-orange padding-10 margin-top txt-bold" wx:if="{{info.payment_method=='B'}}" bindtap="copytext"  data-text="{{info.orderno}}">复制信息</view>
+
+
+
+  </view>
+
+
+
+
+</view>
+
+<view class="height-150"></view>
+
+
+<view class="under_block bg-white">
+  <view class="flex-row flex-center padding-20">
+
+    <!-- <view class="txt-gray padding-20 h6" wx:if="{{info.order_status=='D'}}">更多</view> -->
+    <view class="flex-1"></view>
+
+
+    <view class="button2 h6 margin-left-20" wx:if="{{info.order_status=='A'}}" bindtap="bindbutton" data-type="A"
+      data-status="F" id="{{info.id}}">取消订单</view>
+
+    <view class="button2 h6 margin-left-20" wx:if="{{info.order_status=='B'}}" bindtap="bindbutton" data-type="A"
+      data-status="F" id="{{info.id}}">退款</view>
+
+    <view class="button1 h6 margin-left-20" bindtap="bindbutton" data-type="B" wx:if="{{info.order_status=='A'}}">
+      {{info.payment_method=='B'?'我已支付':'立即支付'}}
+    </view>
+
+
+    <view class=" h6 margin-left-20 {{info.updateaddress_value=='N'?'button1':'button2'}}" bindtap="bindbutton"
+      data-type="C" wx:if="{{info.order_status=='B'}}">修改地址
+    </view>
+
+    <view class="button2 h6 margin-left-20" bindtap="navtoPage" data-page="logistics"
+      wx:if="{{info.order_status=='C'||info.order_status=='D'}}">查看物流
+    </view>
+
+    <view class="button1 h6 margin-left-20" bindtap="bindbutton" data-type="E" data-status="E" id="{{info.id}}"
+      wx:if="{{info.order_status=='C'}}">确认收货</view>
+
+    <view class="button2 h6 margin-left-20" bindtap="navtoPage" data-page="fapiao" data-param="id={{info.id}}"
+      wx:if="{{(info.order_status=='D'||info.order_status=='E')&&info.fapiao_value=='N'}}">申请发票</view>
+
+    <view class="button2 h6 margin-left-20" bindtap="open" data-file="{{info.invoice}}"
+      wx:if="{{(info.order_status=='D'||info.order_status=='E')&&info.fapiao_value=='Y'}}">查看发票</view>
+
+    <!-- <view class="button1 h6 margin-left-20" bindtap="bindbutton" data-type="G" wx:if="{{info.order_status=='D'}}">评价
+    </view> -->
+
+
+    <!-- <view class="button1 h6 margin-left-20" bindtap="bindpay">取消订单</view>
+
+    <view class="button1 h6 margin-left-20" bindtap="bindpay">立即支付</view> -->
+
+
+  </view>
+  <view class="height-40"></view>
+</view>

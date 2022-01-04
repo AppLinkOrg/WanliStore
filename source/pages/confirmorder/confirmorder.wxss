@@ -1,0 +1,75 @@
+/* pages/confirmorder/confirmorder.wxss */
+Page{
+  background: #f3f3f3;
+}
+ 
+.address_block{
+  margin: 30rpx;
+  background: white;
+  border-radius: 10rpx;
+  padding: 20rpx 30rpx 20rpx 30rpx;
+}
+.padding_block{
+  padding: 30rpx 20rpx 30rpx 20rpx;
+}
+.pay {
+  width: 180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: white;
+  background: #FF6900;
+  border-radius: 30rpx;
+}
+input{
+  margin: 0;
+}
+
+
+
+
+
+.block2 {
+  background: white;
+  border-radius: 20rpx 20rpx 0 0;
+  height: 96%;
+  
+  margin-top: 5%;
+}
+
+.youhuiquan {
+  /* margin-top: 20rpx; */
+  margin-left: 20rpx;
+  background-size: 100% 100%;
+  min-height: 200rpx;
+}
+.shiyong {
+  width: 110rpx;
+  height: 44rpx;
+  background: #FF6900;
+  border-radius: 22rpx;
+  color: #FFFFFF;
+  font-size: 24rpx;
+  line-height: 44rpx;
+  text-align: center;
+}
+.w200 {
+  min-width: 200rpx;
+}
+.chooseicon {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.confirm {
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+}
+
+.confirm_button {
+  height: 70rpx;
+  line-height: 70rpx; 
+  border-radius: 36rpx;
+  text-align: center; 
+}

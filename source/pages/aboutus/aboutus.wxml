@@ -1,0 +1,13 @@
+<view class="bg-white flex-row flex-column">
+  <view class="height-100"></view>
+  <image src="{{uploadpath}}aboutus/{{aboutus.cover}}" class="cover"></image>
+  <view class="height-100"></view>
+</view>
+
+<view class="bg-white padding50">
+  <import src="../../wxParse/wxParse.wxml" />
+
+  <view class='nostyle '>
+    <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+  </view>
+</view>

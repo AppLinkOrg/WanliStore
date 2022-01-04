@@ -1,0 +1,2 @@
+
+  <button   bindtap="bindgetUserProfile" class="allblock" wx:if="{{memberinfo.avatarUrl==''&& memberinfo.nickName==''}}">授权</button>

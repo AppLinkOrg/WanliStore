@@ -1,0 +1,47 @@
+<view class="fixedtop">
+  <view style="height:{{Custom.top}}px"></view>
+  <image src="{{uploadpath}}resource/{{res.back}}" mode="heightFix" bindtap="backPage" class="backicon"></image>
+</view>
+
+
+
+  <swiper class="indexbanner" indicator-dots="true" indicator-color="#FFFFFF" indicator-active-color="#FF6900"
+    circular="true" autoplay="true">
+    <swiper-item wx:for="{{info.lunbo}}" wx:key='k' class="indexbanner">
+      <image src="{{uploadpath}}activity/{{item.img}}" class="indexbanner"></image>
+    </swiper-item>
+  </swiper>
+
+
+
+<import src="../../wxParse/wxParse.wxml" />
+
+<view class='nostyle '>
+  <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+</view>
+
+<view class="fixedmiddle">
+  <view class="padding-30">
+    <view class="flex-row flex-wrap">
+      <view wx:for="{{info.typelist}}" wx:key='k' class="types">{{item.name}}</view>
+    </view>
+    <view class="f-30 txt-bold txt-33 margin-top-20 ">{{info.name}}</view>
+    <view class="margin-top-10">
+      <text class="h6 txt-33 ">{{info.summary}}</text>
+    </view>
+
+    <view class="lines"></view>
+    <view class="txt-99 f-18">活动时间：</view>
+    <view class="h6 txt-33 margin-top-5">{{info.shijian_formatting}}</view>
+    <view class="lines"></view>
+    <view class="txt-99 f-18">活动地址</view>
+    <view class="h6 txt-33 margin-top-5">{{info.address}}</view>
+  </view>
+
+</view>
+
+<view class="flex-row flex-column">
+  <view class="{{info.sf_status=='A'?'btns':'btns2'}}" bindtap="baoming" wx:if="{{info.act_status=='B' && info.isbaoming=='0'}}">{{info.sf_status!=''?info.sf_status_name:''}}报名</view>
+  <view wx:else class="qxbtn" bindtap="quxiao">{{info.isbaoming!='0'?'取消参加':(info.act_status=='A'?'报名未开始':'报名已结束')}}</view>
+</view>
+<view class="height-40"></view>

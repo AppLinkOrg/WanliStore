@@ -1,0 +1,93 @@
+/* pages/search/search.wxss */
+Page{
+  background: #f3f3f3;
+}
+
+
+.card{
+  width: 334rpx; 
+  margin-bottom: 30rpx;
+}
+.coverimg{
+  width: 100%;
+  height: 330rpx;
+  
+}
+.cartsblock{
+  position: fixed;
+  right: 4%;
+  bottom: 8%;
+  z-index: 6;
+}
+.carts{
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.margin30 {
+  margin: 10rpx 30rpx;
+}
+.w334 {
+ width: 334rpx;
+ margin-bottom: 20rpx;
+}
+.cover{
+  width: 334rpx;
+  height: 450rpx;
+}
+
+.fenlei{
+  padding: 5rpx 20rpx;
+  border-radius: 15rpx;
+  background: rgba(255,105,0, 0.1);
+  color: #FF6900;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.pore {
+  position: relative;
+}
+.huiyuan{
+  width: 80rpx;
+  height: 38rpx;
+  background: #352F32;
+  border-radius: 6rpx;
+  line-height: 38rpx;
+  text-align: center;
+  color: #FF6900;
+  font-size: 24rpx;
+  font-weight: bold;
+  position: absolute;
+  bottom: 20rpx;
+  left: 20rpx;
+}
+.mianfei{
+  width: 80rpx;
+  height: 38rpx;
+  background: #FFFFFF;
+  border-radius: 6rpx;
+  line-height: 38rpx;
+  text-align: center;
+  color: #FF6900;
+  font-size: 24rpx;
+  font-weight: bold;
+  position: absolute;
+  bottom: 20rpx;
+  left: 20rpx;
+} 
+
+.act_cover{
+  width: 690rpx;
+  height: 360rpx;
+  margin-bottom: 15rpx;
+}
+
+.w100 {
+  padding: 20rpx 30rpx;
+  background: #ffffff;
+}
+.margin-bottom-30{
+  margin-bottom: 30rpx;
+}

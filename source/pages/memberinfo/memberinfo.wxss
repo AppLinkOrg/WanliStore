@@ -1,0 +1,118 @@
+/* pages/memberinfo/memberinfo.wxss */
+
+.pore {
+  position: relative;
+}
+.touxiang{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}
+.photo{
+  width: 69rpx;
+  height: 69rpx;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.w60 {
+  width: 60rpx;
+}
+.lines {
+  width: 100%;
+  height: 1rpx;
+  background: #EEEEEE;
+ 
+}
+.martb30 {
+  margin: 30rpx 0;
+}
+
+.btns {
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  background: #FF6900;
+  border-radius: 35rpx;
+  color: #FFFFFF;
+  font-size: 28rpx;
+}
+
+.huoqu {
+  width: 150rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  background: #FF6900;
+  border-radius: 35rpx;
+  color: #FFFFFF;
+  font-size: 24rpx;
+}
+
+.mask{
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  opacity: 0.5;
+  z-index: 99;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.fixedbottom{
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  border-radius: 20rpx 20rpx 0 0;
+}
+
+.padding24{
+  padding: 24rpx 18rpx 20rpx 30rpx;
+}
+
+.clearicon {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.occ{
+  min-width: 160rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  background: #F3F3F3;
+  border-radius: 35rpx;
+  color: #333333;
+  font-size: 28rpx;
+  margin-right: 16rpx;
+  margin-bottom: 20rpx;
+}
+.occ_act {
+  background: #FF6900;
+  color: #FFFFFF;
+}
+
+.baocun{
+  width: 690rpx;
+  height: 70rpx;
+  background: #FF6900;
+  border-radius: 35rpx;
+  line-height: 70rpx;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 28rpx;
+}
+
+.xhao {
+  padding: 17rpx 17rpx 17rpx 20rpx;
+  border-radius: 30rpx;
+  background: #FFFFFF;
+  border: 1rpx solid #EEEEEE;
+  margin-right: 20rpx;
+}

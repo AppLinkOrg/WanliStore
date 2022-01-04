@@ -1,0 +1,6 @@
+<!--pages/mall/mall.wxml-->
+<view style="background-image:url({{uploadpath}}resource/{{res.mall_topimg}});background-size:100% 100%" class="topimg flex-row flex-center">
+
+<view class="txt-white h3 margin-left-30">商城</view>
+<!-- <view></view> -->
+</view>

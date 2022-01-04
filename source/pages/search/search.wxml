@@ -1,0 +1,117 @@
+<!--pages/search/search.wxml-->
+ 
+<view class="navigate_bar bg-white">
+  <view class='search  flex-row flex-center    margin-30'>
+    <image class='icon-15 margin-left-20' src="{{uploadpath}}resource/{{res.search}}"></image>
+    <input class='h6 txt-gray2 margin-left-10 flex-1' placeholder="输入搜索内容" bindinput="searchinput"></input>
+    <view class="h5 txt-orange padding-15 " bindtap="bindsearch">搜索</view>
+  </view>
+
+  <view class="padding-30   flex-row flex-center ">
+    <view class="flex-1 h5 {{choose=='A'?'txt-orange txt-bold':''}} text-center" bindtap="bindchoose" id="A">商品</view>
+
+    <view class="flex-1 h5 {{choose=='B'?'txt-orange txt-bold':''}} text-center" bindtap="bindchoose" id="B">课程</view>
+
+    <view class="flex-1 h5 {{choose=='C'?'txt-orange txt-bold':''}} text-center" bindtap="bindchoose" id="C">活动</view>
+
+  </view>
+</view>
+
+<view class="height-220"></view>
+
+
+<view class="flex-row   padding-30" wx:if="{{choose=='A'}}">
+
+  <view>
+    <view class="card" wx:for="{{goodslist}}" wx:key='g' wx:for-index="idx" wx:if="{{idx%2==0}}" bindtap="navtoPage"
+      data-page="goodsinfo" data-param="id={{item.id}}">
+      <image src="{{uploadpath}}goods/{{item.coverimage}}" class="coverimg" mode="aspectFill"></image>
+
+      <view class="padding-10">
+        <view class="h6 chaochu2 ">{{item.summary}}</view>
+
+        <view class="flex-row flex-center margin-top-10">
+          <view class="h7   txt-orange">￥</view>
+          <view class="h5   txt-orange">{{item.price}}</view>
+          <view class="txt-gray h7 flex-1 margin-left-10" style="text-decoration:line-through">￥{{item.original_price}}
+          </view>
+
+          <view class="txt-gray h7">已售 {{item.sales}}</view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class="flex-1"></view>
+  <view>
+    <view class="card" wx:for="{{goodslist}}" wx:key='g' wx:for-index="idx" wx:if="{{idx%2>0}}" bindtap="navtoPage"
+      data-page="goodsinfo" data-param="id={{item.id}}">
+      <image src="{{uploadpath}}goods/{{item.coverimage}}" class="coverimg" mode="aspectFill"></image>
+      <view class="padding-10">
+        <view class="h6 chaochu2 ">{{item.summary}}</view>
+
+        <view class="flex-row flex-center margin-top-10">
+          <view class="h7   txt-orange">￥</view>
+          <view class="h5   txt-orange">{{item.price}}</view>
+          <view class="txt-gray h7 flex-1 margin-left-10" style="text-decoration:line-through">￥{{item.original_price}}
+          </view>
+
+          <view class="txt-gray h7">已售 {{item.sales}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<view class="text-center" wx:if="{{goodslist.length==0&&choose=='A'}}">
+  <image src="{{uploadpath}}resource/{{res.nodata}}" class="nodata" />
+</view>
+
+
+
+<view class="margin30" wx:if="{{choose=='B'}}">
+  <view class="flex-row flex-wrap margin-top-30">
+    <view class="  {{idx%2==0?'margin-right-20':''}} w334" wx:for="{{courselist}}" wx:key='i' wx:for-index='idx'
+      wx:for-item='course'  data-page="courseinfo" data-param="id={{course.id}}" id="{{course.id}}">
+
+      <view class="pore">
+        <image src="{{uploadpath}}course/{{course.cover}}" mode="aspectFill" class="cover"></image>
+        <view class="{{course.sf_status=='A'?'huiyuan':'mianfei'}}">{{course.sf_status_name}}</view>
+      </view>
+      <view class="margin-top-20 txt-33 h5 chaochu">{{course.name}}</view>
+      <view class="flex-row flex-wrap margin-top-20 margin-left-10 margin-right-10">
+        <view class="fenlei" wx:for="{{course.typelist}}" wx:key='t' wx:for-item='typeitem' wx:for-index='yidx'
+          wx:if="{{yidx<2}}">{{typeitem.name}}</view>
+      </view>
+      <view class="flex-row flex-center margin-top-20 margin-left-10 margin-right-10">
+        <view class="h7 txt-99">{{course.teacher}}</view>
+        <view class="flex-1"></view>
+        <view class="h7" style="color:#FF6900;">{{course.people}}人参加</view>
+      </view>
+    </view>
+  </view>
+
+</view>
+<view class="text-center " wx:if="{{courselist.length==0&&choose=='B'}}">
+  <image src="{{uploadpath}}resource/{{res.nodata}}" class="nodata" />
+</view>
+
+
+<view wx:if="{{choose=='C'}}" class="w100" >
+  <view class="f-30 txt-33 margin-bottom-30 txt-bold" wx:if="{{activitylist.length>0}}">热门活动上线中</view>
+  <view wx:for="{{activitylist}}" wx:key='k' class="margin-bottom-40" bindtap="navtoPage" data-page="activity" data-param="id={{item.id}}" id="{{item.id}}">
+    <image src="{{uploadpath}}activity/{{item.cover}}" class="act_cover"></image>
+    <view class="flex-row flex-center">
+      <view class="flex-1 h5 txt-33 txt-bold">{{item.name}}</view>
+      <view class="h6 txt-bold " style="color: #FF7413;">立即参与</view>
+      <image src="{{uploadpath}}resource/{{res.xiangyou}}" class="icon-10 margin-left-5"></image>
+    </view>
+  </view>
+</view>
+<view class="text-center" wx:if="{{activitylist.length==0&&choose=='C'}}" >
+  <image src="{{uploadpath}}resource/{{res.nodata}}" class="nodata" />
+</view>
+
+
+<view class="height-70"></view>

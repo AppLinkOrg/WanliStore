@@ -1,0 +1,241 @@
+<!--pages/confirmorder/confirmorder.wxml-->
+
+<view class="back_block" bindtap="backPage">
+
+  <image src="{{uploadpath}}resource/{{res.whiteback}}" class="icon_back"></image>
+
+</view>
+
+
+
+<view class="" style="background-image:url({{uploadpath}}resource/{{res.bg1}});background-size:100% 100%;">
+  <view class="height-150"></view>
+  <view class="address_block flex-row flex-center" bindtap="navtoPage" data-page="addresslist" data-param="type=A">
+    <view class="flex-1" wx:if="{{addressinfo!=null}}">
+      <view class="f-30 chaochu">{{addressinfo.region}} {{addressinfo.address_name}}</view>
+      <view class="txt-gray h6 margin-top-20">{{addressinfo.name}} {{addressinfo.mobile}}</view>
+    </view>
+    <view class="h5 flex-1 txt-gray" wx:if="{{addressinfo==null}}">您还未添加收货地址，请点击前往添加</view>
+    <image src="{{uploadpath}}resource/{{res.right}}" class="right margin-left-20"></image>
+  </view>
+</view>
+
+<view class="margin-30 ">
+
+  <view class="padding-20  radius-10 bg-white">
+    <view class="flex-row flex-center {{idx>0?'margin-top-20':''}}" wx:for="{{list}}" wx:for-index="idx">
+      <image src="{{uploadpath}}goods/{{item.coverimg}}" class="icon-80"></image>
+      <view class="margin-left-20 flex-1">
+
+        <view class="h6 txt-bold">{{item.goods_name}}</view>
+        <view class="h7 txt-gray margin-top-30">{{item.specifications_name}}</view>
+
+        <view class="flex-row flex-center margin-top-30">
+          <view class="h7   txt-orange">￥</view>
+          <view class="h6   txt-orange txt-bold">{{item.unitprice}}</view>
+          <view class="txt-gray h7 flex-1 margin-left-10" style="text-decoration:line-through">
+            ￥{{item.goods_original_price}}
+          </view>
+          <view class="txt-gray h7">x{{item.count}}</view>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+
+  <view class="padding_block  radius-10 bg-white margin-top-20">
+    <view class="flex-row flex-center">
+      <view class="txt-bold h5 flex-1">商品总额</view>
+
+      <!-- <view class="txt-gray h7   " style="text-decoration:line-through">
+        ￥{{amount}}
+      </view> -->
+      <view class="h7 margin-left-10">￥</view>
+      <view class="h6 txt-bold  ">{{original_price}}</view>
+      <view class="right margin-left-20"></view>
+
+    </view>
+
+    <!-- <view class="flex-row flex-center margin-top-30">
+      <view class=" h6 flex-1">运费</view> 
+      <view class="h6  ">包邮</view>
+      <view class="right margin-left-20"></view>
+    </view> -->
+
+    <view class="flex-row flex-center margin-top-30">
+      <view class=" h6 flex-1">积分抵扣</view>
+      <!-- <view class="h6  " wx:if="{{memberinfo.jifen<discounts}}">积分不足,无法抵扣 (剩余{{memberinfo.jifen}})</view> -->
+      <view class="h6  " wx:if="{{memberinfo.jifen>=discounts}}">-￥{{discounts}} (剩余{{shengyu}})
+      </view>
+      <image src="{{uploadpath}}resource/{{res.right}}" class="right margin-left-20"></image>
+    </view>
+
+    <view class="flex-row flex-center margin-top-30" bindtap="bindguige">
+      <view class=" h6 flex-1">优惠券</view>
+      <!-- <view class="h7">￥</view>
+      <view class="h6  ">0.00</view> -->
+      <view class="h6 " wx:if="{{coupon_discount==null}}">{{keyon==0?'暂无可用':keyon+'张可用'}}</view>
+      <view class="h6 " wx:if="{{coupon_discount!=null}}">-￥{{coupon_discount}}</view>
+      <image src="{{uploadpath}}resource/{{res.right}}" class="right margin-left-20"></image>
+    </view>
+
+    <view class="flex-row flex-center margin-top-30">
+      <view class=" h6 flex-1">实付</view>
+      <view class="h7  txt-orange">￥</view>
+      <view class="h6  txt-orange ">{{amount}}</view>
+      <view class="right margin-left-20"></view>
+    </view>
+
+  </view>
+
+
+  <picker range="{{paymentmethodlist}}" range-key="name" bindchange="bindpaymentmethod">
+    <view class="padding_block flex-row flex-center   radius-10 bg-white margin-top-20">
+
+      <view class=" h6 flex-1">支付方式</view>
+      <view class="h6">{{paymentmethod_name}}</view>
+      <image src="{{uploadpath}}resource/{{res.right}}" class="right margin-left-20"></image>
+
+    </view>
+  </picker>
+
+  <view class="padding-20    radius-10 bg-white margin-top-20">
+    <view class="flex-row flex-center">
+      <view class=" h6 flex-1">销售员</view>
+      <!-- wx:if="{{memberinfo.u_salesperson!=''}}" -->
+
+      <!-- <view>
+        <view class=" flex-row flex-center"  > 
+          <view class="h6 txt-primary">{{memberinfo.u_salesperson.name}}</view>
+          <view class="h6 margin-left-20 txt-primary">{{memberinfo.u_salesperson.mobile}}</view>
+        </view>
+      </view> -->
+
+      <input type="text" class="txt-gray h6 text-right"  value="{{memberinfo.u_salesperson!=''?memberinfo.u_salesperson.name:salesperson}}" placeholder-class="txt-gray h6" placeholder="请输入销售员编号"
+        bindinput="salesperson" bindblur="bindselect"></input>
+      <image src="{{uploadpath}}resource/{{res.right}}" class="right margin-left-20"></image>
+
+
+      <!-- <view class="padding-20 h5" bindtap="bindselect">确认</view> -->
+    </view>
+
+
+    <!-- wx:if="{{memberinfo.u_salesperson==''}}" -->
+    <view >
+      <view class="margin-top-10 h7 txt-red text-right" wx:if="{{info==null}}">未找到销售员，请检查编号是否正确！</view>
+      <view class="margin-top-10 flex-row flex-center" wx:if="{{info!=null}}">
+        <view class="flex-1"></view>
+        <view class="h6 txt-primary">{{info.name}}</view>
+        <view class="h6 margin-left-20 txt-primary">{{info.mobile}}</view>
+      </view>
+    </view>
+
+
+
+
+  </view>
+
+  <view class="padding-20    radius-10 bg-white margin-top-20">
+    <view class="flex-row flex-center">
+      <view class=" h6 flex-1">推荐人</view>
+      <input type="text" class="txt-gray h6 text-right" placeholder-class="txt-gray h6" placeholder="请输入推荐人手机号"
+        bindinput="bindtuijian" bindblur="chatuijianren"></input>
+      <image src="{{uploadpath}}resource/{{res.right}}" class="right margin-left-20"></image>
+      <!-- <view class="padding-20 h5" bindtap="bindselect">确认</view> -->
+    </view>
+    <view class="margin-top-10 h7 txt-red text-right" wx:if="{{tjinfo==null}}">未找到该用户，请检查手机号是否正确！</view>
+    <view class="margin-top-10 flex-row flex-center" wx:if="{{tjinfo!=null}}">
+      <view class="flex-1"></view>
+      <image src="{{tjinfo.avatarUrl}}" class="icon radius-50"></image>
+      <view class="h6 txt-primary margin-left-10">{{tjinfo.nickName}}</view>
+      <!-- <view class="h6 margin-left-20 txt-primary">{{tjinfo.mobile}}</view> -->
+    </view>
+
+  </view>
+
+  <view class="padding_block flex-row flex-center   radius-10 bg-white margin-top-20">
+    <view class=" h6 flex-1">备注</view>
+    <input type="text" class="txt-gray h6 text-right" placeholder-class="txt-gray h6" placeholder="(选填)"
+      bindinput="remarks_input"></input>
+    <image src="{{uploadpath}}resource/{{res.right}}" class="right margin-left-20"></image>
+  </view>
+
+
+</view>
+
+<view class="height-150"></view>
+
+
+<view class="under_block bg-white">
+  <view class="flex-row flex-center padding-20">
+
+    <view class="flex-1"></view>
+
+    <view class="h5 txt-bold">待支付：</view>
+    <view class="flex-row flex-bottom">
+      <view class="h7   txt-orange">￥</view>
+      <view class=" txt-orange txt-bold">{{amount}}</view>
+    </view>
+
+    <view class="pay h6 margin-left-20" bindtap="bindpay">提交订单</view>
+
+
+  </view>
+  <view class="height-40"></view>
+</view>
+
+
+
+
+
+
+<view class="overlay" wx:if="{{overlay}}" bindtap="bindclose"></view>
+
+<view class="coupon_block" wx:if="{{overlay}}">
+
+  <view class=" block2 ">
+
+    <view wx:for="{{mycoupons}}" wx:key='k' wx:for-index="idx" class=" flex-row flex-center margin-20"
+      bindtap="choose_coupons" data-index="{{idx}}" id="{{item.id}}" data-quota="{{item.coupon_quota}}">
+      <!-- res.notchooseicon -->
+      <image src="{{uploadpath}}resource/{{coupon_index==idx?res.chooseicon:res.notchooseicon}}" class="chooseicon">
+      </image>
+      <view class="youhuiquan flex-1 flex-row flex-center"
+        style="background-image:url({{uploadpath}}resource/{{item.use?res.youhuiquan:res.youhuiquan2}})">
+        <view class="flex-row flex-column w200">
+          <view class="{{item.use_status=='A'?'txt-69':'txt-99'}} f-54 txt-bold "><text
+              class="{{item.use_status=='A'?'txt-69':'txt-99'}} f-30 txt-bold">￥</text>{{item.coupon_discount}}</view>
+          <view class="{{item.use_status=='A'?'txt-69':'txt-99'}} h6 margin-top-20">{{item.coupon_usercondition}}</view>
+        </view>
+        <view class="flex-1 margin-left-20 flex-row flex-center {{item.use_status=='A'?'margin-top-30':''}}">
+          <view class="flex-1">
+            <view class="f-30 {{item.use_status=='A'?'txt-33':'txt-99'}}">{{item.coupon_name}}</view>
+            <view class="h6 txt-99 margin-top-20">有效期至{{item.expiration_time}}</view>
+            <!-- <view class="flex-row flex-center margin-right-20" wx:if="{{item.use_status=='A'}}">
+              <view class="flex-1"></view>
+              <view class="shiyong" bindtap="touse" data-item="{{item}}">去使用</view>
+            </view> -->
+          </view>
+
+        </view>
+      </view>
+
+
+
+    </view>
+
+
+    <view class="height-150"></view>
+
+    <view class="confirm">
+
+      <view class="padding-20">
+        <view class="confirm_button bg-orange h5 txt-white flex-1" bindtap="bindconfrim">确认</view>
+      </view>
+    </view>
+
+
+  </view>
+
+</view>

@@ -1,0 +1,290 @@
+<!--pages/goodsinfo/goodsinfo.wxml-->
+
+<view class="back_block" bindtap="backPage">
+  <image src="{{uploadpath}}resource/{{res.whiteback}}" class="icon_back"></image>
+</view>
+
+
+<view>
+
+
+  <view class="swiper">
+
+    <swiper class="imageContainer  " bindchange="bindchange" circular>
+      <block wx:for="{{info.imglist}}" wx:key="{{index}}">
+        <swiper-item class="  ">
+          <image src="{{uploadpath}}goods/{{item.img}}" class="itemImg" mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view class="block1 h6">{{nowindex}}/{{info.imglist.length}}</view>
+
+    <view class="whiteblock"></view>
+
+  </view>
+
+  <view class="padding">
+
+    <view class="txt-bold f-30 txt-bold">{{info.name}}</view>
+    <view class="txt-bold h6 margin-top-20">{{info.summary}}</view>
+    <view class="flex-row flex-center margin-top-10">
+      <view class="h6   txt-orange">￥</view>
+      <view class="h3   txt-orange">{{info.price}}</view>
+      <view class="txt-gray h6 flex-1 margin-left-10" style="text-decoration:line-through">￥{{info.original_price}}
+      </view>
+    </view>
+
+    <view class="flex-row margin-top">
+      <view class="txt-gray h7 flex-1">已售{{info.sales}}</view>
+      <!-- <view class="txt-gray h7 ">{{info.postage}}</view> -->
+    </view>
+
+
+  </view>
+
+  <view class="height-14"></view>
+
+  <view class="padding-30">
+
+    <!-- <view class="flex-row flex-top">
+      <view class="txt-bold h5">优惠</view>
+      <view class="flex-row flex-center flex-wrap">
+        <view class="youhui h7 margin-left-20" wx:for="{{couponlist}}">{{item.usercondition}}</view>
+      </view>
+    </view> -->
+
+    <view class="flex-row flex-center margin-top" bindtap="bindguige">
+      <view class="txt-bold h5">规格</view>
+      <view class="h6 margin-left-20 ">{{specifications_name==''?'请选择':'已选'}} </view>
+
+      <view class="h6 margin-left-20 ">{{specifications_name}}</view>
+      <view class="flex-1"></view>
+      <image src="{{uploadpath}}resource/{{res.right}}" class="right"></image>
+    </view>
+
+  </view>
+
+  <!-- 用户评价 -->
+  <view class="height-14"></view>
+
+  <!-- 暂时注释 -->
+  <!-- <view class="padding-30">
+    <view class="flex-row flex-center " bindtap="">
+      <view class="txt-bold f-30">评价</view>
+      <view class="margin-left-10 f-30 txt-bold">({{info.evaluatelist.length==0?'暂无评价':info.evaluatelist.length}})
+      </view>
+      <view class="flex-1"></view>
+      <view class="padding-right-20 h7 txt-gray" bindtap="navtoPage" data-page="evaluatelist"
+        data-param="goods_id={{info.id}}" wx:if="{{info.evaluatelist.length>0}}">查看全部</view>
+      <image src="{{uploadpath}}resource/{{res.right}}" class="right" bindtap="navtoPage" data-page="evaluatelist"
+        data-param="goods_id={{info.id}}" wx:if="{{info.evaluatelist.length>0}}"></image>
+    </view>
+
+    <view class="margin-top-20">
+      <view wx:for="{{info.evaluatelist}}">
+        <view class="flex-row flex-center">
+          <image src="{{item.photoimg}}" class="icon-30 radius-50"></image>
+
+          <view class="margin-left-20">
+            <view class="flex-row flex-center">
+              <view class="h6 txt-bold">{{item.member_name}}</view>
+              <image src="{{uploadpath}}member/{{item.level_icon}}" class="icon-15 margin-left-10"></image>
+            </view>
+            <view class="flex-row flex-center margin-top-5">
+              <image wx:for="{{5}}" wx:for-index="idx" wx:for-item="star"
+                src="{{uploadpath}}resource/{{item.score>=(idx+1)?res.star1:res.star2}}"
+                class="icon-10 margin-right-10 ">
+              </image>
+            </view>
+          </view>
+        </view>
+
+        <view class="h6 chaochu2 margin-top-20">{{item.content}}</view>
+
+        <view class="flex-row flex-center margin-top-20">
+          <image wx:for="{{item.imglist}}" wx:for-item="evaluateimg" wx:for-index="idx2" wx:if="{{idx2<3}}"
+            src="{{uploadpath}}evaluate/{{evaluateimg.img}}" class="icon-168 margin-right-10"></image>
+        </view>
+      </view>
+
+
+
+    </view>
+  </view> -->
+
+  <view class="text-center">
+    <view class="txt-gray h7">上拉查看图文详情</view>
+    <image src="{{uploadpath}}resource/{{res.shangla}}" class="icon_top margin-top-20"></image>
+  </view>
+  <image src="{{uploadpath}}goods/{{info.longfigure}}" class="margin-top-20" style="width:100%" mode="widthFix"></image>
+
+</view>
+
+
+<view style="height:160rpx"></view>
+
+<view class="under_block">
+
+  <view class="padding-20 flex-row " wx:if="{{info.ismachine_value!='Y'}}">
+
+    <view class="flex-1"></view>
+    <button open-type="contact" class="clear-button">
+      <view class="text-center">
+        <image src="{{uploadpath}}resource/{{res.kefu}}" class="icon "></image>
+        <view class="txt-gray h6  ">客服</view>
+      </view>
+    </button>
+
+    <view class="flex-1"></view>
+    <view class="text-center" bindtap="navtoPage" data-page="carts" data-param="member_id={{memberinfo.id}}">
+      <image src="{{uploadpath}}resource/{{res.gouwuche}}" class="icon "></image>
+      <view class="txt-gray h6  ">购物车</view>
+    </view>
+    <view class="flex-1"></view>
+    <view class="add_shoppingcart h6 " bindtap="bindguige" >加入购物车</view>
+    <view class="flex-1"></view>
+    <view class="buy h6 " bindtap="bindguige">立即购买</view>
+
+  </view>
+
+  <view class="padding-20 flex-row " wx:if="{{info.ismachine_value=='Y'}}">
+  
+    <button open-type="contact" class="clear-button">
+      <view class="text-center">
+        <image src="{{uploadpath}}resource/{{res.kefu}}" class="icon "></image>
+        <view class="txt-gray h6  ">客服</view>
+      </view>
+    </button>
+ 
+    <!-- <view class="flex-1"></view>  -->
+    <view class="buy2 h6 flex-1 margin-left-40" bindtap="bindguige">立即购买</view>
+
+  </view>
+
+  <view class="height-30"></view>
+
+</view>
+
+<!-- 选择规格弹窗 -->
+<view class="overlay" wx:if="{{overlay}}" catchtouchmove="none"></view>
+<view class="guige" wx:if="{{overlay}}" catchtouchmove="none">
+
+  <view class=" block2 ">
+    <view class=" ">
+      <image src="{{uploadpath}}goods/{{info.coverimage}}" class="img" wx:if="{{specificationsinfo==null}}"
+        style="border:6rpx solid white"></image>
+      <image src="{{uploadpath}}goods/{{specificationsinfo.img}}" class="img" wx:if="{{specificationsinfo!=null}}"
+        style="border:6rpx solid white"></image>
+    </view>
+
+    <!-- 商品信息 -->
+    <view class="top_block">
+      <view class="flex-row">
+        <view class="nullblock"></view>
+        <view class="margin-left-20 flex-1">
+
+          <view class="flex-row flex-bottom margin-top-20">
+            <view class="h6 txt-orange">￥</view>
+            <view class="f-36 txt-orange">{{specificationsinfo!=null?specificationsinfo.price:info.price}}</view>
+          </view>
+
+          <view class="h5 margin-top-20 txt-bold chaochu">{{info.name}}</view>
+
+        </view>
+
+        <!-- 关闭弹窗 -->
+        <image src="{{uploadpath}}resource/{{res.close}}" class="icon_close margin-top-20" bindtap="bindclose"></image>
+
+      </view>
+    </view>
+
+
+    <view class="goods_height"></view>
+
+    <scroll-view scroll-y class="scroll">
+      <!-- 规格类型及规格选项 -->
+      <view class="margin-top-20" wx:for="{{info.specifications_type}}" wx:key='s' wx:for-item="type"
+        wx:for-index="index">
+        <view class="h5">{{type.name}}</view>
+        <view class="flex-row flex-wrap margin-top-20">
+          <view class=" h6 margin-right-20 {{item.id==type.choose?'label':'label2'}}"
+            wx:for="{{type.specificationslist}}" wx:for-index="index2" wx:key='s2' bindtap="chooseguige"
+            id="{{item.id}}" data-typeid="{{type.id}}" data-index="{{index}}" data-index2="{{index2}}"
+            data-name="{{item.name}}">{{item.name}}</view>
+        </view>
+      </view>
+
+      <!-- <view class="margin-top-20" wx:for="{{info.specifications_type}}" wx:key='s' wx:for-item="type"
+      wx:for-index="index">
+      <view class="h5">{{type.name}}</view>
+      <view class="flex-row flex-wrap margin-top-20">
+        <view class=" h6 margin-right-20 {{item.id==type.choose?'label':'label2'}}" wx:for="{{type.specificationslist}}"
+          wx:for-index="index2" wx:key='s2' bindtap="chooseguige" id="{{item.id}}" data-typeid="{{type.id}}"
+          data-index="{{index}}" data-index2="{{index2}}" data-name="{{item.name}}">{{item.name}}</view>
+      </view>
+    </view>
+
+    <view class="margin-top-20" wx:for="{{info.specifications_type}}" wx:key='s' wx:for-item="type"
+      wx:for-index="index">
+      <view class="h5">{{type.name}}</view>
+      <view class="flex-row flex-wrap margin-top-20">
+        <view class=" h6 margin-right-20 {{item.id==type.choose?'label':'label2'}}" wx:for="{{type.specificationslist}}"
+          wx:for-index="index2" wx:key='s2' bindtap="chooseguige" id="{{item.id}}" data-typeid="{{type.id}}"
+          data-index="{{index}}" data-index2="{{index2}}" data-name="{{item.name}}">{{item.name}}</view>
+      </view>
+    </view>
+
+    <view class="margin-top-20" wx:for="{{info.specifications_type}}" wx:key='s' wx:for-item="type"
+      wx:for-index="index">
+      <view class="h5">{{type.name}}</view>
+      <view class="flex-row flex-wrap margin-top-20">
+        <view class=" h6 margin-right-20 {{item.id==type.choose?'label':'label2'}}" wx:for="{{type.specificationslist}}"
+          wx:for-index="index2" wx:key='s2' bindtap="chooseguige" id="{{item.id}}" data-typeid="{{type.id}}"
+          data-index="{{index}}" data-index2="{{index2}}" data-name="{{item.name}}">{{item.name}}</view>
+      </view>
+    </view> -->
+
+    </scroll-view>
+
+    <!-- 选择数量 -->
+    <view class="flex-row flex-center margin-top">
+
+      <view class="h5 flex-1">数量</view>
+
+      <view class="shuliang flex-row  ">
+
+        <view class="add_subtract left_radius flex-row flex-center" bindtap="bindsubtract">
+          <view class="flex-1"></view>
+          <image src="{{uploadpath}}resource/{{res.subtract}}" class="icon_subtract"></image>
+          <view class="flex-1"></view>
+        </view>
+        <view class="h7 number_block">{{number}}</view>
+        <view class="add_subtract right_radius" bindtap="bindadd">
+          <image src="{{uploadpath}}resource/{{res.add}}" class="icon_add"></image>
+        </view>
+
+      </view>
+
+    </view>
+    <!-- wx:if="{{memberinfo==null || (memberinfo.avatarUrl==''&& memberinfo.nickName=='')}}" -->
+    <view class="confirm">
+      <button bindtap="bindgetUserProfile" class="buttons" wx:if="{{memberinfo==null || memberinfo.nickName==''}}">
+  </button>
+ 
+  <button wx:if="{{memberinfo.mobile==''}}" open-type="getPhoneNumber" bindgetphonenumber="getphoneno" class="buttons"></button>
+
+      <view class="flex-row flex-center">
+        <view class="confirm_button bg-red h5 txt-white flex-1" bindtap="bindaddcarts"
+          wx:if="{{info.ismachine_value!='Y'}}">加入购物车</view>
+        <view class="width-40" wx:if="{{info.ismachine_value!='Y'}}"></view>
+        <view class="confirm_button bg-orange h5 txt-white flex-1" bindtap="bindbuy">立即购买</view>
+      </view>
+
+  
+
+    </view>
+
+  </view>
+
+</view>

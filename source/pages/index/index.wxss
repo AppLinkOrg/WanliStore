@@ -1,0 +1,82 @@
+/**.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+**/
+
+page {
+  background: #f9f9f9;
+}
+
+.slide-image {
+  width: 100%;
+}
+
+.section__ctn {
+  text-align: center;
+}
+
+.btn {
+  width: 49%;
+  background: none;
+}
+
+.btn image {
+  width: 100%;
+}
+
+button {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.button-sp-area {
+  margin: 0 auto;
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+.row {
+  width: 300rpx;
+  height: 450rpx;
+}
+
+.ai {
+  font-size: 22px;
+  color: rgb(247, 158, 173);
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.bi {
+  font-size: 22px;
+  color: rgb(122, 170, 233);
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.baby {
+  color: white;
+  width: 200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+}

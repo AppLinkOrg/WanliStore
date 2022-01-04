@@ -1,0 +1,120 @@
+<view class="flex-row flex-column ">
+  <view class="height-40"></view>
+  <view class="pore">
+    <image src="{{uploadpath}}member/{{info.touxiang}}" wx:if="{{info.touxiang!=''}}" bindtap="uploadimg"
+      class="touxiang"></image>
+    <image src="{{info.avatarUrl}}" wx:if="{{info.touxiang==''&& info.avatarUrl!=''}}" bindtap="uploadimg"
+      class="touxiang"></image>
+    <image src="{{uploadpath}}resource/{{res.touxiang}}" wx:if="{{info.touxiang==''&& info.avatarUrl==''}}"
+      bindtap="uploadimg" class="touxiang"></image>
+    <image src="{{uploadpath}}resource/{{res.photo}}" class="photo"></image>
+  </view>
+</view>
+<view class="height-50"></view>
+<view class="margin-40">
+  <form catchsubmit="formSubmit">
+
+    <view class="flex-row flex-center martb30">
+      <view class="f-30 txt-33">用户ID</view>
+      <!-- <view class="w60"></view> -->
+      <input type="text" placeholder="请输入你的手机号" class="txt-99 h5 flex-1 margin-left-30" value="{{info.mobile}}"
+        name="mobile" bindinput="mobileFn"></input>
+      <button open-type="getPhoneNumber" bindgetphonenumber="getphoneno" class="clear-button">
+        <view class="huoqu">点击获取</view>
+      </button>
+    </view>
+    <view class="lines"></view>
+    <view class="flex-row flex-center martb30">
+      <view class="f-30 txt-33">姓</view>
+      <view class="w60"></view>
+      <input type="text" placeholder="" class="txt-99 h5 flex-1" value="{{info.xing}}"  bindinput="xingFn" 
+        name="xing"></input>
+      <view class="f-30 txt-33">名</view>
+      <view class="w60"></view>
+      <input type="text" placeholder="" class="txt-99 h5 flex-1" value="{{info.ming}}" bindinput="mingFn"
+        name="ming"></input>
+    </view>
+    <view class="lines"></view>
+    <picker mode="selector" range="{{sexlist}}" range-key='name' bindchange="changesex">
+      <view class="flex-row flex-center martb30">
+        <view class="f-30 txt-33">性别</view>
+        <view class="w60"></view>
+        <view class="txt-99 h5">{{info.gender==''?'请选择你的性别':info.gender_name}}</view>
+        <view class="flex-1"></view>
+        <image src="{{uploadpath}}resource/{{res.right}}" class="icon-10"></image>
+      </view>
+    </picker>
+
+    <view class="lines"></view>
+    <picker mode="date" bindchange="changebirth">
+      <view class="flex-row flex-center martb30">
+        <view class="f-30 txt-33">生日</view>
+        <view class="w60"></view>
+        <view class="txt-99 h5">{{info.birthday==''?'请选择你的生日':info.birthday}}</view>
+        <view class="flex-1"></view>
+        <image src="{{uploadpath}}resource/{{res.right}}" class="icon-10"></image>
+      </view>
+    </picker>
+    <view class="lines"></view>
+    <!-- <picker mode="selector" range="{{occupation}}" range-key='name' bindchange="changeoccupation"> -->
+    <view class="flex-row flex-center martb30">
+      <view class="f-30 txt-33">喜好</view>
+      <view class="w60"></view>
+      <view class="flex-row flex-wrap">
+        <view wx:for="{{info.xihao}}" wx:key='k' wx:for-index='idx' class="xhao flex-row flex-center"
+          bindtap="shanchuocc" id="{{idx}}">
+          <view class="h5 txt-99">{{item.name}}</view>
+          <image src="{{uploadpath}}resource/{{res.shanchu}}" class="icon-10 margin-left-10"></image>
+        </view>
+      </view>
+      <!-- <view class="txt-99 h5">{{info.occupation_id=='0'?'请选择你的喜好':info.occupation_id_name}}</view> -->
+      <view class="flex-1"></view>
+      <image src="{{uploadpath}}resource/{{res.right}}" class="icon-10" bindtap="bindshowocc"></image>
+    </view>
+    <!-- </picker> -->
+    <view class="lines"></view>
+    <!-- <picker mode="region" bindchange="changejiaxiang">
+      <view class="flex-row flex-center martb30">
+        <view class="f-30 txt-33">家乡</view>
+        <view class="w60"></view>
+        <view class="txt-99 h5">{{info.jiaxiang==''?'请选择你的家乡':info.jiaxiang}} </view>
+        <view class="flex-1"></view>
+        <image src="{{uploadpath}}resource/{{res.right}}" class="icon-10"></image>
+      </view>
+    </picker>
+    <view class="lines"></view>
+    <view class="flex-row  martb30">
+      <view class="f-30 txt-33">简介</view>
+      <view class="w60"></view>
+      <textarea name="jianjie" id="" placeholder="请输入你的简介" bindinput="jianjieFn" value="{{info.jianjie}}" placeholder-class='txt-99' cols="30" rows="10" class="txt-99 h5 flex-1"></textarea>
+    </view> -->
+
+    <view class="height-100"></view>
+    <view class="height-100"></view>
+    <button class="btns" formType="submit">完成</button>
+  </form>
+
+</view>
+
+<view class="mask" wx:if="{{showocc}}" bindtap="bindshowocc"></view>
+<view class="fixedbottom" wx:if="{{showocc}}">
+  <view class="padding24">
+    <view class="flex-row flex-center ">
+      <view class="txt-33">选择我的喜好</view>
+      <view class="flex-1"></view>
+      <image src="{{uploadpath}}resource/{{res.clear}}" bindtap="bindshowocc" class="clearicon"></image>
+    </view>
+    <view class="height-50"></view>
+    <view class="flex-row flex-wrap">
+      <view wx:for="{{occupation}}" wx:key='k' wx:for-index="idx" bindtap="choseocc" id='{{idx}}'>
+        <view class="occ {{item.check?'occ_act':''}}">{{item.name}}</view>
+      </view>
+    </view>
+    <view class="height-70"></view>
+    <view class="flex-row flex-column">
+      <view class="baocun" bindtap="saveocc">保存</view>
+    </view>
+
+  </view>
+
+</view>

@@ -1,0 +1,60 @@
+<view style="background-image:url({{uploadpath}}member/{{memberinfo.memberlevel_bgimg}})" class="huiyuan">
+  <view class="flex-row flex-center padd43">
+    <image src="{{memberinfo.avatarUrl}}" class="touxiang"></image>
+    <view class="flex-1 margin-left-20">
+      <view class="flex-row flex-center">
+        <view class="h6" style="color:{{memberinfo.memberlevel_txtcolor}};">{{memberinfo.nickName}}</view>
+        <image src="{{uploadpath}}member/{{memberinfo.memberlevel_icon}}" class="icon margin-left-10"></image>
+      </view>
+      <view class="h7 margin-top-5" style="color: #BFB19F;">{{memberinfo.memberlevel_shuoming}}</view>
+    </view>
+  </view>
+  <view class="height-70"></view>
+  <view class="flex-row flex-wrap">
+    <view class="w25 flex-row flex-column" wx:for="{{memberinfo.huiyuan}}" wx:key='k'>
+      <image src="{{uploadpath}}member/{{item.icon}}" class="icon-40"></image>
+      <view class="h6 margin-top-5" style="color:{{memberinfo.memberlevel_txtcolor}};">{{item.name}}</view>
+    </view>
+  </view>
+</view>
+
+
+<view class="margin-30">
+  <view class="f-30 txt-33 margin-bottom-30">选择充值金额</view>
+  <view wx:for="{{recharge}}" wx:key='k' wx:for-index="idx" class="{{idx==checkidx?'recharge':''}} margin-bottom-20"
+    bindtap="choserecharge" id="{{idx}}">
+
+    <view class="rechargename {{idx==checkidx?'rechargename_act':''}}">{{item.name}}</view>
+    <view wx:if="{{idx==checkidx}}" class="padding-30">
+      <text class="txt-99 h6" style="white-space:pre-wrap">{{item.summary}}</text>
+    </view>
+
+  </view>
+</view>
+
+
+<view class="">
+  <view class="f-30 txt-33  margin-30">会员特权</view>
+  <view class="flex-row flex-wrap">
+    <view wx:for="{{memberprivileges}}" wx:key='k' class="w25 flex-row flex-column margin-bottom-40">
+
+      <image src="{{uploadpath}}member/{{item.icon}}" class="icon-90"></image>
+      <view class="margin-top-20 txt-33 h6">{{item.name}}</view>
+
+    </view>
+  </view>
+</view>
+<view class="height-70"></view>
+<view class="flex-row flex-center">
+  <view class="flex-1"></view>
+  <image src="{{uploadpath}}resource/{{ischeck?res.chooseicon:res.notchooseicon}}" bindtap="checkxieyi" class="icon-32"></image>
+  <view class="txt-99 h6 margin-left-10">开通前已阅读并同意</view>
+  <view class="h6" style="color:#FF7515;" bindtap="toxieyi">《RITUS会员服务协议》</view>
+  <view class="flex-1"></view>
+</view>
+
+
+<view class="flex-row flex-column">
+  <view class="btns" bindtap="tobuy">立即充值</view>
+</view>
+<view class="height-50"></view>

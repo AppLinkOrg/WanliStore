@@ -1,0 +1,31 @@
+/* pages/goodstype/goodstype.wxss */
+.underblock {
+  height: 6rpx;
+  width: 40rpx;
+  border-radius: 4rpx;
+}
+
+.price {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.label {
+  padding: 0 26rpx 0 26rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  background: #ff6a0011;
+   
+  border-radius: 26rpx;
+}
+
+.card{
+  width: 334rpx; 
+  margin-bottom: 30rpx;
+}
+.coverimg{
+  width: 100%;
+  height: 330rpx;
+  
+}

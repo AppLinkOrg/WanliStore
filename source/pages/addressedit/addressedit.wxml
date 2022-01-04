@@ -1,0 +1,63 @@
+<!--pages/addressedit/addressedit.wxml-->
+
+<view class="margin-top-20 bg-white">
+
+  <view class="inputstyle flex-row flex-center">
+    <view class="f-30 width-120">收货人</view>
+    <input type="text" placeholder="请填写收货人姓名" class="h5 flex-1 margin-left-50" placeholder-class="txt-gray h5"
+      bindinput="bindinput" value="{{name}}" data-type="A"></input>
+    <view class="padding-10" bindtap="bindclear" id="A">
+      <image src="{{uploadpath}}resource/{{res.clear}}" class="icon-clear"></image>
+    </view>
+  </view>
+
+  <view class="inputstyle flex-row flex-center">
+    <view class="f-30 width-120">手机号</view>
+    <input type="text" placeholder="请填写手机号码" class="h5 flex-1 margin-left-50" placeholder-class="txt-gray h5"
+      bindinput="bindinput" value="{{mobile}}" data-type="B"></input>
+    <view class="padding-10" bindtap="bindclear" id="B">
+      <image src="{{uploadpath}}resource/{{res.clear}}" class="icon-clear"></image>
+    </view>
+  </view>
+
+
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="inputstyle flex-row flex-center">
+      <view class="f-30 width-120">收货地址</view>
+      <input type="text" disabled placeholder="请选择收货地址" class="h5 flex-1 margin-left-50" placeholder-class="txt-gray h5"
+        value="{{regionname}}"></input>
+      <image src="{{uploadpath}}resource/{{res.right}}" class="right"></image>
+
+    </view>
+
+  </picker>
+
+  <view class="inputstyle flex-row flex-center">
+    <view class="f-30 width-120">详细地址</view>
+    <input type="text" placeholder="请填写详细地址" class="h5 flex-1 margin-left-50" placeholder-class="txt-gray h5"
+      bindinput="bindinput" value="{{address_name}}" data-type="C"></input>
+    <view class="padding-10" bindtap="bindclear" id="C">
+      <image src="{{uploadpath}}resource/{{res.clear}}" class="icon-clear"></image>
+    </view>
+  </view>
+
+  <view class="inputstyle flex-row flex-center">
+    <view class="f-30 width-120 flex-1">设为默认地址</view>
+    <view class="padding-10" bindtap="setdefault">
+      <image src="{{uploadpath}}resource/{{res.moren1}}" class="check_button" wx:if="{{isdefault=='Y'}}"></image>
+      <image src="{{uploadpath}}resource/{{res.moren2}}" class="check_button" wx:if="{{isdefault=='N'}}"></image>
+    </view>
+  </view>
+
+
+
+</view>
+
+<view class="height-150"></view>
+
+<view class="padding-30 margin-top-20">
+  <view class="under_button bg-orange txt-white h5 " bindtap="confrim">保存</view>
+</view>
+<view class="padding-30 ">
+  <view class="under_button bg-gray txt-white h5 " bindtap="binddelete">删除</view>
+</view>
