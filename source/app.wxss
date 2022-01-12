@@ -39,6 +39,7 @@ page{
 view,navigator,input,text,textarea{
   font-size: 32rpx;
   font-weight: 350; 
+  color: #000000;
 }
 .flex-row{
   display: flex;

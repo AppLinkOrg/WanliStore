@@ -4,21 +4,9 @@
     "pages/mall/mall",  
     "pages/index/index",  
     "pages/auth/auth",
-    "pages/goodsinfo/goodsinfo",
-    "pages/shoucang/shoucang",
-    "pages/memberinfo/memberinfo",
-    "pages/goodstype/goodstype",
-    "pages/aboutus/aboutus",
-    "pages/orderinfo/orderinfo",
-    "pages/orderlist/orderlist",
-    "pages/confirmorder/confirmorder",
-    "pages/addresslist/addresslist",
-    "pages/member/member",
-    "pages/updateaddress/updateaddress",
- 	   "pages/memberxieyi/memberxieyi",
-    "pages/memberjifen/memberjifen",
-    "pages/activity/activity",
-    "pages/my/my"
+    "pages/content/content",
+    "pages/my/my",
+    "pages/videolist/videolist"
   ],
   "permission": {
     "scope.userLocation": {
