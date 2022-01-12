@@ -44,7 +44,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.19.4",
   "appid": "wx802dd365b55b23a6",
-  "projectname": "%E7%91%9E%E5%BE%97%E4%BB%95",
+  "projectname": "碗里小铺",
   "debugOptions": {
     "hidedInDevtools": []
   },
