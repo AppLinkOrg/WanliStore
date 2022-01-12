@@ -1,0 +1,9 @@
+<view class="">
+
+    <view>
+        <image src="{{uploadpath}}resource/{{res.videoimg}}" class="videoimg"></image>
+        <view class="">
+            <view>羞美人手工日晒面，给顾客羞美人手工日晒面，给顾客羞美人手工日晒</view>
+        </view>
+    </view>
+</view>

@@ -1,8 +1,51 @@
-Page{
-  /* background: gray; */
+.hometop {
+  width: 100vw;
+  height: 974rpx;
 }
-.allblock{
-  background: red;
-  width: 100rpx;
-  height: 100rpx;
+
+.videobox {
+  width: 284rpx;
+  height: 366rpx;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+}
+.zaixian {
+  font-size: 28rpx;
+  color: #FFFFFF;
+  margin-top: 16rpx;
+  margin-left: 46rpx;
+}
+.rightbox {
+  width: 388rpx;
+  height: 174rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18);
+  border-radius: 8px;
+  position: relative;
+  margin-left: 20rpx;
+  margin-right: 28rpx;
+  margin-top: 12rpx;
+}
+.margin-top-6 {
+  margin-top: 18rpx;
+  margin-bottom: 6rpx;
+}
+
+.timian{
+  width: 168rpx;
+  height: 146rpx;
+  position: absolute;
+  top: 16rpx;
+  right: 0;
+}
+.lipinka {
+  width: 262rpx;
+  height: 174rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.margin-left-28 {
+  margin-left: 28rpx;
 }

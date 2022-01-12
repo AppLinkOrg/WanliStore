@@ -1,0 +1,6 @@
+/* pages/videolist/videolist.wxss */
+
+.videoimg {
+    width: 702rpx;
+    height: 396rpx;
+}
