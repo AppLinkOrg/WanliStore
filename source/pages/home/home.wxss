@@ -17,7 +17,7 @@
 }
 .rightbox {
   width: 388rpx;
-  height: 174rpx;
+  /* height: 174rpx; */
   background: #FFFFFF;
   box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18);
   border-radius: 8px;
@@ -25,10 +25,11 @@
   margin-left: 20rpx;
   margin-right: 28rpx;
   margin-top: 12rpx;
+  padding-bottom: 50rpx;
 }
 .margin-top-6 {
   margin-top: 18rpx;
-  margin-bottom: 6rpx;
+  margin-bottom: 20rpx;
 }
 
 .timian{
@@ -40,7 +41,7 @@
 }
 .lipinka {
   width: 262rpx;
-  height: 174rpx;
+  height: 100%;
   position: absolute;
   top: 0;
   right: 0;
@@ -48,4 +49,29 @@
 
 .margin-left-28 {
   margin-left: 28rpx;
+}
+.listbox {
+  margin: 30rpx;
+  padding: 34rpx 12rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18);
+  border-radius: 20rpx;
+}
+.goodsimg {
+  width: 279rpx;
+  height: 194rpx;
+  border-radius: 10rpx;
+}
+
+
+.btns {
+  width: 126rpx;
+  height: 48rpx;
+  background: #00B935;
+  box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18);
+  border-radius: 24rpx;
+  line-height: 48rpx;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 24rpx;
 }

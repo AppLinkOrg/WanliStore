@@ -44,9 +44,9 @@ export class AppBase {
     //ApiConfig.SetToken("10e991a4ca7a93c60794628c11edaea3");
   }
   setPageTitle(instinfo) {
-    wx.setNavigationBarTitle({
-      title: instinfo.name,
-    })
+    // wx.setNavigationBarTitle({
+    //   title: instinfo.name,
+    // })
   }
   generateBodyJson() {
     var base = this;
@@ -123,8 +123,8 @@ export class AppBase {
       fadeInDlg:base.fadeInDlg,
       fadeOutDlg:base.fadeOutDlg,
       preventTouchMove:base.preventTouchMove,
-      bindgetUserProfile: base.bindgetUserProfile
-
+      bindgetUserProfile: base.bindgetUserProfile,
+      navigateto:base.navigateto
 
 
     }
@@ -1082,6 +1082,11 @@ export class AppBase {
    
     
   }
-
+navigateto(e){
+  var url = e.currentTarget.id;
+  wx.navigateTo({
+    url: url,
+  })
+}
 
 }

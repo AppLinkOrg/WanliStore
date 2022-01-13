@@ -1,6 +1,23 @@
 /* pages/videolist/videolist.wxss */
 
+.pore{
+    position: relative;
+    margin: 18rpx 24rpx 0;
+    padding-bottom: 72rpx;
+}
 .videoimg {
     width: 702rpx;
     height: 396rpx;
+}
+
+.title{
+    max-width: 548rpx;
+    padding: 26rpx;
+    background: #ffffff;
+    box-shadow: 0 0 24rpx 0 rgba(0,0,0,0.18);
+    border-radius: 12rpx;
+    position: absolute;
+    bottom: 22rpx;
+    left: 52rpx;
+    z-index: 1;
 }

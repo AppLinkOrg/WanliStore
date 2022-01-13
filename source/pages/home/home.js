@@ -21,6 +21,11 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var mallapi = new MallApi();
+    mallapi.goodslist({ishome:'Y'},(list)=>{
+      this.Base.setMyData({
+        list
+      })
+    })
   }
 }
 var content = new Content();
