@@ -21,3 +21,21 @@
     left: 52rpx;
     z-index: 1;
 }
+
+.mask {
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.showvideo {
+    width: 100vw;
+    position: fixed;
+    top: 30%;
+    left: 0;
+    z-index: 20;
+}

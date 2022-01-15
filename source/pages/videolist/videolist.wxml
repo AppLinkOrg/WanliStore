@@ -1,9 +1,17 @@
 <view class="">
 
-    <view wx:for="{{list}}" wx:key='k' class="pore">
+    <view wx:for="{{list}}" wx:key='k' wx:for-index='idx' class="pore" bindtap="bindvideo" id='{{idx}}'>
         <image src="{{uploadpath}}onlinevideo/{{item.cover}}" class="videoimg"></image>
         <view class="title">
             <view class="">{{item.name}}</view>
         </view>
     </view>
+</view>
+<view wx:if='{{choseidx > -1}}' bindtap="bindvideo" id='-1'  class="mask"></view>
+
+<view wx:if='{{choseidx > -1}}' class="showvideo">
+    <video   class='pos' style='width:100vw; height:400rpx;'
+object-fit="fill"  loop='{{false}}' src='{{uploadpath}}onlinevideo/{{list[choseidx].video}}' 
+play-btn-position="center" controls="true" autoplay='true'  show-center-play-btn="true">
+</video>
 </view>

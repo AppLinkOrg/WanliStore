@@ -26,6 +26,9 @@ import {
        wx.setNavigationBarTitle({
         title: "在线视频"
       })
+      this.Base.setMyData({
+        choseidx: -1,
+      })
     }
     onMyShow() {
       var that = this;
@@ -38,12 +41,18 @@ import {
   
     }
   
-  
+   bindvideo(e){
+    var idx = e.currentTarget.id;
+    this.Base.setMyData({
+      choseidx:idx
+    })
+   }
   }
   
   var content = new Content();
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
+  body.bindvideo = content.bindvideo;
   
   Page(body)
