@@ -141,7 +141,9 @@ export class AppBase {
     this.Base.setMyData({
       options: options
     });
-
+    this.Base.setMyData({
+      globalData: getApp().globalData
+    })
     ApiConfig.SetUnicode(this.Base.unicode);
   }
   gotoOpenUserInfoSetting() {

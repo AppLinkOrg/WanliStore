@@ -1,0 +1,94 @@
+/* pages/ordersubmit/ordersubmit.wxss */
+.sendbox {
+    width: 312rpx;
+    height: 60rpx;
+    background: #FFFFFF;
+    border-radius: 30rpx;
+    margin: 40rpx 24rpx;
+}
+.sendactive {
+    width: 156rpx;
+    height: 60rpx;
+    background: #44B549;
+    border-radius: 30rpx;
+    line-height: 60rpx;
+    text-align: center;
+    color: #FFFFFF;
+}
+.txt-44 {
+    width: 156rpx;
+    height: 60rpx;
+    color: #44B549;
+    border-radius: 30rpx;
+    line-height: 60rpx;
+    text-align: center;
+    background: #FFFFFF;
+}
+
+.dizhi {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 16rpx;
+}
+
+.righticon {
+    width: 28rpx;
+    height: 28rpx;
+    margin-left: 16rpx;
+}
+.dizhibox {
+    margin: 0 24rpx;
+    padding: 60rpx 24rpx;
+    background: #FFFFFF;
+    border-radius: 20rpx;
+}
+.goods {
+    margin: 0 24rpx;
+    padding: 42rpx 24rpx;
+}
+.cover {
+    width: 108rpx;
+    height: 108rpx;
+}
+.cbox {
+    width: 96rpx;
+    height: 32rpx;
+    background-size: 100% 100%;
+    font-size: 22rpx;
+    color: #FFFFFF;
+    margin-left: 20rpx;
+    line-height: 32rpx;
+    text-align: center;
+}
+.total {
+    margin: 0 24rpx;
+    padding: 36rpx 24rpx 16rpx;
+}
+.margin-top-24 {
+    margin-top: 24rpx;
+}
+.txt-fc {
+    color: #FC0000;
+}
+.fixbottom {
+    width: 100vw;
+    padding: 20rpx 0;
+    background: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+.margin-left-24 {
+    margin-left: 24rpx;
+}
+.btns {
+    width: 216rpx;
+    height: 80rpx;
+    background: #44B549;
+    border-radius: 40rpx;
+    color: #FFFFFF;
+    line-height: 80rpx;
+    text-align: center;
+    margin-right: 24rpx;
+}

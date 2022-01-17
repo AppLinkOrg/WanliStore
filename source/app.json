@@ -6,7 +6,9 @@
     "pages/auth/auth",
     "pages/content/content",
     "pages/my/my",
-    "pages/videolist/videolist"
+    "pages/videolist/videolist",
+    "pages/malldetail/malldetail",
+    "pages/ordersubmit/ordersubmit"
   ],
   "permission": {
     "scope.userLocation": {

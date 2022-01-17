@@ -77,6 +77,25 @@
                 {
                     "name": "在线视频",
                     "pathName": "pages/videolist/videolist",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "商城",
+                    "pathName": "pages/mall/mall",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "商品详情",
+                    "pathName": "pages/malldetail/malldetail",
+                    "query": "id=5",
+                    "scene": null
+                },
+                {
+                    "name": "订单确认",
+                    "pathName": "pages/ordersubmit/ordersubmit",
+                    "query": "goodsid=5",
                     "scene": null
                 }
             ]

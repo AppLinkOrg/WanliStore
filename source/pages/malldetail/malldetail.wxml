@@ -1,0 +1,70 @@
+<view class="flex-row flex-center fixedtop"
+    style="top:{{globalData.Custom.top}}px;height:{{globalData.Custom.height}}px;">
+    <image src="{{uploadpath}}resource/{{res.backicon}}" bindtap="backPage" class="backicon"></image>
+    <view class="flex-1"></view>
+    <view class="f-34 margin-right-68">商品详情</view>
+    <view class="flex-1"></view>
+</view>
+<view>
+
+    <swiper class="imgs">
+        <swiper-item wx:for="{{info.imglist}}" wx:key='k'>
+            <image src="{{uploadpath}}mall/{{item.img}}" class="imgs"></image>
+        </swiper-item>
+    </swiper>
+
+</view>
+
+<view class="padding26">
+    <view class="f-36 " style="color:#3A3A3A;">{{info.name}}</view>
+    <view class="margin-top-28">
+        <text class="f-26 txt-99 ">{{info.summary}}</text>
+    </view>
+    <view class="flex-row flex-bottom margin-top-24">
+        <view class="txt-c9 h6">￥</view>
+        <view class="txt-c9 h4">{{info.price}}</view>
+        <view class="h6" style="color:#A1A3A6;">￥{{info.old_price}}</view>
+    </view>
+    <view class="height-50"></view>
+    <view class="flex-row flex-center">
+        <view class="f-26" style="color:#3A3A3A;">优惠券</view>
+        <view class="flex-1"></view>
+        <view class="f-22 txt-99">暂无可选优惠券</view>
+        <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
+    </view>
+    <view class="height-50"></view>
+    <view class="flex-row flex-center">
+        <view class="f-26" style="color:#3A3A3A;">商品评价</view>
+        <view class="flex-1"></view>
+        <view class="f-22 txt-99">100%好评</view>
+        <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
+    </view>
+    <view class="height-50"></view>
+    <view class="f-26 margin-bottom-26" style="color:#3A3A3A;">视频</view>
+    <view class="flex-row flex-column">
+        <video src="{{uploadpath}}mall/{{info.video}}" play-btn-position="center" controls="true"
+            show-center-play-btn="true" class="videos"></video>
+    </view>
+
+
+
+</view>
+<view>
+    <view class="padding10 f-26"> 商品详情</view>
+    <image src="{{uploadpath}}mall/{{info.details_figure}}" mode="widthFix" class="details_figure"></image>
+</view>
+
+<view class="height-100"></view>
+<view class="flex-row flex-center fixbottom">
+<view class="flex-row flex-column margin-left-26">
+    <image src="{{uploadpath}}resource/{{res.homeicon}}" class="homeicon"></image>
+    <view class="h7 txt-66">首页</view>
+</view>
+<view class="w70"></view>
+<view class="flex-row flex-column">
+    <image src="{{uploadpath}}resource/{{res.kefuicon}}" class="kefuicon"></image>
+    <view class="h7 txt-66">客服</view>
+</view>
+<view class="flex-1"></view>
+<view class="btns" bindtap="navigateto" id="/pages/ordersubmit/ordersubmit?goodsid={{info.id}}">立即购买</view>
+</view>

@@ -1,0 +1,90 @@
+/* pages/malldetail/malldetail.wxss */
+.fixedtop {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.backicon {
+    width: 34rpx;
+    height: 34rpx;
+    margin-left: 34rpx;
+}
+.margin-right-68 {
+    margin-right: 68rpx;
+}
+.imgs {
+    width: 100vw;
+    height: 1000rpx;
+}
+
+.padding26 {
+    padding: 32rpx 26rpx;
+}
+
+.margin-top-28 {
+    margin-top: 28rpx;
+}
+.margin-top-24 {
+    margin-top: 24rpx;
+}
+.righticon {
+    width: 26rpx;
+    height: 26rpx;
+    margin-left: 20rpx;
+}
+.videos {
+    width: 686rpx;
+    height: 386rpx;
+    border-radius: 30rpx;
+}
+.margin-bottom-26 {
+    margin-bottom: 26rpx;
+}
+
+.padding10 {
+    padding: 40rpx 26rpx 10rpx;
+}
+
+.details_figure {
+    width: 100vw;
+    height: 100%;
+}
+.fixbottom {
+    width:100vw;
+    background: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    padding: 16rpx 0 8rpx;
+}
+.margin-left-26 {
+    margin-left: 26rpx;
+}
+.homeicon {
+    width: 38rpx;
+    height: 35rpx;
+    margin-bottom: 8rpx;
+   
+}
+.w70 {
+    width: 70rpx;
+}
+.kefuicon {
+    width: 36rpx;
+    height: 38rpx;
+    margin-bottom: 8rpx;
+}
+.btns {
+    width: 194rpx;
+    height: 62rpx;
+    background: linear-gradient(90deg, #54A475 0%, #2B533C 100%);
+    border-radius: 31rpx;
+    color: #FFFFFF;
+    font-size: 26rpx;
+    line-height: 62rpx;
+    text-align: center;
+    margin-right: 30rpx;
+}

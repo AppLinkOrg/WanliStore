@@ -222,6 +222,9 @@ overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内�
 .f-18 {
   font-size: 18rpx !important;
 }
+.f-22 {
+  font-size: 22rpx !important;
+}
 .text-underline{
   text-decoration: underline;
 }
@@ -708,4 +711,8 @@ border-radius: 4rpx;
 
 .cloumns-2 {
   column-count: 2;
+}
+
+.txt-c9 {
+  color: #C94739;
 }

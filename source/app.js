@@ -4,7 +4,6 @@ App({
     // 展示本地存储能力
     wx.getSystemInfo({
       success: e => {
-       
         this.globalData.StatusBar = e.statusBarHeight;
         this.globalData.model = e.platform;
         let custom = wx.getMenuButtonBoundingClientRect();
