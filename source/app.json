@@ -8,7 +8,8 @@
     "pages/my/my",
     "pages/videolist/videolist",
     "pages/malldetail/malldetail",
-    "pages/ordersubmit/ordersubmit"
+    "pages/ordersubmit/ordersubmit",
+    "pages/paysuccess/paysuccess"
   ],
   "permission": {
     "scope.userLocation": {

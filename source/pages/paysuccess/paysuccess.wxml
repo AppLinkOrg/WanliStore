@@ -1,0 +1,15 @@
+<view class="flex-row flex-column">
+    <view class="h184"></view>
+    <image src="{{uploadpath}}resource/{{res.paysuccess}}" class="paysuccess"></image>
+    <view class="height-50"></view>
+    <view class="flex-row flex-bottom">
+        <view class="h4 txt-33 txt-bold">￥</view>
+        <view class="f-80 txt-33 txt-bold">{{amount}}</view>
+       
+    </view>
+    <view class="txt-88 h5 margin-top-20">支付成功</view>
+
+    <view class="h240"></view>
+    <view class="chakan">查看订单</view>
+    <view class="guang" bindtap="switchTab" id='mall'>继续逛</view>
+</view>

@@ -97,6 +97,17 @@
                     "pathName": "pages/ordersubmit/ordersubmit",
                     "query": "goodsid=5",
                     "scene": null
+                },
+                {
+                    "name": "我的",
+                    "pathName": "pages/my/my",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "支付成功",
+                    "pathName": "pages/paysuccess/paysuccess",
+                    "scene": null
                 }
             ]
         }

@@ -169,7 +169,7 @@ export class AppBase {
   onReady() {
     console.log("onReady");
   }
-  minimm
+  
   onShow() {
     var that = this;
     var instapi = new InstApi();
@@ -224,7 +224,7 @@ export class AppBase {
           AppBase.UserInfo.upmember_id = that.Base.options.fenxiao;
           ApiConfig.SetToken(data.openid);
           
-         memberapi.update(AppBase.UserInfo, () => {
+         memberapi.addmember(AppBase.UserInfo, () => {
           
             that.Base.setMyData({code:res.code}) 
             that.checkPermission();
@@ -278,7 +278,7 @@ export class AppBase {
   loadtabtype() {
     console.log("loadtabtype");
     var memberapi = new MemberApi();
-    memberapi.update(AppBase.UserInfo, () => {});
+    // memberapi.update(AppBase.UserInfo, () => {});
   }
 
   onMyShow() {
@@ -351,7 +351,7 @@ export class AppBase {
   phonenoCallback(phoneno, e) {
     console.log("phone no callback");
     console.log(phoneno);
-
+    // return
     // this.Base.setMyData({
     //   mobile: phoneno
     // })
@@ -814,7 +814,7 @@ export class AppBase {
     var page = e.currentTarget.id;
     var url = "../" + page + "/" + page;
     console.log(url);
-    wx.redirectTo({
+    wx.switchTab({
       url: url,
     })
   }

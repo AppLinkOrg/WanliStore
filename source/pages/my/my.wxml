@@ -1,2 +1,122 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view style="background-image:url({{uploadpath}}resource/{{res.my_topimg}})" class="topbox ">
+    <view class="h174"></view>
+    <view class="flex-row flex-center padding36">
+
+        <button open-type="getUserInfo" class="clear-button " hover-class="none"
+         bindtap="bindgetUserProfile">
+            <view class="touxiang" wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.avatarUrl=='')}}"></view>
+            <image src="{{memberinfo.avatarUrl}}" class="touxiang" wx:else></image>
+        </button>
+        <view class="flex-1">
+            <view class="flex-row flex-center">
+                <button open-type="getPhoneNumber" class="clear-button " hover-class="none"
+                    wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.mobile=='')}}" bindgetphonenumber="getPhoneNo">
+                    <view class="txt-white h4 margin-left-16">点击授权手机号</view>
+                </button>
+                <view wx:else class="txt-white h4 margin-left-16">{{memberinfo.mobile}}</view>
+                <view class="flex-1"></view>
+                <view class="jifen">积分：0</view>
+            </view>
+
+            <view class="flex-row flex-center">
+                <view class="txt-white h5">ID:{{memberinfo.id}}</view>
+                <view class="tuijianren"></view>
+                <view class="h7 txt-white">推荐人</view>
+            </view>
+
+        </view>
+
+    </view>
+</view>
+
+<scroll-view scroll-y="true" class="scrollbox" style="height:{{globalData.hh-199}}px;">
+    <view class="shouyi flex-row flex-center">
+        <view class="h5 txt-white">我的收益：￥0</view>
+        <view class="flex-1"></view>
+        <view class="h6 " style="color:#EBEBEB;">查看更多</view>
+    </view>
+
+    <view class="mybox">
+        <view class="height-90"></view>
+        <view class="flex-row flex-center orderbox">
+            <view class="flex-1 flex-row flex-column">
+                <image src="{{uploadpath}}resource/{{res.orderA}}" mode="widthFix" class="ordericon"></image>
+                <view class="txt-66 h6">待付款</view>
+            </view>
+            <view class="flex-1 flex-row flex-column">
+                <image src="{{uploadpath}}resource/{{res.orderB}}" mode="widthFix" class="ordericon"></image>
+                <view class="txt-66 h6">待发货</view>
+            </view>
+            <view class="flex-1 flex-row flex-column">
+                <image src="{{uploadpath}}resource/{{res.orderC}}" mode="widthFix" class="ordericon"></image>
+                <view class="txt-66 h6">待收货</view>
+            </view>
+            <view class="flex-1 flex-row flex-column">
+                <image src="{{uploadpath}}resource/{{res.orderT}}" mode="widthFix" class="ordericon"></image>
+                <view class="txt-66 h6">退款售后</view>
+            </view>
+        </view>
+
+        <view class="lipin">
+            <view class="" style="font-weight: 500;margin-bottom:4rpx;">我的礼品卡</view>
+            <view class="txt-66 h6">来自桃花江美人窝的羞美人面</view>
+            <image src="{{uploadpath}}resource/{{res.mylipinka}}" class="lipinka"></image>
+        </view>
+
+        <view class="flex-row flex-center ">
+            <view class="timian flex-1">
+                <view class="">提面计划</view>
+                <view class="txt-66 h6">新鲜日期工厂直发</view>
+                <image src="{{uploadpath}}resource/{{res.mytimian}}" class="mytimian"></image>
+            </view>
+            <view class="pinjian flex-1">
+                <view class="">品鉴活动</view>
+                <view class="txt-66 h6">羞美人线下品鉴会报名</view>
+                <image src="{{uploadpath}}resource/{{res.mypinjian}}" class="mypinjian"></image>
+            </view>
+        </view>
+        <view class="flex-row flex-column">
+            <image src="{{uploadpath}}resource/{{res.myimg}}" class="myimg"></image>
+        </view>
+        <view class="fuwu">
+            <view class="f-36 txt-66" style="font-weight: 500;">会员服务</view>
+            <view class="height-40"></view>
+            <view class="flex-row flex-center">
+                <view class="flex-1 flex-row flex-column">
+                    <image src="{{uploadpath}}resource/{{res.jifenshangcheng}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">积分商城</view>
+                </view>
+                <view class="flex-1 flex-row flex-column">
+                    <image src="{{uploadpath}}resource/{{res.kefubangzhu}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">客服帮助</view>
+                </view>
+                <view class="flex-1 flex-row flex-column">
+                    <image src="{{uploadpath}}resource/{{res.dizhiguanli}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">地址管理</view>
+                </view>
+                <view class="flex-1 flex-row flex-column">
+                    <image src="{{uploadpath}}resource/{{res.youhuiquan}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">优惠券</view>
+                </view>
+            </view>
+            <view class="height-60"></view>
+            <view class="flex-row flex-center">
+                <view class="flex-1 flex-row flex-column">
+                    <image src="{{uploadpath}}resource/{{res.wodepinjia}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">我的评价</view>
+                </view>
+                <view class="flex-1 flex-row flex-column">
+                    <image src="{{uploadpath}}resource/{{res.shezhi}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">设置</view>
+                </view>
+                <view class="flex-1 flex-row flex-column">
+
+                </view>
+                <view class="flex-1 flex-row flex-column">
+
+                </view>
+            </view>
+        </view>
+    </view>
+
+</scroll-view>
