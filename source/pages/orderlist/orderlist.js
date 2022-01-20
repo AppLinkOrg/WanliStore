@@ -1,0 +1,122 @@
+import {
+    AppBase
+  } from "../../appbase";
+  import {
+    ApiConfig
+  } from "../../apis/apiconfig";
+  import {
+    InstApi
+  } from "../../apis/inst.api.js";
+import { OrderApi } from "../../apis/order.api";
+import { WechatApi } from "../../apis/wechat.api";
+  
+  class Content extends AppBase {
+    constructor() {
+      super();
+    }
+    onLoad(options) {
+      this.Base.Page = this;
+      //options.id=5;
+      super.onLoad(options);
+      wx.setNavigationBarTitle({
+        title: "我的订单"
+      })
+      this.Base.setMyData({
+          typelist:[
+              {name:'全部',value:''},
+              {name:'待付款',value:'A'},
+              {name:'待发货',value:'B'},
+              {name:'待收货',value:'C'},
+              {name:'已完成',value:'F'},
+              {name:'已取消',value:'Q'},
+          ],
+          orderstatus:this.Base.options.type==undefined?'':this.Base.options.type
+      })
+    }
+    onMyShow() {
+      var that = this;
+      var orderapi = new OrderApi();
+      var orderstatus = this.Base.getMyData().orderstatus;
+      orderapi.orderlist({orderstatus:orderstatus},(list)=>{
+        this.Base.setMyData({
+            list
+        })
+      })
+    }
+    switchtype(e){
+        var orderstatus = e.currentTarget.id;
+        this.Base.setMyData({
+            orderstatus
+        })
+        this.onMyShow();
+    }
+    cancelorder(e){
+        var that = this;
+        var id = e.currentTarget.id;
+        var orderapi = new OrderApi();
+        wx.showModal({
+            title:'订单提示',
+            content:'是否要取消该订单',
+            success:(ret)=>{
+                if(ret.confirm){
+                    orderapi.cancelorder({id:id},(ret)=>{
+                        that.Base.toast('订单取消成功');
+                        that.Base.setMyData({
+                            orderstatus:'Q'
+                        })
+                        that.onMyShow();
+                    })
+                }
+            }
+        })
+    }
+    refundorder(e){
+        var that = this;
+        var id = e.currentTarget.id;
+        var wechatapi = new WechatApi();
+        wx.showModal({
+            title:'订单提示',
+            content:'是否要申请退款？',
+            success:(ret)=>{
+                if(ret.confirm){
+                    wechatapi.refund({id:id},(ret)=>{
+                        if(ret.code>=0){
+                            that.Base.toast('订单退款成功');
+                            that.onMyShow();
+                        }else {
+                            that.Base.toast(ret.result);
+                        }
+                    })
+                }
+            }
+        })
+    }
+     shouhuo(e){
+        var that = this;
+        var id = e.currentTarget.id;
+        var orderapi = new OrderApi();
+        wx.showModal({
+            title:'订单提示',
+            content:'已确认收到商品',
+            success:(ret)=>{
+                if(ret.confirm){
+                    orderapi.shouhuo({id:id},(ret)=>{
+                        that.Base.setMyData({
+                            orderstatus:'F'
+                        })
+                        that.onMyShow();
+                    })
+                }
+            }
+        })
+    }
+  }
+  var content = new Content();
+  var body = content.generateBodyJson();
+  body.onLoad = content.onLoad; 
+  body.onMyShow = content.onMyShow;
+  body.switchtype = content.switchtype;
+  body.cancelorder = content.cancelorder;
+  body.refundorder = content.refundorder;
+  body.shouhuo = content.shouhuo;
+  Page(body)

@@ -125,7 +125,19 @@
                 {
                     "name": "门店自提",
                     "pathName": "pages/store/store",
+                    "query": "goodsid=1&id=0",
+                    "scene": null
+                },
+                {
+                    "name": "订单列表",
+                    "pathName": "pages/orderlist/orderlist",
                     "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "订单详情",
+                    "pathName": "pages/orderdetail/orderdetail",
+                    "query": "id=6",
                     "scene": null
                 }
             ]

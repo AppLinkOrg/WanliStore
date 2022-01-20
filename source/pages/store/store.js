@@ -10,6 +10,7 @@ import {
   import {
     MallApi
   } from "../../apis/mall.api.js";
+import { ApiUtil } from "../../apis/apiutil";
   
   class Content extends AppBase {
     constructor() {
@@ -24,18 +25,34 @@ import {
       })
       this.Base.setMyData({
         choseid: this.Base.options.id==undefined?0:this.Base.options.id,
-        chosetype: this.Base.options.chosetype
+        chosetype: this.Base.options.chosetype,
+        mlat:0,
+        mylng:0,
       })
     }
     onMyShow() {
       var that = this;
+      this.getlist();
+    }
+    getlist(){
+      var data = this.Base.getMyData();
+      var mylat = data.mylat;
+      var mylng = data.mylng;
       var mallapi = new MallApi();
-      mallapi.storelist({},(list)=>{
+      mallapi.storelist({goodsid:this.Base.options.goodsid,mylat,mylng},(list)=>{
+        for(let item of list){
+          var distance = ApiUtil.GetDistance(mylat,mylng,item.lat,item.lng);
+          item.miletext = ApiUtil.GetMileTxt(distance);
+        }
           this.Base.setMyData({
               list
           })
       })
-      mallapi.usestore({},(usestore)=>{
+      mallapi.usestore({goodsid:this.Base.options.goodsid,mylat,mylng},(usestore)=>{
+        for(let item of usestore){
+          var distance = ApiUtil.GetDistance(mylat,mylng,item.lat,item.lng);
+          item.miletext = ApiUtil.GetMileTxt(distance);
+        }
         this.Base.setMyData({
             usestore
         })
@@ -61,4 +78,5 @@ import {
   body.onLoad = content.onLoad; 
   body.onMyShow = content.onMyShow;
   body.chosedz = content.chosedz;
+  body.getlist = content.getlist;
   Page(body)

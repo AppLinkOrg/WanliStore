@@ -19,6 +19,14 @@ import {
 } from "apis/wechat.api";
 
 export class AppBase {
+  static lastlat = 0;
+  static lastlng = 0;
+  static lastdistance = 0;
+  static lastaddress = {
+    address: { ad_info: { adcode: "", city: "" } }
+  };
+  static CITYID = 440300;
+  static CITYNAME = "深圳";
   static BRANDAPPLE = 12;
   static QQMAPKEY = "IDVBZ-TSAKD-TXG43-H442I-74KVK-6LFF5";
   static UserInfo = {};
@@ -262,6 +270,7 @@ export class AppBase {
   checkPermission() {
     var memberapi = new MemberApi();
     var that = this;
+    
     memberapi.info({}, (info) => {
       // if (info.mobile == "" && this.Base.needauth == true) {
         // wx.navigateTo({
@@ -271,9 +280,31 @@ export class AppBase {
         this.Base.setMyData({
           memberinfo: info
         });
+        
+      if (AppBase.lastlat != 0) {
+        this.Base.setMyData({
+          address: AppBase.lastaddress,
+          lastdistance: AppBase.lastdistance,
+          mylat: AppBase.lastlat,
+          mylng: AppBase.lastlng
+        });
+        console.log("vvckc", "0");
         that.onMyShow();
+      }
+       
       // }
-    });
+      this.Base.getAddress((ret)=>{
+        AppBase.lastlat = ret.location.lat;
+        AppBase.lastlng = ret.location.lng;
+        this.Base.setMyData({
+          address: AppBase.lastaddress,
+          lastdistance: AppBase.lastdistance,
+          mylat: AppBase.lastlat,
+          mylng: AppBase.lastlng
+        });
+        that.onMyShow();
+      });
+      })
   }
   loadtabtype() {
     console.log("loadtabtype");

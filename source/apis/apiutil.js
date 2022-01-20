@@ -263,6 +263,35 @@ export class ApiUtil {
     }
 	return num
 }
- 
+static GetDistance(lat1, lng1, lat2, lng2) {
+  console.log(lat1, lng1, lat2, lng2);
+  var radLat1 = ApiUtil.Rad(lat1);
+  var radLat2 = ApiUtil.Rad(lat2);
+  var a = radLat1 - radLat2;
+  var b = ApiUtil.Rad(lng1) - ApiUtil.Rad(lng2);
+  var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(b / 2), 2)));
+  s = s * 6378.137; // 地球半径，千米;
+  s = Math.round(s * 10000) / 10000; //输出为公里
+  s = Math.round(s * 1000) / 1; //单位修改为米,取整
+  //s=s.toFixed(4);
+  return s;
+}
+static Rad(d) {
+  return d * Math.PI / 180.0; //经纬度转换成三角函数中度分表形式。
+}
+static GetMileTxt(mile) {
+  console.log(mile);
+  if (mile > 10000) {
+    return + (mile / 1000.0).toFixed(0) + "km";
+  }
+  if (mile > 1000 && mile<10000) {
+    return + (mile / 1000.0).toFixed(1) + "km";
+  } else if (mile < 100) {
+    return "100米内";
+  } else {
+    return "" + (mile).toString() + "m";
+  }
+}
+
 
 }

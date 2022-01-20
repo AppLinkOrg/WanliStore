@@ -7,7 +7,7 @@
         <image src="{{uploadpath}}resource/{{res.biaoqian}}" class="biaoqian"></image>
         <view class="flex-row flex-center">
             <view class="flex-1 f-36">{{item.name}}</view>
-            <view class="h5 txt-66">100m</view>
+            <view class="h5 txt-66">{{item.miletext}}</view>
         </view>
         <view class="flex-row flex-center margin-top-8">
             <image src="{{uploadpath}}resource/{{res.time}}" class="icon-10 margin-right-10"></image>
@@ -31,7 +31,7 @@
     <view wx:for="{{list}}" wx:key='k' class="box" bindtap="chosedz" id="{{item.id}}">
         <view class="flex-row flex-center">
             <view class="flex-1 f-36">{{item.name}}</view>
-            <view class="h5 txt-66">100m</view>
+            <view class="h5 txt-66">{{item.miletext}}</view>
         </view>
         <view class="flex-row flex-center margin-top-8">
             <image src="{{uploadpath}}resource/{{res.time}}" class="icon-10 margin-right-10"></image>
@@ -42,7 +42,7 @@
                 <image src="{{uploadpath}}resource/{{res.didian}}" class="icon-10 margin-right-10"></image>
                 <view class="h6 txt-66">{{item.address}}</view>
             </view>
-            <view class="h6 margin-left-40" style="color:#44B549;">地图导航</view>
+            <view class="h6 margin-left-40" style="color:#44B549;" bindtap="openMap" id="{{item.address}}">地图导航</view>
         </view>
     </view>
 </view>

@@ -39,19 +39,19 @@
     <view class="mybox">
         <view class="height-90"></view>
         <view class="flex-row flex-center orderbox">
-            <view class="flex-1 flex-row flex-column">
+            <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/orderlist/orderlist?type=A">
                 <image src="{{uploadpath}}resource/{{res.orderA}}" mode="widthFix" class="ordericon"></image>
                 <view class="txt-66 h6">待付款</view>
             </view>
-            <view class="flex-1 flex-row flex-column">
+            <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/orderlist/orderlist?type=B">
                 <image src="{{uploadpath}}resource/{{res.orderB}}" mode="widthFix" class="ordericon"></image>
                 <view class="txt-66 h6">待发货</view>
             </view>
-            <view class="flex-1 flex-row flex-column">
+            <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/orderlist/orderlist?type=C">
                 <image src="{{uploadpath}}resource/{{res.orderC}}" mode="widthFix" class="ordericon"></image>
                 <view class="txt-66 h6">待收货</view>
             </view>
-            <view class="flex-1 flex-row flex-column">
+            <view class="flex-1 flex-row flex-column" >
                 <image src="{{uploadpath}}resource/{{res.orderT}}" mode="widthFix" class="ordericon"></image>
                 <view class="txt-66 h6">退款售后</view>
             </view>

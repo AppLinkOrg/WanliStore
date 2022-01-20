@@ -1,0 +1,37 @@
+
+<view class="flex-row flex-center fixtop">
+    <view wx:for="{{typelist}}" wx:key='k' bindtap="switchtype" id="{{item.value}}" class="flex-1 flex-row flex-column">
+        <view class="h6  {{item.value==orderstatus?'txt-33 fw500':'txt-88'}}">{{item.name}}</view>
+        <view class="typeline {{item.value==orderstatus?'typelist_act':''}}"></view>
+    </view>
+</view>
+
+<view class="height-100"></view>
+<view>
+    <view wx:for="{{list}}" wx:key='k' class="orderbox">
+        <view class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">{{item.orderstatus_name}}</view>
+        <view class="flex-row flex-center margin-top-36" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
+            <image src="{{uploadpath}}mall/{{item.goods_cover}}" class="goods_img"></image>
+            <view class="flex-1"></view>
+            <view class="txt-33 f-36">￥{{item.price}}</view>
+        </view>
+        <view class="flex-row flex-center margin-top-16" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
+            <view class="h7 txt-88">订单号：{{item.orderno}}</view>
+            <view class="flex-1"></view>
+            <view class="h7 txt-88">下单时间：{{item.submit_time}}</view>
+        </view>
+        <view class="flex-row flex-center margin-top-30" wx:if="{{item.orderstatus=='A'}}">
+            <view class="flex-1"></view>
+            <view class="cancelbtn" bindtap="cancelorder" id="{{item.id}}">取消订单</view>
+            <view class="paybtn margin-left-30" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">去支付</view>
+        </view>
+        <view class="flex-row flex-center margin-top-30" wx:if="{{item.orderstatus=='B'}}">
+            <view class="flex-1"></view>
+            <view class="cancelbtn" bindtap="refundorder" id="{{item.id}}">取消订单</view>
+         </view>
+         <view class="flex-row flex-center margin-top-30" wx:if="{{item.orderstatus=='C'}}">
+            <view class="flex-1"></view>
+            <view class="cancelbtn" bindtap="shouhuo" id="{{item.id}}">已收到货</view>
+         </view>
+    </view>
+</view>

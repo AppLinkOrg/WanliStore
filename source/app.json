@@ -12,7 +12,9 @@
     "pages/paysuccess/paysuccess",
     "pages/addresslist/addresslist",
     "pages/addressinfo/addressinfo",
-    "pages/store/store"
+    "pages/store/store",
+    "pages/orderlist/orderlist",
+    "pages/orderdetail/orderdetail"
   ],
   "permission": {
     "scope.userLocation": {

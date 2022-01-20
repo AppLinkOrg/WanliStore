@@ -1,0 +1,63 @@
+/* pages/orderlist/orderlist.wxss */
+.fixtop {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: #ffffff;
+    padding-top: 40rpx;
+}
+.typeline {
+    width: 46rpx;
+    height: 4rpx;
+    background: transparent;
+    margin-top: 16rpx;
+}
+.fw500 {
+    font-weight: 500;
+}
+.typelist_act {
+    background: #44B549;
+}
+.orderbox {
+    margin: 0 24rpx ;
+    padding: 30rpx 24rpx;
+    background: #FFFFFF;
+    border-radius: 20rpx;
+}
+.goods_img {
+    width: 144rpx;
+    height: 144rpx;
+}
+
+.cancelbtn {
+    width: 148rpx;
+    height: 54rpx;
+    border-radius: 27rpx;
+    border: 2rpx solid #333333;
+    line-height: 54rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #333333;
+}
+.paybtn {
+    width: 124rpx;
+    height: 54rpx;
+    border-radius: 27rpx;
+    border: 2rpx solid #44B549;
+    line-height: 54rpx;
+    text-align: center;
+    color: #44B549;
+    font-size: 24rpx;
+}
+
+.txt-44 {
+    color: #44B549;
+}
+.margin-top-36 {
+    margin-top: 36rpx;
+}
+.margin-top-16 {
+    margin-top: 16rpx;
+}

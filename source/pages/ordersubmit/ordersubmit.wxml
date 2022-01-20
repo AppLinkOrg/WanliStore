@@ -32,14 +32,14 @@
     </view>
     <view wx:else>
         <view wx:if="{{store_id==0}}" class="flex-row flex-center dizhibox" bindtap="navigateto"
-            id='/pages/store/store?chosetype=A&id={{store_id}}'>
+            id='/pages/store/store?goodsid={{info.id}}&id={{store_id}}'>
             <image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi"></image>
             <view class="f-36 txt-33">点击选择地址</view>
             <view class="flex-1"></view>
             <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
         </view>
         <view wx:else class="flex-row flex-center dizhibox" bindtap="navigateto"
-            id='/pages/store/store?chosetype=A&id={{store_id}}'>
+            id='/pages/store/store?goodsid={{info.id}}&id={{store_id}}'>
 
             <view class="flex-1 ">
                 <view>

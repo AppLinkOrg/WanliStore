@@ -56,12 +56,12 @@
 
 <view class="height-100"></view>
 <view class="flex-row flex-center fixbottom">
-<view class="flex-row flex-column margin-left-26">
+<view class="flex-row flex-column margin-left-26" bindtap="backHome">
     <image src="{{uploadpath}}resource/{{res.homeicon}}" class="homeicon"></image>
     <view class="h7 txt-66">首页</view>
 </view>
 <view class="w70"></view>
-<view class="flex-row flex-column">
+<view class="flex-row flex-column" bindtap="phoneCall" id="{{instinfo.customerservicemobile}}">
     <image src="{{uploadpath}}resource/{{res.kefuicon}}" class="kefuicon"></image>
     <view class="h7 txt-66">客服</view>
 </view>
