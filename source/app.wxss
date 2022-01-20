@@ -631,6 +631,9 @@ border-radius: 4rpx;
 .txt-66 {
   color: #666666;
 }
+.txt-88 {
+  color:#888888;
+}
 .txt-99 {
   color:#999999;
 }

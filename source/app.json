@@ -9,7 +9,10 @@
     "pages/videolist/videolist",
     "pages/malldetail/malldetail",
     "pages/ordersubmit/ordersubmit",
-    "pages/paysuccess/paysuccess"
+    "pages/paysuccess/paysuccess",
+    "pages/addresslist/addresslist",
+    "pages/addressinfo/addressinfo",
+    "pages/store/store"
   ],
   "permission": {
     "scope.userLocation": {

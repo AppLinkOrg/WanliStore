@@ -1,0 +1,26 @@
+<view>
+    <form  catchsubmit="formSubmit">
+
+        <view class="flex-row flex-center padding30">
+            <view class="txt-33 h5">姓名</view>
+            <input type="text" placeholder="请输入您的姓名" name='name' value="{{info.name}}" class="flex-1 txt-33 h5 text-right"/>
+        </view>
+        <view class="flex-row flex-center padding30">
+            <view class="txt-33 h5">电话</view>
+            <input type="text" placeholder="请输入您的电话" name='mobile' value="{{info.mobile}}" class="flex-1 txt-33 h5 text-right"/>
+        </view>
+        <view class="flex-row flex-center padding30">
+            <view class="txt-33 h5">地址</view>
+            <input type="text" placeholder="请输入您的地址" name="address" value="{{info.address}}" class="flex-1 txt-33 h5 text-right"/>
+        </view>
+        <view class="flex-row flex-center padding30">
+            <view class="txt-33 h5">是否设为默认地址</view>
+            <view class="flex-1"></view>
+            <switch color="#44B549" name='moren' checked="{{info.moren=='Y'?true:false}}"></switch>
+        </view>
+        <view class="height-220"></view>
+        <view class="flex-row flex-column">
+            <button class="clear-button btns" formType="submit">保存</button>
+        </view>
+    </form>
+</view>

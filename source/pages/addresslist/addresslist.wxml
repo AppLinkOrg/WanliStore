@@ -1,0 +1,26 @@
+<view class="margin24">
+
+    <view wx:for="{{list}}" wx:key='k' >
+        <view class="flex-row flex-center">
+            <image wx:if="{{chosetype=='A'}}" bindtap="chosedz" id='{{item.id}}' src="{{uploadpath}}resource/{{choseid==item.id?res.chose2:res.chose}}" class="icon30"></image>
+            <view class="flex-1">
+                <view class="flex-row flex-center">
+                    <view class="txt-33 h5">{{item.name}}</view>
+                    <view class="txt-33 h5 margin-left-30">{{item.mobile}}</view>
+                    <view class="moren" wx:if="{{item.moren=='Y'}}">默认</view>
+                    <view class="flex-1"></view>
+                    <image bindtap="navigateto" id='/pages/addressinfo/addressinfo?id={{item.id}}' src="{{uploadpath}}resource/{{res.editaddress}}" class="icon25"></image>
+                </view>
+                <view class="h7 txt-88 margin-top-5">{{item.address}}</view>
+            </view>
+        </view>
+
+
+        <view class="lines"></view>
+    </view>
+
+</view>
+
+<view class="flex-row flex-column fixbottom">
+    <view class="btns" bindtap="navigateto" id='/pages/addressinfo/addressinfo'>新建地址</view>
+</view>

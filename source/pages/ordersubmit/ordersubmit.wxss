@@ -92,3 +92,12 @@
     text-align: center;
     margin-right: 24rpx;
 }
+
+.ziti {
+    padding: 2rpx 4rpx;
+    background: #44B549;
+    border-radius: 2rpx;
+    color: #FFFFFF;
+    font-size: 20rpx;
+    margin-right: 8rpx;
+}

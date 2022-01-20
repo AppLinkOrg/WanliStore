@@ -1,0 +1,18 @@
+/* pages/addressinfo/addressinfo.wxss */
+
+.padding30 {
+    margin: 30rpx;
+    padding-bottom: 30rpx;
+    border-bottom: 2rpx solid #E1E3E6;
+}
+
+.btns {
+    width: 678rpx;
+    height: 92rpx;
+    background: #44B549;
+    box-shadow: 0rpx 4rpx 16rpx 0rpx rgba(68,181,73,0.5);
+    border-radius: 48rpx;
+    line-height: 92rpx;
+    text-align: center;
+    color: #FFFFFF;
+}

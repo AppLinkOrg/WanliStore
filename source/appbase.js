@@ -355,6 +355,9 @@ export class AppBase {
     // this.Base.setMyData({
     //   mobile: phoneno
     // })
+    if(phoneno==undefined){
+      return
+    }
     var memberapi=new MemberApi();
     memberapi.updateregister({mobile:phoneno},(ret)=>{
       console.log(ret);

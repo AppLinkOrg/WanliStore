@@ -90,7 +90,7 @@
                     <image src="{{uploadpath}}resource/{{res.kefubangzhu}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">客服帮助</view>
                 </view>
-                <view class="flex-1 flex-row flex-column">
+                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/addresslist/addresslist">
                     <image src="{{uploadpath}}resource/{{res.dizhiguanli}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">地址管理</view>
                 </view>

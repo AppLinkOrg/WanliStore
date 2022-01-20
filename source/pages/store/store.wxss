@@ -1,0 +1,24 @@
+/* pages/store/store.wxss */
+.margin-topmd {
+    margin-top: 28rpx;
+    margin-left: 38rpx;
+    margin-bottom: 24rpx;
+}
+.box {
+    margin: 0 24rpx 24rpx;
+    padding: 20rpx 22rpx 8rpx 26rpx;
+    border-radius: 6rpx;
+    background: #FFFFFF;
+    position: relative;
+}
+.biaoqian {
+    width: 43rpx;
+    height: 47rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+.margin-top-8 {
+    margin-top: 8rpx
+}

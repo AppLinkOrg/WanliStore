@@ -107,6 +107,25 @@
                 {
                     "name": "支付成功",
                     "pathName": "pages/paysuccess/paysuccess",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "我的地址",
+                    "pathName": "pages/addresslist/addresslist",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "新增地址",
+                    "pathName": "pages/addressinfo/addressinfo",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "门店自提",
+                    "pathName": "pages/store/store",
+                    "query": "",
                     "scene": null
                 }
             ]

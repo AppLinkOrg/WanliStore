@@ -1,0 +1,52 @@
+/* pages/addresslist/addresslist.wxss */
+
+.margin24 {
+    margin: 30rpx 24rpx;
+}
+.moren {
+    width: 56rpx;
+    height: 32rpx;
+    background: rgba(68, 181, 73, 0.39);
+    border-radius: 8rpx;
+    border: 2rpx solid #44B549;
+    color: #44B549;
+    font-size: 20rpx;
+    margin-left: 24rpx;
+    line-height: 32rpx;
+    text-align: center;
+}
+.icon25 {
+    width: 25rpx;
+    height: 25rpx;
+}
+.lines {
+    width: 100%;
+    height: 2rpx;
+    background:  #E1E3E6;
+    margin: 24rpx 0;
+}
+.fixbottom {
+    width: 100vw;
+    padding: 20rpx 0;
+    background: #FFFFFF;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+}
+.btns {
+    width: 678rpx;
+    height: 92rpx;
+    background: #44B549;
+    box-shadow: 0rpx 4rpx 16rpx 0rpx rgba(68,181,73,0.5);
+    border-radius: 48rpx;
+    line-height: 92rpx;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.icon30 {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 36rpx;
+}

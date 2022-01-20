@@ -1,15 +1,61 @@
-
 <view class="flex-row flex-center sendbox">
     <view class="{{sendtype=='A'?'sendactive':'txt-44'}} h6" bindtap="swtichsend" id='A'>商家配送</view>
     <view class="{{sendtype=='B'?'sendactive':'txt-44'}} h6" bindtap="swtichsend" id='B'>到店自提</view>
 </view>
 
 <view>
-    <view class="flex-row flex-center dizhibox">
-        <image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi"></image>
-        <view class="f-36 txt-33">点击选择地址</view>
-        <view class="flex-1"></view>
-        <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
+    <view wx:if="{{sendtype=='A'}}">
+        <view wx:if="{{address_id==0}}" class="flex-row flex-center dizhibox" bindtap="navigateto"
+            id='/pages/addresslist/addresslist?chosetype=A&id={{address_id}}'>
+            <image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi"></image>
+            <view class="f-36 txt-33">点击选择地址</view>
+            <view class="flex-1"></view>
+            <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
+        </view>
+        <view wx:else class="flex-row flex-center dizhibox" bindtap="navigateto"
+            id='/pages/addresslist/addresslist?chosetype=A&id={{address_id}}'>
+
+            <view class="flex-1 flex-row">
+                <image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi"></image>
+                <view>
+                    <view class="f-36 txt-33" style="font-weight: 500;">{{addressinfo.address}}</view>
+
+                    <view class="flex-row flex-center">
+                        <view class="txt-99 h5">{{addressinfo.name}}</view>
+                        <view class="txt-99 h5 margin-left-10">{{addressinfo.mobile}}</view>
+                    </view>
+                </view>
+            </view>
+            <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
+        </view>
+
+    </view>
+    <view wx:else>
+        <view wx:if="{{store_id==0}}" class="flex-row flex-center dizhibox" bindtap="navigateto"
+            id='/pages/store/store?chosetype=A&id={{store_id}}'>
+            <image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi"></image>
+            <view class="f-36 txt-33">点击选择地址</view>
+            <view class="flex-1"></view>
+            <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
+        </view>
+        <view wx:else class="flex-row flex-center dizhibox" bindtap="navigateto"
+            id='/pages/store/store?chosetype=A&id={{store_id}}'>
+
+            <view class="flex-1 ">
+                <view>
+                    <view class="flex-row flex-center">
+                        <view class="ziti">自提</view>
+                        <view class="f-36 txt-33" style="font-weight: 500;">{{storeinfo.name}}</view>
+                    </view>
+
+                    <view class="flex-row flex-center">
+                        <view class="txt-66 h5">{{storeinfo.address}}</view>
+                    </view>
+                </view>
+            </view>
+            <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
+        </view>
+
     </view>
 
     <view class="goods">
@@ -35,29 +81,30 @@
         <view class="flex-row flex-center">
             <view class="h5 txt-33">商品总金额</view>
             <view class="flex-1"></view>
-            <view class="h5" style="color:#888888;">¥999.00</view>
+            <view class="h5" style="color:#888888;">¥{{totalamount}}</view>
         </view>
         <view class="flex-row flex-center margin-top-24">
             <view class="h5 txt-33">运费</view>
             <view class="flex-1"></view>
-            <view class="h5 txt-fc " >¥999.00</view>
+            <view class="h5 txt-fc ">¥{{yunfei}}</view>
         </view>
         <view class="flex-row flex-center margin-top-24">
             <view class="h5 txt-33">优惠金额</view>
             <view class="flex-1"></view>
-            <view class="h5 txt-fc " >¥999.00</view>
+            <view class="h5 txt-fc ">¥{{youhui}}</view>
         </view>
         <view class="height-70"></view>
-        <view  class="flex-row flex-center ">
+        <view class="flex-row flex-center ">
             <view class="h5 txt-33">订单备注</view>
-            <input type="text" class="flex-1 text-right h5 txt-33" placeholder="请选择备注"/>
+            <input type="text" class="flex-1 text-right h5 txt-33" value="{{beizhu}}" bindinput="beizhuFn"
+                placeholder="请选择备注" />
         </view>
     </view>
 </view>
 
 <view class="flex-row flex-center fixbottom">
     <view class=" h5 txt-33 margin-left-24">实付款:</view>
-    <view class="h4 txt-fc txt-bold margin-left-10">¥999.00</view>
+    <view class="h4 txt-fc txt-bold margin-left-10">¥{{amount}}</view>
     <view class="flex-1"></view>
-    <view class="btns">立即支付</view>
+    <view class="btns" bindtap="bindpay">立即支付</view>
 </view>
