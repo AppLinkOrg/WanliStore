@@ -110,6 +110,23 @@ import { WechatApi } from "../../apis/wechat.api";
             }
         })
     }
+     shanchuorder(e){
+        var that = this;
+        var id = e.currentTarget.id;
+        var orderapi = new OrderApi();
+        wx.showModal({
+            title:'订单提示',
+            content:'是否要删除该订单',
+            success:(ret)=>{
+                if(ret.confirm){
+                    orderapi.deleteorder({id:id},(ret)=>{
+                        that.Base.toast('删除成功');
+                       that.onMyShow();
+                    })
+                }
+            }
+        })
+    }
   }
   var content = new Content();
   var body = content.generateBodyJson();
@@ -119,4 +136,5 @@ import { WechatApi } from "../../apis/wechat.api";
   body.cancelorder = content.cancelorder;
   body.refundorder = content.refundorder;
   body.shouhuo = content.shouhuo;
+  body.shanchuorder = content.shanchuorder;
   Page(body)

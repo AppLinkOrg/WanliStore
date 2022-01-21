@@ -1,6 +1,6 @@
 /* pages/ordersubmit/ordersubmit.wxss */
 .margin26 {
-   margin: 48rpx 26rpx 0;
+   margin: 48rpx 26rpx 30rpx;
 }
 .txt-44 {
     width: 156rpx;

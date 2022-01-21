@@ -14,7 +14,9 @@
     "pages/addressinfo/addressinfo",
     "pages/store/store",
     "pages/orderlist/orderlist",
-    "pages/orderdetail/orderdetail"
+    "pages/orderdetail/orderdetail",
+    "pages/addpingjia/addpingjia",
+    "pages/refundlist/refundlist"
   ],
   "permission": {
     "scope.userLocation": {

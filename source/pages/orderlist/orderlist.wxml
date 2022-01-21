@@ -33,5 +33,13 @@
             <view class="flex-1"></view>
             <view class="cancelbtn" bindtap="shouhuo" id="{{item.id}}">已收到货</view>
          </view>
+         <view class="flex-row flex-center margin-top-30" wx:if="{{item.orderstatus=='F' && item.ispingjia==''}}">
+            <view class="flex-1"></view>
+            <view class="cancelbtn" bindtap="navigateto" id="/pages/addpingjia/addpingjia?id={{item.id}}">去评价</view>
+         </view> 
+         <view class="flex-row flex-center margin-top-30" wx:if="{{item.orderstatus=='Q'}}">
+            <view class="flex-1"></view>
+            <view class="cancelbtn" bindtap="shanchuorder" id="{{item.id}}">删除订单</view>
+         </view>
     </view>
 </view>

@@ -1,0 +1,35 @@
+
+<view class="margin-30">
+    <image src="{{uploadpath}}mall/{{info.goods_cover}}" class="cover"></image>
+</view>
+
+<view class="margin-30">
+    <view class="flex-row flex-center">
+        <view class="h5 txt-33">商品评分</view>
+        <view class="flex-1"></view>
+        <view class="flex-row flex-center">
+           <image src="{{uploadpath}}resource/{{res.star2}}" bindtap="bindpf" id="{{idx}}" data-type="B" wx:for="{{pingfen}}" wx:for-index='idx'  class="icon"></image>
+           <image src="{{uploadpath}}resource/{{res.star}}" bindtap="bindpf" id="{{idx}}" data-type="A"  wx:for="{{totalpf-pingfen}}" wx:for-index='idx' class="icon"></image>
+         </view>
+    </view>
+    <view class="margin-top-30">
+        <view class="h5 txt-33 margin-bottom-20">商品评价</view>
+        <textarea class="h5 txt-33" value="{{contents}}" bindinput="contentsFn" name="" id="" cols="30" rows="10" placeholder="请输入商品评价"></textarea>
+    </view>
+    <view class="margin-top-30">
+        <view class="h5 txt-33 margin-bottom-20">商品评价图片</view>
+
+        <view class="flex-row flex-wrap">
+            <view class="pore" wx:for="{{imglist}}" wx:key='k' wx:for-index='idx'>
+                <image src="{{uploadpath}}pingjia/{{item.img}}" mode="aspectFit" bindtap="uploadimg" id='{{idx}}' class="uploadimg"></image>
+                <image src="{{uploadpath}}resource/{{res.shanchu}}" class="shanchu" bindtap="shanchu" id="{{idx}}"></image>
+            </view>
+       
+            <image src="{{uploadpath}}resource/{{res.uploadimg}}" bindtap="uploadimg" id='-1' class="uploadimg"></image>
+        </view> 
+    </view>
+</view>
+
+<view class="flex-row flex-column fixbottom">
+    <view class="btns" bindtap="tosave" >发布</view>
+</view>

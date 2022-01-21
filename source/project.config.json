@@ -139,6 +139,12 @@
                     "pathName": "pages/orderdetail/orderdetail",
                     "query": "id=6",
                     "scene": null
+                },
+                {
+                    "name": "评价",
+                    "pathName": "pages/addpingjia/addpingjia",
+                    "query": "id=6",
+                    "scene": null
                 }
             ]
         }

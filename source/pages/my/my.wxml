@@ -51,7 +51,7 @@
                 <image src="{{uploadpath}}resource/{{res.orderC}}" mode="widthFix" class="ordericon"></image>
                 <view class="txt-66 h6">待收货</view>
             </view>
-            <view class="flex-1 flex-row flex-column" >
+            <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/refundlist/refundlist">
                 <image src="{{uploadpath}}resource/{{res.orderT}}" mode="widthFix" class="ordericon"></image>
                 <view class="txt-66 h6">退款售后</view>
             </view>
