@@ -50,10 +50,34 @@ import {
              delta: 1
            })
     }
+    deleteaddress(e){
+      var id = e.currentTarget.id;
+      var memberapi = new MemberApi();
+      var that = this;
+      wx.showModal({
+        title:'提示',
+        content:'地址有改变，是否要改变地址',
+        success:(res)=>{
+          if(res.confirm){
+            memberapi.deleteaddress({id:id},(ret)=>{
+              if(ret.code=='0'){
+                that.Base.toast('删除成功');
+                that.onMyShow();
+              }else {
+                that.Base.toast(ret.result);
+              }
+            })  
+          }
+        }
+      })
+    
+
+    }
   }
   var content = new Content();
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad; 
   body.onMyShow = content.onMyShow;
   body.chosedz = content.chosedz;
+  body.deleteaddress = content.deleteaddress;
   Page(body)

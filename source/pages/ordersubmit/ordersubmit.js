@@ -60,6 +60,12 @@ import {
       });
       var memberapi = new MemberApi();
       console.log(this.Base.getMyData().address_id,'达到');
+      if(this.Base.getMyData().address_id==0 && this.Base.getMyData().sendtype=='A' ){
+        var memberinfo = this.Base.getMyData().memberinfo;
+        this.Base.setMyData({
+          address_id:memberinfo.address_id
+        })
+      }
       if(this.Base.getMyData().address_id>0 && this.Base.getMyData().sendtype=='A'){
         memberapi.addressinfo({id:this.Base.getMyData().address_id},(addressinfo)=>{
           this.Base.setMyData({

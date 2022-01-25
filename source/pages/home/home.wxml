@@ -1,51 +1,56 @@
-<image src="{{uploadpath}}resource/{{res.hometop}}" class="hometop" mode="widthFix"></image>
-
+<swiper class="hometop" autoplay='{{true}}' interval="5000" circular="{{true}}">
+  <swiper-item wx:for="{{indexbanner}}" wx:key='k' >
+    <image src="{{uploadpath}}indexbanner/{{item.img}}" class="hometop" bindtap="tobanner" data-item="{{item}}"></image>
+  </swiper-item>
+</swiper>
 
 <view class="flex-row flex-center">
- 
-  
-    <image src="{{uploadpath}}resource/{{res.zaixianshipin}}" bindtap="navigateto" id='/pages/videolist/videolist' class="videobox"></image>
+
+
+  <image src="{{uploadpath}}resource/{{res.zaixianshipin}}" bindtap="navigateto" id='/pages/videolist/videolist'
+    class="videobox"></image>
 
   <view class="margin-top-10">
     <view class="rightbox">
       <view class="height-40"></view>
-  
-        <view class="margin-left-28">
-          <view class="txt-bold">提面下单</view>
-          <view class="h6 txt-33">新鲜日期工厂直发</view>
-        </view>
-        <image src="{{uploadpath}}resource/{{res.timian}}" class="timian"></image>
-  
+
+      <view class="margin-left-28">
+        <view class="txt-bold">提面下单</view>
+        <view class="h6 txt-33">新鲜日期工厂直发</view>
+      </view>
+      <image src="{{uploadpath}}resource/{{res.timian}}" class="timian"></image>
+
 
     </view>
     <view class="rightbox margin-top-6">
       <view class="height-40"></view>
-   
-        <view class="margin-left-28">
-          <view class="txt-bold" >送礼品卡</view>
-          <view class="h6 txt-33">面传情 心意礼</view>
-        </view>
-        <image src="{{uploadpath}}resource/{{res.lipinka}}" class="lipinka"></image>
-     
+
+      <view class="margin-left-28">
+        <view class="txt-bold">送礼品卡</view>
+        <view class="h6 txt-33">面传情 心意礼</view>
+      </view>
+      <image src="{{uploadpath}}resource/{{res.lipinka}}" class="lipinka"></image>
+
 
     </view>
   </view>
-  
+
 </view>
 
 <view>
   <view class="listbox" wx:for="{{list}}" wx:key='k'>
-      <view class="flex-row flex-center">
-        <image src="{{uploadpath}}mall/{{item.cover}}" class="goodsimg"></image>
-        <view class="flex-1 margin-left-20">
-          <view class="">{{item.name}}</view>
-          <view class="flex-row flex-bottom h4 margin-top-10" style="color: #C94739;"><text class="h6"  style="color: #C94739;">￥</text>{{item.price}}</view>
-          <view class="flex-row flex-center">
-            <view class="h6" style="color: #CCCCCC;text-decoration: line-through;">￥{{item.old_price}}</view>
-            <view class="flex-1"></view>
-            <view class="btns" bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}'>立即购买</view>
-          </view>
+    <view class="flex-row flex-center">
+      <image src="{{uploadpath}}mall/{{item.cover}}" class="goodsimg"></image>
+      <view class="flex-1 margin-left-20">
+        <view class="">{{item.name}}</view>
+        <view class="flex-row flex-bottom h4 margin-top-10" style="color: #C94739;"><text class="h6"
+            style="color: #C94739;">￥</text>{{item.price}}</view>
+        <view class="flex-row flex-center">
+          <view class="h6" style="color: #CCCCCC;text-decoration: line-through;">￥{{item.old_price}}</view>
+          <view class="flex-1"></view>
+          <view class="btns" bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}'>立即购买</view>
         </view>
       </view>
+    </view>
   </view>
 </view>

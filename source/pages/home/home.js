@@ -20,6 +20,12 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
+    var instapi = new InstApi();
+    instapi.indexbanner({},(indexbanner)=>{
+      this.Base.setMyData({
+        indexbanner
+      })
+    })
     var mallapi = new MallApi();
     mallapi.goodslist({ishome:'Y'},(list)=>{
       this.Base.setMyData({
@@ -27,9 +33,23 @@ class Content extends AppBase {
       })
     })
   }
+  tobanner(e){
+    var item = e.currentTarget.dataset.item;
+    if(item.type=='A'){
+      wx.navigateTo({
+        url: '/pages/malldetail/malldetail?id='+item.goods_id,
+      })
+    }else if(item.type=='B'){
+      wx.navigateTo({
+        url: item.url,
+      })
+    }else{
+    }
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.tobanner = content.tobanner;
 Page(body)
