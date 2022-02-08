@@ -34,6 +34,13 @@
                     "name": "礼品卡",
                     "pathName": "pages/giftcards/giftcards",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "品牌活动",
+                    "pathName": "pages/activity/activity",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

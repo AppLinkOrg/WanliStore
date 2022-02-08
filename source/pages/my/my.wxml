@@ -69,7 +69,7 @@
                 <view class="txt-66 h6">新鲜日期工厂直发</view>
                 <image src="{{uploadpath}}resource/{{res.mytimian}}" class="mytimian"></image>
             </view>
-            <view class="pinjian flex-1">
+            <view class="pinjian flex-1" bindtap="navigateto" id="/pages/activity/activity">
                 <view class="">品鉴活动</view>
                 <view class="txt-66 h6">羞美人线下品鉴会报名</view>
                 <image src="{{uploadpath}}resource/{{res.mypinjian}}" class="mypinjian"></image>

@@ -1,0 +1,19 @@
+<!--pages/activity/activity.wxml-->
+<view class="activeliat">
+    <image src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg" class="activeimg"></image>
+    <view class="flex-row flex-center address">
+        <view class="flex-1"></view>
+        <image src="../../images/icons/编组 2@3x.png" class="sign"></image>
+        <view class="signmene">深圳</view>
+        <view class="flex-1"></view>
+    </view>
+</view>
+<view class="activeliat">
+    <image src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg" class="activeimg"></image>
+    <view class="flex-row flex-center address">
+        <view class="flex-1"></view>
+        <image src="../../images/icons/编组 2@3x.png" class="sign"></image>
+        <view class="signmene">深圳</view>
+        <view class="flex-1"></view>
+    </view>
+</view>

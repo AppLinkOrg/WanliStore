@@ -17,7 +17,8 @@
     "pages/orderdetail/orderdetail",
     "pages/addpingjia/addpingjia",
     "pages/refundlist/refundlist",
-    "pages/giftcards/giftcards"
+    "pages/giftcards/giftcards",
+    "pages/activity/activity"
 
   ],
   "permission": {
