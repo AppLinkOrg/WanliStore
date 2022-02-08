@@ -16,7 +16,9 @@
     "pages/orderlist/orderlist",
     "pages/orderdetail/orderdetail",
     "pages/addpingjia/addpingjia",
-    "pages/refundlist/refundlist"
+    "pages/refundlist/refundlist",
+    "pages/giftcards/giftcards"
+
   ],
   "permission": {
     "scope.userLocation": {

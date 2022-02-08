@@ -830,6 +830,7 @@ export class AppBase {
     })
   }
   navtoPage(e) {
+    console.log('在那');
     console.log(e);
     var dataset = e.currentTarget.dataset;
     var page = dataset.page;
@@ -1113,11 +1114,9 @@ export class AppBase {
         // });
 
       }
-    })
-
-   
-    
+    }) 
   }
+
 navigateto(e){
   var url = e.currentTarget.id;
   wx.navigateTo({

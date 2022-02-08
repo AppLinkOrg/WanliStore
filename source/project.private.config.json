@@ -29,6 +29,13 @@
                     "pathName": "pages/videolist/videolist",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "礼品卡",
+                    "pathName": "pages/giftcards/giftcards",
+                    "query": "",
+                    "scene": null,
+                    "launchMode": "default"
                 }
             ]
         }

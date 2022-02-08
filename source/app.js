@@ -14,6 +14,15 @@ App({
         this.globalData.ww = ww;
         this.globalData.hh = hh;
       }
+
+
+
+
+
+
+
+
+      
     })
   },
   globalData: {

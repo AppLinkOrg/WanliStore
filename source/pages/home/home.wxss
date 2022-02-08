@@ -2,7 +2,26 @@
   width: 100vw;
   height: 974rpx;
 }
+wx-swiper .wx-swiper-dot{
+  width: 40rpx;
+  border-radius: 10rpx;
+  background: rgba(92,81,66,0.8);
+}
+wx-swiper  .wx-swiper-dot-active{
+  width: 40rpx;
+  border-radius: 10rpx;
+  background: rgba(0,0,0,0.18);
+}
 
+.video-box{
+  position: relative;
+}
+.video-txt{
+  position: absolute;
+  margin-left: 65rpx;
+  margin-top: 65rpx;
+  color: #FFFFFF;
+}
 .videobox {
   width: 284rpx;
   height: 366rpx;
