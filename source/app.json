@@ -18,7 +18,10 @@
     "pages/addpingjia/addpingjia",
     "pages/refundlist/refundlist",
     "pages/giftcards/giftcards",
-    "pages/activity/activity"
+    "pages/activitylist/activitylist",
+    "pages/activity/activity",
+    "pages/activityinfo/activityinfo",
+    "pages/integralmall/integralmall"
 
   ],
   "permission": {

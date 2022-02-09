@@ -69,7 +69,7 @@
                 <view class="txt-66 h6">新鲜日期工厂直发</view>
                 <image src="{{uploadpath}}resource/{{res.mytimian}}" class="mytimian"></image>
             </view>
-            <view class="pinjian flex-1" bindtap="navigateto" id="/pages/activity/activity">
+            <view class="pinjian flex-1" bindtap="navigateto" id="/pages/activitylist/activitylist">
                 <view class="">品鉴活动</view>
                 <view class="txt-66 h6">羞美人线下品鉴会报名</view>
                 <image src="{{uploadpath}}resource/{{res.mypinjian}}" class="mypinjian"></image>
@@ -108,6 +108,10 @@
                 <view class="flex-1 flex-row flex-column">
                     <image src="{{uploadpath}}resource/{{res.shezhi}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">设置</view>
+                </view>
+                <view class="flex-1 flex-row flex-column">
+                    <image src="{{uploadpath}}resource/{{res.activity}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">我的活动</view>
                 </view>
                 <view class="flex-1 flex-row flex-column">
 

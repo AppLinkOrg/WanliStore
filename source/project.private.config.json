@@ -41,6 +41,13 @@
                     "name": "品牌活动",
                     "pathName": "pages/activity/activity",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "积分商城",
+                    "pathName": "pages/integralmall/integralmall",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

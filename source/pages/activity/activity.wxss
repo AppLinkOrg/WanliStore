@@ -1,30 +1,36 @@
 /* pages/activity/activity.wxss */
 .activeliat{
     width: 710rpx;
-    height: 250rpx;
     margin-left: 20rpx;
     margin-bottom: 20rpx;
-    position: relative;
 }
 .activeimg{
     width: 95vw;
     height: 250rpx;
-}
-
-
-.address{
-    width: 120rpx;
-    height: 40rpx;
-    background-color:rgba(255,255,255,0.7);
-    border-radius: 20rpx;
-    position: absolute;
-    right: 5rpx;
-    bottom: 20rpx;
 }
 .sign{
     width: 35rpx;
     height: 35rpx;
 }
 .signmene{
-    font-size: 12px;
+    font-size: 28rpx;
 } 
+.question{
+    font-size: 36rpx;
+}
+.answer{
+    width: 90%;
+    height: 70rpx;
+    border-bottom: 1px solid rgba(225, 227, 230, 0.6);
+    font-size: 28rpx;
+    color: rgba(51, 51, 51, 1);
+}
+.btns {
+    width: 100%rpx;
+    line-height: 92rpx;
+    background: rgba(68, 181, 73, 1);
+    border-radius: 48rpx;
+    color: #FFFFFF;
+    font-size: 32rpx;
+    text-align: center;
+}
