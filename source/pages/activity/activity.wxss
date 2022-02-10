@@ -2,7 +2,7 @@
 .activeliat{
     width: 710rpx;
     margin-left: 20rpx;
-    margin-bottom: 20rpx;
+    margin-bottom: 32rpx;
 }
 .activeimg{
     width: 95vw;
@@ -16,7 +16,7 @@
     font-size: 28rpx;
 } 
 .question{
-    font-size: 36rpx;
+    font-size: 32rpx;
 }
 .answer{
     width: 90%;
@@ -33,4 +33,26 @@
     color: #FFFFFF;
     font-size: 32rpx;
     text-align: center;
+}
+.selectbox{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(51, 51, 51, 0.7);
+    position: absolute;
+    bottom: 0;
+}
+.content{
+    background-color: rgba(242, 242, 242, 1);
+    position: absolute;
+    bottom: 0;
+}
+.selectcontent{
+    width: 750rpx;
+     line-height: 112rpx;
+    background-color: #FFFFFF;
+}
+.disable{
+    height: 180rpx;
+    width: 750rpx;
+    background-color: #FFFFFF;
 }

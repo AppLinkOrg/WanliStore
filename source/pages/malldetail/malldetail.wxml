@@ -5,8 +5,8 @@
     <view class="f-34 margin-right-68">商品详情</view>
     <view class="flex-1"></view>
 </view>
-<view>
 
+<view>
     <swiper class="imgs">
         <swiper-item wx:for="{{info.imglist}}" wx:key='k'>
             <image src="{{uploadpath}}mall/{{item.img}}" class="imgs"></image>

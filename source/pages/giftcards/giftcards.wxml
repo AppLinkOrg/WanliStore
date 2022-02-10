@@ -1,2 +1,13 @@
 <!--pages/giftcards/giftcards.wxml-->
-<view>礼品卡内容</view>
+<view class="flex-row">
+    <view class="flex-1 f-28 text-center">购买礼品卡</view>
+    <view class="flex-1 f-28 text-center">我的礼品卡</view>
+</view>
+<view class="f-36">虎虎生威</view>
+
+
+
+
+
+
+

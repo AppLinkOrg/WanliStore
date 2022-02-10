@@ -10,8 +10,12 @@ import {
   InstApi
 } from "../../apis/inst.api.js";
 import {
-  MallApi
-} from "../../apis/mall.api.js";
+  ActivitysApi
+} from "../../apis/activitys.api.js";
+import { ApiUtil } from "../../apis/apiutil";
+
+
+var WxParse = require('../../wxParse/wxParse.js');
 
 class Content extends AppBase {
   constructor() {
@@ -20,7 +24,7 @@ class Content extends AppBase {
   onLoad(options) {
     this.Base.Page = this;
     wx.setNavigationBarTitle({
-      title: "品鉴活动"
+      title: "活动详情"
     })
     super.onLoad(options);
     this.Base.setMyData({
@@ -32,25 +36,33 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-    var mallapi = new MallApi();
+    var activitysApi = new ActivitysApi();
 
-    mallapi.goodsinfo({
-      id: this.Base.options.id
-    }, (info) => {
-      var typelist = info.specifications_type;
-      for (var i = 0; i < typelist.length; i++) {
-        var list = typelist[i].specificationslist;
-        typelist[i].choose = 0;
-        // for(var j=0;j<list.length;j++){
-        //   list[j].choose=false;
-        // }
-      }
-
+    activitysApi.activityinfo({id:this.Base.options.id},(data)=>{
+      data.content = ApiUtil.HtmlDecode(data.content)
+      WxParse.wxParse('content' , 'html', data.content, that,10)
       this.Base.setMyData({
-        info
-      });
+        data:data
+      })
+    })
 
-    });
+    activitysApi.activitybanner({activity_id:this.Base.options.id},(data)=>{
+      this.Base.setMyData({
+        image:data
+      })
+    })
+    
+    activitysApi.information({activityname:this.Base.options.id},(data)=>{
+      this.Base.setMyData({
+        question:data
+      })
+    })
+
+    activitysApi.select({contentname:3},(data)=>{
+      this.Base.setMyData({
+        select:data
+      })
+    })
 
   }
 

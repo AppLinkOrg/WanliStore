@@ -1,43 +1,46 @@
 <!--pages/activity/activity.wxml-->
-<view class="activeliat">
-    <image src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg" class="activeimg"></image>
-    <view class="flex-row padding-left-10 padding-top-10">
-        <image src="../../images/icons/编组 2@3x.png" class="sign"></image>
-        <view class="signmene">深圳</view>
-        <view class="flex-1"></view>
+<view style="position: relative;">
+    <view class="activeliat">
+        <swiper circular="{{true}}">
+            <swiper-item wx:for="{{image}}" wx:key='k'>
+                <image src="{{uploadpath}}activity/{{item.img}}" class="activeimg" bindtap="tobanner" data-item="{{item}}"></image>
+            </swiper-item>
+        </swiper>
+        <view class="f-36 ">{{data.name}}</view>
+        <view class="question padding-top-40">【活动信息】</view>
+        <view class="f-28 margin-top-16">活动时间：{{data.starttime}}-{{data.endtime}}</view>
+        <view class="f-28 margin-top-16">报名时间：{{data.startbaoming}}-{{data.endbaoming}}</view>
+        <view class="f-28 margin-top-16">活动地点：{{data.sddress}}</view>
+        <view class="f-28 margin-top-16">费用：{{data.money}}</view>
+        <view class="question padding-top-40">【活动内容】</view>
+        <view class="padding-top-16" style="color: #474545;">
+            <import src="../../wxParse/wxParse.wxml" />
+            <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+        </view>
+        <view class="question padding-top-40">【报名信息填写】</view>
+        <view wx:for="{{question}}" wx:key='k'>
+            <view class="question padding-top-40 padding-bottom-40">{{item.name}}</view>
+            <view class="flex-row" wx:if="{{item.isxuan == '是' && item.options.length != 0}}">
+                <input class="answer f-28" type="buttom" bindtap="selected" />
+                <image src="{{uploadpath}}resource/{{res.select}}" style="width: 28rpx; height: 28rpx;"></image>
+            </view>
+            <view wx:else>
+                <input class="answer f-28" type="text" />
+            </view>
+        </view>
+        <view class="btns margin-top-60" bindtap="navigateto" id="/pages/activityinfo/activityinfo">报名</view>
     </view>
-    <view class="f-36 padding-top-50">淼城夜校</view>
-    <view class="padding-top-40" style="color: #474545;">
-        为进一步推动公共文化服务高质量发展，满足市民多样化、品质化、个性化的文化需求，激活三水新城文化板块服务功能。
+    <view class="selectbox" style="display: show;">
+        <view class="content">
+            <view class="" wx:for="{{question}}" wx:key="item">
+                <view wx:for="{{item.options}}" wx:for-item="optionsitem" wx:key="{{optionsitem}}">
+                  <view class="selectcontent f-34 flex-row flex-column">{{optionsitem.name}}</view>  
+                </view>
+            </view>
+            <view class="disable margin-top-16 padding-top-32 f-34 flex-row flex-column">
+            取消
+            </view>
+        </view>
 
-        三水区委宣传部、三水区文化广电旅游体育局、三水区文化馆倾力策划和打造“夜文化·艺课堂”之淼城夜校项目，引导社会各界、热心企业积极参与公共文化服务，赋能文化新城，打造三水文化“朋友圈”，进行文化惠民新一轮发掘与探索。
-
-        2021年三水区文化馆举办了为期4个月的淼城夜校系列活动，以三水区文化馆为主阵地，每周开展超20门课程，受益群众约9600人次，受到了广大市民的热烈反响。2022年，我们不忘初心，三水区文化馆将不断丰富和完善公共文化服务内容，促进文化惠民落到实处，推动社会文明新风尚的传播，真正实现市民活动有去处、服务有保障、精神有寄托！
-
-        【报名规则】
-
-        1.每个人只能报一门课程，请根据每个课程的年龄段要求，填写身份证号码和姓名，选择报名的课程，如未达到要求，将不通过审核，报名不成功。
-
-        2.完成报名后，请等待报名结果通报或留意手机短信通知。
-
-        3.疫情期间，具体上课时间以“佛山市三水区文化馆”微信公众号通知为准，请持续关注我们。
     </view>
-    <view class="padding-top-40">【活动信息】</view>
-    <view class="f-22">活动开始至截止时间：2022-01-28 09:30:00-2022-01-28 17:30:00</view>
-    <view class="f-22">活动报名开始时间至结束时间：2022/01/28-2022/01/28</view>
-    <view class="f-22">活动地点：广东省深圳市龙岗区草铺</view>
-    <view class="question padding-top-40">【报名信息填写】</view>
-    <view class="padding-top-40 padding-bottom-40">您的手机号？</view>
-    <view class="answer">+86  1282882882</view>
-    <view class="padding-top-40 padding-bottom-40">您的姓名？</view>
-    <view class="answer">李先生</view>
-    <view class="padding-top-40 padding-bottom-40">性别</view>
-    <view class="answer flex-row" style="position: relative;">男 <view style="position: absolute; right: 0;">></view></view>
-    
-    <view class="padding-top-40 padding-bottom-40">年龄</view>
-    <view class="answer flex-row" style="position: relative;">九十年代<view style="position: absolute; right: 0;">></view></view>
-    <view class="padding-top-40 padding-bottom-40">所在城市</view>
-    <view class="answer flex-row" style="position: relative;">深圳<view style="position: absolute; right: 0;">></view></view>
-    <view class="padding-bottom-70"></view>
-    <view class="btns margin-top-60" bindtap="navigateto" id="/pages/activityinfo/activityinfo">报名</view>
 </view>

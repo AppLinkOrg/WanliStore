@@ -201,6 +201,9 @@ overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内�
 .f-26{
   font-size: 26rpx !important;
 }
+.f-28{
+  font-size: 28rpx !important;
+}
 .f-32{
   font-size: 32rpx !important;
 }
@@ -322,8 +325,14 @@ button[disabled][type=primary] {
 .padding-top-10{
   padding-top: 10rpx;
 }
+.padding-top-16{
+  padding-top: 16rpx;
+}
 .padding-top-20{
   padding-top: 20rpx;
+}
+.padding-top-32{
+  padding-top: 32rpx;
 }
 .padding-top-40{
   padding-top: 40rpx;
@@ -375,6 +384,9 @@ button[disabled][type=primary] {
 }
 .margin-40{
   margin:40rpx;
+}
+.margin-top-16{
+  margin-top: 16rpx;
 }
 .margin-top-20{
   margin-top:20rpx;

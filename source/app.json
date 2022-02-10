@@ -21,7 +21,8 @@
     "pages/activitylist/activitylist",
     "pages/activity/activity",
     "pages/activityinfo/activityinfo",
-    "pages/integralmall/integralmall"
+    "pages/integralmall/integralmall",
+    "pager/myactivity/myactivity"
 
   ],
   "permission": {
