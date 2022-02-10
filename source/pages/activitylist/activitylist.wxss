@@ -1,0 +1,30 @@
+/* pages/activitylist/activitylist.wxss */
+.activeliat{
+    width: 710rpx;
+    height: 258rpx;
+    margin-left: 20rpx;
+    margin-bottom: 20rpx;
+    position: relative;
+}
+.activeimg{
+    width: 93vw;
+    height: 250rpx;
+}
+
+
+.address{
+    width: 120rpx;
+    height: 40rpx;
+    background-color:rgba(255,255,255,0.7);
+    border-radius: 20rpx;
+    position: absolute;
+    right: 5rpx;
+    bottom: 20rpx;
+}
+.sign{
+    width: 35rpx;
+    height: 35rpx;
+}
+.signmene{
+    font-size: 12px;
+} 

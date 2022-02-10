@@ -1,0 +1,15 @@
+<!--pages/integralmall/integralmall.wxml-->
+<view style="background-image:url({{uploadpath}}resource/{{res.integralmall_img}});background-size:100% 100%" class="topimg ">
+    <view class="jifen" style="margin-top: 26rpx">
+        <!-- {{globalData.Custom.top}}px -->
+        <view class="txt-white" style="margin-left: 20rpx">积分明细</view>
+    </view>
+    <view class="flex-row flex-center">
+        <view class="flex-1"></view>
+        <view class="flex-column">
+            <view class="f-76 txt-white">30</view>
+            <view class="txt-white h5">可用积分</view>
+        </view>
+        <view class="flex-1"></view>
+    </view>
+</view>
