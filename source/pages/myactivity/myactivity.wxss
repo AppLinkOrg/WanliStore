@@ -1,0 +1,6 @@
+/* pages/myactivity/myactivity.wxss */
+.boxcss {
+    width: 33.33%;
+    justify-content: center;
+    color: rgba(136, 136, 136, 1);
+}

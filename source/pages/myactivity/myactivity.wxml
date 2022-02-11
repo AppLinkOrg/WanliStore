@@ -1,0 +1,6 @@
+<!--pages/myactivity/myactivity.wxml-->
+<view class="flex-row">
+<view class="flex-row f-28 boxcss">已报名</view>
+<view class="flex-row f-28 boxcss" >已取消</view>
+<view class="flex-row f-28 boxcss">已结束</view>
+</view>
