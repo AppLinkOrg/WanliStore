@@ -33,24 +33,7 @@ import {
     onMyShow() {
       var that = this;
       var mallapi = new MallApi();
-  
-      mallapi.goodsinfo({
-        id: this.Base.options.id
-      }, (info) => {
-        var typelist = info.specifications_type;
-        for (var i = 0; i < typelist.length; i++) {
-          var list = typelist[i].specificationslist;
-          typelist[i].choose = 0;
-          // for(var j=0;j<list.length;j++){
-          //   list[j].choose=false;
-          // }
-        }
-  
-        this.Base.setMyData({
-          info
-        });
-  
-      });
+
   
     }
 

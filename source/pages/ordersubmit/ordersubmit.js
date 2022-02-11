@@ -127,6 +127,7 @@ import {
       var orderapi = new OrderApi();
       var wechatapi = new WechatApi();
       orderapi.createorder({
+        
         goods_id:this.Base.options.goodsid,
         sendtype:data.sendtype,
         price:data.info.price,

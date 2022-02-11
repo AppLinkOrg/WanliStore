@@ -109,7 +109,7 @@
                     <image src="{{uploadpath}}resource/{{res.shezhi}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">设置</view>
                 </view>
-                <view class="flex-1 flex-row flex-column">
+                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/myactivity/myactivity">
                     <image src="{{uploadpath}}resource/{{res.activity}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">我的活动</view>
                 </view>

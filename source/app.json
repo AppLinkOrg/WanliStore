@@ -22,8 +22,9 @@
     "pages/activity/activity",
     "pages/activityinfo/activityinfo",
     "pages/integralmall/integralmall",
-    "pager/myactivity/myactivity"
-
+    "pages/myactivity/myactivity",
+    "pages/activitysuccess/activitysuccess"
+  
   ],
   "permission": {
     "scope.userLocation": {

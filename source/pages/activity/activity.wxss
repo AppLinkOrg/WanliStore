@@ -39,12 +39,11 @@
     height: 100vh;
     background-color: rgba(51, 51, 51, 0.7);
     position: absolute;
-    bottom: 0;
 }
 .content{
     background-color: rgba(242, 242, 242, 1);
     position: absolute;
-    bottom: 0;
+    bottom: 0rpx;
 }
 .selectcontent{
     width: 750rpx;
