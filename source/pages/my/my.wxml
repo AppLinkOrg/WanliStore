@@ -82,7 +82,7 @@
             <view class="f-36 txt-66" style="font-weight: 500;">会员服务</view>
             <view class="height-40"></view>
             <view class="flex-row flex-center">
-                <view class="flex-1 flex-row flex-column">
+                <view class="flex-1 flex-row flex-column" bindtap="notdata">
                     <image src="{{uploadpath}}resource/{{res.jifenshangcheng}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">积分商城</view>
                 </view>

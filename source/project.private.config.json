@@ -69,6 +69,20 @@
                     "name": "",
                     "pathName": "pages/myactivity/myactivity",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardsinfo/giftcardsinfo",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/ordersubmit/ordersubmit",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

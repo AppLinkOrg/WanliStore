@@ -21,14 +21,19 @@ import {
 import { ApiUtil } from "../../apis/apiutil";
 
 
-var WxParse = require('../../wxParse/wxParse.js');
+// var WxParse = require('../../wxParse/wxParse.js');
 
 class Content extends AppBase {
   constructor() {
     super();
   }
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
   onLoad(options) {
     this.Base.Page = this;
+    this.Base.ActivitysApi = this.ActivitysApi
     wx.setNavigationBarTitle({
       title: "活动详情"
     })
@@ -48,13 +53,18 @@ class Content extends AppBase {
       number: 1
     })
   }
+  
+    /**
+     * 生命周期函数--监听页面显示
+     */
   onMyShow() {
     var that = this;
     var activitysApi = new ActivitysApi();
 
     activitysApi.activityinfo({id:this.Base.options.id},(data)=>{
+      // 将HTML中的符号转义，不然会以文本的形式输出
       data.content = ApiUtil.HtmlDecode(data.content)
-      WxParse.wxParse('content' , 'html', data.content, that,10)
+      // WxParse.wxParse('content' , 'html', data.content, that,10) 
       this.Base.setMyData({
         data:data
       })
@@ -135,10 +145,11 @@ console.log(question)
           payret.complete = function(e){
             if (e.errMsg == "requestPayment:ok") {
               wx.reLaunch({
-                url: '/pages/paysuccess/paysuccess?amount='+data.amount,
+                url: '/pages/activitysuccess/activitysuccess',
               })
             }
           }
+          // 发起微信支付
           wx.requestPayment(payret);
         })
       }else {
@@ -155,5 +166,6 @@ body.onMyShow = content.onMyShow;
 body.bindPickerChange = content.bindPickerChange;
 body.bindKeyInput = content.bindKeyInput;
 body.formSubmit = content.formSubmit;
+body.bindpay = content.bindpay;
 
 Page(body)

@@ -1,0 +1,49 @@
+.navbox {
+    width: 100%;
+    height: 112rpx;
+}
+
+.titlebox {
+    line-height: 32rpx;
+    margin: 32rpx 0 16rpx 0;
+}
+
+.line {
+    width: 46rpx;
+    height: 4rpx;
+    background-color: rgba(68, 181, 73, 1);
+}
+
+.cards {
+    width: 700rpx;
+    height: 200rpx;
+    background-color: #fff;
+    border-radius: 32rpx;
+    margin-bottom: 24rpx;
+}
+
+.cardsimg {
+    width: 236rpx;
+    height: 140rpx;
+    border-radius: 12rpx;
+    margin: 30rpx 16rpx 30rpx 30rpx;
+}
+
+.contentbox {
+    margin: 30rpx 32rpx 30rpx 0;
+
+}
+
+.explain {
+    color: rgba(153, 153, 153, 1);
+    margin-top: 26rpx;
+}
+
+.bottombox {
+    position: absolute;
+    bottom: 44rpx;
+}
+
+.bottomcontrnt {
+    color: rgba(153, 153, 153, 1);
+}

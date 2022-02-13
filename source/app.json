@@ -17,13 +17,14 @@
     "pages/orderdetail/orderdetail",
     "pages/addpingjia/addpingjia",
     "pages/refundlist/refundlist",
-    "pages/giftcards/giftcards",
     "pages/activitylist/activitylist",
     "pages/activity/activity",
     "pages/activityinfo/activityinfo",
     "pages/integralmall/integralmall",
     "pages/myactivity/myactivity",
-    "pages/activitysuccess/activitysuccess"
+    "pages/activitysuccess/activitysuccess",
+    "pages/giftcards/giftcards",
+    "pages/giftcardsinfo/giftcardsinfo"
   
   ],
   "permission": {
@@ -63,5 +64,6 @@
       }
     ]
   },
+  
   "sitemapLocation": "sitemap.json"
 }

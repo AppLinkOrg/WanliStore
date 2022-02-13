@@ -123,11 +123,11 @@ import {
       if(data.sendtype=='B' && data.store_id<=0){
         this.Base.toast('请选择门店地址');
         return
+   
       }
       var orderapi = new OrderApi();
       var wechatapi = new WechatApi();
-      orderapi.createorder({
-        
+      orderapi.createorder({    
         goods_id:this.Base.options.goodsid,
         sendtype:data.sendtype,
         price:data.info.price,

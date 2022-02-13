@@ -21,9 +21,15 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
   }
+  notdata() {
+    this.Base.toast('暂未开放');
+  }
 }
+
+
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
+body.notdata = content.notdata;
 Page(body)

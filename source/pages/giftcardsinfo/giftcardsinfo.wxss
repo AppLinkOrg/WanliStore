@@ -1,0 +1,11 @@
+/* pages/giftcardsinfo/giftcardsinfo.wxss */
+.img{
+    width: 700rpx;
+    height: 416rpx;
+    border-radius: 32rpx;
+}
+.f{
+    font-size: 28rpx;
+    line-height: 44rpx;
+    color: rgba(51, 51, 51, 1);
+}

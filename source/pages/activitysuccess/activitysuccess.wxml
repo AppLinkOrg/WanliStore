@@ -4,7 +4,5 @@
     src="{{uploadpath}}resource/{{res.successbaoming}}"
     ></image>
     <view class="f-60" style="margin-top: 72rpx;">报名成功</view>
-    <button style="height: 92rpx; width: 520rpx; background: rgba(68, 181, 73, 1); margin-top: 298rpx;"
-    bindtap="navigateto" id="/pages/activity/activity"
-    >返回</button>
+    <navigator class="activeback f-32 txt-white" open-type="navigateBack" delta="1" >返回</navigator>
 </view>

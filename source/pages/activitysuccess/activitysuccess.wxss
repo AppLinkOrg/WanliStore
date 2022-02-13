@@ -1,1 +1,9 @@
 /* pages/activitysuccess/activitysuccess.wxss */
+.activeback {
+    line-height: 92rpx;
+    width: 520rpx;
+    text-align: center;
+    background: rgba(68, 181, 73, 1);
+    margin-top: 268rpx;
+    border-radius: 8rpx;
+}
