@@ -42,7 +42,6 @@ import { ActivitysApi } from "../../apis/activitys.api";
   
     }
 
-  
   }
   
   var content = new Content();
