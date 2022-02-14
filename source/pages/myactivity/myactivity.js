@@ -35,8 +35,9 @@ import { ActivitysApi } from "../../apis/activitys.api";
       var that = this;
       var activitysApi = new ActivitysApi()
       activitysApi.baomingxingxi({},(e)=>{
-        console.log("有什么")
-      console.log(e)
+        this.Base.setMyData({
+          baoming: e
+        })
       })
   
     }
