@@ -1,13 +1,13 @@
 <!--pages/giftcards/giftcards.wxml-->
+
 <view class="flex-row flex-column" style="background-color: rgba(243, 246, 247, 1); position: relative; min-height: 100vh;">
     <view class="flex-row navbox">
-        <view class="flex-1  flex-row flex-column">
-            <view class="f-28 text-center titlebox">我的礼品卡</view>
-            <view class="line"></view>
+        <view class="flex-1  flex-row flex-column" wx:for="{{typelist}}" wx:key='k' bindtap="switchtype" id="{{item.value}}">
+            <view class="f-28 text-center titlebox">{{item.name}}</view>
+            <view class="line {{item.value==flag?'line_color':''}}"></view>
         </view>
-        <view class="flex-1 f-28 text-center titlebox">兑换礼品卡</view>
     </view>
-    <view style="margin-bottom: 92rpx;">
+    <!-- <view style="margin-bottom: 92rpx;">
         <view class="flex-row cards" bindtap="navigateto" id="/pages/giftcardsinfo/giftcardsinfo">
             <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
             <view class="contentbox flex-1">
@@ -93,13 +93,24 @@
 
         </view>
        
-    </view>
+    </view> 
     <view class="flex-row bottombox">
         <view class="f-24 bottomcontrnt">购买记录</view>
         <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
         <view class="f-24 bottomcontrnt">收送记录</view>
         <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
         <view class="f-24 bottomcontrnt">使用记录</view>
+    </view>-->
+    <view style=" background: rgba(255, 255, 255, 1); min-height:1330rpx;">
+        <input type="text" value="请输入卡号"/>
+        <input type="text" value="请输入卡密"/>
+        <view>兑换须知</view>
+        <view>文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案</view>
+        <view>使用须知</view>
+        <view>文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案</view>
+
+        <button>确认兑换</button>
     </view>
+    
 
 </view>

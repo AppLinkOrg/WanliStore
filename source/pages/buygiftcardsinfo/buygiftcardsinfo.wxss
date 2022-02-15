@@ -1,0 +1,17 @@
+/* pages/buygiftcardsinfo/buygiftcardsinfo.wxss */
+.img {
+    width: 236rpx;
+    height: 140rpx;
+    border-radius: 12rpx;
+    display: inline-block;
+    margin-right: 16rpx;
+}
+
+.pay {
+    width: 678rpx;
+    height: 92rpx;
+    background: rgba(68, 181, 73, 1);
+    border-radius: 48rpx;
+    position: absolute;
+    bottom: 70rpx;
+}

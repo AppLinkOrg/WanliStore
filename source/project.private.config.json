@@ -83,6 +83,48 @@
                     "name": "",
                     "pathName": "pages/ordersubmit/ordersubmit",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/orderlist/orderlist",
+                    "query": "type=B",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcards/giftcards",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/buygiftcards/buygiftcards",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/buygiftcards/buygiftcards",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/buygiftcards/buygiftcards",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

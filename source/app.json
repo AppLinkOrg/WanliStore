@@ -24,8 +24,11 @@
     "pages/myactivity/myactivity",
     "pages/activitysuccess/activitysuccess",
     "pages/giftcards/giftcards",
-    "pages/giftcardsinfo/giftcardsinfo"
-  
+    "pages/giftcardsinfo/giftcardsinfo",
+    "pages/buygiftcards/buygiftcards",
+    "pages/buygiftcardsinfo/buygiftcardsinfo",
+    "pages/buygiftcardssuccess/buygiftcardssuccess",
+    "pages/givegiftcards/givegiftcards"  
   ],
   "permission": {
     "scope.userLocation": {

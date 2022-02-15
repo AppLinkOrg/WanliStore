@@ -11,6 +11,8 @@
 .line {
     width: 46rpx;
     height: 4rpx;
+}
+.line_color{
     background-color: rgba(68, 181, 73, 1);
 }
 

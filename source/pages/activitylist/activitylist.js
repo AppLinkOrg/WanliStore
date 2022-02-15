@@ -16,6 +16,9 @@ import {
   import {
     ActivitysApi
   } from "../../apis/activitys.api.js";
+import{
+  MemberApi
+}from "../../apis/member.api";
 
   class Content extends AppBase {
     constructor() {
@@ -37,10 +40,16 @@ import {
     onMyShow() {
       var that = this;
       var activitysApi = new ActivitysApi();
-  
+      var memberapi = new MemberApi();
       activitysApi.activitylist({},(list)=>{
         this.Base.setMyData({
           activitylist:list
+        })
+      })
+
+      memberapi.info({},(e)=>{
+        this.Base.setMyData({
+          member:e
         })
       })
     }

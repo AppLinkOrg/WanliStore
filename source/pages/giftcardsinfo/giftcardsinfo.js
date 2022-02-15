@@ -24,6 +24,7 @@ import {
       })
       super.onLoad(options);
       this.Base.setMyData({
+         
       })
     }
     onMyShow() {

@@ -1,0 +1,7 @@
+/* pages/buygiftcards/buygiftcards.wxss */
+/* pages/buygiftcards/buygiftcards.wxss */
+.img{
+    width: 336rpx;
+    height: 200rpx;
+    border-radius: 12rpx;
+}

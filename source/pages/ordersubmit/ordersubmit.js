@@ -116,6 +116,7 @@ import {
     }
     bindpay(){
       var data = this.Base.getMyData();
+      
       if(data.sendtype=='A' && data.address_id<=0){
            this.Base.toast('请选择地址');
            return

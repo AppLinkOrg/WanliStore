@@ -25,28 +25,38 @@ import { ActivitysApi } from "../../apis/activitys.api";
       })
       super.onLoad(options);
       this.Base.setMyData({
-        nowindex: 1,
-        overlay: true,
-        specificationsinfo: null,
-        number: 1
-      })
+        typelist:[
+            {name:'已报名',value:'A'},
+            {name:'已取消',value:'B'},
+            {name:'已结束',value:'C'}
+        ],
+        statusbaoming:this.Base.options.type
+    })
     }
     onMyShow() {
       var that = this;
       var activitysApi = new ActivitysApi()
-      activitysApi.baomingxingxi({},(e)=>{
+      var statusbaoming = this.Base.getMyData().statusbaoming;
+      activitysApi.baominglist({statusbaoming:statusbaoming},(list)=>{
         this.Base.setMyData({
-          baoming: e
+          baominglist:list
         })
       })
-  
     }
 
+    switchtype(e){
+      var statusbaoming = e.currentTarget.id;
+      this.Base.setMyData({
+        statusbaoming
+      })
+      this.onMyShow();
+  }
   }
   
   var content = new Content();
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
+  body.switchtype = content.switchtype;
 
   Page(body)

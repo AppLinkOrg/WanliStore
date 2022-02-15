@@ -1,6 +1,23 @@
 <!--pages/myactivity/myactivity.wxml-->
-<view class="flex-row">
-<view class="flex-row f-28 boxcss">已报名</view>
-<view class="flex-row f-28 boxcss" >已取消</view>
-<view class="flex-row f-28 boxcss">已结束</view>
+<view class="flex-row flex-center  fixtop">
+    <view wx:for="{{typelist}}" wx:key='k' bindtap="switchtype" id="{{item.value}}" class="flex-1 flex-row flex-column">
+        <view class="f-28  {{item.value==statusbaoming?'txt-33 fw500':'txt-88'}}">{{item.name}}</view>
+        <view class="typeline {{item.value==statusbaoming?'typelist_act':''}}"></view>
+    </view>
+</view>
+
+<view class="height-100"></view>
+
+<view>
+    <view wx:for="{{baominglist}}" wx:key='k' class="activeliat" bindtap="navigateto" bindtap="navigateto" id="/pages/activity/activity?id={{item.id}}">
+        <view >
+        <image src="/images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg" class="activeimg"></image>
+        <view class="flex-row flex-center address">
+        <view class="flex-1"></view>
+        <image src="{{uploadpath}}resource/{{res.address}}" class="sign"></image>
+        <view class="signmene">深圳</view>
+        <view class="flex-1"></view>
+    </view> 
+    </view>
+    </view>
 </view>

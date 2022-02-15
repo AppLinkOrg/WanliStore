@@ -25,7 +25,8 @@ import {
         nowindex: 1,
         overlay: true,
         specificationsinfo: null,
-        number: 1
+        number: 1,
+        id:this.Base.options.id
       })
     }
     onMyShow() {

@@ -234,6 +234,9 @@ overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内�
 .f-24 {
   font-size: 24rpx !important;
 }
+.f-40 {
+  font-size: 40rpx !important;
+}
 .f-80 {
   font-size: 80rpx !important;
 }
@@ -748,4 +751,12 @@ border-radius: 4rpx;
 
 .txt-c9 {
   color: #C94739;
+}
+.activeback {
+  line-height: 92rpx;
+  width: 520rpx;
+  text-align: center;
+  background: rgba(68, 181, 73, 1);
+  margin-top: 268rpx;
+  border-radius: 8rpx;
 }

@@ -18,9 +18,8 @@
       </view>
       <image src="{{uploadpath}}resource/{{res.timian}}" class="timian"></image>
     </view>
-    <view class="rightbox margin-top-6">
+    <view class="rightbox margin-top-6" bindtap="navigateto" id='/pages/buygiftcards/buygiftcards'>
       <view class="height-40"></view>
-
       <view class="margin-left-28">
         <view class="txt-bold">购礼品卡</view>
         <view class="h6 txt-33">面传情 心意礼</view>

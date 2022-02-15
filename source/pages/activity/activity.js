@@ -19,7 +19,7 @@ import {
   ActivitysApi
 } from "../../apis/activitys.api.js";
 import { ApiUtil } from "../../apis/apiutil";
-
+// import {my} from "../my";
 
 // var WxParse = require('../../wxParse/wxParse.js');
 
@@ -41,9 +41,8 @@ class Content extends AppBase {
       paytype:'A',
       orderno:0,
       price:0,
-      refund_time:0,
-      statusbaoming:'A',
-      refund_id:0
+      statusbaoming:'D',
+      refund_id:0,
   })
     super.onLoad(options);
     this.Base.setMyData({
@@ -61,6 +60,7 @@ class Content extends AppBase {
     var that = this;
     var activitysApi = new ActivitysApi();
 
+    // 活动详情内容
     activitysApi.activityinfo({id:this.Base.options.id},(data)=>{
       // 将HTML中的符号转义，不然会以文本的形式输出
       data.content = ApiUtil.HtmlDecode(data.content)
@@ -70,22 +70,27 @@ class Content extends AppBase {
       })
     })
 
+    // 活动详情内容banner
     activitysApi.activitybanner({activity_id:this.Base.options.id},(data)=>{
       this.Base.setMyData({
         image:data
       })
     })
     
+    // 报名信息
     activitysApi.information({activityname:this.Base.options.id},(data)=>{
       for(let item of data){
         item.value='';
       }
+      
+      console.log(data)
       this.Base.setMyData({
         question:data
       })
     })
 
   }
+
 
   bindPickerChange(e) {
     console.log('picker发送选择改变，携带值为', e);
@@ -102,61 +107,77 @@ class Content extends AppBase {
     var question = this.Base.getMyData().question;
     var id = e.currentTarget.id;
     question[id].value = e.detail.value
+    console.log(e)
     this.Base.setMyData({
       question
     })
   }
 
   formSubmit(e) {
-    var question = this.Base.getMyData().question;
-console.log(question)
+    var data = this.Base.getMyData();
+    var wechatapi = new WechatApi();
     var activitysApi = new ActivitysApi();
-    activitysApi.baomingxingxi({
-      activity_id:this.Base.options.id,
-   
-      phone:this.Base.getMyData().memberinfo.mobile,
-      question: JSON.stringify(question),
-    },(data)=>{
-      this.Base.setMyData({
-        baoming:data
-      })
+    var question = this.Base.getMyData().question;
+    console.log('在哪')
+    console.log(question)
+    var that = this;
+
+    // 判断内容是否填完
+    let keys = Object.keys(question)
+    var arr = question.filter(item =>{
+      return item.value.length == 0 && item.write == 'A'
     })
+    if(arr.length>0){
+    this.Base.toast('内容未填写完');
+      return
+    }
+    console.log(arr);
+    // return;
+      // if(item.value.length == 0 && item.write == 'A'){
+      //   this.Base.toast('内容未填写完');
+      //   return
+      // }
+  activitysApi.baomingxingxi({
+    // activity_id:this.Base.options.name,
+    paytype:data.paytype,
+    price:data.price,
+    statusbaoming:data.statusbaoming,
+    refund_id:data.refund_id,
+    activity_id:this.Base.options.id,
+    phone:this.Base.getMyData().memberinfo.mobile,
+    question: JSON.stringify(question),
+  },(ret)=>{
+    if(ret.code=='0'){
+      wechatapi.baomingpay({id:ret.return},(payret)=>{
+        payret.complete = function(e){
+          if (e.errMsg == "requestPayment:ok") {
+            wx.reLaunch({
+              url: '/pages/activitysuccess/activitysuccess?id='+that.Base.options.id,
+            })
+          }
+        }
+        // 发起微信支付
+          wx.requestPayment(payret);         
+      })
+    }else {
+      this.Base.toast(ret.result);
+    }
+  })
     var baoming = this.Base.getMyData().baoming;
     console.log('zheshishenm ' +baoming)
     console.log(e)
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    console.log(e.detail.value)
+
   }
 
-  bindpay(){
-    var data = this.Base.getMyData();
-    var orderapi = new OrderApi();
-    var wechatapi = new WechatApi();
-    orderapi.createorder({
-      activity_id:this.Base.options.name,
-      paytype:data.paytype,
-      orderno:data.orderno,
-      price:data.price,
-      refund_time:data.refund_id,
-      statusbaoming:data.statusbaoming,
-      refund_id:data.refund_id
-    },(ret)=>{
-      if(ret.code=='0'){
-        wechatapi.prepay({id:ret.return},(payret)=>{
-          payret.complete = function(e){
-            if (e.errMsg == "requestPayment:ok") {
-              wx.reLaunch({
-                url: '/pages/activitysuccess/activitysuccess',
-              })
-            }
-          }
-          // 发起微信支付
-          wx.requestPayment(payret);
-        })
-      }else {
-        this.Base.toast(ret.result);
-      }
+  formReset(e) {
+    console.log('form发生了reset事件，携带数据为：', e.detail.value)
+    this.setData({
+      chosen: ''
     })
   }
+
 }
 
 var content = new Content();
@@ -166,6 +187,8 @@ body.onMyShow = content.onMyShow;
 body.bindPickerChange = content.bindPickerChange;
 body.bindKeyInput = content.bindKeyInput;
 body.formSubmit = content.formSubmit;
+body.formReset = Content.formReset;
 body.bindpay = content.bindpay;
+
 
 Page(body)

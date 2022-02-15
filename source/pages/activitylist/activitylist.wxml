@@ -1,6 +1,6 @@
 <!--pages/activitylist/activitylist.wxml-->
 <view class="activeliat" bindtap="navigateto" id="/pages/activity/activity?id={{item.id}}" wx:for="{{activitylist}}" wx:key='k'>
-    <view >
+    <view   open-type="getUserInfo"  bindtap="{{member.nickName == '' ? 'bindgetUserProfile' : '' }}"  >
         <image src="{{uploadpath}}activity/{{item.listimg}}" class="activeimg"></image>
         <view class="flex-row flex-center address">
         <view class="flex-1"></view>

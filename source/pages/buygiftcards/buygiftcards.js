@@ -6,13 +6,10 @@ import {
   import {
     ApiConfig
   } from "../../apis/apiconfig";
-  import {
-    InstApi
-  } from "../../apis/inst.api.js";
-  import {
-    MallApi
-  } from "../../apis/mall.api.js";
-  
+  import{
+    GiftcardsApi
+  }from "../../apis/giftcards.api"
+
   class Content extends AppBase {
     constructor() {
       super();
@@ -20,31 +17,28 @@ import {
     onLoad(options) {
       this.Base.Page = this;
       wx.setNavigationBarTitle({
-        title: "礼品卡"
+        title: '礼品卡',
       })
       super.onLoad(options);
       this.Base.setMyData({
-        typelist:[
-          {name:'我的礼品卡',value:'A'},
-          {name:'兑换礼品卡',value:'B'}
-      ],
-      flag : 'A',
+        
       })
     }
     onMyShow() {
-      var that = this;
-      var mallapi = new MallApi();
-
-  
-    }
-    switchtype(e){
-      
-      this.Base.setMyData({
-          orderstatus
+    //   var that = this;
+      var giftcardsapi = new GiftcardsApi();
+      giftcardsapi.giftcardtype({type_id:this.Base.options.id},(e)=>{
+        this.Base.setMyData({
+            cardtype:e
+        })
       })
-      this.onMyShow();
+      giftcardsapi.giftcardlist({list_is:this.Base.options.id},(e)=>{
+        this.Base.setMyData({
+            cardlist:e
+        })
+      })
     }
-  
+
   }
   
   var content = new Content();

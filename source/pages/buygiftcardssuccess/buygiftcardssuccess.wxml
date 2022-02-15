@@ -1,0 +1,6 @@
+<!--pages/buygiftcardssuccess/buygiftcardssuccess.wxml-->
+<view class="flex-row flex-column">
+    <image style="width: 340rpx; height: 340rpx; margin-top: 140rpx;" src="{{uploadpath}}resource/{{res.buygiftcardsucess}}"></image>
+    <view class="f-60" style="margin-top: 72rpx;">购买成功</view>
+    <view class="activeback f-32 txt-white" bindtap="navigateto" id="/pages/buygiftcards/buygiftcards">返回</view>
+</view>

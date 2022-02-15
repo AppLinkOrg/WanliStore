@@ -11,7 +11,7 @@
         <view class="f-28 margin-top-16">活动时间：{{data.starttime}}-{{data.endtime}}</view>
         <view class="f-28 margin-top-16">报名时间：{{data.startbaoming}}-{{data.endbaoming}}</view>
         <view class="f-28 margin-top-16">活动地点：{{data.sddress}}</view>
-        <view class="f-28 margin-top-16">费用：{{data.money}}</view>
+        <view class="f-28 margin-top-16">费用：{{data.price}}</view>
         <view class="question padding-top-40">【活动内容】</view>
         <view class="padding-top-16" style="color: #474545;">
             <!-- <import src="../../wxParse/wxParse.wxml" />
@@ -32,13 +32,15 @@
                     <input name="{{index}}" placeholder="请输入" bindinput="bindKeyInput" id="{{index}}" class="answer f-28" type="text" />
                 </view>
             </view>
-            <view>
+            <view >
                 <view >
-                    <button bindtap="{{data.money == 0 ? 'navigateto' : 'bindpay' }}" id="/pages/activitysuccess/activitysuccess?statusbaoming='A'" class="btns margin-top-60" formType="submit">报名</button>
+                    <button   class="btns margin-top-60" formType="submit"  wx:if="{{statusbaoming=='D'}}">报名</button>
+                    
+                </view>
+                <view >
+                    <button class="btns margin-top-60" formType="submit" wx:if="{{statusbaoming=='D'}}" >取消报名</button>
                 </view>
             </view>
-            <!-- bindtap="navigateto" id="/pages/activitysuccess/activitysuccess" -->
-            <!-- <button class="btns margin-top-60" style="margin: 30rpx 0" formType="reset">取消报名</button> -->
         </form>
     </view>
 </view>
