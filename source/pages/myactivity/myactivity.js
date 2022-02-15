@@ -44,19 +44,19 @@ import { ActivitysApi } from "../../apis/activitys.api";
       })
     }
 
-    switchtype(e){
-      var statusbaoming = e.currentTarget.id;
-      this.Base.setMyData({
-        statusbaoming
-      })
-      this.onMyShow();
-  }
+  //   switchtype(e){
+  //     var statusbaoming = e.currentTarget.id;
+  //     this.Base.setMyData({
+  //       statusbaoming
+  //     })
+  //     this.onMyShow();
+  // }
   }
   
   var content = new Content();
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
-  body.switchtype = content.switchtype;
+  // body.switchtype = content.switchtype;
 
   Page(body)

@@ -49,3 +49,14 @@
 .bottomcontrnt {
     color: rgba(153, 153, 153, 1);
 }
+.inputbox{
+    width: 640rpx;
+    height: 96rpx;
+    border: 2rpx solid rgba(204, 204, 204, 1);
+    border-radius: 8rpx;
+    margin-bottom: 40rpx;
+}
+.text{
+    font-size: 28rpx;
+    margin-bottom: 16rpx;
+}

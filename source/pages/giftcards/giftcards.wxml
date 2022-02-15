@@ -7,110 +7,119 @@
             <view class="line {{item.value==flag?'line_color':''}}"></view>
         </view>
     </view>
-    <!-- <view style="margin-bottom: 92rpx;">
-        <view class="flex-row cards" bindtap="navigateto" id="/pages/giftcardsinfo/giftcardsinfo">
-            <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
-            <view class="contentbox flex-1">
-                <view class="f-32" style="font-weight: 700;">面值￥150</view>
-                <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
-                    <view class="f-24">余额：150元</view>
-                    <view class="f-24">未使用</view>
+
+    <view class="flex-row flex-column " style="display: none;">
+        <view style="margin-bottom: 92rpx; ">
+            <view class="flex-row cards" bindtap="navigateto" id="/pages/giftcardsinfo/giftcardsinfo">
+                <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
+                <view class="contentbox flex-1">
+                    <view class="f-32" style="font-weight: 700;">面值￥150</view>
+                    <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
+                        <view class="f-24">余额：150元</view>
+                        <view class="f-24">未使用</view>
+                    </view>
+                    <view class="f-20 explain">自绑定之日起3年内有效</view>
                 </view>
-                <view class="f-20 explain">自绑定之日起3年内有效</view>
+
+            </view>
+            <view class="flex-row cards">
+                <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
+                <view class="contentbox flex-1">
+                    <view class="f-32" style="font-weight: 700;">面值￥150</view>
+                    <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
+                        <view class="f-24">余额：150元</view>
+                        <view class="f-24">已使用</view>
+                    </view>
+                    <view class="f-20 explain">自绑定之日起3年内有效</view>
+                </view>
+
+            </view>
+            <view class="flex-row cards">
+                <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
+                <view class="contentbox flex-1">
+                    <view class="f-32" style="font-weight: 700;">面值￥150</view>
+                    <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
+                        <view class="f-24">余额：150元</view>
+                        <view class="f-24">已使用</view>
+                    </view>
+                    <view class="f-20 explain">自绑定之日起3年内有效</view>
+                </view>
+
+            </view>
+            <view class="flex-row cards">
+                <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
+                <view class="contentbox flex-1">
+                    <view class="f-32" style="font-weight: 700;">面值￥150</view>
+                    <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
+                        <view class="f-24">余额：150元</view>
+                        <view class="f-24">已使用</view>
+                    </view>
+                    <view class="f-20 explain">自绑定之日起3年内有效</view>
+                </view>
+
+            </view>
+            <view class="flex-row cards">
+                <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
+                <view class="contentbox flex-1">
+                    <view class="f-32" style="font-weight: 700;">面值￥150</view>
+                    <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
+                        <view class="f-24">余额：150元</view>
+                        <view class="f-24">已使用</view>
+                    </view>
+                    <view class="f-20 explain">自绑定之日起3年内有效</view>
+                </view>
+
+            </view>
+            <view class="flex-row cards">
+                <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
+                <view class="contentbox flex-1">
+                    <view class="f-32" style="font-weight: 700;">面值￥150</view>
+                    <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
+                        <view class="f-24">余额：150元</view>
+                        <view class="f-24">已使用</view>
+                    </view>
+                    <view class="f-20 explain">自绑定之日起3年内有效</view>
+                </view>
+
+            </view>
+            <view class="flex-row cards">
+                <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
+                <view class="contentbox flex-1">
+                    <view class="f-32" style="font-weight: 700;">面值￥150</view>
+                    <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
+                        <view class="f-24">余额：150元</view>
+                        <view class="f-24">已使用</view>
+                    </view>
+                    <view class="f-20 explain">自绑定之日起3年内有效</view>
+                </view>
+
             </view>
 
         </view>
-        <view class="flex-row cards">
-            <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
-            <view class="contentbox flex-1">
-                <view class="f-32" style="font-weight: 700;">面值￥150</view>
-                <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
-                    <view class="f-24">余额：150元</view>
-                    <view class="f-24">已使用</view>
-                </view>
-                <view class="f-20 explain">自绑定之日起3年内有效</view>
-            </view>
-
+        <view class="flex-row bottombox">
+            <view class="f-24 bottomcontrnt">购买记录</view>
+            <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
+            <view class="f-24 bottomcontrnt">收送记录</view>
+            <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
+            <view class="f-24 bottomcontrnt">使用记录</view>
         </view>
-        <view class="flex-row cards">
-            <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
-            <view class="contentbox flex-1">
-                <view class="f-32" style="font-weight: 700;">面值￥150</view>
-                <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
-                    <view class="f-24">余额：150元</view>
-                    <view class="f-24">已使用</view>
-                </view>
-                <view class="f-20 explain">自绑定之日起3年内有效</view>
-            </view>
-
-        </view>
-        <view class="flex-row cards">
-            <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
-            <view class="contentbox flex-1">
-                <view class="f-32" style="font-weight: 700;">面值￥150</view>
-                <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
-                    <view class="f-24">余额：150元</view>
-                    <view class="f-24">已使用</view>
-                </view>
-                <view class="f-20 explain">自绑定之日起3年内有效</view>
-            </view>
-
-        </view>
-        <view class="flex-row cards">
-            <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
-            <view class="contentbox flex-1">
-                <view class="f-32" style="font-weight: 700;">面值￥150</view>
-                <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
-                    <view class="f-24">余额：150元</view>
-                    <view class="f-24">已使用</view>
-                </view>
-                <view class="f-20 explain">自绑定之日起3年内有效</view>
-            </view>
-
-        </view>
-        <view class="flex-row cards">
-            <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
-            <view class="contentbox flex-1">
-                <view class="f-32" style="font-weight: 700;">面值￥150</view>
-                <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
-                    <view class="f-24">余额：150元</view>
-                    <view class="f-24">已使用</view>
-                </view>
-                <view class="f-20 explain">自绑定之日起3年内有效</view>
-            </view>
-
-        </view>
-        <view class="flex-row cards">
-            <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
-            <view class="contentbox flex-1">
-                <view class="f-32" style="font-weight: 700;">面值￥150</view>
-                <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
-                    <view class="f-24">余额：150元</view>
-                    <view class="f-24">已使用</view>
-                </view>
-                <view class="f-20 explain">自绑定之日起3年内有效</view>
-            </view>
-
-        </view>
-       
-    </view> 
-    <view class="flex-row bottombox">
-        <view class="f-24 bottomcontrnt">购买记录</view>
-        <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
-        <view class="f-24 bottomcontrnt">收送记录</view>
-        <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
-        <view class="f-24 bottomcontrnt">使用记录</view>
-    </view>-->
-    <view style=" background: rgba(255, 255, 255, 1); min-height:1330rpx;">
-        <input type="text" value="请输入卡号"/>
-        <input type="text" value="请输入卡密"/>
-        <view>兑换须知</view>
-        <view>文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案</view>
-        <view>使用须知</view>
-        <view>文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案</view>
-
-        <button>确认兑换</button>
     </view>
-    
+    <view >
+        <view class="flex-row flex-column" style=" background: rgba(255, 255, 255, 1); min-height:90vh; width: 100vw;">
+            <view style="width: 645rpx;">
+                <view style="margin-bottom: 180rpx;">
+                    <input style="margin-top: 56rpx;" class="inputbox" type="text" placeholder="请输入卡号" value="" />
+                    <input class="inputbox" type="text" placeholder="请输入卡密" value="" />
+                    <view class="text">兑换须知</view>
+                    <view style="margin-bottom: 40rpx;">文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案</view>
+                    <view class="text">使用须知</view>
+                    <view>文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文
+                    </view>
+                </view>
+                <button class="pay">确认兑换</button>
+            </view>
+
+        </view>
+    </view>
 
 </view>

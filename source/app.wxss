@@ -760,3 +760,11 @@ border-radius: 4rpx;
   margin-top: 268rpx;
   border-radius: 8rpx;
 }
+.pay {
+  width: 678rpx;
+  height: 92rpx;
+  background: rgba(68, 181, 73, 1);
+  border-radius: 48rpx;
+  position: absolute;
+  bottom: 70rpx;
+}
