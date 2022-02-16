@@ -19,8 +19,6 @@ import {
   ActivitysApi
 } from "../../apis/activitys.api.js";
 import { ApiUtil } from "../../apis/apiutil";
-// import {my} from "../my";
-
 // var WxParse = require('../../wxParse/wxParse.js');
 
 class Content extends AppBase {
@@ -43,6 +41,7 @@ class Content extends AppBase {
       price:0,
       statusbaoming:'D',
       refund_id:0,
+      aa:''
   })
     super.onLoad(options);
     this.Base.setMyData({
@@ -59,12 +58,15 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var activitysApi = new ActivitysApi();
-
+    var aa = this.Base.getMyData().data;
     // 活动详情内容
     activitysApi.activityinfo({id:this.Base.options.id},(data)=>{
       // 将HTML中的符号转义，不然会以文本的形式输出
       data.content = ApiUtil.HtmlDecode(data.content)
       // WxParse.wxParse('content' , 'html', data.content, that,10) 
+      console.log("这里")
+      console.log(data)
+      bb = data.baomingzhuangtai.statusbaoming
       this.Base.setMyData({
         data:data
       })
@@ -81,8 +83,7 @@ class Content extends AppBase {
     activitysApi.information({activityname:this.Base.options.id},(data)=>{
       for(let item of data){
         item.value='';
-      }
-      
+      } 
       console.log(data)
       this.Base.setMyData({
         question:data
@@ -118,7 +119,6 @@ class Content extends AppBase {
     var wechatapi = new WechatApi();
     var activitysApi = new ActivitysApi();
     var question = this.Base.getMyData().question;
-    console.log('在哪')
     console.log(question)
     var that = this;
 
@@ -132,12 +132,10 @@ class Content extends AppBase {
       return
     }
     console.log(arr);
-    // return;
-      // if(item.value.length == 0 && item.write == 'A'){
-      //   this.Base.toast('内容未填写完');
-      //   return
-      // }
+   
   activitysApi.baomingxingxi({
+    
+
     // activity_id:this.Base.options.name,
     paytype:data.paytype,
     price:data.price,
@@ -146,7 +144,12 @@ class Content extends AppBase {
     activity_id:this.Base.options.id,
     phone:this.Base.getMyData().memberinfo.mobile,
     question: JSON.stringify(question),
+    
   },(ret)=>{
+    console.log("可以出来吗")
+    console.log(this.statusbaoming)
+    console.log("在那")
+    console.log(ret)
     if(ret.code=='0'){
       wechatapi.baomingpay({id:ret.return},(payret)=>{
         payret.complete = function(e){
@@ -162,19 +165,33 @@ class Content extends AppBase {
     }else {
       this.Base.toast(ret.result);
     }
+    
   })
-    var baoming = this.Base.getMyData().baoming;
-    console.log('zheshishenm ' +baoming)
-    console.log(e)
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    console.log(e.detail.value)
-
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)  
   }
 
-  formReset(e) {
-    console.log('form发生了reset事件，携带数据为：', e.detail.value)
-    this.setData({
-      chosen: ''
+
+  removebaoming(e) {
+    var that = this;
+    var id = e.currentTarget.id;
+    var wechatapi = new WechatApi();
+    var data = this.Base.getMyData().data
+    console.log('上辅导班')
+    console.log(data)
+    wx.showModal({
+      content:'确定取消报名',
+      success:(ret)=>{
+        if(ret.confirm){
+          wechatapi.refundactivity({id:data.baomingid.id},(ret)=>{
+              if(ret.code>=0){
+                  that.Base.toast('订单退款成功');
+                  that.onMyShow();
+              }else {
+                  that.Base.toast(ret.result);
+              }
+          })
+      }
+      }
     })
   }
 
@@ -187,7 +204,7 @@ body.onMyShow = content.onMyShow;
 body.bindPickerChange = content.bindPickerChange;
 body.bindKeyInput = content.bindKeyInput;
 body.formSubmit = content.formSubmit;
-body.formReset = Content.formReset;
+body.removebaoming = content.removebaoming;
 body.bindpay = content.bindpay;
 
 

@@ -17,9 +17,10 @@
             <!-- <import src="../../wxParse/wxParse.wxml" />
             <template is="wxParse" data="{{wxParseData:content.nodes}}" /> -->
             <rich-text nodes="{{data.content}}"></rich-text>
+            <view>{{aa}}asda</view>
         </view>
         <view class="question padding-top-40">【报名信息填写】</view>
-        <form catchsubmit="formSubmit" catchreset="formReset">
+        <form catchsubmit="formSubmit">
             <view wx:for="{{question}}" wx:key='k' wx:for-index="index">
                 <view class="question padding-top-40 padding-bottom-40">{{item.name}}</view>
                 <view class="flex-row" wx:if="{{item.isxuan == '是' && item.options.length != 0}}">
@@ -34,11 +35,12 @@
             </view>
             <view >
                 <view >
-                    <button   class="btns margin-top-60" formType="submit"  wx:if="{{statusbaoming=='D'}}">报名</button>
+                    <button   class="btns margin-top-60" formType="submit"  style="display: {{A}};">报名</button>
                     
                 </view>
                 <view >
-                    <button class="btns margin-top-60" formType="submit" wx:if="{{statusbaoming=='D'}}" >取消报名</button>
+                
+                    <button class="btns margin-top-60" bindtap="removebaoming" style="display: {{B}};">取消报名</button>
                 </view>
             </view>
         </form>

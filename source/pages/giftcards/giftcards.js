@@ -28,7 +28,8 @@ import {
           {name:'我的礼品卡',value:'A'},
           {name:'兑换礼品卡',value:'B'}
       ],
-      flag : 'A',
+      mycard : 'none',
+      buycard: 'block',
       })
     }
     onMyShow() {
@@ -38,11 +39,20 @@ import {
   
     }
     switchtype(e){
+     var mycard = this.Base.options.mycard;
+     var buycard = this.Base.options.buycard;
+      if(mycard != 'none'){
+        mycard = 'none'
+        buycard = 'block'
+      }else  if(buycard != 'none'){
+          mycard = 'none'
+          buycard = 'block'
+        }
+      
       
       this.Base.setMyData({
           orderstatus
       })
-      this.onMyShow();
     }
   
   }

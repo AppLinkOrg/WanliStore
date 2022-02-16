@@ -4,5 +4,5 @@
     src="{{uploadpath}}resource/{{res.successbaoming}}"
     ></image>
     <view class="f-60" style="margin-top: 72rpx;">报名成功</view>
-    <view class="activeback f-32 txt-white" bindtap="navigateto" id="/pages/activity/activity?id={{id}}">返回</view>
+    <view class="activeback f-32 txt-white" bindtap="navigateto" id="/pages/activitylist/activitylist">返回</view>
 </view>

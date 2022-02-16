@@ -3,30 +3,27 @@
 <view class="flex-row flex-column">
     <view style="width: 702rpx; position: relative; min-height: 100vh;">
         <view style="margin-bottom: 200rpx;">
-        <view class="f-36 txt-500" style="line-height: 50rpx; margin-bottom: 10rpx;">{{cardinfo.giftcardtype_name}}</view>
-        <image style="width: 700rpx; height: 416rpx; border-radius: 32rpx;" src="{{uploadpath}}giftcardinfo/{{cardinfo.giftcardcover}}"></image>
+            <scaroll-view scroll-x="true" class="flex-row flex-column" style="height: 590rpx; width: 100%; white-space: nowrap; margin-top: 30rpx;">
+                <image style="width: 700rpx; height: 416rpx; border-radius: 32rpx; margin-bottom: 30rpx;" src="{{uploadpath}}giftcardinfo/{{cardbanner[coverid].image}}" alt=""></image>
+                <view style=" display: inline-block; width: 100%;">
+                    <image wx:for="{{cardbanner}}" wx:key="item" bindtap="selectcover" id="{{item.id}}" class="img" src="{{uploadpath}}giftcardinfo/{{item.image}}"></image>
+                </view>
+            </scaroll-view>
 
-        <scaroll-view scroll-x="true" class="flex-row" style="height: 150rpx; width: 100%; white-space: nowrap; margin-top: 30rpx;">
-            <view style=" display: inline-block; width: 100%;">
-                <image wx:for="{{cardbanner}}" wx:key="item" class="img" src="{{uploadpath}}giftcardinfo/{{item.image}}"></image>
-            </view>
+            <view class="f-28" style="margin-top: 40rpx; margin-bottom: 16rpx;">选择面额：</view>
 
-        </scaroll-view>
-
-        <view class="f-28" style="margin-top: 40rpx; margin-bottom: 16rpx;">选择面额：</view>
-
-        <scaroll-view scroll-x="true" class="flex-row" style="height: 140rpx; width: 100%; white-space: nowrap;">
-            <view style=" display: inline-block; width: 100%;">
-                <view wx:for="{{cardprice}}" wx:key="item" style="margin-right: 32rpx; border-radius: 14rpx; display: inline-block; width: 188rpx; border: 2rpx solid rgba(68, 181, 73, 1); line-height: 120rpx; text-align: center;">
+            <scaroll-view scroll-x="true" class="flex-row" style="height: 140rpx; width: 100%; white-space: nowrap;">
+                <view style=" display: inline-block; width: 100%;">
+                    <view wx:for="{{cardprice}}" wx:key="item" class="price" bindtap="selectprice" id="{{item.id}}">
                         <text class="f-20" style="font-size: 20rpx;">￥</text>
                         <text class="f-40">{{item.cardprice}}</text>
+                    </view>
                 </view>
-            </view>
-        </scaroll-view>
+            </scaroll-view>
 
-        <view class="f-28" style="margin-top: 40rpx; margin-bottom: 16rpx;">购买须知</view>
-        <rich-text nodes="{{cardinfo.howbuy}}"></rich-text>
-    </view>
-        <button class="pay" bindtap="navigateto" id="/pages/buygiftcardssuccess/buygiftcardssuccess?id={{cardinfo.id}}">确认支付</button>
+            <view class="f-28" style="margin-top: 40rpx; margin-bottom: 16rpx;">购买须知</view>
+            <rich-text nodes="{{cardinfo.howbuy}}"></rich-text>
+        </view>
+        <button class="pay" bindtap="paygiftcard" id="/pages/buygiftcardssuccess/buygiftcardssuccess?id={{cardinfo.id}}">确认支付</button>
     </view>
 </view>

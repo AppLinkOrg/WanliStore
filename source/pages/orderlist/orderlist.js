@@ -78,6 +78,8 @@ import { WechatApi } from "../../apis/wechat.api";
             title:'订单提示',
             content:'是否要申请退款？',
             success:(ret)=>{
+                console.log("这")
+                console.log(ret)
                 if(ret.confirm){
                     wechatapi.refund({id:id},(ret)=>{
                         if(ret.code>=0){

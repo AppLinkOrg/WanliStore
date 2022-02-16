@@ -117,16 +117,23 @@
                 {
                     "name": "",
                     "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+                    "query": "id=1",
+                    "scene": null,
+                    "launchMode": "default"
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/buygiftcards/buygiftcards",
                     "query": "",
                     "launchMode": "default",
                     "scene": null
                 },
                 {
                     "name": "",
-                    "pathName": "pages/buygiftcards/buygiftcards",
+                    "pathName": "pages/refundlist/refundlist",
                     "query": "",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
