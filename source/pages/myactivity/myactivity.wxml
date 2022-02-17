@@ -10,12 +10,12 @@
 
 <view>
     <view wx:for="{{baominglist}}" wx:key='k' class="activeliat" bindtap="navigateto" bindtap="navigateto" id="/pages/activity/activity?id={{item.activity_id}}">
-        <view >
-        <image src="/images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg" class="activeimg"></image>
+        <view wx:for="{{activitylist}}" wx:key='listitem' wx:for-item="listitem" wx:if="item.activity_id==listitem.id">
+        <image src="{{uploadpath}}activity/{{listitem.listimg}}" class="activeimg"></image>
         <view class="flex-row flex-center address">
         <view class="flex-1"></view>
         <image src="{{uploadpath}}resource/{{res.address}}" class="sign"></image>
-        <view class="signmene">深圳</view>
+        <view class="signmene">{{listitem.city_name}}</view>
         <view class="flex-1"></view>
     </view> 
     </view>

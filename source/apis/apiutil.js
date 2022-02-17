@@ -56,9 +56,27 @@ export class ApiUtil {
   }
 
   static FormatDateTime(val) {
-    return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate() +
+    return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate()+
       " " + val.getHours() + ":" + val.getMinutes() + ":" + val.getSeconds();
   }
+
+  static formatTime (val) {
+    var formatNumber = ApiUtil.formatNumber;
+    var year = val.getFullYear ()
+    var month = val.getMonth () + 1
+    var day = val.getDate ()
+    var hour = val.getHours ()
+    var minute = val.getMinutes ()
+    var second = val.getSeconds ()
+    
+    return [year , month , day ].map (formatNumber ).join ( '-' ) + ' ' + [hour , minute , second ].map (formatNumber ).join ( ':' )
+    }
+    
+    static formatNumber = n => {
+      n = n .toString ()
+      return n [ 1 ] ? n : '0' + n
+      }
+
   static FormatDate(val) {
     return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate();
   }

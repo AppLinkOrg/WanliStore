@@ -35,13 +35,21 @@ class Content extends AppBase {
     wx.setNavigationBarTitle({
       title: "活动详情"
     })
+    var time = ApiUtil.FormatDateTime(new Date());
+    var timess = ApiUtil.formatTime(new Date());
+    
+    console.log("当前时间")
+    console.log(time)
+    console.log(timess)
     this.Base.setMyData({
       paytype:'A',
       orderno:0,
       price:0,
       statusbaoming:'D',
       refund_id:0,
-      aa:''
+      time:time,
+      times: '',
+      timess:timess,
   })
     super.onLoad(options);
     this.Base.setMyData({
@@ -50,6 +58,7 @@ class Content extends AppBase {
       specificationsinfo: null,
       number: 1
     })
+    
   }
   
     /**
@@ -59,13 +68,16 @@ class Content extends AppBase {
     var that = this;
     var activitysApi = new ActivitysApi();
     var aa = this.Base.getMyData().data;
+    var times = ApiUtil.FormatDateTime(new Date());
+   
+    
     // 活动详情内容
     activitysApi.activityinfo({id:this.Base.options.id},(data)=>{
       // 将HTML中的符号转义，不然会以文本的形式输出
       data.content = ApiUtil.HtmlDecode(data.content)
       // WxParse.wxParse('content' , 'html', data.content, that,10) 
       console.log("这里")
-      console.log(data)
+      console.log(data.cannot)
       this.Base.setMyData({
         data:data
       })
@@ -134,9 +146,18 @@ class Content extends AppBase {
       return
     }
     console.log(arr);
-    if(data.data.price < 0){
+
+    // 判断活动是否免费
+    var money = data.data.price
+    console.log("价格呢")
+    console.log(money)
+    if(money <= 0){
       data.statusbaoming = 'A'
      }
+     console.log("状态呢")
+     console.log(data.statusbaoming)
+
+
   activitysApi.baomingxingxi({
     // activity_id:this.Base.options.name,
     paytype:data.paytype,
@@ -181,10 +202,20 @@ class Content extends AppBase {
     var that = this;
     var id = e.currentTarget.id;
     var wechatapi = new WechatApi();
-    var data = this.Base.getMyData().data
-    var money = data.price
+    var data = this.Base.getMyData();
+    var money = data.data.price
     console.log('上辅导班')
     console.log(data)
+    //取消退款时判断时候免费 
+    var money = data.price
+    console.log("价格呢2")
+    console.log(money)
+    if(money <= 0){
+      data.data.baomingstatus.statusbaoming = 'B'
+     }
+     console.log("状态呢2")
+     console.log(data.data.baomingstatus.statusbaoming)
+     console.log(data)
     wx.showModal({
       content:'确定取消报名',
       success:(ret)=>{
@@ -204,8 +235,7 @@ class Content extends AppBase {
           }
         }else{
           that.Base.toast('订单退款成功');
-        }
-        
+        }        
       }
     })
   }

@@ -32,15 +32,27 @@
                     <input name="{{index}}" placeholder="请输入" bindinput="bindKeyInput" id="{{index}}" class="answer f-28" type="text" />
                 </view>
             </view>
+            <!-- <view>{{time}}</view>
+            <view>{{data.cannot}}</view>
+            <view>{{timess}}</view>
+            <view>{{timess < data.cannot ? 'a':'b'}}</view> -->
             <view style="display: {{data.baomingjiangtai == 'C' ? 'none' : ''}};">
                 <view>
                     <button   class="btns margin-top-60" formType="submit" style="display: {{data.baomingid == '' ? 'block' : 'none'}};" 
                     >报名</button>
     
                 </view>
-                <view  >
-                    <button class="btns margin-top-60" bindtap="removebaoming" style="display: {{data.baomingid == ''? 'none' : 'block'}};" >取消报名</button>
+                <view  wx:if="{{timess < data.cannot}}">
+                    <button  class="btns margin-top-60" bindtap="removebaoming" 
+                    style="display: {{data.baomingid == '' ? 'none' : 'block'}};" 
+                    >取消报名</button>  
                 </view>
+                <view wx:else>
+                    <button disabled="true" class="btns margin-top-60" bindtap="removebaoming" 
+                    style="display: {{data.baomingid == '' ? 'none' : 'block'}};" 
+                    >取消报名</button>
+                </view>
+                
             </view>
         </form>
     </view>

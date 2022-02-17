@@ -47,6 +47,7 @@ import{
         })
       })
 
+      //判断用户是否登录
       memberapi.info({},(e)=>{
         this.Base.setMyData({
           member:e

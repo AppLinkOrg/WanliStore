@@ -42,8 +42,15 @@ import { ActivitysApi } from "../../apis/activitys.api";
           baominglist:list
         })
       })
-    }
 
+      activitysApi.activitylist({},(list)=>{
+        this.Base.setMyData({
+          activitylist:list
+        })
+      })
+
+      
+    }
     switchtype(e){
       var statusbaoming = e.currentTarget.id;
       this.Base.setMyData({
