@@ -28,30 +28,22 @@ import {
           {name:'我的礼品卡',value:'A'},
           {name:'兑换礼品卡',value:'B'}
       ],
-      mycard : 'none',
-      buycard: 'block',
+      flag: 'A'
+      
       })
     }
     onMyShow() {
       var that = this;
-      var mallapi = new MallApi();
-
+      console.log("看看看")
+      console.log(this.Base.options.flag)
   
     }
     switchtype(e){
-     var mycard = this.Base.options.mycard;
-     var buycard = this.Base.options.buycard;
-      if(mycard != 'none'){
-        mycard = 'none'
-        buycard = 'block'
-      }else  if(buycard != 'none'){
-          mycard = 'none'
-          buycard = 'block'
-        }
-      
-      
+      console.log("这这这")
+      console.log(e)
+      var id = e.currentTarget.id
       this.Base.setMyData({
-          orderstatus
+          flag: id
       })
     }
   
@@ -61,5 +53,6 @@ import {
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
+  body.switchtype = content.switchtype;
 
   Page(body)

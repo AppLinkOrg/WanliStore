@@ -8,7 +8,7 @@
         </view>
     </view>
 
-    <view class="flex-row flex-column " style="display: {{mycard}};">
+    <view class="flex-row flex-column" style="display: {{flag == 'A' ? 'block' :'none'}}; position: relative;">
         <view style="margin-bottom: 92rpx; ">
             <view class="flex-row cards" bindtap="navigateto" id="/pages/giftcardsinfo/giftcardsinfo">
                 <image class="cardsimg" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
@@ -96,15 +96,16 @@
             </view>
 
         </view>
-        <view class="flex-row bottombox">
-            <view class="f-24 bottomcontrnt">购买记录</view>
-            <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
-            <view class="f-24 bottomcontrnt">收送记录</view>
-            <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
-            <view class="f-24 bottomcontrnt">使用记录</view>
+        <view class="flex-row  bottombox" style="justify-content:center">
+                <view class="f-24 bottomcontrnt">购买记录</view>
+                <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
+                <view class="f-24 bottomcontrnt">收送记录</view>
+                <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
+                <view class="f-24 bottomcontrnt">使用记录</view>
         </view>
     </view>
-    <view style="display: {{buycard}};">
+
+    <view style="display: {{flag == 'B' ? 'block' :'none'}};">
         <view class="flex-row flex-column" style=" background: rgba(255, 255, 255, 1); min-height:90vh; width: 100vw;">
             <view style="width: 645rpx;">
                 <view style="margin-bottom: 180rpx;">

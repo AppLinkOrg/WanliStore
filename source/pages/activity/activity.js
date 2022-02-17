@@ -66,7 +66,6 @@ class Content extends AppBase {
       // WxParse.wxParse('content' , 'html', data.content, that,10) 
       console.log("这里")
       console.log(data)
-      bb = data.baomingzhuangtai.statusbaoming
       this.Base.setMyData({
         data:data
       })
@@ -116,12 +115,15 @@ class Content extends AppBase {
 
   formSubmit(e) {
     var data = this.Base.getMyData();
+    console.log("我要")
+    console.log(data)
     var wechatapi = new WechatApi();
     var activitysApi = new ActivitysApi();
     var question = this.Base.getMyData().question;
     console.log(question)
     var that = this;
-
+    console.log("知道哈师范")
+    console.log(e)
     // 判断内容是否填完
     let keys = Object.keys(question)
     var arr = question.filter(item =>{
@@ -132,65 +134,78 @@ class Content extends AppBase {
       return
     }
     console.log(arr);
-   
+    if(data.data.price < 0){
+      data.statusbaoming = 'A'
+     }
   activitysApi.baomingxingxi({
-    
-
     // activity_id:this.Base.options.name,
     paytype:data.paytype,
     price:data.price,
-    statusbaoming:data.statusbaoming,
+    statusbaoming: data.statusbaoming,
     refund_id:data.refund_id,
     activity_id:this.Base.options.id,
     phone:this.Base.getMyData().memberinfo.mobile,
     question: JSON.stringify(question),
-    
+    money: data.data.price,
   },(ret)=>{
-    console.log("可以出来吗")
-    console.log(this.statusbaoming)
     console.log("在那")
     console.log(ret)
-    if(ret.code=='0'){
-      wechatapi.baomingpay({id:ret.return},(payret)=>{
-        payret.complete = function(e){
-          if (e.errMsg == "requestPayment:ok") {
-            wx.reLaunch({
-              url: '/pages/activitysuccess/activitysuccess?id='+that.Base.options.id,
-            })
+    if(this.money > 0){
+      if(ret.code=='0'){
+        wechatapi.baomingpay({id:ret.return},(payret)=>{
+          payret.complete = function(e){
+            if (e.errMsg == "requestPayment:ok") {
+              wx.reLaunch({
+                url: '/pages/activitysuccess/activitysuccess?id='+that.Base.options.id,
+              })
+            }
           }
-        }
-        // 发起微信支付
-          wx.requestPayment(payret);         
+          // 发起微信支付
+            wx.requestPayment(payret);                     
+        })
+      }else {
+        this.Base.toast(ret.result);
+      }
+    }else{
+      wx.reLaunch({
+        url: '/pages/activitysuccess/activitysuccess?id='+that.Base.options.id,
       })
-    }else {
-      this.Base.toast(ret.result);
     }
+    
     
   })
     console.log('form发生了submit事件，携带数据为：', e.detail.value)  
   }
-
 
   removebaoming(e) {
     var that = this;
     var id = e.currentTarget.id;
     var wechatapi = new WechatApi();
     var data = this.Base.getMyData().data
+    var money = data.price
     console.log('上辅导班')
     console.log(data)
     wx.showModal({
       content:'确定取消报名',
       success:(ret)=>{
-        if(ret.confirm){
-          wechatapi.refundactivity({id:data.baomingid.id},(ret)=>{
-              if(ret.code>=0){
-                  that.Base.toast('订单退款成功');
-                  that.onMyShow();
-              }else {
-                  that.Base.toast(ret.result);
-              }
-          })
-      }
+        if(that.money > 0 ){
+          if(ret.confirm){
+            wechatapi.refundactivity({id:data.baomingid.id},(ret)=>{
+                if(ret.code>=0){
+                  wx.navigateBack({
+                    delta: 1
+                  })
+                    that.Base.toast('订单退款成功');
+                    that.onMyShow();
+                }else {
+                    that.Base.toast(ret.result);
+                }
+            })
+          }
+        }else{
+          that.Base.toast('订单退款成功');
+        }
+        
       }
     })
   }

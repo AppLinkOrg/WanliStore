@@ -30,7 +30,7 @@ import { ActivitysApi } from "../../apis/activitys.api";
             {name:'已取消',value:'B'},
             {name:'已结束',value:'C'}
         ],
-        statusbaoming:this.Base.options.type
+        statusbaoming:this.Base.options.type==undefined?'A':this.Base.options.type
     })
     }
     onMyShow() {
@@ -44,19 +44,19 @@ import { ActivitysApi } from "../../apis/activitys.api";
       })
     }
 
-  //   switchtype(e){
-  //     var statusbaoming = e.currentTarget.id;
-  //     this.Base.setMyData({
-  //       statusbaoming
-  //     })
-  //     this.onMyShow();
-  // }
+    switchtype(e){
+      var statusbaoming = e.currentTarget.id;
+      this.Base.setMyData({
+        statusbaoming
+      })
+      this.onMyShow();
+  }
   }
   
   var content = new Content();
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
-  // body.switchtype = content.switchtype;
+  body.switchtype = content.switchtype;
 
   Page(body)

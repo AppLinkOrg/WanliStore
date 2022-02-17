@@ -31,10 +31,10 @@ import{
         coverid:  0,
 
         giftcardinfo_id:'',
-        price: '',
+        giftcardprice_id: '',
         giftcardcover: '',
         amount: '',
-        orderstatus: 'A',
+        pay_time:''
       })
     }
     onMyShow() {
@@ -77,16 +77,23 @@ import{
   
     }
     selectcover(e){
-      var cover = e.currentTarget.id
-      console.log(e)
+      
+      var banner = this.Base.getMyData().cardbanner;
+      var cover = e.currentTarget.id;
+      var convercanner = banner[cover-1];
+      console.log("这是什么")
+      console.log(convercanner)
       this.Base.setMyData({
-        coverid : e.currentTarget.id - 1
+        coverid : convercanner.id 
       })
     }
     selectprice(e){
       var money = e.currentTarget.id
       console.log(money)
       console.log(e)
+      this.Base.setMyData({
+        priceid : money
+      })
     }
     paygiftcard(e){
       var data = this.Base.getMyData();
@@ -95,19 +102,20 @@ import{
       console.log(idx)
       var giftcardsaip = new GiftcardsApi();
       var wechatapi = new WechatApi();
+      var that = this;
+      
       giftcardsaip.giftcardorder({    
-        giftcardinfo_id: this.idx,
-        price: data.price,
-        giftcardcover:data.giftcardcover,
-        amount:data.amount,
-        orderstatus: data.orderstatus
+        giftcardinfo_id: idx,
+        giftcardcover_id:this.Base.getMyData().coverid,
+        giftcardprice_id:this.Base.getMyData().priceid,
+        amount: this.Base.getMyData().priceid * 100,
       },(ret)=>{
         if(ret.code=='0'){
           wechatapi.prepaygiftcard({id:ret.return},(payret)=>{
             payret.complete = function(e){
               if (e.errMsg == "requestPayment:ok") {
                 wx.reLaunch({
-                  url: '/pages/buygiftcardssuccess/buygiftcardssuccess',
+                  url: '/pages/buygiftcardssuccess/buygiftcardssuccess?id='+ that.Base.options.id,
                 })
               }
             }
