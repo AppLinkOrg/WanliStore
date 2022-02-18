@@ -10,14 +10,13 @@
 
 <view>
     <view wx:for="{{baominglist}}" wx:key='k' class="activeliat" bindtap="navigateto" bindtap="navigateto" id="/pages/activity/activity?id={{item.activity_id}}">
-        <view wx:for="{{activitylist}}" wx:key='listitem' wx:for-item="listitem" wx:if="item.activity_id==listitem.id">
-        <image src="{{uploadpath}}activity/{{listitem.listimg}}" class="activeimg"></image>
-        <view class="flex-row flex-center address">
-        <view class="flex-1"></view>
-        <image src="{{uploadpath}}resource/{{res.address}}" class="sign"></image>
-        <view class="signmene">{{listitem.city_name}}</view>
-        <view class="flex-1"></view>
-    </view> 
-    </view>
+       
+            <image src="{{uploadpath}}activity/{{item.activity_listimg}}" class="activeimg"></image>
+            <view class="flex-row flex-center address">
+                <view class="flex-1"></view>
+                <image src="{{uploadpath}}resource/{{res.address}}" class="sign"></image>
+                <view class="signmene">{{item.cityname}}</view>
+                <view class="flex-1"></view>
+            </view>
     </view>
 </view>

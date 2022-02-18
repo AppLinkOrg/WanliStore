@@ -51,6 +51,9 @@ view,navigator,input,text,textarea{
   align-content: center;
   align-items: center;
 }
+.flex-justify-content{
+  justify-content: space-between;
+}
 .flex-column{
   align-content: center;
   align-items: center;
@@ -269,6 +272,10 @@ button.button-hover{
 button[type=primary]{
   
   background-color: #2699EC;
+}
+button[type=primarys]{
+  
+  background-color: rgba(68, 181, 73, 1);
 }
 button.button-hover[type=primary]{
   

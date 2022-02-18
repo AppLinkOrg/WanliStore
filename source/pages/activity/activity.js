@@ -19,7 +19,7 @@ import {
   ActivitysApi
 } from "../../apis/activitys.api.js";
 import { ApiUtil } from "../../apis/apiutil";
-// var WxParse = require('../../wxParse/wxParse.js');
+var WxParse = require('../../wxParse/wxParse.js');
 
 class Content extends AppBase {
   constructor() {
@@ -47,9 +47,9 @@ class Content extends AppBase {
       price:0,
       statusbaoming:'D',
       refund_id:0,
-      time:time,
-      times: '',
       timess:timess,
+     
+
   })
     super.onLoad(options);
     this.Base.setMyData({
@@ -67,19 +67,22 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var activitysApi = new ActivitysApi();
-    var aa = this.Base.getMyData().data;
+    var aa = this.Base.getMyData();
     var times = ApiUtil.FormatDateTime(new Date());
-   
+   console.log("啥的健康")
+   console.log(aa)
     
     // 活动详情内容
     activitysApi.activityinfo({id:this.Base.options.id},(data)=>{
       // 将HTML中的符号转义，不然会以文本的形式输出
       data.content = ApiUtil.HtmlDecode(data.content)
-      // WxParse.wxParse('content' , 'html', data.content, that,10) 
+      WxParse.wxParse('content' , 'html', data.content, that,10) 
       console.log("这里")
       console.log(data.cannot)
+      data.orderinfolen = Object.keys(data.orderinfo)
+      data.sign= 0
       this.Base.setMyData({
-        data:data
+        activityinfo:data
       })
     })
 
@@ -127,15 +130,11 @@ class Content extends AppBase {
 
   formSubmit(e) {
     var data = this.Base.getMyData();
-    console.log("我要")
-    console.log(data)
     var wechatapi = new WechatApi();
     var activitysApi = new ActivitysApi();
     var question = this.Base.getMyData().question;
     console.log(question)
     var that = this;
-    console.log("知道哈师范")
-    console.log(e)
     // 判断内容是否填完
     let keys = Object.keys(question)
     var arr = question.filter(item =>{
@@ -148,7 +147,7 @@ class Content extends AppBase {
     console.log(arr);
 
     // 判断活动是否免费
-    var money = data.data.price
+    var money = data.activityinfo.price
     console.log("价格呢")
     console.log(money)
     if(money <= 0){
@@ -156,6 +155,9 @@ class Content extends AppBase {
      }
      console.log("状态呢")
      console.log(data.statusbaoming)
+
+    //  获取上传的数据
+    
 
 
   activitysApi.baomingxingxi({
@@ -167,11 +169,15 @@ class Content extends AppBase {
     activity_id:this.Base.options.id,
     phone:this.Base.getMyData().memberinfo.mobile,
     question: JSON.stringify(question),
-    money: data.data.price,
+    money: data.activityinfo.price,
   },(ret)=>{
+    money: data.activityinfo.price
     console.log("在那")
+    console.log(money)
     console.log(ret)
-    if(this.money > 0){
+    money: data.activityinfo.price
+    if(money > 0){
+      console.log(this.money)
       if(ret.code=='0'){
         wechatapi.baomingpay({id:ret.return},(payret)=>{
           payret.complete = function(e){
@@ -192,36 +198,44 @@ class Content extends AppBase {
         url: '/pages/activitysuccess/activitysuccess?id='+that.Base.options.id,
       })
     }
-    
-    
+   
   })
     console.log('form发生了submit事件，携带数据为：', e.detail.value)  
+    var id = e.currentTarget.id
+    this.Base.setMyData({
+        sign: id
+    })
   }
 
+
   removebaoming(e) {
+    var data = this.Base.getMyData();
     var that = this;
     var id = e.currentTarget.id;
     var wechatapi = new WechatApi();
-    var data = this.Base.getMyData();
-    var money = data.data.price
-    console.log('上辅导班')
-    console.log(data)
+    var activitysApi = new ActivitysApi();
     //取消退款时判断时候免费 
-    var money = data.price
-    console.log("价格呢2")
-    console.log(money)
-    if(money <= 0){
-      data.data.baomingstatus.statusbaoming = 'B'
-     }
-     console.log("状态呢2")
-     console.log(data.data.baomingstatus.statusbaoming)
-     console.log(data)
+ 
     wx.showModal({
       content:'确定取消报名',
       success:(ret)=>{
-        if(that.money > 0 ){
+        var data = this.Base.getMyData();
+        var money = data.activityinfo.price
+        console.log("价格呢2")
+        console.log(money)
+          if(money <= 0){
+            activitysApi.activityquxiao({id:data.activityinfo.baomingid.id},(e) => {
+              this.Base.setMyData({
+                quxiao:e
+              })
+            })
+            wx.reLaunch({
+              url: '/pages/activitylist/activitylist',
+            })
+           }else
+        if(money > 0 ){
           if(ret.confirm){
-            wechatapi.refundactivity({id:data.baomingid.id},(ret)=>{
+            wechatapi.refundactivity({id:data.activityinfo.baomingid.id},(ret)=>{
                 if(ret.code>=0){
                   wx.navigateBack({
                     delta: 1

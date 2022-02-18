@@ -1,2 +1,14 @@
 <!--pages/givegiftcards/givegiftcards.wxml-->
-<text>pages/givegiftcards/givegiftcards.wxml</text>
+<view style="background-color: rgba(243, 246, 247, 1); min-height: 100vh; position: relative;">
+    <view class="flex-row flex-column" style="margin-top: 40rpx;">
+        <image class="img" src="{{uploadpath}}giftcardinfo/{{cardinfo.cover}}"></image>
+    </view>
+    <view class="" style="width: 700rpx;margin-top: 32rpx; margin-left: 26rpx;">
+        <view class="f">卡 号：{{cardinfo.exchangecard_id_name}}</view>
+        <view class="f">面 值：{{cardinfo.price}}元</view>
+        <view class="f">使用须知 ：
+            <rich-text style="width: 100vw;" nodes="{{cardinfo.howuse}}"></rich-text>
+            </view>
+    </view>
+ 
+</view>

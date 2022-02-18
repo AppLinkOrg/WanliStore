@@ -139,6 +139,20 @@
                     "name": "",
                     "pathName": "pages/myactivity/myactivity",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardsinfo/giftcardsinfo",
+                    "query": "id=1",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/givegiftcards/givegiftcards",
+                    "query": "id=1",
                     "scene": null,
                     "launchMode": "default"
                 }

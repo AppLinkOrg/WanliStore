@@ -28,7 +28,7 @@
     "pages/buygiftcards/buygiftcards",
     "pages/buygiftcardsinfo/buygiftcardsinfo",
     "pages/buygiftcardssuccess/buygiftcardssuccess",
-    "pages/givegiftcards/givegiftcards"  
+    "pages/givegiftcards/givegiftcards"
   ],
   "permission": {
     "scope.userLocation": {

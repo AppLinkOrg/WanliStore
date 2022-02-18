@@ -12,6 +12,9 @@ import {
   import {
     MallApi
   } from "../../apis/mall.api.js";
+  import {
+    GiftcardsApi
+  } from "../../apis/giftcards.api.js";
   
   class Content extends AppBase {
     constructor() {
@@ -33,11 +36,22 @@ import {
       })
     }
     onMyShow() {
-      var that = this;
-      console.log("看看看")
-      console.log(this.Base.options.flag)
-  
+
+      var giftcardsapi = new GiftcardsApi();
+      giftcardsapi.mygiftcardlist({},(e) => {
+        this.Base.setMyData({
+          cardlist:e
+        })
+      })
+      giftcardsapi.mygiftcardinfo({id:this.Base.options.id},(e) => {
+        this.Base.setMyData({
+          cardinfo:e
+        })
+      })
     }
+
+
+
     switchtype(e){
       console.log("这这这")
       console.log(e)

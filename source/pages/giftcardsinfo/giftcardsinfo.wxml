@@ -1,16 +1,17 @@
 <!--pages/giftcardsinfo/giftcardsinfo.wxml-->
-<view style="background-color: rgba(243, 246, 247, 1); min-height: 100vh;">
+<view style="background-color: rgba(243, 246, 247, 1); min-height: 100vh; position: relative;">
     <view class="flex-row flex-column" style="margin-top: 40rpx;">
-        <image class="img" src="../../images/icons/4dc9dce443940ecac5f6a54d460bfabd_210406183028_1481437378.jpeg"></image>
+        <image class="img" src="{{uploadpath}}giftcardinfo/{{cardinfo.cover}}"></image>
     </view>
-    <view class=""  style="width: 700rpx;margin-top: 32rpx; margin-left: 26rpx;">
-    <view class="f">卡 号：D124243556754754</view>
-    <view class="f">面 值：150.00元</view>
-    <view class="f">售 价：100.00元</view>
-    <view class="f">适用门店：xxx店，xxxx店</view>
-    <view class="f">适用商品：全部商品</view>
-    <view class="f">有 效 期 ：自绑定之日起三年内有效</view>
-    <view class="f">客服电话 ：00-2342-12431</view>
-    <view class="f">使用说明 ：文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案案文。</view> 
-</view>
+    <view class="" style="width: 700rpx;margin-top: 32rpx; margin-left: 26rpx;">
+        <view class="f">卡 号：{{cardinfo.exchangecard_id_name}}</view>
+        <view class="f">面 值：{{cardinfo.price}}元</view>
+        <view class="f">使用须知 ：
+            <rich-text style="width: 100vw;" nodes="{{cardinfo.howuse}}"></rich-text>
+            </view>
+    </view>
+    <view class="flex-row" style="position: absolute; bottom: 44rpx; width: 100%;">
+        <button class="but" type="primary" plain="true" open-type='share'>送给好友</button>
+        <button class="but" type="primarys" bindtap="gotoTabbar">立即使用</button>
+    </view>
 </view>
