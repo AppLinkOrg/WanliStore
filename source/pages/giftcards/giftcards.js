@@ -31,12 +31,12 @@ import {
           {name:'我的礼品卡',value:'A'},
           {name:'兑换礼品卡',value:'B'}
       ],
-      flag: 'A'
-      
+      flag: 'A',
+      inputValue: '',
+      inputpawValue: ''
       })
     }
     onMyShow() {
-
       var giftcardsapi = new GiftcardsApi();
       giftcardsapi.mygiftcardlist({},(e) => {
         this.Base.setMyData({
@@ -48,9 +48,9 @@ import {
           cardinfo:e
         })
       })
+
+     
     }
-
-
 
     switchtype(e){
       console.log("这这这")
@@ -60,6 +60,49 @@ import {
           flag: id
       })
     }
+
+
+    bindKeyInput(e){
+      var inputValue= e.detail.value
+      this.Base.setMyData({
+        inputValue
+      })
+      console.log()
+    }
+    bindPawInput(e){
+      var inputpawValue= e.detail.value
+      this.Base.setMyData({
+        inputpawValue
+      })
+    }
+    
+
+    giftCardExhange(e){
+      // wx.reLaunch({
+      //   url: '/pages/exchagessuccess/exchagessuccess',
+      // })
+      // console.log("???");
+      
+       
+      // return;
+      var giftcardsapi = new GiftcardsApi();
+      var inputValue = this.Base.getMyData().inputValue
+      var inputpawValue = this.Base.getMyData().inputpawValue
+      console.log("有数据吗")
+      console.log(inputpawValue)
+      giftcardsapi.exchangecard({
+        name: inputValue,
+        kami: inputpawValue,
+      },(ret)=>{
+        if(ret.code=='0'){
+              
+                wx.reLaunch({
+                  url: '/pages/exchagessuccess/exchagessuccess',
+                })
+              }
+      })
+
+    }
   
   }
   
@@ -68,5 +111,8 @@ import {
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
   body.switchtype = content.switchtype;
+  body.bindKeyInput = content.bindKeyInput;
+  body.bindPawInput = content.bindPawInput;
+  body.giftCardExhange = content.giftCardExhange;
 
   Page(body)

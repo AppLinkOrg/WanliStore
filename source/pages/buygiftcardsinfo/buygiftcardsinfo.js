@@ -15,7 +15,7 @@ import {
 import{
   WechatApi
 }from "../../apis/wechat.api"
-
+var WxParse = require('../../wxParse/wxParse.js');
 
   class Content extends AppBase {
     constructor() {
@@ -52,7 +52,7 @@ import{
       })
       giftcardsapi.giftcardinfo({id:this.Base.options.id},(e) => {
         e.howbuy = ApiUtil.HtmlDecode(e.howbuy)
-
+        WxParse.wxParse('howbuy' , 'html', e.howbuy, this,10) 
         this.Base.setMyData({
           cardinfo:e
         })
@@ -81,10 +81,8 @@ import{
       var banner = this.Base.getMyData().cardbanner;
       var cover = e.currentTarget.id;
       var convercanner = banner[cover-1];
-      console.log("这是什么")
-      console.log(convercanner)
       this.Base.setMyData({
-        coverid : convercanner.id 
+        coverid : convercanner.id -1
       })
     }
     selectprice(e){

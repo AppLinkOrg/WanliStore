@@ -28,7 +28,11 @@
     "pages/buygiftcards/buygiftcards",
     "pages/buygiftcardsinfo/buygiftcardsinfo",
     "pages/buygiftcardssuccess/buygiftcardssuccess",
-    "pages/givegiftcards/givegiftcards"
+    "pages/givegiftcards/givegiftcards",
+    "pages/exchagessuccess/exchagessuccess",
+    "pages/giftcardbuyjilu/giftcardbuyjilu",
+    "pages/giftcardshousongjilu/giftcardshousongjilu",
+    "pages/giftcardshiyongjilu/giftcardshiyongjilu"
   ],
   "permission": {
     "scope.userLocation": {

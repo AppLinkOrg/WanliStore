@@ -22,6 +22,7 @@
             </scaroll-view>
 
             <view class="f-28" style="margin-top: 40rpx; margin-bottom: 16rpx;">购买须知</view>
+            <template is="wxParse" data="{{wxParseData:content.nodes}}" />
             <rich-text nodes="{{cardinfo.howbuy}}"></rich-text>
         </view>
         <button class="pay" bindtap="paygiftcard" id="/pages/buygiftcardssuccess/buygiftcardssuccess?id={{cardinfo.id}}">确认支付</button>

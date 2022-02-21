@@ -76,8 +76,8 @@
                     "name": "",
                     "pathName": "pages/giftcardsinfo/giftcardsinfo",
                     "query": "id=1",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
                 },
                 {
                     "name": "",
@@ -145,7 +145,7 @@
                 {
                     "name": "",
                     "pathName": "pages/giftcardsinfo/giftcardsinfo",
-                    "query": "id=1",
+                    "query": "",
                     "launchMode": "default",
                     "scene": null
                 },
@@ -155,6 +155,13 @@
                     "query": "id=1",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/exchagessuccess/exchagessuccess",
+                    "query": "",
+                    "scene": null,
+                    "launchMode": "default"
                 }
             ]
         }

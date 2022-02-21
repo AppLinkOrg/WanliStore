@@ -36,7 +36,7 @@ import {
       var that = this;
       var giftcardsapi = new GiftcardsApi();
       giftcardsapi.mygiftcardinfo({id:this.Base.options.id},(e)=>{
-        e.howuse = ApiUtil.HtmlDecode(e.howuse)
+        // e.howuse = ApiUtil.HtmlDecode(e.howuse)
         this.Base.setMyData({
           cardinfo: e
         })

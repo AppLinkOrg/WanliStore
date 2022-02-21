@@ -64,7 +64,7 @@
         </view>
 
         <view class="flex-row flex-center ">
-            <view class="timian flex-1">
+            <view class="timian flex-1" bindtap="todetail">
                 <view class="">提面计划</view>
                 <view class="txt-66 h6">新鲜日期工厂直发</view>
                 <image src="{{uploadpath}}resource/{{res.mytimian}}" class="mytimian"></image>

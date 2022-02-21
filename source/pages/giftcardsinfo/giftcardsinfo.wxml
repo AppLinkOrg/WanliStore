@@ -5,12 +5,13 @@
     </view>
     <view class="" style="width: 700rpx;margin-top: 32rpx; margin-left: 26rpx;">
         <view class="f">卡 号：{{cardinfo.exchangecard_id_name}}</view>
-        <view class="f">面 值：{{cardinfo.price}}元</view>
+        <view class="f">面 值：{{cardinfo.giftcardprice_cardprice}}元</view>
         <view class="f">使用须知 ：
-            <rich-text style="width: 100vw;" nodes="{{cardinfo.howuse}}"></rich-text>
+            <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+            <!-- <rich-text style="width: 100vw;" nodes="{{cardinfo.howuse}}"></rich-text> -->
             </view>
     </view>
-    <view class="flex-row" style="position: absolute; bottom: 44rpx; width: 100%;">
+    <view wx:if="{{cardinfo.isuse != 'C'}}" class="flex-row" style="position: absolute; bottom: 44rpx; width: 100%;">
         <button class="but" type="primary" plain="true" open-type='share'>送给好友</button>
         <button class="but" type="primarys" bindtap="gotoTabbar">立即使用</button>
     </view>

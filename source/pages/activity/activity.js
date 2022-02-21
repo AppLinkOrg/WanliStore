@@ -32,6 +32,12 @@ class Content extends AppBase {
   onLoad(options) {
     this.Base.Page = this;
     this.Base.ActivitysApi = this.ActivitysApi
+    var that = this;
+    var activitysApi = new ActivitysApi();
+    var aa = this.Base.getMyData();
+    var times = ApiUtil.FormatDateTime(new Date());
+   console.log("啥的健康")
+   console.log(aa)
     wx.setNavigationBarTitle({
       title: "活动详情"
     })
@@ -58,19 +64,6 @@ class Content extends AppBase {
       specificationsinfo: null,
       number: 1
     })
-    
-  }
-  
-    /**
-     * 生命周期函数--监听页面显示
-     */
-  onMyShow() {
-    var that = this;
-    var activitysApi = new ActivitysApi();
-    var aa = this.Base.getMyData();
-    var times = ApiUtil.FormatDateTime(new Date());
-   console.log("啥的健康")
-   console.log(aa)
     
     // 活动详情内容
     activitysApi.activityinfo({id:this.Base.options.id},(data)=>{
@@ -103,6 +96,21 @@ class Content extends AppBase {
         question:data
       })
     })
+  }
+  
+    /**
+     * 生命周期函数--监听页面显示
+     */
+  onMyShow() {
+    var that = this;
+    var activitysApi = new ActivitysApi();
+    var aa = this.Base.getMyData();
+    var times = ApiUtil.FormatDateTime(new Date());
+   console.log("啥的健康")
+   console.log(aa)
+    
+    
+
 
   }
 
@@ -187,7 +195,10 @@ class Content extends AppBase {
             }
           }
           // 发起微信支付
-            wx.requestPayment(payret);                     
+            wx.requestPayment(payret);
+            
+            console.log("治安")
+            console.log(question)                     
         })
       }else {
         this.Base.toast(ret.result);
