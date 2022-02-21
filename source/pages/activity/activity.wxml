@@ -11,7 +11,8 @@
         <view class="f-28 margin-top-16">活动时间：{{activityinfo.starttime}}-{{activityinfo.endtime}}</view>
         <view class="f-28 margin-top-16">报名时间：{{activityinfo.startbaoming}}-{{activityinfo.endbaoming}}</view>
         <view class="f-28 margin-top-16">活动地点：{{activityinfo.sddress}}</view>
-        <view class="f-28 margin-top-16">费用：{{activityinfo.price}}</view>
+        <view wx:if="{{activityinfo.price > 0}}" class="f-28 margin-top-16">报名费用：{{activityinfo.price}}</view>
+        <view wx:else class="f-28 margin-top-16">报名费用：免费</view>
         <view class="question padding-top-40">【活动内容】</view>
         <view class="padding-top-16">
             <import src="../../wxParse/wxParse.wxml" />
@@ -27,18 +28,18 @@
                 <view class="question padding-top-40 padding-bottom-40">{{item.name}}</view>
                 <view wx:if="{{activityinfo.orderinfolen.length==0}}">
                     <view class="flex-row" wx:if="{{item.isxuan == '是' && item.options.length != 0}}">
-                        <picker name="{{index}}" class="answer f-28" style="width: 100%; height: 112rpx;" range-key="name" bindchange="bindPickerChange" id="{{index}}" range="{{item.options}}">
+                        <picker name="{{index}}" class="answer f-28" style="width: 100%; height: 112rpx;" range-key="name" bindchange="bindPickerChange" id="{{index}}" range="{{item.options}}" value="{{index}}">
                             <view wx:if="{{item.value == ''}}" style="width: 100%;">请选择</view>
                         </picker>
                         <image src="{{uploadpath}}resource/{{res.select}}" style="width: 28rpx; height: 28rpx;"></image>
                     </view>
                     <view wx:else>
-                        <input name="{{index}}" placeholder="请输入" bindinput="bindKeyInput" id="{{index}}" class="answer f-28" type="text" />
+                        <input name="{{index}}" value="{{item.value}}" placeholder="请输入" bindinput="bindKeyInput" id="{{index}}" class="answer f-28" type="text" />
                     </view>
                 </view>
 
                 <view wx:if="{{activityinfo.orderinfolen.length > 0}}">
-                    {{activityinfo.answer[0].answer}}
+                    {{activityinfo.answer[index].answer}}
                 </view>
 
             </view>
@@ -60,15 +61,6 @@
             </view>
         </form>
 
-
-
-
-        <!-- wx:if="{{activityinfo.orderinfo.length >  0}}" -->
-        <view wx:if="{{activityinfo.orderinfo.length >=0}}">
-            <view wx:for="{{activityinfo.answer}}">
-                <view>{{item.answer}}</view>
-            </view>
-        </view>
 
     </view>
 </view>

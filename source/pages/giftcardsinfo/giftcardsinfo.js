@@ -35,6 +35,8 @@ import {
     onMyShow() {
       var that = this;
       var giftcardsapi = new GiftcardsApi();
+      console.log("options是什么")
+      console.log(this.Base.options)
       giftcardsapi.mygiftcardinfo({id:this.Base.options.id},(e)=>{
         e.howuse = ApiUtil.HtmlDecode(e.howuse)
         this.Base.setMyData({
@@ -58,8 +60,16 @@ import {
       }
       return{
         title:'请分享给你的好友',    // 转发标题
-        path: '/pages/giftcardsinfo/giftcardsinfo?id=' + this.Base.options.id,     // 当前页面 path ，必须是以 / 开头的完整路径 
+        path: '/pages/giftcardsinfo/giftcardsinfo?id=' + this.Base.options.id + 'share_id' + cardinfo.member_id,     // 当前页面 path ，必须是以 / 开头的完整路径 
       }
+    }
+
+    showShareMenu(res){
+      withShareTicket:true;
+      menus: ['shareAppMessage', 'shareTimeline']
+    }
+    getShareInfo(res){
+
     }
   
 

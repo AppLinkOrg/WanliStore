@@ -75,9 +75,9 @@
                 {
                     "name": "",
                     "pathName": "pages/giftcardsinfo/giftcardsinfo",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
+                    "query": "id=1",
+                    "scene": null,
+                    "launchMode": "default"
                 },
                 {
                     "name": "",
@@ -153,8 +153,8 @@
                     "name": "",
                     "pathName": "pages/givegiftcards/givegiftcards",
                     "query": "id=1",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

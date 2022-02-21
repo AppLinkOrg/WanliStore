@@ -48,7 +48,7 @@ class Content extends AppBase {
       statusbaoming:'D',
       refund_id:0,
       timess:timess,
-     
+      activity_id: ''
 
   })
     super.onLoad(options);
@@ -106,7 +106,7 @@ class Content extends AppBase {
 
   }
 
-
+// 选择器输入
   bindPickerChange(e) {
     console.log('picker发送选择改变，携带值为', e);
     var question = this.Base.getMyData().question;
@@ -118,6 +118,7 @@ class Content extends AppBase {
     })
   }
 
+  // input输入
   bindKeyInput(e) {
     var question = this.Base.getMyData().question;
     var id = e.currentTarget.id;
@@ -130,6 +131,9 @@ class Content extends AppBase {
 
   formSubmit(e) {
     var data = this.Base.getMyData();
+    console.log('看看这里')
+    console.log(data)
+    console.log(this.Base.options.id)
     var wechatapi = new WechatApi();
     var activitysApi = new ActivitysApi();
     var question = this.Base.getMyData().question;
@@ -161,21 +165,16 @@ class Content extends AppBase {
 
 
   activitysApi.baomingxingxi({
-    // activity_id:this.Base.options.name,
     paytype:data.paytype,
-    price:data.price,
     statusbaoming: data.statusbaoming,
     refund_id:data.refund_id,
     activity_id:this.Base.options.id,
-    phone:this.Base.getMyData().memberinfo.mobile,
-    question: JSON.stringify(question),
-    money: data.activityinfo.price,
+    price: data.activityinfo.price,
+    question:JSON.stringify(question)
   },(ret)=>{
     money: data.activityinfo.price
-    console.log("在那")
-    console.log(money)
+    console.log("看看")
     console.log(ret)
-    money: data.activityinfo.price
     if(money > 0){
       console.log(this.money)
       if(ret.code=='0'){
