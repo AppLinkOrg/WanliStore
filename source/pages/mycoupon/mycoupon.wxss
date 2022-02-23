@@ -1,7 +1,5 @@
 /* pages/mycoupon/mycoupon.wxss */
-.fontcolor{
-    color: rgba(68, 181, 73, 1);
-}
+
 .navbox {
     width: 100%;
     height: 112rpx;

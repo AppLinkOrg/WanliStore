@@ -22,6 +22,7 @@ import {
     MemberApi
   } from "../../apis/member.api.js";
 import { GiftcardsApi } from "../../apis/giftcards.api";
+import { CouponApi } from "../../apis/coupon.api";
 
 
   class Content extends AppBase {
@@ -48,6 +49,8 @@ import { GiftcardsApi } from "../../apis/giftcards.api";
           totalamount:0,
           giftcardid:0,
           liping:0,
+          couponid:0,
+          keyongcoupon:this.Base.getMyData().keyongcoupon,
       })
     }
     onMyShow() {
@@ -61,11 +64,35 @@ import { GiftcardsApi } from "../../apis/giftcards.api";
       mallapi.goodsinfo({
         id: this.Base.options.goodsid
       }, (info) => {
-       
         this.Base.setMyData({
           info
         });
 
+        var couponapi = new CouponApi();
+        console.log("couponid有么")
+        console.log(this.Base.getMyData().couponid)
+        if(this.Base.getMyData().couponid >0){
+          couponapi.couponinfo({id:this.Base.getMyData().couponid},(e)=>{
+            this.Base.setMyData({
+              couponinfo:e
+            })
+          })
+        }
+        couponapi.mycoupon({},(e)=>{
+          let keys = Object.keys(e)
+        var arr = e.filter(item =>{
+        return item.usesstatus == 'A'
+         })
+      console.log("arr是什么")
+      console.log(arr.length);
+      var keyongcoupon=arr.length
+          this.Base.setMyData({
+            keyongcoupon:keyongcoupon
+          })
+        })
+      console.log("keyongcoupon赋值了吗")
+      console.log(this.Base.getMyData().keyongcoupon)
+      
         var giftcardsapi = new 	GiftcardsApi();
         console.log("giftcardid有么")
         console.log(this.Base.getMyData().giftcardid)
@@ -79,6 +106,8 @@ import { GiftcardsApi } from "../../apis/giftcards.api";
       }
         this.getsum();
       });
+
+
       var memberapi = new MemberApi();
       console.log(this.Base.getMyData().address_id,'达到');
       if(this.Base.getMyData().address_id==0 && this.Base.getMyData().sendtype=='A' ){
@@ -129,38 +158,65 @@ import { GiftcardsApi } from "../../apis/giftcards.api";
       var totalamount = 0;
       var youhui = 0;
       var lipin = 0;
-      var liping =0;
-       
+      var liping = 0;
+      var couponprice = 0;
 
 
+      // 商品总价，商品价格+邮费
       totalamount = (Number(info.price)+Number(yunfei)).toFixed(2);
-      if(this.Base.getMyData().giftcardid>0){
+
+      // 优惠券使用
+      if(data.couponid>0){
+        if(data.couponinfo.type == 'A'){
+          couponprice = data.couponinfo.amount
+        }
+        if(data.couponinfo.type == 'B'){
+          couponprice = (totalamount * data.couponinfo.zhekou / 100).toFixed(2)
+        } 
+      }
+      // 礼品卡使用
+      // 1、礼品卡使用金额
+      if(data.giftcardid>0){
         var cardyue = data.giftcardinfo.yue;
         var cardid = data.giftcardinfo.id;
-        if(cardyue < totalamount){
-          liping = totalamount
+        if(data.couponid>0){
+          var price = totalamount-couponprice
+          if(cardyue > price){
+            liping = price
+          }else{
+            liping = cardyue
+          }
         }else{
-          liping = cardyue
+          if(cardyue < totalamount){
+            liping = totalamount
+          }else{
+            liping = cardyue
+          }
         }
-        lipin = Number(cardyue - totalamount).toFixed(2);
-       
-      if(lipin >0){
-        youhui = (Number(data.couponprice)+Number(totalamount)).toFixed(2);
-      }else{
-        youhui = (Number(data.couponprice)+Number(cardyue)).toFixed(2);
-      }
+        // 2、礼品卡余额
+        if(data.giftcardid >0){
+          if(data.couponid >0){
+            lipin=(Number(cardyue) - Number(totalamount) + Number(couponprice)).toFixed(2);
+          }else{
+            lipin = (Number(cardyue) - Number(totalamount)).toFixed(2);
+          }
+        }
     }
+    // 总优惠金额
+    youhui = (Number(couponprice)+ Number(liping)).toFixed(2);
+    // 最终付款金额
       amount =Number( totalamount - youhui).toFixed(2);
 
       this.Base.setMyData({
-        amount,
-        totalamount,
-        youhui,
-        yunfei,
-        lipin,
-        cardyue,
         liping,
-        cardid
+        lipin,
+        couponprice,
+        totalamount,
+        yunfei,
+        youhui,
+        amount,
+        cardyue,
+        cardid,
       })
 
     }
@@ -213,6 +269,7 @@ import { GiftcardsApi } from "../../apis/giftcards.api";
           }
         }else{
           var orderapi = new OrderApi();
+
           var data = this.Base.getMyData();
           console.log("data有什么")
           console.log(data)

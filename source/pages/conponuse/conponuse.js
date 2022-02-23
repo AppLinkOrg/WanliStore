@@ -51,12 +51,12 @@ import {
     chosedz(e){
         var id = e.currentTarget.id;
         this.Base.setMyData({
-            giftcardid:id
+            couponid:id
         })
         var pages = getCurrentPages();
         var prevPage = pages[pages.length - 2]; //上一个页面
         prevPage.setData({
-            giftcardid:id
+          couponid:id
            })
            wx.navigateBack({//返回
              delta: 1

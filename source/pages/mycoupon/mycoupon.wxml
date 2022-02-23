@@ -10,13 +10,17 @@
 
     <view class="flex-row flex-column" style="display: {{flag == 'A' ? 'block' :'none'}}; min-height: 90vh; position: relative;">
         <view style="margin-bottom: 92rpx; ">
-            <view class="cards" wx:for="{{coupon}}" wx:key="item">
+            <view class="cards" wx:for="{{coupon}}" wx:if="{{item.usesstatus == 'A'}}" wx:key="item">
                 <view style="margin: 30rpx;">
                     <view class="flex-row">
                         <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
-                            <view class="flex-row" style="line-height: 80rpx;">
-                                <view class="f-28 fontcolor" >￥</view>
+                            <view wx:if="{{item.type == 'A'}}" class="flex-row" style="line-height: 80rpx;">
+                                <view class="f-28 fontcolor">￥</view>
                                 <view class="f-56 fontcolor">{{item.amount}}</view>
+                            </view>
+                            <view wx:if="{{item.type == 'B'}}" class="flex-row" style="line-height: 80rpx;">
+                                <view class="f-56 fontcolor">{{item.zhekou/10}}</view>
+                                <view class="f-28 fontcolor">折</view>
                             </view>
                             <view class="f-24" style="color: #999; line-height: 34rpx; height: 34rpx;">满{{item.manmoney}}元可用</view>
                         </view>
@@ -43,13 +47,17 @@
     </view>
     <view class="flex-row flex-column" style="display: {{flag == 'B' ? 'block' :'none'}}; min-height: 90vh; position: relative;">
         <view style="margin-bottom: 92rpx; ">
-            <view class="cards" wx:for="{{coupon}}" wx:key="item">
+            <view class="cards" wx:for="{{coupon}}" wx:if="{{item.usesstatus == 'B'}}" wx:key="item">
                 <view style="margin: 30rpx;">
                     <view class="flex-row">
                         <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
-                            <view class="flex-row" style="line-height: 80rpx;">
-                                <view class="f-28" style="color: #999;" >￥</view>
-                                <view class="f-56" style="color: #999;">{{item.amount}}</view>
+                            <view wx:if="{{item.type == 'A'}}" class="flex-row" style="line-height: 80rpx;">
+                                <view class="f-28 fontcolor">￥</view>
+                                <view class="f-56 fontcolor">{{item.amount}}</view>
+                            </view>
+                            <view wx:if="{{item.type == 'B'}}" class="flex-row" style="line-height: 80rpx;">
+                                <view class="f-56 fontcolor">{{item.zhekou/10}}</view>
+                                <view class="f-28 fontcolor">折</view>
                             </view>
                             <view class="f-24" style="color: #999; line-height: 34rpx; height: 34rpx;">满{{item.manmoney}}元可用</view>
                         </view>
@@ -62,7 +70,7 @@
                     <view class="flex-row flex-center" style="border-top: 2rpx solid #E1E3E699;">
                         <view class="f-24" style="line-height: 34px;color: #999999;">使用时段:{{item.shiduan}}</view>
                         <view class="flex-1"></view>
-                        
+
                     </view>
                 </view>
 
@@ -74,13 +82,17 @@
     </view>
     <view class="flex-row flex-column" style="display: {{flag == 'C' ? 'block' :'none'}}; min-height: 90vh; position: relative;">
         <view style="margin-bottom: 92rpx; ">
-            <view class="cards" wx:for="{{coupon}}" wx:key="item">
+            <view class="cards" wx:for="{{coupon}}" wx:if="{{item.usesstatus == 'C'}}" wx:key="item">
                 <view style="margin: 30rpx;">
                     <view class="flex-row">
                         <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
-                            <view class="flex-row" style="line-height: 80rpx;">
-                                <view class="f-28" style="color: #999;" >￥</view>
-                                <view class="f-56" style="color: #999;">{{item.amount}}</view>
+                            <view wx:if="{{item.type == 'A'}}" class="flex-row" style="line-height: 80rpx;">
+                                <view class="f-28 fontcolor">￥</view>
+                                <view class="f-56 fontcolor">{{item.amount}}</view>
+                            </view>
+                            <view wx:if="{{item.type == 'B'}}" class="flex-row" style="line-height: 80rpx;">
+                                <view class="f-56 fontcolor">{{item.zhekou/10}}</view>
+                                <view class="f-28 fontcolor">折</view>
                             </view>
                             <view class="f-24" style="color: #999; line-height: 34rpx; height: 34rpx;">满{{item.manmoney}}元可用</view>
                         </view>
@@ -93,7 +105,7 @@
                     <view class="flex-row flex-center" style="border-top: 2rpx solid #E1E3E699;">
                         <view class="f-24" style="line-height: 34px;color: #999999;">使用时段:{{item.shiduan}}</view>
                         <view class="flex-1"></view>
-                        
+
                     </view>
                 </view>
 

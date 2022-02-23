@@ -781,3 +781,6 @@ border-radius: 4rpx;
   position: absolute;
   bottom: 70rpx;
 }
+.fontcolor{
+  color: rgba(68, 181, 73, 1);
+}

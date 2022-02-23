@@ -63,7 +63,7 @@
             <view class="flex-1"></view>
             <view wx:if="{{giftcardid > 0}}">
                 <view wx:if="{{lipin >0}}">
-                    -{{totalamount}}(余额:{{lipin}})
+                    -{{liping}}(余额:{{lipin}})
                 </view>
                 <view wx:else>
                     -{{cardyue}}(余额:0)
@@ -78,9 +78,9 @@
         <view class="height-50"></view>
         <view class="flex-row flex-center" bindtap="navigateto" id="/pages/conponuse/conponuse?goodsid={{info.id}}">
             <view class="h5 txt-33">优惠券</view>
-            <view class="cbox" style="background-image:url({{uploadpath}}resource/{{res.couponbgicon}})">0张可用</view>
+            <view class="cbox" style="background-image:url({{uploadpath}}resource/{{res.couponbgicon}})">{{keyongcoupon}}张可用</view>
             <view class="flex-1"></view>
-            <view wx:if="{{giftcardid > 0}}">-2.00</view>
+            <view wx:if="{{couponid > 0}}">-{{couponprice}}</view>
             <view wx:else>
                 <view class="h5" style="color:#888888;">未使用</view>
                 <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>

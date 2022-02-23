@@ -180,16 +180,16 @@
                 {
                     "name": "",
                     "pathName": "pages/mycoupon/mycoupon",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
+                    "query": "type=A",
+                    "scene": null,
+                    "launchMode": "default"
                 },
                 {
                     "name": "",
                     "pathName": "pages/conponuse/conponuse",
                     "query": "",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
