@@ -8,7 +8,7 @@
         </view>
     </view>
 
-    <view class="flex-row flex-column" style="display: {{flag == 'A' ? 'block' :'none'}}; position: relative;">
+    <view class="flex-row flex-column" style="display: {{flag == 'A' ? 'block' :'none'}}; min-height: 90vh; position: relative;">
         <view style="margin-bottom: 92rpx; ">
             <view class="flex-row cards" wx:for="{{cardlist}}" wx:key="item" bindtap="navigateto" id="/pages/giftcardsinfo/giftcardsinfo?id={{item.id}}">
                 <image class="cardsimg" src="{{uploadpath}}giftcardinfo/{{item .cover}}"></image>

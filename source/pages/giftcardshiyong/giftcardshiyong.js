@@ -12,49 +12,63 @@ import {
   import {
     MallApi
   } from "../../apis/mall.api.js";
-  
+  import {
+    GiftcardsApi
+  } from "../../apis/giftcards.api.js";
+
+
   class Content extends AppBase {
     constructor() {
       super();
     }
     onLoad(options) {
       this.Base.Page = this;
-  
+      wx.setNavigationBarTitle({
+        title: "选择礼品卡"
+      })
       super.onLoad(options);
       this.Base.setMyData({
         nowindex: 1,
         overlay: true,
         specificationsinfo: null,
         number: 1,
-        id: this.Base.options.id==undefined?0:this.Base.options.id,
+        goodsid: this.Base.options.goodsid==undefined?0:this.Base.options.goodsid,
       })
+
     }
     onMyShow() {
       var that = this;
       var mallapi = new MallApi();
-      console.log("options的值");
-      console.log(this.Base.options);
+      var giftcardsapi = new GiftcardsApi();
+      giftcardsapi.mygiftcardlist({},(e)=>{
+          this.Base.setMyData({
+            cardlist:e
+          })
+      })
     }
-    navBack(e){
+
+    chosedz(e){
+        var id = e.currentTarget.id;
+        this.Base.setMyData({
+            giftcardid:id
+        })
         var pages = getCurrentPages();
         var prevPage = pages[pages.length - 2]; //上一个页面
         prevPage.setData({
-            id:id
+            giftcardid:id
            })
            wx.navigateBack({//返回
              delta: 1
            })
     }
-
-
-
-
+  
   }
   
   var content = new Content();
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
-  body.navBack = content.navBack;
+  body.chosedz = content.chosedz;
+  
   
   Page(body)

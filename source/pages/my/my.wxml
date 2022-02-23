@@ -2,15 +2,13 @@
     <view class="h174"></view>
     <view class="flex-row flex-center padding36">
 
-        <button open-type="getUserInfo" class="clear-button " hover-class="none"
-         bindtap="bindgetUserProfile">
+        <button open-type="getUserInfo" class="clear-button " hover-class="none" bindtap="bindgetUserProfile">
             <view class="touxiang" wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.avatarUrl=='')}}"></view>
             <image src="{{memberinfo.avatarUrl}}" class="touxiang" wx:else></image>
         </button>
         <view class="flex-1">
             <view class="flex-row flex-center">
-                <button open-type="getPhoneNumber" class="clear-button " hover-class="none"
-                    wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.mobile=='')}}" bindgetphonenumber="getPhoneNo">
+                <button open-type="getPhoneNumber" class="clear-button " hover-class="none" wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.mobile=='')}}" bindgetphonenumber="getPhoneNo">
                     <view class="txt-white h4 margin-left-16">点击授权手机号</view>
                 </button>
                 <view wx:else class="txt-white h4 margin-left-16">{{memberinfo.mobile}}</view>
@@ -94,20 +92,40 @@
                     <image src="{{uploadpath}}resource/{{res.dizhiguanli}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">地址管理</view>
                 </view>
-                <view class="flex-1 flex-row flex-column">
+                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/mycoupon/mycoupon?type=A">
                     <image src="{{uploadpath}}resource/{{res.youhuiquan}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">优惠券</view>
                 </view>
+                
             </view>
             <view class="height-60"></view>
             <view class="flex-row flex-center">
+                <view class="flex-1 flex-row flex-column" bindtap="notdata">
+                    <image src="{{uploadpath}}resource/{{res.wodepinjia}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">我的评价</view>
+                </view>
+                <view class="flex-1 flex-row flex-column" bindtap="notdata">
+                    <image src="{{uploadpath}}resource/{{res.shezhi}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">设置</view>
+                </view>
+                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/myactivity/myactivity?type=A">
+                    <image src="{{uploadpath}}resource/{{res.activity}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">我的活动</view>
+                </view>
+                <view class="flex-1 flex-row flex-column"></view>
+            </view>
+            <!-- <view class="flex-row flex-center">
+                <view class="flex-1 flex-row flex-column" bindtap="notdata">
+                    <image src="{{uploadpath}}resource/{{res.jifenshangcheng}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">积分商城</view>
+                </view>
                 <view class="flex-1 flex-row flex-column">
                     <image src="{{uploadpath}}resource/{{res.wodepinjia}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">我的评价</view>
                 </view>
                 <view class="flex-1 flex-row flex-column">
                     <image src="{{uploadpath}}resource/{{res.shezhi}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">设置</view>
+                    <view class="h7 txt-66 margin-top-20">选项设置</view>
                 </view>
                 <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/myactivity/myactivity?type=A">
                     <image src="{{uploadpath}}resource/{{res.activity}}" class="icon"></image>
@@ -119,7 +137,7 @@
                 <view class="flex-1 flex-row flex-column">
 
                 </view>
-            </view>
+            </view> -->
         </view>
     </view>
 

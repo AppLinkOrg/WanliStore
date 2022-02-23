@@ -84,30 +84,6 @@ import {
      
     }
 
-  
-
-    
-
-
-// onShareAppMessage(res) {
-//   if (res.from === 'button') {
-//     console.log("来自页面内转发按钮");
-//     console.log(res.target);
-//     return {
-//       title: this.data.shareTitle,
-//       path: '/pages/giftcardsinfo/giftcardsinfo?id' + wx.getStorageSync('openId') + this.Base.options.id,
-//     }
-//   } else {
-//     console.log("来自右上角转发菜单")
-//     console.log(res);
-//     return {
-//       title: this.data.shareTitle,
-//       path: '/pages/giftcardsinfo/giftcardsinfo?id' + this.Base.options.id,
-//     }
-//   }
-
-
-// }
 
 
   }

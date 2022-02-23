@@ -21,6 +21,9 @@ import {
   import {
     MemberApi
   } from "../../apis/member.api.js";
+import { GiftcardsApi } from "../../apis/giftcards.api";
+
+
   class Content extends AppBase {
     constructor() {
       super();
@@ -43,12 +46,18 @@ import {
           yunfei:0,
           amount:0,
           totalamount:0,
+          giftcardid:0,
+          liping:0,
       })
     }
     onMyShow() {
       var that = this;
       var mallapi = new MallApi();
-  
+      console.log("有神")
+      console.log(this.Base.Page)
+     
+      
+      // console.log(giftcardid)
       mallapi.goodsinfo({
         id: this.Base.options.goodsid
       }, (info) => {
@@ -56,6 +65,18 @@ import {
         this.Base.setMyData({
           info
         });
+
+        var giftcardsapi = new 	GiftcardsApi();
+        console.log("giftcardid有么")
+        console.log(this.Base.getMyData().giftcardid)
+        if(this.Base.getMyData().giftcardid>0 ){
+        giftcardsapi.mygiftcardinfo({id:this.Base.getMyData().giftcardid},(giftcardinfo)=>{
+          // this.Base.getMyData().giftcardinfo.yue
+          this.Base.setMyData({
+            giftcardinfo
+          })
+        })
+      }
         this.getsum();
       });
       var memberapi = new MemberApi();
@@ -80,6 +101,8 @@ import {
           })
         })
       }
+
+     
      
     }
     swtichsend(e){
@@ -96,24 +119,52 @@ import {
     }
     getsum(){
       var data = this.Base.getMyData();
+      console.log("有什么")
+      console.log(data)
+      console.log(this.Base.options)
       var info = data.info;
       var sendtype = data.sendtype;
       var yunfei = sendtype=='A'?Number(info.yunfei).toFixed(2):Number(0).toFixed(2);
       var amount = 0;
       var totalamount = 0;
       var youhui = 0;
+      var lipin = 0;
+      var liping =0;
+       
+
 
       totalamount = (Number(info.price)+Number(yunfei)).toFixed(2);
-      youhui = (Number(data.couponprice)+Number(data.lipin)).toFixed(2);
+      if(this.Base.getMyData().giftcardid>0){
+        var cardyue = data.giftcardinfo.yue;
+        var cardid = data.giftcardinfo.id;
+        if(cardyue < totalamount){
+          liping = totalamount
+        }else{
+          liping = cardyue
+        }
+        lipin = Number(cardyue - totalamount).toFixed(2);
+       
+      if(lipin >0){
+        youhui = (Number(data.couponprice)+Number(totalamount)).toFixed(2);
+      }else{
+        youhui = (Number(data.couponprice)+Number(cardyue)).toFixed(2);
+      }
+    }
       amount =Number( totalamount - youhui).toFixed(2);
+
       this.Base.setMyData({
         amount,
         totalamount,
         youhui,
-        yunfei
+        yunfei,
+        lipin,
+        cardyue,
+        liping,
+        cardid
       })
 
     }
+    // 创建订单
     bindpay(){
       var data = this.Base.getMyData();
       
@@ -124,7 +175,6 @@ import {
       if(data.sendtype=='B' && data.store_id<=0){
         this.Base.toast('请选择门店地址');
         return
-   
       }
       var orderapi = new OrderApi();
       var wechatapi = new WechatApi();
@@ -134,28 +184,48 @@ import {
         price:data.info.price,
         youhui:data.youhui,
         couponprice:data.couponprice,
-        lipin:data.lipin,
+        lipin:data.liping,
         yunfei:data.yunfei,
         amount:data.amount,
         totalamount:data.totalamount,
         store_id:data.store_id,
         address_id:data.address_id,
-        beizhu:data.beizhu
+        beizhu:data.beizhu,
+        mygiftcard_id:data.cardid
       },(ret)=>{
-        if(ret.code=='0'){
-          wechatapi.prepay({id:ret.return},(payret)=>{
-            payret.complete = function(e){
-              if (e.errMsg == "requestPayment:ok") {
-                wx.reLaunch({
-                  url: '/pages/paysuccess/paysuccess?amount='+data.amount,
-                })
+        console.log("手机号")
+        console.log(ret)
+        var data = this.Base.getMyData();
+        if(data.amount !=0){
+          if(ret.code=='0'){
+            wechatapi.prepay({id:ret.return},(payret)=>{
+              payret.complete = function(e){
+                if (e.errMsg == "requestPayment:ok") {
+                  wx.reLaunch({
+                    url: '/pages/paysuccess/paysuccess?amount='+data.amount,
+                  })
+                }
               }
-            }
-            wx.requestPayment(payret);
+              wx.requestPayment(payret);
+            })
+          }else {
+            this.Base.toast(ret.result);
+          }
+        }else{
+          var orderapi = new OrderApi();
+          var data = this.Base.getMyData();
+          console.log("data有什么")
+          console.log(data)
+          console.log(data.id)
+          console.log(this.Base.options.id)
+          orderapi.updateorder({
+            id:ret.return
           })
-        }else {
-          this.Base.toast(ret.result);
+          wx.reLaunch({
+            url: '/pages/paysuccess/paysuccess?amount='+data.amount,
+          })
         }
+        
       })
     }
     

@@ -32,7 +32,10 @@
     "pages/exchagessuccess/exchagessuccess",
     "pages/giftcardbuyjilu/giftcardbuyjilu",
     "pages/giftcardshousongjilu/giftcardshousongjilu",
-    "pages/giftcardshiyongjilu/giftcardshiyongjilu"
+    "pages/giftcardshiyongjilu/giftcardshiyongjilu",
+    "pages/giftcardshiyong/giftcardshiyong",
+    "pages/mycoupon/mycoupon",
+    "pages/conponuse/conponuse"
   ],
   "permission": {
     "scope.userLocation": {

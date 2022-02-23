@@ -1,0 +1,106 @@
+<!--pages/giftcards/giftcards.wxml-->
+
+<view class="flex-row  flex-column" style="background-color: rgba(243, 246, 247, 1); position: relative; min-height: 100vh;">
+    <view class="flex-row navbox">
+        <view class="flex-1  flex-row flex-column" wx:for="{{typelist}}" wx:key='k' bindtap="switchtype" id="{{item.value}}">
+            <view class="f-28 txt-weight text-center titlebox">{{item.name}}</view>
+            <view class="line {{item.value==flag?'line_color':''}}"></view>
+        </view>
+    </view>
+
+    <view class="flex-row flex-column" style="display: {{flag == 'A' ? 'block' :'none'}}; min-height: 90vh; position: relative;">
+        <view style="margin-bottom: 92rpx; ">
+            <view class="cards" wx:for="{{coupon}}" wx:key="item">
+                <view style="margin: 30rpx;">
+                    <view class="flex-row">
+                        <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
+                            <view class="flex-row" style="line-height: 80rpx;">
+                                <view class="f-28 fontcolor" >￥</view>
+                                <view class="f-56 fontcolor">{{item.amount}}</view>
+                            </view>
+                            <view class="f-24" style="color: #999; line-height: 34rpx; height: 34rpx;">满{{item.manmoney}}元可用</view>
+                        </view>
+                        <view class="flex-1" style="margin-left: 40rpx;">
+                            <view class="f-32" style="font-weight: 500; color: #333333;;">{{item.name}}</view>
+                            <view class="f-24" style="color: #999999;line-height: 34px;">有效期至{{item.end_time}}</view>
+                        </view>
+                    </view>
+
+                    <view class="flex-row flex-center" style="border-top: 2rpx solid #E1E3E699;">
+                        <view class="f-24" style="line-height: 34px;color: #999999;">使用时段:{{item.shiduan}}</view>
+                        <view class="flex-1"></view>
+                        <button bindtap="usecoupon" style="background: rgba(0, 185, 53, 1);border-radius: 24rpx; width:200rpx;line-height: 48rpx;">
+                            <view class="f-24">立即使用</view>
+                        </button>
+                    </view>
+                </view>
+
+
+            </view>
+
+        </view>
+
+    </view>
+    <view class="flex-row flex-column" style="display: {{flag == 'B' ? 'block' :'none'}}; min-height: 90vh; position: relative;">
+        <view style="margin-bottom: 92rpx; ">
+            <view class="cards" wx:for="{{coupon}}" wx:key="item">
+                <view style="margin: 30rpx;">
+                    <view class="flex-row">
+                        <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
+                            <view class="flex-row" style="line-height: 80rpx;">
+                                <view class="f-28" style="color: #999;" >￥</view>
+                                <view class="f-56" style="color: #999;">{{item.amount}}</view>
+                            </view>
+                            <view class="f-24" style="color: #999; line-height: 34rpx; height: 34rpx;">满{{item.manmoney}}元可用</view>
+                        </view>
+                        <view class="flex-1" style="margin-left: 40rpx;">
+                            <view class="f-32" style="font-weight: 500; color: #999;">{{item.name}}</view>
+                            <view class="f-24" style="color: #999999;line-height: 34px;">有效期至{{item.end_time}}</view>
+                        </view>
+                    </view>
+
+                    <view class="flex-row flex-center" style="border-top: 2rpx solid #E1E3E699;">
+                        <view class="f-24" style="line-height: 34px;color: #999999;">使用时段:{{item.shiduan}}</view>
+                        <view class="flex-1"></view>
+                        
+                    </view>
+                </view>
+
+
+            </view>
+
+        </view>
+
+    </view>
+    <view class="flex-row flex-column" style="display: {{flag == 'C' ? 'block' :'none'}}; min-height: 90vh; position: relative;">
+        <view style="margin-bottom: 92rpx; ">
+            <view class="cards" wx:for="{{coupon}}" wx:key="item">
+                <view style="margin: 30rpx;">
+                    <view class="flex-row">
+                        <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
+                            <view class="flex-row" style="line-height: 80rpx;">
+                                <view class="f-28" style="color: #999;" >￥</view>
+                                <view class="f-56" style="color: #999;">{{item.amount}}</view>
+                            </view>
+                            <view class="f-24" style="color: #999; line-height: 34rpx; height: 34rpx;">满{{item.manmoney}}元可用</view>
+                        </view>
+                        <view class="flex-1" style="margin-left: 40rpx;">
+                            <view class="f-32" style="font-weight: 500; color: #999;">{{item.name}}</view>
+                            <view class="f-24" style="color: #999999;line-height: 34px;">有效期至{{item.end_time}}</view>
+                        </view>
+                    </view>
+
+                    <view class="flex-row flex-center" style="border-top: 2rpx solid #E1E3E699;">
+                        <view class="f-24" style="line-height: 34px;color: #999999;">使用时段:{{item.shiduan}}</view>
+                        <view class="flex-1"></view>
+                        
+                    </view>
+                </view>
+
+
+            </view>
+
+        </view>
+
+    </view>
+</view>

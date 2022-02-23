@@ -36,6 +36,7 @@ class Content extends AppBase {
     var activitysApi = new ActivitysApi();
     var aa = this.Base.getMyData();
     var times = ApiUtil.FormatDateTime(new Date());
+    
    console.log("啥的健康")
    console.log(aa)
     wx.setNavigationBarTitle({
@@ -59,6 +60,7 @@ class Content extends AppBase {
   })
     super.onLoad(options);
     this.Base.setMyData({
+      isCommitted : false,
       nowindex: 1,
       overlay: true,
       specificationsinfo: null,
@@ -87,7 +89,7 @@ class Content extends AppBase {
     })
     
     // 报名信息
-    activitysApi.information({activityname:this.Base.options.id},(data)=>{
+    activitysApi.information({activity_id:this.Base.options.id},(data)=>{
       for(let item of data){
         item.value='';
       } 
@@ -139,9 +141,6 @@ class Content extends AppBase {
 
   formSubmit(e) {
     var data = this.Base.getMyData();
-    console.log('看看这里')
-    console.log(data)
-    console.log(this.Base.options.id)
     var wechatapi = new WechatApi();
     var activitysApi = new ActivitysApi();
     var question = this.Base.getMyData().question;
@@ -168,14 +167,13 @@ class Content extends AppBase {
      console.log("状态呢")
      console.log(data.statusbaoming)
 
-    //  获取上传的数据
+    
     
 
 
   activitysApi.baomingxingxi({
     paytype:data.paytype,
     statusbaoming: data.statusbaoming,
-    refund_id:data.refund_id,
     activity_id:this.Base.options.id,
     price: data.activityinfo.price,
     question:JSON.stringify(question)
@@ -196,9 +194,7 @@ class Content extends AppBase {
           }
           // 发起微信支付
             wx.requestPayment(payret);
-            
-            console.log("治安")
-            console.log(question)                     
+                   
         })
       }else {
         this.Base.toast(ret.result);
@@ -224,8 +220,6 @@ class Content extends AppBase {
     var id = e.currentTarget.id;
     var wechatapi = new WechatApi();
     var activitysApi = new ActivitysApi();
-    //取消退款时判断时候免费 
- 
     wx.showModal({
       content:'确定取消报名',
       success:(ret)=>{
@@ -275,6 +269,7 @@ body.bindKeyInput = content.bindKeyInput;
 body.formSubmit = content.formSubmit;
 body.removebaoming = content.removebaoming;
 body.bindpay = content.bindpay;
+// body.dosubmit = content.dosubmit;
 
 
 Page(body)

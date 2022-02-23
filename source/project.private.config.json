@@ -82,7 +82,7 @@
                 {
                     "name": "",
                     "pathName": "pages/ordersubmit/ordersubmit",
-                    "query": "",
+                    "query": "goodsid=6",
                     "launchMode": "default",
                     "scene": null
                 },
@@ -159,6 +159,34 @@
                 {
                     "name": "",
                     "pathName": "pages/exchagessuccess/exchagessuccess",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardbuyjilu/giftcardbuyjilu",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardshiyong/giftcardshiyong",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/mycoupon/mycoupon",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/conponuse/conponuse",
                     "query": "",
                     "scene": null,
                     "launchMode": "default"

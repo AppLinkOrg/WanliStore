@@ -1,0 +1,68 @@
+/* pages/mycoupon/mycoupon.wxss */
+.fontcolor{
+    color: rgba(68, 181, 73, 1);
+}
+.navbox {
+    width: 100%;
+    height: 112rpx;
+}
+
+.titlebox {
+    line-height: 32rpx;
+    margin: 32rpx 0 16rpx 0;
+}
+
+.line {
+    width: 46rpx;
+    height: 4rpx;
+}
+.line_color{
+    background-color: rgba(68, 181, 73, 1);
+}
+
+.cards {
+    width: 700rpx;
+    height: 248rpx;
+    background-color: #fff;
+    border-radius: 32rpx;
+    margin-bottom: 24rpx;
+}
+
+.cardsimg {
+    width: 236rpx;
+    height: 140rpx;
+    border-radius: 12rpx;
+    margin: 30rpx 16rpx 30rpx 30rpx;
+}
+
+.contentbox {
+    margin: 30rpx 32rpx 30rpx 0;
+
+}
+
+.explain {
+    color: rgba(153, 153, 153, 1);
+    margin-top: 26rpx;
+}
+
+.bottombox {
+    position: absolute;
+    left: 50%;
+    margin-left: -200rpx;
+    bottom: 44rpx;
+}
+
+.bottomcontrnt {
+    color: rgba(153, 153, 153, 1);
+}
+.inputbox{
+    width: 640rpx;
+    height: 96rpx;
+    border: 2rpx solid rgba(204, 204, 204, 1);
+    border-radius: 8rpx;
+    margin-bottom: 40rpx;
+}
+.text{
+    font-size: 28rpx;
+    margin-bottom: 16rpx;
+}

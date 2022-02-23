@@ -1,2 +1,8 @@
 <!--pages/exchagessuccess/exchagessuccess.wxml-->
-<text>pages/exchagessuccess/exchagessuccess.wxml</text>
+<view class="flex-row flex-column">
+    <image style="width: 340rpx; height: 340rpx; margin-top: 140rpx;" 
+    src="{{uploadpath}}resource/{{res.changegiftcardsucess}}"
+    ></image>
+    <view class="f-60" style="margin-top: 72rpx;">报名成功</view>
+    <view class="activeback f-32 txt-white" bindtap="navigateto" id="/pages/giftcards/giftcards">返回</view>
+</view>

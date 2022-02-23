@@ -2,6 +2,7 @@
 
     <view wx:for="{{list}}" wx:key='k' >
         <view class="flex-row flex-center">
+            <!--  -->
             <image wx:if="{{chosetype=='A'}}" bindtap="chosedz" id='{{item.id}}' src="{{uploadpath}}resource/{{choseid==item.id?res.chose2:res.chose}}" class="icon30"></image>
             <view class="flex-1">
                 <view class="flex-row flex-center">

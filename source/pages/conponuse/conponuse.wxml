@@ -1,0 +1,24 @@
+<!--pages/conponuse/conponuse.wxml-->
+<view class="flex-row flex-column" style="background-color: rgba(243, 246, 247, 1); min-height: 100vh;">
+    <view wx:for="{{couponlist}}" bindtap="chosedz" id="item.id" style="background-color: rgba(255, 255, 255, 1); width: 700rpx; height: 248rpx;border-radius: 32rpx;margin-top: 44rpx;  padding: 30rpx;">
+        
+        <view class="flex-row">
+            <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
+                <view class="flex-row" style="line-height: 80rpx;">
+                    <view class="f-28" style="color: rgba(68, 181, 73, 1)">￥</view>
+                    <view class="f-56" style="color: rgba(68, 181, 73, 1)">5</view>
+                </view>
+                <view class="f-24" style="color: #999; line-height: 34rpx; height: 34rpx;">满40元可用</view>
+            </view>
+            <view>
+                <view class="f-32 txt-weight" style="line-height: 44rpx; margin-bottom: 16rpx;">40-5元优惠券</view>
+                <view class="f-24" style="color: #999; line-height: 34rpx; height: 34rpx;">有效期至2022-12-10</view>
+            </view>
+        </view>
+
+        <view style="border-top: 2rpx solid #E1E3E699;">
+            <view  style="color: #999; line-height: 34rpx; height: 34rpx; padding-top: 24rpx;">使用时段：00:00:00-23:59:59</view>
+        </view>
+
+    </view>
+</view>

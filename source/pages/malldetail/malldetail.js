@@ -26,7 +26,7 @@ import {
     onMyShow() {
       var that = this;
       var mallapi = new MallApi();
-  
+      
       mallapi.goodsinfo({
         id: this.Base.options.id
       }, (info) => {
