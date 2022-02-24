@@ -188,7 +188,7 @@ class Content extends AppBase {
           payret.complete = function(e){
             if (e.errMsg == "requestPayment:ok") {
               wx.reLaunch({
-                url: '/pages/activitysuccess/activitysuccess?id='+that.Base.options.id,
+                url: '/pages/activitysuccess/activitysuccess',
               })
             }
           }
@@ -201,7 +201,7 @@ class Content extends AppBase {
       }
     }else{
       wx.reLaunch({
-        url: '/pages/activitysuccess/activitysuccess?id='+that.Base.options.id,
+        url: '/pages/activitysuccess/activitysuccess',
       })
     }
    
@@ -213,7 +213,7 @@ class Content extends AppBase {
     })
   }
 
-
+// 取消报名
   removebaoming(e) {
     var data = this.Base.getMyData();
     var that = this;

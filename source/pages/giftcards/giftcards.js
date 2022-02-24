@@ -82,8 +82,6 @@ import {
       //   url: '/pages/exchagessuccess/exchagessuccess',
       // })
       // console.log("???");
-      
-       
       // return;
       var giftcardsapi = new GiftcardsApi();
       var inputValue = this.Base.getMyData().inputValue
@@ -95,7 +93,6 @@ import {
         kami: inputpawValue,
       },(ret)=>{
         if(ret.code=='0'){
-              
                 wx.reLaunch({
                   url: '/pages/exchagessuccess/exchagessuccess',
                 })

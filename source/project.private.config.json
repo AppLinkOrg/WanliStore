@@ -40,7 +40,7 @@
                 {
                     "name": "品牌活动",
                     "pathName": "pages/activity/activity",
-                    "query": "id=1",
+                    "query": "id=2",
                     "launchMode": "default",
                     "scene": null
                 },
@@ -118,8 +118,8 @@
                     "name": "",
                     "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
                     "query": "id=1",
-                    "launchMode": "default",
-                    "scene": null
+                    "scene": null,
+                    "launchMode": "default"
                 },
                 {
                     "name": "",
@@ -181,12 +181,33 @@
                     "name": "",
                     "pathName": "pages/mycoupon/mycoupon",
                     "query": "type=A",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
                 },
                 {
                     "name": "",
                     "pathName": "pages/conponuse/conponuse",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/myshouyi/myshouyi",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/shouyimingxi/shouyimingxi",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/shouyitixian/shouyitixian",
                     "query": "",
                     "launchMode": "default",
                     "scene": null

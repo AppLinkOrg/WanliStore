@@ -1,0 +1,60 @@
+<!--pages/shouyitixian/shouyitixian.wxml-->
+<view style="background-image:url({{uploadpath}}resource/{{res.shouyitixiantop}});background-size:100% 100%" class="topimg ">
+    <view style="margin-top: {{globalData.Custom.top}}px">
+        <view class="flex-row" style="justify-content: center;">
+            <image style="width: 20rpx; height: 36rpx;margin-left: 34rpx;" src="{{uploadpath}}resource/{{res.shouyitixianfanhui}}"></image>
+            <view class="flex-1"></view>
+            <view class="txt-white f-34">收益提现</view>
+            <view class="flex-1"></view>
+        </view>
+        <view class="flex-row flex-center" style="height: 300rpx;justify-content: center;">
+            <view class="f-40 txt-white">￥</view>
+            <view class="f-72 txt-white">30.00</view>
+        </view>
+    </view>
+</view>
+<view class="tixianbox">
+    <view style="margin: 24rpx;">
+        <view class="f-32 txt-33" style="height: 92rpx; line-height: 92rpx;">提现金额</view>
+        <view class="flex-row" style="align-items:flex-end">
+            <view class="f-72">￥</view>
+            <view class="f-72">23</view>
+            <view class="flex-1"></view>
+            <view class="f-32" style="color: rgba(25, 108, 239, 1);">全部提现</view>
+        </view>
+        <view style="border-bottom: 1px solid #E6E6E6; margin-top: 46rpx;"></view>
+        <view class="height-24"></view>
+        <view class="f-32 txt-99">提现至微信钱包</view>
+        <view class="height-58"></view>
+        <button type="primarys" class="but">提现</button>
+    </view>
+
+</view>
+
+<view style="width: 700rpx; margin-left: 30rpx;">
+
+<view class="flex-row flex-center" style="width: 700rpx;  justify-content: space-between;margin-top: 48rpx;">
+    <view >
+        <view class="jilutext">收益提现-微信钱包</view>
+        <view class="height-16"></view>
+        <view class="jilushijian">2020-04-21 19:22:22</view>
+    </view>
+    <view class="f-32" style="color: rgba(255, 123, 5, 1);">240.00</view>
+</view>
+<view class="flex-row flex-center" style="width: 700rpx;justify-content: space-between;margin-top: 48rpx;">
+    <view >
+        <view class="jilutext">收益提现-微信钱包</view>
+        <view class="height-16"></view>
+        <view class="jilushijian">2020-04-21 19:22:22</view>
+    </view>
+    <view class="f-32" style="color: rgba(255, 123, 5, 1);">240.00</view>
+</view>
+<view class="flex-row flex-center" style="width: 700rpx; justify-content: space-between;margin-top: 48rpx;">
+    <view >
+        <view class="jilutext">收益提现-微信钱包</view>
+        <view class="height-16"></view>
+        <view class="jilushijian">2020-04-21 19:22:22</view>
+    </view>
+    <view class="f-32" style="color: rgba(255, 123, 5, 1);">240.00</view>
+</view>
+</view>

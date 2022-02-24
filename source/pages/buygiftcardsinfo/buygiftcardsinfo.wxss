@@ -20,8 +20,12 @@
     margin-right: 32rpx;
     border-radius: 14rpx;
     display: inline-block;
+    border: 2rpx solid #888888;
     width: 188rpx;
-    border: 2rpx solid rgba(68, 181, 73, 1);
     line-height: 120rpx;
     text-align: center;
+}
+
+.border_green {
+    border: 2rpx solid rgba(68, 181, 73, 1);
 }

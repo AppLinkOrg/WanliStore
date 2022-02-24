@@ -18,7 +18,7 @@
                         <view class="f-24">余额：{{item.yue}}</view>
                         <view class="f-24">{{item.isuse_name}}</view>
                     </view>
-                    <view class="f-20 explain">{{item.explain}}</view>
+                    <view class="f-20 explain">{{item.explains}}</view>
                 </view>
 
             </view>

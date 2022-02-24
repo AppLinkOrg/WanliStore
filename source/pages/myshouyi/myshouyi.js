@@ -13,49 +13,28 @@ import {
     MallApi
   } from "../../apis/mall.api.js";
   
-  import {
-    ActivitysApi
-  } from "../../apis/activitys.api.js";
-import{
-  MemberApi
-}from "../../apis/member.api";
-
   class Content extends AppBase {
     constructor() {
       super();
     }
     onLoad(options) {
       this.Base.Page = this;
-      wx.setNavigationBarTitle({
-        title: "品鉴活动"
-      })
+        wx.setNavigationBarTitle({
+          title: '我的收益',
+        })
       super.onLoad(options);
       this.Base.setMyData({
         nowindex: 1,
         overlay: true,
         specificationsinfo: null,
-        number: 1,
-        statusbaoming:'',
+        number: 1
       })
     }
     onMyShow() {
       var that = this;
-      var activitysApi = new ActivitysApi();
-      var memberapi = new MemberApi();
-      activitysApi.activitylist({},(list)=>{
-        this.Base.setMyData({
-          activitylist:list
-        })
-      })
-
-      //判断用户是否登录
-      memberapi.info({},(e)=>{
-        this.Base.setMyData({
-          member:e
-        })
-      })
+      var mallapi = new MallApi();
+  
     }
-
   
   }
   
@@ -63,5 +42,6 @@ import{
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
-
+  
+  
   Page(body)

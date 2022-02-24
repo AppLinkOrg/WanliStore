@@ -1,0 +1,78 @@
+<!--pages/myshouyi/myshouyi.wxml-->
+<view class="flex-row flex-column" style="background-color: rgba(243, 246, 247, 1); min-height: 100vh;">
+    <view class="flex-row flex-column" style="width: 700rpx; height: 220rpx;border-radius: 12px;  background-color: #fff; margin-top: 24rpx;align-items: center; justify-content: center;">
+        <view class="flex-row" style="width: 100%;">
+            <view class="flex-1 flex-row flex-column">
+                <view class="flex-row flex-center">
+                    <view class="f-24 txt-33">￥</view>
+                    <view class="f-48 txt-33">0</view>
+                </view>
+                <view class="f-24 txt-66">累计收益</view>
+            </view>
+            <view class="flex-1 flex-row flex-column">
+                <view class="flex-row flex-center">
+                    <view class="f-24 txt-33">￥</view>
+                    <view class="f-48 txt-33">0</view>
+                </view>
+                <view class="f-24 txt-66">即将到账</view>
+            </view>
+            <view class="flex-1 flex-row flex-column">
+                <view class="flex-row flex-center">
+                    <view class="f-24 txt-33">￥</view>
+                    <view class="f-48 txt-33">0</view>
+                </view>
+                <view class="f-24 txt-66">可提现</view>
+            </view>
+        </view>
+    </view>
+    <view class="height-24"></view>
+    <view class="flex-row" style="width: 700rpx; justify-content: space-between;">
+        <view style="width: 336rpx; height: 140rpx; background-color: #fff; border-radius: 12rpx;">
+            <view class="flex-row" style="margin: 32rpx; width: 270rpx;justify-content: space-between;">
+                <view>
+                    <view class="f-32" style="line-height: 44rpx;">收益明细</view>
+                    <view class="f-20 txt-66">查看收益明细</view>
+                </view>
+                <image style="width: 64rpx; height: 64rpx;" src="{{uploadpath}}resource/{{res.shoyimingxi}}"></image>
+            </view>
+        </view>
+
+        <view style="width: 336rpx; height: 140rpx; background-color: #fff;border-radius: 12rpx;">
+            <view class="flex-row" style="margin: 32rpx; width: 270rpx;justify-content: space-between;">
+                <view>
+                    <view class="f-32" style="line-height: 44rpx;">收益提现</view>
+                    <view class="f-20 txt-66">立即去提现</view>
+                </view>
+                <image style="width: 64rpx; height: 64rpx;" src="{{uploadpath}}resource/{{res.shouyitixian}}"></image>
+            </view>
+        </view>
+    </view>
+    <view class="height-24"></view>
+    <view style="width: 700rpx;background-color: #fff;">
+        <view style="margin:  32rpx 32rpx 0 32rpx;">
+            <view class="f-36 txt-66 txt-weight" style="line-height: 50rpx;">我的客户</view>
+            <view>
+                <view class="height-40"></view>
+                <view class="flex-row">
+                    <image style="width: 94rpx; height: 94rpx; border-radius: 49rpx;border: 2px solid #E6E6E6; margin-right: 24rpx;" src=""></image>
+                    <view>
+                        <view class="f-28 txt-33 txt-weight">昵称昵称</view>
+                        <view class="f-24 txt-66">加入时间 2022-02-23</view>
+                    </view>
+                </view>
+                <view style="border-bottom: 2px solid #E6E6E6; margin-top: 46rpx;"></view>
+            </view>
+            <view>
+                <view class="height-40"></view>
+                <view class="flex-row">
+                    <image style="width: 94rpx; height: 94rpx; border-radius: 49rpx;border: 2px solid #E6E6E6; margin-right: 24rpx;" src=""></image>
+                    <view>
+                        <view class="f-28 txt-33 txt-weight">昵称昵称</view>
+                        <view class="f-24 txt-66">加入时间 2022-02-23</view>
+                    </view>
+                </view>
+                <view style="border-bottom: 2px solid #E6E6E6; margin-top: 46rpx;"></view>
+            </view>
+        </view>
+    </view>
+</view>

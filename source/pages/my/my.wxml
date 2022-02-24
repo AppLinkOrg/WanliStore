@@ -114,30 +114,7 @@
                 </view>
                 <view class="flex-1 flex-row flex-column"></view>
             </view>
-            <!-- <view class="flex-row flex-center">
-                <view class="flex-1 flex-row flex-column" bindtap="notdata">
-                    <image src="{{uploadpath}}resource/{{res.jifenshangcheng}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">积分商城</view>
-                </view>
-                <view class="flex-1 flex-row flex-column">
-                    <image src="{{uploadpath}}resource/{{res.wodepinjia}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">我的评价</view>
-                </view>
-                <view class="flex-1 flex-row flex-column">
-                    <image src="{{uploadpath}}resource/{{res.shezhi}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">选项设置</view>
-                </view>
-                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/myactivity/myactivity?type=A">
-                    <image src="{{uploadpath}}resource/{{res.activity}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">我的活动</view>
-                </view>
-                <view class="flex-1 flex-row flex-column">
-
-                </view>
-                <view class="flex-1 flex-row flex-column">
-
-                </view>
-            </view> -->
+   
         </view>
     </view>
 

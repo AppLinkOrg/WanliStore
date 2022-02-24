@@ -1,0 +1,37 @@
+<!--pages/shouyimingxi/shouyimingxi.wxml-->
+<view style="margin:  32rpx 32rpx 0 32rpx;">
+            <view class="f-36 txt-66 txt-weight" style="line-height: 50rpx;">2022年02月</view>
+            <view>
+                <view class="height-40"></view>
+                <view class="flex-row" style="align-items: center;justify-content: space-between;">
+                <view class="flex-row">
+                    <image style="width: 94rpx; height: 94rpx; border-radius: 49rpx;border: 2px solid #E6E6E6; margin-right: 24rpx;" src=""></image>
+                    <view>
+                        <view class="f-28 txt-33 txt-bold">昵称昵称</view>
+                        <view class="height-18"></view>
+                        <view class="f-24 txt-66" style="line-height: 28rpx;">加入时间 2022-02-23</view>
+                    </view>
+                </view>
+                    
+                    <view class="f-32" style="color: rgba(255, 123, 5, 1);">20.00</view>
+                </view>
+                <view style="border-bottom: 2px solid #E6E6E6; margin-top: 46rpx;"></view>
+            </view>
+            <view>
+                <view class="height-40"></view>
+                <view class="flex-row" style="align-items: center;justify-content: space-between;">
+                <view class="flex-row">
+                    <image style="width: 94rpx; height: 94rpx; border-radius: 49rpx;border: 2px solid #E6E6E6; margin-right: 24rpx;" src=""></image>
+                    <view>
+                        <view class="f-28 txt-33 txt-bold">昵称昵称</view>
+                        <view class="height-18"></view>
+                        <view class="f-24 txt-66" style="line-height: 28rpx;">加入时间 2022-02-23</view>
+                    </view>
+                </view>
+                    
+                    <view class="f-32" style="color: rgba(255, 123, 5, 1);">20.00</view>
+                </view>
+                <view style="border-bottom: 2px solid #E6E6E6; margin-top: 46rpx;"></view>
+            </view>
+           
+        </view>

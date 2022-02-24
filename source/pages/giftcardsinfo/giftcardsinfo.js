@@ -41,9 +41,7 @@ import {
       console.log("options是什么")
       console.log()
       giftcardsapi.mygiftcardinfo({id:this.Base.options.id},(e)=>{
-        console.log("options是什么")
-        console.log(e)
-        e.howuse = ApiUtil.HtmlDecode(e.howuse)
+        e.howbuy = ApiUtil.HtmlDecode(e.howuse)
         WxParse.wxParse('howuse' , 'html', e.howuse, this,10) 
         this.Base.setMyData({
           cardinfo: e

@@ -246,11 +246,17 @@ overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内�
 .f-40 {
   font-size: 40rpx !important;
 }
+.f-48 {
+  font-size: 48rpx !important;
+}
 .f-80 {
   font-size: 80rpx !important;
 }
 .f-76{
   font-size: 76rpx !important;
+}
+.f-72{
+  font-size: 72rpx !important;
 }
 .text-underline{
   text-decoration: underline;
@@ -280,7 +286,6 @@ button[type=primary]{
   background-color: #2699EC;
 }
 button[type=primarys]{
-  
   background-color: rgba(68, 181, 73, 1);
 }
 button.button-hover[type=primary]{
@@ -434,8 +439,17 @@ button[disabled][type=primary] {
 .margin-bottom-40{
   margin-bottom:40rpx;
 }
+.height-16{
+  height: 16rpx;
+}
+.height-18{
+  height: 18rpx;
+}
 .height-20{
   height: 20rpx;
+}
+.height-24{
+  height: 24rpx;
 }
 .height-30{
   height: 30rpx;
@@ -445,6 +459,9 @@ button[disabled][type=primary] {
 }
 .height-50{
   height: 50rpx;
+}
+.height-58{
+  height: 58rpx;
 }
 .height-70{
   height: 70rpx;
@@ -680,6 +697,7 @@ border-radius: 4rpx;
 .txt-99 {
   color:#999999;
 }
+
 .icon_back{
   width: 20rpx;
   height: 34rpx;

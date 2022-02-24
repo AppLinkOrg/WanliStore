@@ -180,7 +180,7 @@ import { CouponApi } from "../../apis/coupon.api";
         var cardyue = data.giftcardinfo.yue;
         var cardid = data.giftcardinfo.id;
         if(data.couponid>0){
-          var price = totalamount-couponprice
+          var price = Number(totalamount)-Number(couponprice).toFixed(2)
           if(cardyue > price){
             liping = price
           }else{
@@ -247,7 +247,8 @@ import { CouponApi } from "../../apis/coupon.api";
         store_id:data.store_id,
         address_id:data.address_id,
         beizhu:data.beizhu,
-        mygiftcard_id:data.cardid
+        mygiftcard_id:data.cardid,
+        mycoupons_id:data.couponid
       },(ret)=>{
         console.log("手机号")
         console.log(ret)

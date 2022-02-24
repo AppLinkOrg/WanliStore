@@ -29,7 +29,6 @@ var WxParse = require('../../wxParse/wxParse.js');
       super.onLoad(options);
       this.Base.setMyData({
         coverid:  0,
-
         giftcardinfo_id:'',
         giftcardprice_id: '',
         giftcardcover: '',
@@ -40,12 +39,12 @@ var WxParse = require('../../wxParse/wxParse.js');
     onMyShow() {
     //   var that = this;
       var giftcardsapi = new GiftcardsApi();
-      giftcardsapi.giftcardtype({type_id:this.Base.options.id},(e)=>{
+      giftcardsapi.giftcardtype({},(e)=>{
         this.Base.setMyData({
             cardtype:e
         })
       })
-      giftcardsapi.giftcardlist({list_id:this.Base.options.id},(e)=>{
+      giftcardsapi.giftcardlist({},(e)=>{
         this.Base.setMyData({
             cardlist:e
         })
@@ -57,13 +56,13 @@ var WxParse = require('../../wxParse/wxParse.js');
           cardinfo:e
         })
       })
-      giftcardsapi.coverbanner({id:this.Base.options.id},(e) => {
+      giftcardsapi.coverbanner({giftcardinfo_id:this.Base.options.id},(e) => {
         this.Base.setMyData({
           cardbanner:e
         })
       })
 
-      giftcardsapi.giftcardprice({id:this.Base.options.id},(e) => {
+      giftcardsapi.giftcardprice({giftcardinfo_id:this.Base.options.id},(e) => {
         this.Base.setMyData({
           cardprice:e
         })

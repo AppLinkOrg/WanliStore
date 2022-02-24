@@ -26,7 +26,7 @@ import {
         overlay: true,
         specificationsinfo: null,
         number: 1,
-        id: this.Base.options.id==undefined?0:this.Base.options.id,
+        activity_id: this.Base.options.id==undefined?0:this.Base.options.id,
       })
     }
     onMyShow() {
@@ -36,14 +36,22 @@ import {
       console.log(this.Base.options);
     }
     navBack(e){
-        var pages = getCurrentPages();
-        var prevPage = pages[pages.length - 2]; //上一个页面
-        prevPage.setData({
-            id:id
-           })
-           wx.navigateBack({//返回
-             delta: 1
-           })
+      var id = e.currentTarget.id
+      this.Base.setMyData({
+          statusbaoming:id
+    })
+    var pages = getCurrentPages();// 获取页面栈
+    console.log("获取页面栈")
+    console.log(pages)
+    var prevPage = pages[pages.length - 2]; //上一个页面
+    console.log("上一个页面")
+    console.log(prevPage)
+
+    prevPage.setData({
+      statusbaoming:id
+    })
+    console.log("则好几个")
+    console.log(prevPage.getData.statusbaoming)
     }
 
 

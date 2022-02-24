@@ -48,6 +48,7 @@ import {
     }
 
     chosedz(e){
+    
         var id = e.currentTarget.id;
         this.Base.setMyData({
             giftcardid:id

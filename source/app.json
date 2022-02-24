@@ -35,7 +35,11 @@
     "pages/giftcardshiyongjilu/giftcardshiyongjilu",
     "pages/giftcardshiyong/giftcardshiyong",
     "pages/mycoupon/mycoupon",
-    "pages/conponuse/conponuse"
+    "pages/conponuse/conponuse",
+    "pages/myshouyi/myshouyi",
+    "pages/shouyimingxi/shouyimingxi",
+    "pages/shouyitixian/shouyitixian"
+
   ],
   "permission": {
     "scope.userLocation": {
