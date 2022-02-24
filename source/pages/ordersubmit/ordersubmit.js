@@ -187,7 +187,7 @@ import { CouponApi } from "../../apis/coupon.api";
             liping = cardyue
           }
         }else{
-          if(cardyue < totalamount){
+          if(cardyue > totalamount){
             liping = totalamount
           }else{
             liping = cardyue

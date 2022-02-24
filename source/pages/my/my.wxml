@@ -55,7 +55,7 @@
             </view>
         </view>
 
-        <view class="lipin">
+        <view class="lipin" bindtap="navigateto" id="/pages/giftcards/giftcards">
             <view class="" style="font-weight: 500;margin-bottom:4rpx;">我的礼品卡</view>
             <view class="txt-66 h6">来自桃花江美人窝的羞美人面</view>
             <image src="{{uploadpath}}resource/{{res.mylipinka}}" class="lipinka"></image>
