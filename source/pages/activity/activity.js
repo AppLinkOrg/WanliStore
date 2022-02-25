@@ -110,9 +110,6 @@ class Content extends AppBase {
     var times = ApiUtil.FormatDateTime(new Date());
    console.log("啥的健康")
    console.log(aa)
-    
-    
-
 
   }
 

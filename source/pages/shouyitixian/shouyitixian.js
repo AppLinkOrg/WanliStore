@@ -33,6 +33,11 @@ import {
       var mallapi = new MallApi();
   
     }
+    navigateback(e){
+      wx.redirectTo({
+        url:'/pages/myshouyi/myshouyi'
+      })
+    }
   
   }
   
@@ -40,6 +45,7 @@ import {
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
+  body.navigateback = content.navigateback;
   
   
   Page(body)

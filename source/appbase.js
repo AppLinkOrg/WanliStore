@@ -330,10 +330,10 @@ export class AppBase {
     console.log("onReachBottom");
 
   }
-  onShareAppMessage() {
+  // onShareAppMessage() {
 
 
-  }
+  // }
 
   dataReturn(data) {
     var pages = getCurrentPages();
@@ -1124,6 +1124,15 @@ navigateto(e){
   })
 }
 
+onShareAppMessage(e){
+  console.log("???走没");
+  console.log(e);
+  console.log(this.Base.getMyData().memberinfo.id)
+  return{
+    title:'请分享给你的好友',    // 转发标题
+    path: '/pages/my/my?member_id='+this.Base.getMyData().memberinfo.id,  // 当前页面 path ，必须是以 / 开头的完整路径 
+  }
+}
 
 
 }

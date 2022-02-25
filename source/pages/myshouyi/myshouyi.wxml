@@ -27,7 +27,7 @@
     </view>
     <view class="height-24"></view>
     <view class="flex-row" style="width: 700rpx; justify-content: space-between;">
-        <view style="width: 336rpx; height: 140rpx; background-color: #fff; border-radius: 12rpx;">
+        <view style="width: 336rpx; height: 140rpx; background-color: #fff; border-radius: 12rpx;" bindtap="navigateto" id="/pages/shouyimingxi/shouyimingxi">
             <view class="flex-row" style="margin: 32rpx; width: 270rpx;justify-content: space-between;">
                 <view>
                     <view class="f-32" style="line-height: 44rpx;">收益明细</view>
@@ -37,7 +37,7 @@
             </view>
         </view>
 
-        <view style="width: 336rpx; height: 140rpx; background-color: #fff;border-radius: 12rpx;">
+        <view style="width: 336rpx; height: 140rpx; background-color: #fff;border-radius: 12rpx;" bindtap="navigateback">
             <view class="flex-row" style="margin: 32rpx; width: 270rpx;justify-content: space-between;">
                 <view>
                     <view class="f-32" style="line-height: 44rpx;">收益提现</view>

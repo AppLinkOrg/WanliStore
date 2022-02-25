@@ -2,7 +2,7 @@
 <view style="background-image:url({{uploadpath}}resource/{{res.shouyitixiantop}});background-size:100% 100%" class="topimg ">
     <view style="margin-top: {{globalData.Custom.top}}px">
         <view class="flex-row" style="justify-content: center;">
-            <image style="width: 20rpx; height: 36rpx;margin-left: 34rpx;" src="{{uploadpath}}resource/{{res.shouyitixianfanhui}}"></image>
+            <image bindtap="navigateback" style="width: 20rpx; height: 36rpx;margin-left: 34rpx;" src="{{uploadpath}}resource/{{res.shouyitixianfanhui}}"></image>
             <view class="flex-1"></view>
             <view class="txt-white f-34">收益提现</view>
             <view class="flex-1"></view>

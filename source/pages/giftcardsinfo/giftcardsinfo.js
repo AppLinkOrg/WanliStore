@@ -66,6 +66,8 @@ import {
       })
     }
     
+
+    // 分享
     onShareAppMessage(res){
       var giftcardsapi = new GiftcardsApi();
       var cardinfo = this.Base.getMyData().cardinfo;
@@ -74,7 +76,6 @@ import {
       }else if(res.from === 'menu'){
         console.log('触发右上角的分享按钮')
       }
- 
       return{
         title:'请分享给你的好友',    // 转发标题
         path: '/pages/giftcardsinfo/giftcardsinfo?id='+this.Base.options.id + '&' +'mygiftcard_id=' + this.Base.options.id + '&' + 'u_member_id=' +  cardinfo.member_id,   // 当前页面 path ，必须是以 / 开头的完整路径 

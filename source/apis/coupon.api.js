@@ -9,7 +9,7 @@ import { ApiConfig } from 'apiconfig';
 export class CouponApi{
 
 
-    mycoupon(json, callback, showLoading = true) {
+    couponinfo(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -18,7 +18,7 @@ export class CouponApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'coupon/mycoupon',
+            url: ApiConfig.GetApiUrl() + 'coupon/couponinfo',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -41,7 +41,7 @@ export class CouponApi{
         })
     }
 
-    couponinfo(json, callback, showLoading = true) {
+    mycoupon(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class CouponApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'coupon/couponinfo',
+            url: ApiConfig.GetApiUrl() + 'coupon/mycoupon',
             data: json,
             method: 'POST',
             dataType: 'json',

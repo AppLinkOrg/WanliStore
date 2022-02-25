@@ -28,7 +28,7 @@
 </view>
 
 <scroll-view scroll-y="true" class="scrollbox" style="height:{{globalData.hh-199}}px;">
-    <view class="shouyi flex-row flex-center">
+    <view class="shouyi flex-row flex-center" bindtap="navigateto" id="/pages/myshouyi/myshouyi">
         <view class="h5 txt-white">我的收益：￥0</view>
         <view class="flex-1"></view>
         <view class="h6 " style="color:#EBEBEB;">查看更多</view>
@@ -96,7 +96,7 @@
                     <image src="{{uploadpath}}resource/{{res.youhuiquan}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">优惠券</view>
                 </view>
-                
+
             </view>
             <view class="height-60"></view>
             <view class="flex-row flex-center">
@@ -112,9 +112,12 @@
                     <image src="{{uploadpath}}resource/{{res.activity}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">我的活动</view>
                 </view>
-                <view class="flex-1 flex-row flex-column"></view>
+                <button style="border: 0;padding: 0;margin: 0;" class="flex-1 flex-row flex-column" bindtap="sharefenxiao"  open-type="share" plain="true">
+                    <image src="{{uploadpath}}resource/{{res.fenxiao}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20" style="line-height: 30rpx;">分销</view>
+                </button>
             </view>
-   
+
         </view>
     </view>
 

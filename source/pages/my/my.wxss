@@ -142,3 +142,4 @@
 .height-60 {
     height: 60rpx;
 }
+.button[plain]{ border:0 } 
