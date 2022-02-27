@@ -102,6 +102,7 @@ import { CouponApi } from "../../apis/coupon.api";
           this.Base.setMyData({
             giftcardinfo
           })
+          this.getsum();
         })
       }
         this.getsum();
@@ -178,16 +179,19 @@ import { CouponApi } from "../../apis/coupon.api";
       // 1、礼品卡使用金额
       if(data.giftcardid>0){
         var cardyue = data.giftcardinfo.yue;
-        var cardid = data.giftcardinfo.id;
+        var cardid =data.giftcardinfo.id;
         if(data.couponid>0){
           var price = Number(totalamount)-Number(couponprice).toFixed(2)
-          if(cardyue > price){
+          if(cardyue*1 > price*1){
             liping = price
           }else{
             liping = cardyue
           }
         }else{
-          if(cardyue > totalamount){
+          console.log("这个怎么样？")
+          console.log(cardyue)
+          console.log(totalamount)
+          if(cardyue *1 > totalamount*1){
             liping = totalamount
           }else{
             liping = cardyue

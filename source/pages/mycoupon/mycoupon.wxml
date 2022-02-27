@@ -52,12 +52,12 @@
                     <view class="flex-row">
                         <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
                             <view wx:if="{{item.type == 'A'}}" class="flex-row" style="line-height: 80rpx;">
-                                <view class="f-28 fontcolor">￥</view>
-                                <view class="f-56 fontcolor">{{item.amount}}</view>
+                                <view class="f-28 txt-99">￥</view>
+                                <view class="f-56 txt-99">{{item.amount}}</view>
                             </view>
                             <view wx:if="{{item.type == 'B'}}" class="flex-row" style="line-height: 80rpx;">
-                                <view class="f-56 fontcolor">{{item.zhekou/10}}</view>
-                                <view class="f-28 fontcolor">折</view>
+                                <view class="f-56 txt-99">{{item.zhekou/10}}</view>
+                                <view class="f-28 txt-99">折</view>
                             </view>
                             <view class="f-24" style="color: #999; line-height: 34rpx; height: 34rpx;">满{{item.manmoney}}元可用</view>
                         </view>
@@ -87,12 +87,12 @@
                     <view class="flex-row">
                         <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
                             <view wx:if="{{item.type == 'A'}}" class="flex-row" style="line-height: 80rpx;">
-                                <view class="f-28 fontcolor">￥</view>
-                                <view class="f-56 fontcolor">{{item.amount}}</view>
+                                <view class="f-28 txt-99">￥</view>
+                                <view class="f-56 txt-99">{{item.amount}}</view>
                             </view>
                             <view wx:if="{{item.type == 'B'}}" class="flex-row" style="line-height: 80rpx;">
-                                <view class="f-56 fontcolor">{{item.zhekou/10}}</view>
-                                <view class="f-28 fontcolor">折</view>
+                                <view class="f-56 txt-99">{{item.zhekou/10}}</view>
+                                <view class="f-28 txt-99">折</view>
                             </view>
                             <view class="f-24" style="color: #999; line-height: 34rpx; height: 34rpx;">满{{item.manmoney}}元可用</view>
                         </view>
