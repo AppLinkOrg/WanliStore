@@ -1,2 +1,44 @@
 <!--pages/giftcardshousongjilu/giftcardshousongjilu.wxml-->
-<text>pages/giftcardshousongjilu/giftcardshousongjilu.wxml</text>
+<view class="flex-row flex-column" style="background-color: rgba(243, 246, 247, 1); position: relative; min-height: 100vh;">
+    <view class="flex-row navbox">
+        <view class="flex-1  flex-row flex-column" wx:for="{{typelist}}" wx:key='k' bindtap="switchtype" id="{{item.value}}">
+            <view class="f-28 text-center titlebox">{{item.name}}</view>
+            <view class="line {{item.value==flag?'line_color':''}}"></view>
+        </view>
+    </view>
+
+    <view style="display: {{flag == 'A' ? 'block' :'none'}};">
+        <view wx:for="{{mygiftcardshoudao}}" style="width: 700rpx;height: 280rpx;background: #FFFFFF;border-radius: 32rpx;margin-top: 20rpx;">
+            <view style=" margin: 32rpx;">
+                <view class="flex-row flex-center" style="border-bottom: 2rpx solid rgba(204, 204, 204, 1); padding-bottom: 32rpx;">
+                    <image src=" {{uploadpath}}giftcardinfo/{{item.cover}}" style="width: 236rpx;height: 140rpx;border-radius: 12rpx;background: #CECECE;"></image>
+                    <view style="margin-left: 16rpx;">
+                        <view class="v1">面值￥{{item.giftcardprice_cardprice}}</view>
+                        <view class="v2">卡号：D232534643</view>
+                        <view class="v2">购买时间：{{item.shijian}}</view>
+                    </view>
+                </view>
+                <view class="haoyou">来自好友：好友姓名</view>
+            </view>
+        </view>
+
+    </view>
+
+    <view style="display: {{flag == 'B' ? 'block' :'none'}};">
+        <view wx:for="{{mygiftcardzengsong}}" style="width: 700rpx;height: 280rpx;background: #FFFFFF;border-radius: 32rpx;margin-top: 20rpx;">
+            <view style=" margin: 32rpx;">
+            <view class="flex-row flex-center" style="border-bottom: 2rpx solid rgba(204, 204, 204, 1); padding-bottom: 32rpx;">
+                <image src=" {{uploadpath}}giftcardinfo/{{item.cover}}" style="width: 236rpx;height: 140rpx;border-radius: 12rpx;background: #CECECE;"></image>
+                <view style="margin-left: 16rpx;">
+                    <view class="v1">面值￥{{item.giftcardprice_cardprice}}</view>
+                    <view class="v2">卡号：D232534643</view>
+                    <view class="v2">购买时间：</view>
+                </view>
+            </view>
+            <view class="haoyou">来自好友：好友姓名</view>
+        </view>
+        </view>
+    
+    </view>
+
+</view>

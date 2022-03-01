@@ -1,1 +1,19 @@
 /* pages/giftcardshousongjilu/giftcardshousongjilu.wxss */
+.navbox {
+    width: 100%;
+    height: 112rpx;
+}
+.line {
+    width: 46rpx;
+    height: 4rpx;
+}
+.line_color{
+    background-color: rgba(68, 181, 73, 1);
+}
+.haoyou{
+font-size: 24rpx;
+font-weight: 400;
+color: #999999;
+line-height: 34rpx;
+margin-top: 24rpx;
+}

@@ -5,7 +5,7 @@
             <view class="flex-1 flex-row flex-column">
                 <view class="flex-row flex-center">
                     <view class="f-24 txt-33">￥</view>
-                    <view class="f-48 txt-33">0</view>
+                    <view class="f-48 txt-33">{{totleamount}}</view>
                 </view>
                 <view class="f-24 txt-66">累计收益</view>
             </view>
@@ -47,21 +47,22 @@
             </view>
         </view>
     </view>
-
+    
     <view class="height-24"></view>
     <view style="width: 700rpx;background-color: #fff;">
         <view style="margin:  32rpx 32rpx 0 32rpx;">
             <view class="f-36 txt-66 txt-weight" style="line-height: 50rpx;">我的客户</view>
-            <view wx:for="{{fenxiaojilu}}">
+            <view wx:for="{{fenxiaouser}}" wx:key="{{item}}" id="{{item}}">
                 <view class="height-40"></view>
-                <view class="flex-row">
-                    <image style="width: 94rpx; height: 94rpx; border-radius: 49rpx;border: 2px solid #E6E6E6; margin-right: 24rpx;" src="{{info.member_avatarUrl}}"></image>
+                <view class="flex-row" style="margin-bottom: 46rpx;">
+                    <image style="width: 94rpx; height: 94rpx; border-radius: 49rpx;border: 2px solid #E6E6E6; margin-right: 24rpx;" src="{{item.avatarUrl}}"></image>
                     <view>
-                        <view class="f-28 txt-33 txt-weight">{{info.member_nickName}}</view>
-                        <view class="f-24 txt-66">加入时间 {{info.updated_date}}</view>
+                        <view class="f-28 txt-33 txt-weight">{{item.nickName}}</view>
+                        <view class="f-24 txt-66">加入时间 {{item.updated_date}}</view>
                     </view>
                 </view>
-                <view style="border-bottom: 2px solid #E6E6E6; margin-top: 46rpx;"></view>
+               
+                <view  style="border-bottom: 2px solid #E6E6E6;" wx:if="{{index+1 != fenxiaouser.length}}"></view>
             </view>
         </view>
     </view>

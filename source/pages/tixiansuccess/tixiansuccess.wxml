@@ -1,0 +1,11 @@
+<!--pages/tixiansuccess/tixiansuccess.wxml-->
+<!--pages/activitysuccess/activitysuccess.wxml-->
+<view class="flex-row flex-column">
+    <image style="width: 340rpx; height: 340rpx; margin-top: 140rpx;" 
+    src="{{uploadpath}}resource/{{res.tixiansuccess}}"
+    ></image>
+    <view class="f-60" style="margin-top: 72rpx;">提现成功</view>
+    <view class="height-18"></view>
+    <view class="tips">{{instinfo.tips}}</view>
+    <view class="activeback f-32 txt-white" bindtap="navigateback">返回</view>
+</view>

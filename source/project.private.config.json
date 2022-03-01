@@ -53,20 +53,6 @@
                 },
                 {
                     "name": "",
-                    "pathName": "pages/activitylist/activitylist",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/activitysuccess/activitysuccess",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
                     "pathName": "pages/myactivity/myactivity",
                     "query": "",
                     "launchMode": "default",
@@ -82,7 +68,7 @@
                 {
                     "name": "",
                     "pathName": "pages/ordersubmit/ordersubmit",
-                    "query": "goodsid=6",
+                    "query": "goodsid=1",
                     "launchMode": "default",
                     "scene": null
                 },
@@ -118,8 +104,8 @@
                     "name": "",
                     "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
                     "query": "id=1",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
                 },
                 {
                     "name": "",
@@ -208,9 +194,37 @@
                 {
                     "name": "",
                     "pathName": "pages/shouyitixian/shouyitixian",
+                    "query": "amount=100",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/tixiansuccess/tixiansuccess",
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/addresslist/addresslist",
+                    "query": "chosetype=B&id=1",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardshiyongjilu/giftcardshiyongjilu",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardshousongjilu/giftcardshousongjilu",
+                    "query": "type=A",
+                    "scene": null,
+                    "launchMode": "default"
                 }
             ]
         }

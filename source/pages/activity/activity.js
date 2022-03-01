@@ -184,7 +184,7 @@ class Content extends AppBase {
         wechatapi.baomingpay({id:ret.return},(payret)=>{
           payret.complete = function(e){
             if (e.errMsg == "requestPayment:ok") {
-              wx.reLaunch({
+              wx.navigateTo({
                 url: '/pages/activitysuccess/activitysuccess',
               })
             }
@@ -197,7 +197,7 @@ class Content extends AppBase {
         this.Base.toast(ret.result);
       }
     }else{
-      wx.reLaunch({
+      wx.navigateTo({
         url: '/pages/activitysuccess/activitysuccess',
       })
     }
@@ -230,8 +230,8 @@ class Content extends AppBase {
                 quxiao:e
               })
             })
-            wx.reLaunch({
-              url: '/pages/activitylist/activitylist',
+            wx.navigateBack({
+              delta:1
             })
            }else
         if(money > 0 ){

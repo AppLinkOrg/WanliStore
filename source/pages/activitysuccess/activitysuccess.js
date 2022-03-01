@@ -36,22 +36,9 @@ import {
       console.log(this.Base.options);
     }
     navBack(e){
-      var id = e.currentTarget.id
-      this.Base.setMyData({
-          statusbaoming:id
-    })
-    var pages = getCurrentPages();// 获取页面栈
-    console.log("获取页面栈")
-    console.log(pages)
-    var prevPage = pages[pages.length - 2]; //上一个页面
-    console.log("上一个页面")
-    console.log(prevPage)
-
-    prevPage.setData({
-      statusbaoming:id
-    })
-    console.log("则好几个")
-    console.log(prevPage.getData.statusbaoming)
+      wx.navigateBack({
+        delta:2
+      }) 
     }
 
 

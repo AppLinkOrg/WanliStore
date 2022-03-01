@@ -18,6 +18,9 @@ import {
 import{
   MemberApi
 }from "../../apis/member.api"
+import{
+  MenberApi
+}from "../../apis/menber.api.js"
 
   class Content extends AppBase {
     constructor() {
@@ -34,7 +37,7 @@ import{
         overlay: true,
         specificationsinfo: null,
         number: 1,
-        totalamount: 0,
+        totleamount: 0,
         arrivalsoon:0,
         ketixian: 0,
       })
@@ -44,24 +47,44 @@ import{
       var mallapi = new MallApi();
       var data = this.Base.getMyData();
       var fenxiaoapi = new FenxiaoApi();
+      fenxiaoapi.tixianlist({},(e)=>{
+        var totleamount=0
+        for(let item of e){
+          if (item.txstatus=='B') {
+            totleamount = ( Number(totleamount) + Number(item.amount) ).toFixed(2);
+        }
+      }
+        this.Base.setMyData({
+          tixianlist:e,
+          totleamount,
+        })
+        that.getsum();
+      })
       fenxiaoapi.fenxiaojilu({},(e)=>{
         this.Base.setMyData({
           fenxiaojilu:e
         })
         that.getsum();
       })
+  
+     
       var memberapi = new MemberApi();
-
       memberapi.info({},(e)=>{        
         this.Base.setMyData({
           info:e
+        })
+      })
+      var menberapi = new  MenberApi();
+      menberapi.fenxiaouser({},(e)=>{
+        this.Base.setMyData({
+          fenxiaouser:e
         })
       })
      
     }
     navigateback(e){
       wx.redirectTo({
-        url:'/pages/shouyitixian/shouyitixian'
+        url:'/pages/shouyitixian/shouyitixian?amount=' + this.Base.getMyData().ketixian,
       })
     }
 
@@ -70,10 +93,8 @@ import{
       var that = this
       console.log("进来吗");
       console.log(data);
-      var totalamount = 0;
       var arrivalsoon = 0;
       var ketixian = 0;
-
       var array = data.fenxiaojilu;
       console.log("为啊什么");
       console.log(array);
@@ -82,10 +103,18 @@ import{
           arrivalsoon = (Number(arrivalsoon) + Number(item.amount)).toFixed(2);
           }
           if(item.orderstatus=='B'){
-            ketixian = (Number(ketixian) + Number(item.amount)).toFixed(2);
-            }
-          
+            ketixian = (Number(ketixian) + Number(item.amount)).toFixed(2) ;   
+            }  
         }
+        var arraytixian = data.tixianlist;
+        console.log("!!!")
+        console.log(arraytixian)
+        if(arraytixian != undefined){
+          for(let item of arraytixian){
+            ketixian = (Number(ketixian) - Number(item.amount)).toFixed(2) ;
+          }
+        }
+
         that.Base.setMyData({
           arrivalsoon,
           ketixian,

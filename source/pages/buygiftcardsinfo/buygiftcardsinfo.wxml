@@ -27,9 +27,6 @@
                 <import src="../../wxParse/wxParse.wxml" />
                 <template is="wxParse" data="{{wxParseData:howbuy.nodes}}" />
             </view>
-
-            <!-- <template is="wxParse" data="{{wxParseData:howbuy.nodes}}" /> -->
-            <!-- <rich-text nodes="{{cardinfo.howbuy}}"></rich-text> -->
         </view>
         <button class="pay" bindtap="paygiftcard" id="/pages/buygiftcardssuccess/buygiftcardssuccess?id={{cardinfo.id}}">确认支付</button>
     </view>

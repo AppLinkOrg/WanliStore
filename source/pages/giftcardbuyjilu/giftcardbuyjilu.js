@@ -19,6 +19,7 @@ import {
     ActivitysApi
   } from "../../apis/activitys.api.js";
   import { ApiUtil } from "../../apis/apiutil";
+import { GiftcardsApi } from "../../apis/giftcards.api";
   var WxParse = require('../../wxParse/wxParse.js');
   
   class Content extends AppBase {
@@ -49,10 +50,7 @@ import {
         specificationsinfo: null,
         number: 1
       })
-      
 
-  
-      
      
     }
     
@@ -61,18 +59,13 @@ import {
        */
     onMyShow() {
       var that = this;
-      var activitysApi = new ActivitysApi();
-      
-      
-  
-  
+      var giftcardsaip = new  GiftcardsApi();
+      giftcardsaip.buygiftcardlist({},(e)=>{
+        this.Base.setMyData({
+          buygiftcardlist:e
+        })
+      })
     }
-  
-  
-  
-  
-
-  
   }
   
   var content = new Content();

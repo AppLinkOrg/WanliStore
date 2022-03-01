@@ -4,6 +4,7 @@
         <view class="flex-row flex-center">
             <!--  -->
             <image wx:if="{{chosetype=='A'}}" bindtap="chosedz" id='{{item.id}}' src="{{uploadpath}}resource/{{choseid==item.id?res.chose2:res.chose}}" class="icon30"></image>
+            <image wx:if="{{chosetype=='B'}}" bindtap="chosethr" id='{{item.id}}' src="{{uploadpath}}resource/{{choseid==item.id?res.chose2:res.chose}}" class="icon30"></image>
             <view class="flex-1">
                 <view class="flex-row flex-center">
                     <view class="txt-33 h5">{{item.name}}</view>

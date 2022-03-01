@@ -43,11 +43,13 @@ import {
           cardlist:e
         })
       })
-      giftcardsapi.mygiftcardinfo({id:this.Base.options.id},(e) => {
+
+      giftcardsapi.coverbanner({},(e)=>{
         this.Base.setMyData({
-          cardinfo:e
+          coverbanner:e
         })
       })
+
 
      
     }
@@ -78,11 +80,6 @@ import {
     
 
     giftCardExhange(e){
-      // wx.reLaunch({
-      //   url: '/pages/exchagessuccess/exchagessuccess',
-      // })
-      // console.log("???");
-      // return;
       var giftcardsapi = new GiftcardsApi();
       var inputValue = this.Base.getMyData().inputValue
       var inputpawValue = this.Base.getMyData().inputpawValue
@@ -93,10 +90,12 @@ import {
         kami: inputpawValue,
       },(ret)=>{
         if(ret.code=='0'){
-                wx.reLaunch({
+                wx.navigateTo({
                   url: '/pages/exchagessuccess/exchagessuccess',
                 })
-              }
+          }else{
+            this.Base.toast("卡号或者卡密输入错误，请重新输入")
+          }
       })
 
     }

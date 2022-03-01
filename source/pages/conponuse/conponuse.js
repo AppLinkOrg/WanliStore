@@ -33,6 +33,7 @@ import {
         specificationsinfo: null,
         number: 1,
         goodsid: this.Base.options.goodsid==undefined?0:this.Base.options.goodsid,
+        totalamount:this.Base.options.totalamount==undefined?0:this.Base.options.totalamount,
       })
 
     }
@@ -42,8 +43,13 @@ import {
       var couponapi = new CouponApi();
 
       couponapi.mycoupon({},(e)=>{
+        var data = this.Base.getMyData();
+        let keys = Object.keys(e);
+        var couponlist = e.filter(item =>{
+          return item.usesstatus == 'A' && (item.manmoney*1) <= (data.totalamount*1)
+        })
         this.Base.setMyData({
-            couponlist:e
+            couponlist
         })
       })
     }
@@ -62,7 +68,6 @@ import {
              delta: 1
            })
     }
-  
   }
   
   var content = new Content();

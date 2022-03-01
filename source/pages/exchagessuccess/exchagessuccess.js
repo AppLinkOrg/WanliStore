@@ -34,6 +34,11 @@ import {
       var mallapi = new MallApi();
   
     }
+    navigateback(e){
+      wx.navigateBack({
+        delta:1
+      })
+    }
 
 
 
@@ -44,5 +49,6 @@ import {
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
+  body.navigateback=content.navigateback;
   
   Page(body)

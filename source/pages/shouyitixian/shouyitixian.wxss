@@ -33,7 +33,6 @@
 }
 
 .jilushijian {
-    width: 284rpx;
     height: 28rpx;
     font-size: 28rpx;
     font-family: PingFangSC-Regular, PingFang SC;

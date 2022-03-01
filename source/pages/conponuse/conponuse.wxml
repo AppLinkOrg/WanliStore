@@ -5,7 +5,8 @@
     <view wx:for="{{couponlist}}" wx:if="{{item.usesstatus == 'A'}}" bindtap="chosedz" id="{{item.id}}" style="background-color: rgba(255, 255, 255, 1); width: 700rpx; height: 248rpx;border-radius: 32rpx;margin-top: 44rpx;">
         <view style="margin: 30rpx;">
             <view class="flex-row">
-                <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
+                <!-- <image  bindtap="chosedz" id='{{item.id}}' src="{{uploadpath}}resource/{{res.chose2}}" class="icon30"></image> -->
+                <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;"> 
                     <view wx:if="{{item.type == 'A'}}" class="flex-row" style="line-height: 80rpx;">
                         <view class="f-28 fontcolor">￥</view>
                         <view class="f-56 fontcolor">{{item.amount}}</view>

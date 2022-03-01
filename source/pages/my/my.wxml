@@ -29,7 +29,7 @@
 
 <scroll-view scroll-y="true" class="scrollbox" style="height:{{globalData.hh-199}}px;">
     <view class="shouyi flex-row flex-center" bindtap="navigateto" id="/pages/myshouyi/myshouyi">
-        <view class="h5 txt-white">我的收益：￥0</view>
+        <view class="h5 txt-white">我的收益：￥{{totleamount}}</view>
         <view class="flex-1"></view>
         <view class="h6 " style="color:#EBEBEB;">查看更多</view>
     </view>

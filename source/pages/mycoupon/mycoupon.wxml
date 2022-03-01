@@ -31,7 +31,7 @@
                     </view>
 
                     <view class="flex-row flex-center" style="border-top: 2rpx solid #E1E3E699;">
-                        <view class="f-24" style="line-height: 34px;color: #999999;">使用时段:{{item.shiduan}}</view>
+                        <view class="f-24" style="line-height: 34px;color: #999999;">备注：{{item.shiduan}}</view>
                         <view class="flex-1"></view>
                         <button bindtap="usecoupon" style="background: rgba(0, 185, 53, 1);border-radius: 24rpx; width:200rpx;line-height: 48rpx;">
                             <view class="f-24">立即使用</view>
@@ -68,7 +68,7 @@
                     </view>
 
                     <view class="flex-row flex-center" style="border-top: 2rpx solid #E1E3E699;">
-                        <view class="f-24" style="line-height: 34px;color: #999999;">使用时段:{{item.shiduan}}</view>
+                        <view class="f-24" style="line-height: 34px;color: #999999;">备注：{{item.shiduan}}</view>
                         <view class="flex-1"></view>
 
                     </view>
@@ -103,7 +103,7 @@
                     </view>
 
                     <view class="flex-row flex-center" style="border-top: 2rpx solid #E1E3E699;">
-                        <view class="f-24" style="line-height: 34px;color: #999999;">使用时段:{{item.shiduan}}</view>
+                        <view class="f-24" style="line-height: 34px;color: #999999;">备注：{{item.shiduan}}</view>
                         <view class="flex-1"></view>
 
                     </view>

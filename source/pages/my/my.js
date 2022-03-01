@@ -8,6 +8,7 @@ import {
   InstApi
 } from "../../apis/inst.api.js";
 import { MemberApi } from "../../apis/member.api";
+import { FenxiaoApi } from "../../apis/fenxiao.api";
 
 class Content extends AppBase {
   constructor() {
@@ -16,7 +17,9 @@ class Content extends AppBase {
   onLoad(options) {
     this.Base.Page = this;
     super.onLoad(options);
-  
+    this.Base.setMyData({
+      totleamount:0
+    })
   }
   onMyShow() {
     var that = this;
@@ -28,6 +31,20 @@ class Content extends AppBase {
     memberapi.addmember({u_member_id:that.Base.getMyData().u_member_id},(e)=>{
       this.Base.setMyData({
         addmember:e
+      })
+    })
+
+    var fenxiaoapi = new 	FenxiaoApi();
+    fenxiaoapi.tixianlist({},(e)=>{
+      var totleamount=0
+      for(let item of e){
+        if (item.txstatus=='B') {
+          totleamount = ( Number(totleamount) + Number(item.amount) ).toFixed(2);
+        }
+      }
+      this.Base.setMyData({
+        tixianlist:e,
+        totleamount,
       })
     })
 

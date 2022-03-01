@@ -1,1 +1,6 @@
 /* pages/conponuse/conponuse.wxss */
+.icon30 {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 36rpx;
+}

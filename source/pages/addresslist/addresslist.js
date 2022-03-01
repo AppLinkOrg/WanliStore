@@ -23,6 +23,7 @@ import {
         title: "地址管理"
       })
       this.Base.setMyData({
+        tihuoren_id:this.Base.options.id==undefined?0:this.Base.options.id,
         choseid: this.Base.options.id==undefined?0:this.Base.options.id,
         chosetype: this.Base.options.chosetype
       })
@@ -50,6 +51,20 @@ import {
              delta: 1
            })
     }
+    chosethr(e){
+      var id = e.currentTarget.id;
+      this.Base.setMyData({
+        tihuoren_id:id
+      })
+      var pages = getCurrentPages();
+      var prevPage = pages[pages.length - 2]; //上一个页面
+      prevPage.setData({
+          tihuoren_id:id
+         })
+         wx.navigateBack({//返回
+           delta: 1
+         })
+  }
     deleteaddress(e){
       var id = e.currentTarget.id;
       var memberapi = new MemberApi();
@@ -80,4 +95,5 @@ import {
   body.onMyShow = content.onMyShow;
   body.chosedz = content.chosedz;
   body.deleteaddress = content.deleteaddress;
+  body.chosethr=content.chosethr;
   Page(body)

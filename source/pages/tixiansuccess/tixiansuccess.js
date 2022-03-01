@@ -22,24 +22,29 @@ import {
   
       super.onLoad(options);
       this.Base.setMyData({
+        nowindex: 1,
+        overlay: true,
+        specificationsinfo: null,
+        number: 1
       })
     }
     onMyShow() {
       var that = this;
   
     }
-    redirectto(e){
-      wx.redirectTo({
-        url:'/pages/buygiftcards/buygiftcards'
-      })
+    navigateback(e){
+        wx.reLaunch({
+            url: '/pages/myshouyi/myshouyi?keyixianprice='+this.Base.options.keyixianprice,
+          })
     }
-
+  
   }
   
   var content = new Content();
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
-  body.redirectto=content.redirectto;
+  body.navigateback = content.navigateback;
+  
   
   Page(body)

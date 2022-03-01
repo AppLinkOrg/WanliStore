@@ -39,6 +39,7 @@ import { CouponApi } from "../../apis/coupon.api";
       this.Base.setMyData({
           sendtype:'A',
           address_id:0,
+          tihuoren_id:0,
           store_id:0,
           beizhu:'',
           youhui:0,
@@ -50,7 +51,7 @@ import { CouponApi } from "../../apis/coupon.api";
           giftcardid:0,
           liping:0,
           couponid:0,
-          keyongcoupon:this.Base.getMyData().keyongcoupon,
+          keyongcoupon:0,
       })
     }
     onMyShow() {
@@ -78,10 +79,14 @@ import { CouponApi } from "../../apis/coupon.api";
             })
           })
         }
+        
         couponapi.mycoupon({},(e)=>{
-          let keys = Object.keys(e)
+          var data=this.Base.getMyData();
+          console.log('data有什么')
+          console.log(data)
+        let keys = Object.keys(e)
         var arr = e.filter(item =>{
-        return item.usesstatus == 'A'
+        return item.usesstatus == 'A' && (item.manmoney*1)<=(data.totalamount*1)
          })
       console.log("arr是什么")
       console.log(arr.length);
@@ -92,7 +97,6 @@ import { CouponApi } from "../../apis/coupon.api";
         })
       console.log("keyongcoupon赋值了吗")
       console.log(this.Base.getMyData().keyongcoupon)
-      
         var giftcardsapi = new 	GiftcardsApi();
         console.log("giftcardid有么")
         console.log(this.Base.getMyData().giftcardid)
@@ -111,6 +115,7 @@ import { CouponApi } from "../../apis/coupon.api";
 
       var memberapi = new MemberApi();
       console.log(this.Base.getMyData().address_id,'达到');
+      console.log(this.Base.getMyData().tihuoren_id,'达到');
       if(this.Base.getMyData().address_id==0 && this.Base.getMyData().sendtype=='A' ){
         var memberinfo = this.Base.getMyData().memberinfo;
         this.Base.setMyData({
@@ -121,6 +126,13 @@ import { CouponApi } from "../../apis/coupon.api";
         memberapi.addressinfo({id:this.Base.getMyData().address_id},(addressinfo)=>{
           this.Base.setMyData({
             addressinfo
+          })
+        })
+      }
+      if(this.Base.getMyData().tihuoren_id>0 && this.Base.getMyData().sendtype=='B'){
+        memberapi.addressinfo({id:this.Base.getMyData().tihuoren_id},(addressthr)=>{
+          this.Base.setMyData({
+            addressthr
           })
         })
       }
