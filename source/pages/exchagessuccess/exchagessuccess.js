@@ -35,6 +35,12 @@ import {
   
     }
     navigateback(e){
+      // var pages = getCurrentPages();//获取页面栈
+      // var currPage = pages[pages.length -1];//当前页面
+      // var prevPage = pages[pages.leng-2]//上一个页面
+      // prevPage.setData({
+      //   flag:'A'
+      // })
       wx.navigateBack({
         delta:1
       })

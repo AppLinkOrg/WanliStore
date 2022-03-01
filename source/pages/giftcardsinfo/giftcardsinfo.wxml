@@ -4,8 +4,10 @@
         <image class="img" src="{{uploadpath}}giftcardinfo/{{cardinfo.cover}}"></image>
     </view>
     <view class="" style="width: 700rpx;margin-top: 32rpx; margin-left: 26rpx;">
-        <view class="f">卡 号：{{cardinfo.exchangecard_id_name}}</view>
-        <view class="f">面 值：{{cardinfo.giftcardprice_cardprice}}元</view>
+        <view wx:if="{{cardinfo.cardtype=='A'}}" class="f">卡 号：{{cardinfo.buynum}}</view>
+        <view wx:if="{{cardinfo.cardtype=='B'}}" class="f">卡 号：{{cardinfo.exchangecard_id_name}}</view>
+        <view wx:if="{{cardinfo.cardtype=='A'}}" class="f">面 值：{{cardinfo.giftcardprice_cardprice}}元</view>
+        <view wx:if="{{cardinfo.cardtype=='B'}}" class="f">面 值：{{cardinfo.giftcardprice_id}}元</view>
         <view class="f">使用须知 ：</view>
         <view>
             <import src="../../wxParse/wxParse.wxml" />

@@ -11,7 +11,8 @@
     <view class="flex-row flex-column" style="display: {{flag == 'A' ? 'block' :'none'}}; min-height: 90vh; position: relative;">
         <view style="margin-bottom: 92rpx; ">
             <view class="flex-row cards" wx:for="{{cardlist}}" wx:key="item" bindtap="navigateto" id="/pages/giftcardsinfo/giftcardsinfo?id={{item.id}}">
-                <image class="cardsimg" src="{{uploadpath}}giftcardinfo/{{coverbanner[item.giftcardinfo_id].image}}"></image>
+                <image wx:if="{{item.cardtype == 'A'}}" class="cardsimg" src="{{uploadpath}}giftcardinfo/{{coverbanner[item.giftcardinfo_id].image}}"></image>
+                <image wx:if="{{item.cardtype == 'B'}}" class="cardsimg" src="{{uploadpath}}giftcardinfo/{{item.cover}}"></image>
                 <view class="contentbox flex-1">
                     <view wx:if="{{item.cardtype == 'A'}}" class="f-32" style="font-weight: 700;">面值￥{{item.giftcardprice_id_name}}</view>
                     <view wx:if="{{item.cardtype == 'B'}}" class="f-32" style="font-weight: 700;">面值￥{{item.giftcardprice_id}}</view>
