@@ -48,7 +48,7 @@
                     <view>{{instinfo.cardused}}
                     </view>
                 </view>
-                <button bindtap="giftCardExhange" class="pay">确认兑换</button>
+                <button bindtap="giftCardExhange" class="pay butcolor">确认兑换</button>
             </view>
 
         </view>

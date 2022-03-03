@@ -7,15 +7,6 @@
     margin-right: 16rpx;
 }
 
-.pay {
-    width: 678rpx;
-    height: 92rpx;
-    background: rgba(68, 181, 73, 1);
-    border-radius: 48rpx;
-    position: absolute;
-    bottom: 70rpx;
-}
-
 .price {
     margin-right: 32rpx;
     border-radius: 14rpx;

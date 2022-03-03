@@ -10,6 +10,6 @@
     <view class="txt-88 h5 margin-top-20">支付成功</view>
 
     <view class="h240"></view>
-    <view class="chakan" bindtap="navigateto" id="/pages/orderlist/orderlist">查看订单</view>
+    <view class="chakan butcolor" bindtap="navigateto" id="/pages/orderlist/orderlist">查看订单</view>
     <view class="guang" bindtap="switchTab" id='mall'>继续逛</view>
 </view>

@@ -39,7 +39,8 @@
     "pages/myshouyi/myshouyi",
     "pages/shouyimingxi/shouyimingxi",
     "pages/shouyitixian/shouyitixian",
-    "pages/tixiansuccess/tixiansuccess"
+    "pages/tixiansuccess/tixiansuccess",
+    "pages/goodspingjia/goodspingjia"
 
   ],
   "permission": {

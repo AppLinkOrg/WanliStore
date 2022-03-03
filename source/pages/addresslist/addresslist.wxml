@@ -1,6 +1,9 @@
 <view class="margin24">
-
-    <view wx:for="{{list}}" wx:key='k' >
+    <view class="flex-row kongbaitips" wx:if="{{list.length<=0}}" style="min-height: 90vh;">
+        <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+    </view>
+    <view wx:else>
+        <view  wx:for="{{list}}" wx:key="k" >
         <view class="flex-row flex-center">
             <!--  -->
             <image wx:if="{{chosetype=='A'}}" bindtap="chosedz" id='{{item.id}}' src="{{uploadpath}}resource/{{choseid==item.id?res.chose2:res.chose}}" class="icon30"></image>
@@ -17,13 +20,15 @@
                     <view class="h7 txt-88  flex-1">{{item.address}}</view>
                     <image src="{{uploadpath}}resource/{{res.deleteicon}}" bindtap="deleteaddress" id="{{item.id}}" class="icon25"></image>
                 </view>
-               
+
             </view>
         </view>
 
 
         <view class="lines"></view>
     </view>
+    </view>
+   
 
 </view>
 

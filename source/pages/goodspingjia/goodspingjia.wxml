@@ -1,0 +1,24 @@
+<!--pages/goodspingjia/goodspingjia.wxml-->
+<view class="flex-row kongbaitips" wx:if="{{orderpingjia.length<=0}}">
+    <image  src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+</view>
+<view class="bgf3f6f7" wx:else>
+    <view class="listbox" wx:for="{{orderpingjia}}" wx:key="item" wx:if="{{item.goods_id==goods_id}}">
+        <view style="margin: 32rpx;">
+            <view class="flex-row">
+                <view class="flex-row">
+                    <image class="touxiang" src="{{item.member_avatarUrl}}"></image>
+                    <view class="name">{{item.member_nickName}}</view>
+                </view>
+                <view class="flex-1"></view>
+                <view class="pjtime">{{item.shijian}}</view>
+            </view>
+            <view class="pjcontent">{{item.content}}</view>
+            <view class="height-16"></view>
+            <view class="flex-row flex-wrap" style="gap: 43rpx;">
+                <image wx:for="{{pingjiaimg}}" wx:for-item="itemimg" wx:key="itemimg" wx:if="{{item.id == itemimg.pingjia_id}}" class="pjimg" src="{{uploadpath}}pingjia/{{itemimg.img}}"></image>
+            </view>
+        </view>
+
+    </view>
+</view>

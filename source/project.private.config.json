@@ -209,8 +209,8 @@
                     "name": "",
                     "pathName": "pages/addresslist/addresslist",
                     "query": "chosetype=A&id=1",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
                 },
                 {
                     "name": "",
@@ -239,6 +239,34 @@
                     "query": "id=6",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/paysuccess/paysuccess",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/buygiftcardssuccess/buygiftcardssuccess",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/goodspingjia/goodspingjia",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/addpingjia/addpingjia",
+                    "query": "id=13",
+                    "scene": null,
+                    "launchMode": "default"
                 }
             ]
         }

@@ -93,6 +93,7 @@ import {
         var imglist = data.imglist;
         var pingfen = data.pingfen;
         var contents = data.contents;
+        var goods_id = data.info.goods_id;
         if(pingfen<=0){
             this.Base.toast('请给商品评分');
             return
@@ -106,6 +107,7 @@ import {
             order_id:this.Base.options.id,
             content:contents,
             pingfen:pingfen,
+            goods_id:goods_id,
             imglist:JSON.stringify(imglist)
         },(ret)=>{
             if(ret.code=='0'){

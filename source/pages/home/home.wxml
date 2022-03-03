@@ -42,7 +42,7 @@
         <view class="flex-row flex-center">
           <view class="h6" style="color: #CCCCCC;text-decoration: line-through;">￥{{item.old_price}}</view>
           <view class="flex-1"></view>
-          <view class="btns" >立即购买</view>
+          <view class="btns butcolor" >立即购买</view>
         </view>
       </view>
     </view>

@@ -13,5 +13,9 @@
     width: 320rpx;
     height: 92rpx;
     border-radius: 48rpx;
-    color: white;
+    
+}
+.zs{
+    border: 2rpx solid  #54A475;
+    color: #54A475; 
 }

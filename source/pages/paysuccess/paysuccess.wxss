@@ -13,19 +13,17 @@
 .chakan {
     width: 520rpx;
     height: 92rpx;
-    background: #44B549;
     border-radius: 8rpx;
     line-height: 92rpx;
     text-align: center;
-    color: #FFFFFF;
 }
 .guang {
     width: 520rpx;
     height: 92rpx;
     border-radius: 8rpx;
-    border: 2rpx solid #44B549; 
+    border: 2rpx solid  #54A475; 
     line-height: 92rpx;
     text-align: center;
-    color: #44B549;
+    color: #54A475;
     margin-top: 28rpx;
 }

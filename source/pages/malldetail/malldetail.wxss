@@ -93,9 +93,7 @@
 .btns {
     width: 194rpx;
     height: 62rpx;
-    background: linear-gradient(90deg, #54A475 0%, #2B533C 100%);
     border-radius: 31rpx;
-    color: #FFFFFF;
     font-size: 26rpx;
     line-height: 62rpx;
     text-align: center;

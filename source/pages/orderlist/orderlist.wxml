@@ -7,7 +7,10 @@
 </view>
 
 <view class="height-100"></view>
-<view>
+<view class="flex-row kongbaitips" wx:if="{{list.length<=0}}">
+    <image  src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+</view>
+<view wx:else>
     <view wx:for="{{list}}" wx:key='k' class="orderbox">
         <view wx:if="{{(item.sendtype=='B'&&item.orderstatus=='B')}}" class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">待取货</view>
         <view wx:else  class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">{{item.orderstatus_name}}</view>

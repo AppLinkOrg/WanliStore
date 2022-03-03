@@ -85,9 +85,7 @@
 .btns {
     width: 216rpx;
     height: 80rpx;
-    background: #44B549;
     border-radius: 40rpx;
-    color: #FFFFFF;
     line-height: 80rpx;
     text-align: center;
     margin-right: 24rpx;

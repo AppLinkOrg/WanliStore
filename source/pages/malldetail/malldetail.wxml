@@ -26,7 +26,7 @@
     </view>
     <view class="height-50"></view>
     <view class="flex-row">
-        <view wx:if="{{info.yunfei!=0}}" >邮费￥{{info.yunfei}}</view>
+        <view wx:if="{{info.yunfei!=0}}">邮费￥{{info.yunfei}}</view>
         <view wx:else class="fivebox">包邮</view>
         <view class="flex-1"></view>
         <view class="fivebox">销量{{info.sales}}</view>
@@ -41,16 +41,19 @@
     </view> -->
     <view class="height-50"></view>
     <view class="flex-row">
-    <view class="f-26" style="color:#3A3A3A;">规格</view>
-    <view class="flex-1"></view>
-    <view class="f-22 txt-99">{{info.specification}}</view>
+        <view class="f-26" style="color:#3A3A3A;">规格</view>
+        <view class="flex-1"></view>
+        <view class="f-22 txt-99">{{info.specification}}</view>
     </view>
     <view class="height-50"></view>
     <view class="flex-row flex-center">
         <view class="f-26" style="color:#3A3A3A;">商品评价</view>
         <view class="flex-1"></view>
-        <view class="f-22 txt-99">100%好评</view>
-        <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
+        <view class="flex-row" bindtap="navigateto" id="/pages/goodspingjia/goodspingjia?goods_id={{info.id}}">
+            <view class="f-22 txt-99" >查看更多</view>
+            <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
+        </view>
+
     </view>
     <view class="height-50"></view>
     <view class="f-26 margin-bottom-26" style="color:#3A3A3A;">视频</view>
@@ -78,5 +81,5 @@
         <view class="h7 txt-66">客服</view>
     </view>
     <view class="flex-1"></view>
-    <view class="btns" bindtap="navigateto" id="/pages/ordersubmit/ordersubmit?goodsid={{info.id}}">立即购买</view>
+    <view class="btns butcolor" bindtap="navigateto" id="/pages/ordersubmit/ordersubmit?goodsid={{info.id}}">立即购买</view>
 </view>
