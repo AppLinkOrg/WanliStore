@@ -75,6 +75,11 @@ import { GiftcardsApi } from "../../apis/giftcards.api";
             mygiftcardshoudao,
         })
       })
+      giftcardsapi.zhengsongjilu({},(e)=>{
+        this.Base.setMyData({
+          zhengsongjilu:e
+        })
+      })
     }
     switchtype(e){
         console.log("这这这")

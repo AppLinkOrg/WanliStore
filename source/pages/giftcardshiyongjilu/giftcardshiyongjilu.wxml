@@ -3,13 +3,16 @@
 <view  class="flex-row flex-column" style="background-color: rgba(243, 246, 247, 1);  min-height: 100vh;">
     <view wx:for="{{mygiftcardshiyongjilu}}" class="flex-row flex-column" style="width: 696rpx;height: 204rpx;background: #FFFFFF;border-radius: 32rpx;margin-top: 20rpx;">
         <view class="flex-row" style="margin: 32rpx auto 32rpx 28rpx;">
-            <image src=" {{uploadpath}}giftcardinfo/{{item.cover}}" style="width: 236rpx;height: 140rpx;border-radius: 12rpx;background: #CECECE;"></image>
-           
+            <image wx:if="{{item.cardtype=='A'}}" src=" {{uploadpath}}giftcardinfo/{{item.cardcover_image}}" style="width: 236rpx;height: 140rpx;border-radius: 12rpx;background: #CECECE;"></image>
+            <image wx:if="{{item.cardtype=='B'}}" src=" {{uploadpath}}giftcardinfo/{{item.cover}}" style="width: 236rpx;height: 140rpx;border-radius: 12rpx;background: #CECECE;"></image>
             <view style="margin-left: 16rpx;">
-                <view class="v1">面值￥{{item.giftcardprice_cardprice}}</view>
-                <view class="v2">卡号：D232534643</view>
-                <view class="v2">购买时间：{{item.shijian}}</view>
+                <view wx:if="{{item.cardtype=='A'}}" class="v1">面值￥{{item.giftcardprice_cardprice}}</view>
+                <view wx:if="{{item.cardtype=='B'}}" class="v1">面值￥{{item.shiwukaprice}}</view>
+                <view wx:if="{{item.cardtype=='A'}}" class="v2">卡号：{{item.buynum}}</view>
+                <view wx:if="{{item.cardtype=='B'}}" class="v2">卡号：{{item.exchangecard_id_name}}</view>
+                <view class="v2">{{item.ovretime}}用完</view>
             </view>
+            <view class="f-24 txt-99 flex-row flex-center margin-20">{{item.isuse_name}}</view>
 
         </view>
 

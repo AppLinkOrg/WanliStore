@@ -40,7 +40,7 @@
                 {
                     "name": "品牌活动",
                     "pathName": "pages/activity/activity",
-                    "query": "id=2",
+                    "query": "id=5",
                     "launchMode": "default",
                     "scene": null
                 },
@@ -61,7 +61,7 @@
                 {
                     "name": "",
                     "pathName": "pages/giftcardsinfo/giftcardsinfo",
-                    "query": "id=1",
+                    "query": "id=7",
                     "launchMode": "default",
                     "scene": null
                 },
@@ -208,9 +208,9 @@
                 {
                     "name": "",
                     "pathName": "pages/addresslist/addresslist",
-                    "query": "chosetype=B&id=1",
-                    "launchMode": "default",
-                    "scene": null
+                    "query": "chosetype=A&id=1",
+                    "scene": null,
+                    "launchMode": "default"
                 },
                 {
                     "name": "",
@@ -223,8 +223,22 @@
                     "name": "",
                     "pathName": "pages/giftcardshousongjilu/giftcardshousongjilu",
                     "query": "type=A",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/orderdetail/orderdetail",
+                    "query": "type=A",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/malldetail/malldetail",
+                    "query": "id=6",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

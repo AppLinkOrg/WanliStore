@@ -250,6 +250,7 @@ import { CouponApi } from "../../apis/coupon.api";
       }
       var orderapi = new OrderApi();
       var wechatapi = new WechatApi();
+      // 创建订单
       orderapi.createorder({    
         goods_id:this.Base.options.goodsid,
         sendtype:data.sendtype,
@@ -269,6 +270,7 @@ import { CouponApi } from "../../apis/coupon.api";
         console.log("手机号")
         console.log(ret)
         var data = this.Base.getMyData();
+      // 判断需要支付的金额是否大于0
         if(data.amount !=0){
           if(ret.code=='0'){
             wechatapi.prepay({id:ret.return},(payret)=>{
@@ -285,13 +287,14 @@ import { CouponApi } from "../../apis/coupon.api";
             this.Base.toast(ret.result);
           }
         }else{
+          // 不走支付
           var orderapi = new OrderApi();
-
           var data = this.Base.getMyData();
           console.log("data有什么")
           console.log(data)
           console.log(data.id)
           console.log(this.Base.options.id)
+          // 更新订单状态
           orderapi.updateorder({
             id:ret.return
           })

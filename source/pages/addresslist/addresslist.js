@@ -71,7 +71,7 @@ import {
       var that = this;
       wx.showModal({
         title:'提示',
-        content:'地址有改变，是否要改变地址',
+        content:'确定要删除该地址吗',
         success:(res)=>{
           if(res.confirm){
             memberapi.deleteaddress({id:id},(ret)=>{

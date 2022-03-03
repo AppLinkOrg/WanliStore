@@ -9,7 +9,8 @@
 <view class="height-100"></view>
 <view>
     <view wx:for="{{list}}" wx:key='k' class="orderbox">
-        <view class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">{{item.orderstatus_name}}</view>
+        <view wx:if="{{(item.sendtype=='B'&&item.orderstatus=='B')}}" class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">待取货</view>
+        <view wx:else  class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">{{item.orderstatus_name}}</view>
         <view class="flex-row flex-center margin-top-36" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
             <image src="{{uploadpath}}mall/{{item.goods_cover}}" class="goods_img"></image>
             <view class="flex-1"></view>

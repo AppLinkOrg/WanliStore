@@ -66,9 +66,10 @@ class Content extends AppBase {
       specificationsinfo: null,
       number: 1
     })
-    
+    var that = this;
     // 活动详情内容
     activitysApi.activityinfo({id:this.Base.options.id},(data)=>{
+      // var that = this;
       // 将HTML中的符号转义，不然会以文本的形式输出
       data.content = ApiUtil.HtmlDecode(data.content)
       WxParse.wxParse('content' , 'html', data.content, that,10) 

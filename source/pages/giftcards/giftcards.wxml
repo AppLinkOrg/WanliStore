@@ -15,7 +15,7 @@
                 <image wx:if="{{item.cardtype == 'B'}}" class="cardsimg" src="{{uploadpath}}giftcardinfo/{{item.cover}}"></image>
                 <view class="contentbox flex-1">
                     <view wx:if="{{item.cardtype == 'A'}}" class="f-32" style="font-weight: 700;">面值￥{{item.giftcardprice_id_name}}</view>
-                    <view wx:if="{{item.cardtype == 'B'}}" class="f-32" style="font-weight: 700;">面值￥{{item.giftcardprice_id}}</view>
+                    <view wx:if="{{item.cardtype == 'B'}}" class="f-32" style="font-weight: 700;">面值￥{{item.shiwukaprice}}</view>
                     <view class="flex-row" style="justify-content: space-between; margin-top: 8rpx;">
                         <view class="f-24">余额：{{item.yue}}</view>
                         <view class="f-24">{{item.isuse_name}}</view>

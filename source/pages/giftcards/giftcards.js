@@ -33,14 +33,16 @@ import {
       ],
       flag: 'A',
       inputValue: '',
-      inputpawValue: ''
+      inputpawValue: '',
+      cardlist:'',
       })
     }
     onMyShow() {
       var giftcardsapi = new GiftcardsApi();
       giftcardsapi.mygiftcardlist({},(e) => {
+        var cardlist = e.reverse();
         this.Base.setMyData({
-          cardlist:e
+          cardlist
         })
       })
 

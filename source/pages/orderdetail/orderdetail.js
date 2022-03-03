@@ -33,8 +33,8 @@ import { MallApi } from "../../apis/mall.api";
       var orderapi = new OrderApi();
       var memberapi = new MemberApi();
       var mallapi = new MallApi();
+    //   获取订单详情
       orderapi.orderinfo({id:this.Base.options.id},(info)=>{
-       
         if(this.Base.getMyData().address_id>0){
             memberapi.addressinfo({id:this.Base.getMyData().address_id},(addressinfo)=>{
                 info.address_name = addressinfo.name;

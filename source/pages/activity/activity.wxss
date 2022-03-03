@@ -55,3 +55,6 @@
     width: 750rpx;
     background-color: #FFFFFF;
 }
+.content{
+    width: 700rpx !important;
+}

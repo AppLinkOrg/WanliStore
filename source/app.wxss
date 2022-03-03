@@ -787,7 +787,7 @@ border-radius: 4rpx;
   line-height: 92rpx;
   width: 520rpx;
   text-align: center;
-  background: rgba(68, 181, 73, 1);
+  background: linear-gradient(90deg, #54A475 0%, #2B533C 100%);
   margin-top: 268rpx;
   border-radius: 8rpx;
 }

@@ -58,7 +58,7 @@
                     <image style="width: 94rpx; height: 94rpx; border-radius: 49rpx;border: 2px solid #E6E6E6; margin-right: 24rpx;" src="{{item.avatarUrl}}"></image>
                     <view>
                         <view class="f-28 txt-33 txt-weight">{{item.nickName}}</view>
-                        <view class="f-24 txt-66">加入时间 {{item.updated_date}}</view>
+                        <view class="f-24 txt-66">加入时间 {{item.bangtime}}</view>
                     </view>
                 </view>
                

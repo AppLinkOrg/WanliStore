@@ -29,7 +29,6 @@ import {
       })
       super.onLoad(options);
       this.Base.setMyData({
-      
       })
       console.log("options是什么")
       console.log(this.Base.options)
@@ -78,7 +77,7 @@ import {
       }
       return{
         title:'请分享给你的好友',    // 转发标题
-        path: '/pages/giftcardsinfo/giftcardsinfo?id='+this.Base.options.id + '&' +'mygiftcard_id=' + this.Base.options.id + '&' + 'u_member_id=' +  cardinfo.member_id,   // 当前页面 path ，必须是以 / 开头的完整路径 
+        path: '/pages/giftcardsinfo/giftcardsinfo?mygiftcard_id'+this.Base.options.id + '&' + 'u_member_id=' +  cardinfo.member_id,   // 当前页面 path ，必须是以 / 开头的完整路径 
       }
      
     }
@@ -93,6 +92,5 @@ import {
   body.onMyShow = content.onMyShow;
   body.gotoTabbar = content.gotoTabbar;
   body.onShareAppMessagen= content.onShareAppMessage;
-  // body.onShareAppMessage = content.onShareAppMessage;
 
   Page(body)
