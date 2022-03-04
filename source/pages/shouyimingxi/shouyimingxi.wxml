@@ -1,13 +1,16 @@
 <!--pages/shouyimingxi/shouyimingxi.wxml-->
 <view style="margin:  32rpx 32rpx 0 32rpx;">
-    <picker mode="date" value="{{date}}" fields="month"  start="2017-10" end="2023-10" bindchange="bindDateChange">
+    <picker mode="date" value="{{date}}" fields="month" start="2017-10" end="2023-10" bindchange="bindDateChange">
         <view class="f-36 txt-66 txt-weight" style="line-height: 50rpx;">
             {{date}}
             <image style="width: 24rpx; height: 14rpx;" src="{{uploadpath}}resource/{{res.zhankai}}"></image>
         </view>
     </picker>
-
-    <view wx:for="{{fenxiaojilu}}">
+    <view class="flex-row kongbaitips" wx:if="{{fenxiaojilu.length<=0}}">
+        <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+    </view>
+    <view wx:else>
+        <view  wx:for="{{fenxiaojilu}}">
         <view class="height-40"></view>
         <view class="flex-row" style="align-items: center;justify-content: space-between;">
             <view class="flex-row">
@@ -27,4 +30,6 @@
         </view>
         <view style="border-bottom: 2px solid #E6E6E6; margin-top: 46rpx;"></view>
     </view>
+    </view>
+    
 </view>

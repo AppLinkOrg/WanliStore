@@ -42,9 +42,23 @@ import {
     }
     onMyShow() {
       var couponapi = new  CouponApi();
+      var data = this.Base.getMyData();
       couponapi.mycoupon({},(e)=>{
+        var keshiyonglist = e.filter(item =>{
+          return item.usesstatus == 'A'
+        })
+        var shiyonglist = e.filter(item =>{
+          return item.usesstatus == 'B'
+        })
+        var shixiaolist = e.filter(item =>{
+          return item.usesstatus == 'C'
+        })
           this.Base.setMyData({
-            coupon:e
+            coupon:e,
+            keshiyonglist,
+            shiyonglist,
+            shixiaolist
+
           })
         
       })
@@ -64,11 +78,6 @@ import {
             url:'/pages/mall/mall'
           })
     }
-   
-    
-
-   
-  
   }
   
   var content = new Content();

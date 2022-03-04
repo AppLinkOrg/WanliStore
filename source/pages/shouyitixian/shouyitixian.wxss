@@ -13,6 +13,9 @@
     margin-left: 30rpx;
     margin-top: -92rpx;
 }
+.winput{
+    width: 66.66%;
+}
 
 .but {
     width: 644rpx;

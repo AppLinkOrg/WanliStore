@@ -9,14 +9,17 @@
 <view class="height-100"></view>
 
 <view>
+    <view class="flex-row kongbaitips" wx:if="{{baominglist.length<=0}}">
+        <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+    </view>
     <view wx:for="{{baominglist}}" wx:key='k' class="activeliat" bindtap="navigateto" bindtap="navigateto" id="/pages/activity/activity?id={{item.activity_id}}">
-       
-            <image src="{{uploadpath}}activity/{{item.activity_listimg}}" class="activeimg"></image>
-            <view class="flex-row flex-center address">
-                <view class="flex-1"></view>
-                <image src="{{uploadpath}}resource/{{res.address}}" class="sign"></image>
-                <view class="signmene">{{item.cityname}}</view>
-                <view class="flex-1"></view>
-            </view>
+
+        <image src="{{uploadpath}}activity/{{item.activity_listimg}}" class="activeimg"></image>
+        <view class="flex-row flex-center address">
+            <view class="flex-1"></view>
+            <image src="{{uploadpath}}resource/{{res.address}}" class="sign"></image>
+            <view class="signmene">{{item.cityname}}</view>
+            <view class="flex-1"></view>
+        </view>
     </view>
 </view>

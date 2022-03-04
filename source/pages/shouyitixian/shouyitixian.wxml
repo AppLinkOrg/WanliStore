@@ -17,7 +17,7 @@
     <view style="margin: 24rpx;">
         <view class="f-32 txt-33" style="height: 92rpx; line-height: 92rpx;">提现金额</view>
         <view class="flex-row" style="align-items:flex-end; line-height: 72rpx;">
-            <input bindinput="bindKeyInput" type="number" placeholder="￥{{keyixianprice}}" />
+            <input class="winput" bindinput="bindKeyInput" type="digit" placeholder="￥{{keyixianprice}}" />
             <!-- <view class="f-72">￥</view>
             <view class="f-72">23</view> -->
             <view class="flex-1"></view>
@@ -25,7 +25,7 @@
         </view>
         <view style="border-bottom: 1px solid #E6E6E6; margin-top: 46rpx;"></view>
         <view class="height-24"></view>
-        <view class="f-32 txt-99">提现至微信钱包</view>
+        <view class="f-32 txt-99">{{instinfo.remarks}}</view>
         <view class="height-58"></view>
         <button type="primarys" class="but" bindtap="tixianbut">提现</button>
     </view>

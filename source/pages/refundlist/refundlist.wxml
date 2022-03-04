@@ -1,5 +1,3 @@
-
-
 <view>
     <view wx:for="{{list}}" wx:key='k' class="orderbox">
         <view class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">{{item.orderstatus_name}}</view>
@@ -13,5 +11,11 @@
             <view class="flex-1"></view>
             <view class="h7 txt-88">下单时间：{{item.submit_time}}</view>
         </view>
+
+        <view class="flex-row margin-top-16">
+        <view class="flex-1"></view>
+        <button class="cancelbtn" bindtap="quhuo" id="{{item.id}}">确认取货</button>
     </view>
+    </view>
+    
 </view>

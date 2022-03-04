@@ -1,4 +1,8 @@
 <!--pages/activitylist/activitylist.wxml-->
+<view class="flex-row kongbaitips" wx:if="{{activitylist.length<=0}}">
+    <image  src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+</view>
+
 <view class="activeliat" bindtap="navigateto" id="/pages/activity/activity?id={{item.id}}" wx:for="{{activitylist}}" wx:key='k'>
     <view   open-type="getUserInfo"  bindtap="{{member.nickName == '' ? 'bindgetUserProfile' : '' }}"  >
         <image src="{{uploadpath}}activity/{{item.listimg}}" class="activeimg"></image>

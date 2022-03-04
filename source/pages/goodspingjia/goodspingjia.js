@@ -32,8 +32,15 @@ import { OrderApi } from "../../apis/order.api";
       var that = this;
       var orderapi = new OrderApi();
       orderapi.orderpingjia({},(e)=>{
+        var data = this.Base.getMyData();
+        console.log("data.goods_id是什么")
+        console.log(data.goods_id)
+        var pingjialist = e.filter(item =>{
+          return item.goods_id == data.goods_id
+        })
           this.Base.setMyData({
             orderpingjia:e,
+            pingjialist
           })
       })
       orderapi.pingjiaimg({},(e)=>{

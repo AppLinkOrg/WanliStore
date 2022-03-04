@@ -30,7 +30,8 @@ import { WechatApi } from "../../apis/wechat.api";
               {name:'已完成',value:'F'},
               {name:'已取消',value:'Q'},
           ],
-          orderstatus:this.Base.options.type==undefined?'':this.Base.options.type
+          orderstatus:this.Base.options.type==undefined?'':this.Base.options.type,
+          flag:false
       })
     }
     onMyShow() {
@@ -42,11 +43,26 @@ import { WechatApi } from "../../apis/wechat.api";
             list
         })
       })
+      orderapi.orderlist({},(e)=>{
+          var quxiao = e.filter(item =>{
+              return item.orderstatus=='Q' || item.orderstatus=='R'
+          })
+        this.Base.setMyData({
+            quxiao
+            
+        })
+      })
     }
     switchtype(e){
         var orderstatus = e.currentTarget.id;
+        if(orderstatus=='Q'){
+            var flag= true
+        }else{
+            var flag= false
+        }
         this.Base.setMyData({
-            orderstatus
+            orderstatus,
+            flag
         })
         this.onMyShow();
     }
@@ -62,7 +78,8 @@ import { WechatApi } from "../../apis/wechat.api";
                     orderapi.cancelorder({id:id},(ret)=>{
                         that.Base.toast('订单取消成功');
                         that.Base.setMyData({
-                            orderstatus:'Q'
+                            orderstatus:'Q',
+                            flag:'true'
                         })
                         that.onMyShow();
                     })

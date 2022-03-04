@@ -1,9 +1,9 @@
 <!--pages/goodspingjia/goodspingjia.wxml-->
-<view class="flex-row kongbaitips" wx:if="{{orderpingjia.length<=0}}">
+<view class="flex-row kongbaitips" wx:if="{{pingjialist.length<=0}}">
     <image  src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
 </view>
 <view class="bgf3f6f7" wx:else>
-    <view class="listbox" wx:for="{{orderpingjia}}" wx:key="item" wx:if="{{item.goods_id==goods_id}}">
+    <view class="listbox" wx:for="{{pingjialist}}" wx:key="item">
         <view style="margin: 32rpx;">
             <view class="flex-row">
                 <view class="flex-row">

@@ -270,6 +270,7 @@ import { CouponApi } from "../../apis/coupon.api";
         console.log("手机号")
         console.log(ret)
         var data = this.Base.getMyData();
+        var that = this;
       // 判断需要支付的金额是否大于0
         if(data.amount !=0){
           if(ret.code=='0'){
@@ -279,6 +280,14 @@ import { CouponApi } from "../../apis/coupon.api";
                   wx.reLaunch({
                     url: '/pages/paysuccess/paysuccess?amount='+data.amount,
                   })
+                }else{
+                  // var cardid=0;
+                  // var couponid=0;
+                  // that.Base.setMyData({
+                  //   cardid,
+                  //   couponid
+                  // })
+                  
                 }
               }
               wx.requestPayment(payret);

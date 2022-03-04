@@ -32,8 +32,6 @@
 }
 
 .cancelbtn {
-    width: 148rpx;
-    height: 54rpx;
     border-radius: 27rpx;
     border: 2rpx solid #333333;
     line-height: 54rpx;

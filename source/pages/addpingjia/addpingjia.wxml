@@ -14,7 +14,7 @@
     </view>
     <view class="margin-top-30">
         <view class="h5 txt-33 margin-bottom-20">商品评价</view>
-        <textarea style="border: 1rpx solid #eee;" class="h5 txt-33" value="{{contents}}" bindinput="contentsFn" name="" id="" cols="30" rows="10" placeholder="请输入商品评价"></textarea>
+        <textarea style="border: 1rpx solid #eee; width: 90vw" class="h5 txt-33" value="{{contents}}" bindinput="contentsFn" name="" id="" cols="30" rows="10" placeholder="请输入商品评价"></textarea>
     </view>
     <view class="margin-top-30">
         <view class="h5 txt-33 margin-bottom-20">商品评价图片</view>

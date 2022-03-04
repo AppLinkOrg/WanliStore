@@ -10,11 +10,11 @@
 
 
     <view class="flex-row flex-column" style="display: {{flag == 'A' ? 'block' :'none'}}; min-height: 90vh; position: relative;">
-        <!-- <view wx:for="{{coupon}}"  wx:if="{{item.usesstatus = 'A'}}" class="flex-row kongbaitips"  style="min-height: 90vh;">
-                <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
-        </view> -->
-        <view style="margin-bottom: 92rpx; ">
-            <view class="cards" wx:for="{{coupon}}" wx:if="{{item.usesstatus == 'A'}}" wx:key="item">
+        <view class="flex-row kongbaitips" wx:if="{{keshiyonglist.length<=0}}">
+            <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+        </view>
+        <view wx:else style="margin-bottom: 92rpx; ">
+            <view class="cards" wx:for="{{keshiyonglist}}" wx:key="item">
                 <view style="margin: 30rpx;">
                     <view class="flex-row">
                         <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
@@ -50,8 +50,11 @@
 
     </view>
     <view class="flex-row flex-column" style="display: {{flag == 'B' ? 'block' :'none'}}; min-height: 90vh; position: relative;">
+        <view class="flex-row kongbaitips" wx:if="{{shiyonglist.length<=0}}">
+            <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+        </view>
         <view style="margin-bottom: 92rpx; ">
-            <view class="cards" wx:for="{{coupon}}" wx:if="{{item.usesstatus == 'B'}}" wx:key="item">
+            <view class="cards" wx:for="{{shiyonglist}}"  wx:key="item">
                 <view style="margin: 30rpx;">
                     <view class="flex-row">
                         <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
@@ -83,8 +86,11 @@
 
     </view>
     <view class="flex-row flex-column" style="display: {{flag == 'C' ? 'block' :'none'}}; min-height: 90vh; position: relative;">
+        <view class="flex-row kongbaitips" wx:if="{{shixiaolist.length<=0}}">
+            <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+        </view>
         <view style="margin-bottom: 92rpx; ">
-            <view class="cards" wx:for="{{coupon}}" wx:if="{{item.usesstatus == 'C'}}" wx:key="item">
+            <view class="cards" wx:for="{{shixiaolist}}" wx:key="item">
                 <view class="flex-row kongbaitips" wx:if="{{(coupon.length<=0 && item.usesstatus == 'C')}}" style="min-height: 90vh;">
                     <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
                 </view>

@@ -38,6 +38,18 @@ import {
       });
   
     }
+
+    tobuy(e){
+      var data = this.Base.getMyData();
+      var inventory = data.info.inventory;
+      if(inventory<=0){
+        this.Base.toast("没有库存啦~");
+        return
+      }
+      wx.navigateTo({
+        url: '/pages/ordersubmit/ordersubmit?goodsid='+this.Base.getMyData().info.id,
+      })
+    }
   
   }
   
@@ -45,5 +57,6 @@ import {
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
+  body.tobuy= content.tobuy;
   
   Page(body)

@@ -81,5 +81,5 @@
         <view class="h7 txt-66">客服</view>
     </view>
     <view class="flex-1"></view>
-    <view class="btns butcolor" bindtap="navigateto" id="/pages/ordersubmit/ordersubmit?goodsid={{info.id}}">立即购买</view>
+    <view class="btns butcolor" bindtap="tobuy" id="/pages/ordersubmit/ordersubmit?goodsid={{info.id}}">立即购买</view>
 </view>

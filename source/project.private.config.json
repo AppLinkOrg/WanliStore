@@ -265,6 +265,13 @@
                     "name": "",
                     "pathName": "pages/addpingjia/addpingjia",
                     "query": "id=13",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/orderlist/orderlist",
+                    "query": "type=B",
                     "scene": null,
                     "launchMode": "default"
                 }
