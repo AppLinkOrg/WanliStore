@@ -3,33 +3,30 @@
         <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
     </view>
     <view wx:else>
-        <view  wx:for="{{list}}" wx:key="k" >
-        <view class="flex-row flex-center">
-            <!--  -->
-            <image wx:if="{{chosetype=='A'}}" bindtap="chosedz" id='{{item.id}}' src="{{uploadpath}}resource/{{choseid==item.id?res.chose2:res.chose}}" class="icon30"></image>
-            <image wx:if="{{chosetype=='B'}}" bindtap="chosethr" id='{{item.id}}' src="{{uploadpath}}resource/{{choseid==item.id?res.chose2:res.chose}}" class="icon30"></image>
-            <view class="flex-1">
-                <view class="flex-row flex-center">
-                    <view class="txt-33 h5">{{item.name}}</view>
-                    <view class="txt-33 h5 margin-left-30">{{item.mobile}}</view>
-                    <view class="moren" wx:if="{{item.moren=='Y'}}">默认</view>
-                    <view class="flex-1"></view>
+        <view wx:for="{{list}}" wx:key="k" class="listbox">
+            <view class="flex-row">
+                <view class="flex-row" id='{{item.id}}'  bindtap="{{chosetype=='A'?'chosedz':'chosethr'}}">
+                    <view>
+                        <image wx:if="{{chosetype=='A'}}" src="{{uploadpath}}resource/{{choseid==item.id?res.chose2:res.chose}}" class="icon30"></image>
+                        <image wx:if="{{chosetype=='B'}}" src="{{uploadpath}}resource/{{choseid==item.id?res.chose2:res.chose}}" class="icon30"></image>
+                    </view>
+                    <view>
+                        <view class="flex-row">
+                            <view class="txt-33 h5">{{item.name}}</view>
+                            <view class="txt-33 h5 margin-left-30">{{item.mobile}}</view>
+                            <view class="moren" wx:if="{{item.moren=='Y'}}">默认</view>
+                        </view>
+                        <view class="h7 txt-88  flex-1 margin-top-5">{{item.address}}</view>
+                    </view>
+                </view>
+                <view id='{{item.id}}'  bindtap="{{chosetype=='A'?'chosedz':'chosethr'}}" class="flex-1"></view>
+                <view class="flex-row flex-column">
                     <image bindtap="navigateto" id='/pages/addressinfo/addressinfo?id={{item.id}}' src="{{uploadpath}}resource/{{res.editaddress}}" class="icon25"></image>
+                    <image src="{{uploadpath}}resource/{{res.deleteicon}}" bindtap="deleteaddress" id="{{item.id}}" class="icon25 margin-top-5"></image>
                 </view>
-                <view class="flex-row flex-center margin-top-5">
-                    <view class="h7 txt-88  flex-1">{{item.address}}</view>
-                    <image src="{{uploadpath}}resource/{{res.deleteicon}}" bindtap="deleteaddress" id="{{item.id}}" class="icon25"></image>
-                </view>
-
             </view>
         </view>
-
-
-        <view class="lines"></view>
     </view>
-    </view>
-   
-
 </view>
 
 <view class="flex-row flex-column fixbottom">

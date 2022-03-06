@@ -63,7 +63,7 @@
 
         <view class="flex-row flex-center ">
             <view class="timian flex-1" bindtap="navigateto" id="/pages/buygiftcards/buygiftcards">
-                <view class="">礼品卡下单</view>
+                <view class="">购礼品卡</view>
                 <view class="txt-66 h6">新鲜日期工厂直发</view>
                 <image src="{{uploadpath}}resource/{{res.mytimian}}" class="mytimian"></image>
             </view>

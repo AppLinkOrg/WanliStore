@@ -116,14 +116,18 @@ import { CouponApi } from "../../apis/coupon.api";
       var memberapi = new MemberApi();
       console.log(this.Base.getMyData().address_id,'达到');
       console.log(this.Base.getMyData().tihuoren_id,'达到');
+      // 如果是商家配送的话
       if(this.Base.getMyData().address_id==0 && this.Base.getMyData().sendtype=='A' ){
+
         var memberinfo = this.Base.getMyData().memberinfo;
+        console.log("member是什么")
+        console.log(memberinfo)
         this.Base.setMyData({
           address_id:memberinfo.address_id
         })
       }
       if(this.Base.getMyData().address_id>0 && this.Base.getMyData().sendtype=='A'){
-        memberapi.addressinfo({id:this.Base.getMyData().address_id},(addressinfo)=>{
+        memberapi.addressinfo({id:this.Base.getMyData().address_id,status:'A'},(addressinfo)=>{
           this.Base.setMyData({
             addressinfo
           })
@@ -176,7 +180,7 @@ import { CouponApi } from "../../apis/coupon.api";
 
 
       // 商品总价，商品价格+邮费
-      totalamount = (Number(info.price)+Number(yunfei)).toFixed(2);
+      totalamount = Number(info.price).toFixed(2);
 
       // 优惠券使用
       if(data.couponid>0){
@@ -184,7 +188,7 @@ import { CouponApi } from "../../apis/coupon.api";
           couponprice = data.couponinfo.amount
         }
         if(data.couponinfo.type == 'B'){
-          couponprice = (totalamount * data.couponinfo.zhekou / 100).toFixed(2)
+          couponprice = (totalamount * (1- data.couponinfo.zhekou / 100) ).toFixed(2)
         } 
       }
       // 礼品卡使用

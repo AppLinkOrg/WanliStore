@@ -1,5 +1,9 @@
 /* pages/addresslist/addresslist.wxss */
-
+.listbox{
+    margin: 24rpx 0;
+    padding-bottom: 24rpx;
+    border-bottom: 2rpx solid #E1E3E6;
+}
 .margin24 {
     margin: 30rpx 24rpx;
 }
@@ -19,12 +23,7 @@
     width: 25rpx;
     height: 25rpx;
 }
-.lines {
-    width: 100%;
-    height: 2rpx;
-    background:  #E1E3E6;
-    margin: 24rpx 0;
-}
+
 .fixbottom {
     width: 100vw;
     padding: 20rpx 0;

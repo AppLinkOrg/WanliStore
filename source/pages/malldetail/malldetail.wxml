@@ -26,7 +26,7 @@
     </view>
     <view class="height-50"></view>
     <view class="flex-row">
-        <view wx:if="{{info.yunfei!=0}}">邮费￥{{info.yunfei}}</view>
+        <view class="fivebox" wx:if="{{info.yunfei!=0}}">邮费￥{{info.yunfei}}</view>
         <view wx:else class="fivebox">包邮</view>
         <view class="flex-1"></view>
         <view class="fivebox">销量{{info.sales}}</view>

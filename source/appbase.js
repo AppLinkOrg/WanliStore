@@ -271,6 +271,7 @@ export class AppBase {
     var memberapi = new MemberApi();
     var that = this;
     
+    // 个人信息
     memberapi.info({}, (info) => {
       // if (info.mobile == "" && this.Base.needauth == true) {
         // wx.navigateTo({
@@ -479,7 +480,7 @@ export class AppBase {
     }
   }
   openMap(e) {
-    if (AppBase.QQMAP == null) {
+    if (AppBase.openMap == null) {
       var QQMapWX = require('libs/qqmap/qqmap-wx-jssdk.js');
       AppBase.QQMAP = new QQMapWX({
         key: 'IDVBZ-TSAKD-TXG43-H442I-74KVK-6LFF5'
@@ -489,9 +490,11 @@ export class AppBase {
     AppBase.QQMAP.geocoder({
       address: address,
       success: function (res) {
+        // 经度纬度
         if (res.status == 0) {
           var lat = res.result.location.lat;
           var lng = res.result.location.lng;
+
 
           wx.openLocation({
             type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
@@ -512,6 +515,8 @@ export class AppBase {
       }
     });
   }
+
+
   uploadFile(modul, filename, callback) {
 
     var tempFilePaths = filename

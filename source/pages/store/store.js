@@ -72,6 +72,14 @@ import { ApiUtil } from "../../apis/apiutil";
              delta: 1
            })
     }
+
+    phonecall(e){
+      var phone = e.currentTarget.dataset.phone;
+      wx.makePhoneCall({
+        phoneNumber: phone,
+      })
+    }
+
   }
   var content = new Content();
   var body = content.generateBodyJson();
@@ -79,4 +87,5 @@ import { ApiUtil } from "../../apis/apiutil";
   body.onMyShow = content.onMyShow;
   body.chosedz = content.chosedz;
   body.getlist = content.getlist;
+  body.phonecall = content.phonecall;
   Page(body)

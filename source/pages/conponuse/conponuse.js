@@ -34,8 +34,12 @@ import {
         number: 1,
         goodsid: this.Base.options.goodsid==undefined?0:this.Base.options.goodsid,
         totalamount:this.Base.options.totalamount==undefined?0:this.Base.options.totalamount,
+        couponid:this.Base.options.couponid==undefined?0:this.Base.options.couponid,
+        flag: this.Base.options.couponid==0?false:true,
       })
-
+      
+      console.log("这里")
+      console.log(this.Base.getMyData())
     }
     onMyShow() {
       var that = this;
@@ -44,7 +48,6 @@ import {
 
       couponapi.mycoupon({},(e)=>{
         var data = this.Base.getMyData();
-        let keys = Object.keys(e);
         var couponlist = e.filter(item =>{
           return item.usesstatus == 'A' && (item.manmoney*1) <= (data.totalamount*1)
         })
@@ -54,10 +57,18 @@ import {
       })
     }
 
-    chosedz(e){
-        var id = e.currentTarget.id;
+    choseconpon(e){
+      var data = this.Base.getMyData();
+      var id = e.currentTarget.id;
+      var flag = data.flag;
+      console.log("这里")
+      console.log(data)
+      console.log(id)
+        
+
         this.Base.setMyData({
-            couponid:id
+            couponid:id,
+            flag
         })
         var pages = getCurrentPages();
         var prevPage = pages[pages.length - 2]; //上一个页面
@@ -74,7 +85,7 @@ import {
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
-  body.chosedz = content.chosedz;
+  body.choseconpon = content.choseconpon;
   
   
   Page(body)

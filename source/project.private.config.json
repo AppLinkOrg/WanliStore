@@ -272,6 +272,41 @@
                     "name": "",
                     "pathName": "pages/orderlist/orderlist",
                     "query": "type=B",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/conponuse/conponuse",
+                    "query": "goodsid=5&totalamount=36.00",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/store/store",
+                    "query": "goodsid=5&id=0",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/ordersubmit/ordersubmit",
+                    "query": "goodsid=5",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/addresslist/addresslist",
+                    "query": "chosetype=A&id=7",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/ordersubmit/ordersubmit",
+                    "query": "goodsid=5",
                     "scene": null,
                     "launchMode": "default"
                 }

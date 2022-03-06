@@ -1,8 +1,42 @@
 /* pages/store/store.wxss */
-.margin-topmd {
-    margin-top: 28rpx;
-    margin-left: 38rpx;
-    margin-bottom: 24rpx;
+.textbox {
+    margin: 26rpx 0;
+}
+.listbox{
+    width: 100%;
+    height: 270rpx;
+    background-size: 100% 100%;
+    padding: 32rpx 26rpx;
+    box-sizing: border-box;
+    margin-bottom: 26rpx;
+}
+.leftbox{
+    width: 75%;
+    border-right: 2rpx solid rgba(239, 239, 239, 1);
+}
+.timebox{
+    margin: 8rpx 0;
+}
+.margin-top-8 {
+    margin-top: 8rpx
+}
+.dzimg{
+    width: 50rpx;
+    margin-top: 8rpx;
+}
+.sizeimg{
+    width: 48rpx;
+    height: 48rpx;
+}
+.rightbox{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.distance{
+line-height: 34px;
 }
 .box {
     margin: 0 24rpx 24rpx;
@@ -18,7 +52,4 @@
     left: 0;
     top: 0;
     z-index: 10;
-}
-.margin-top-8 {
-    margin-top: 8rpx
 }
