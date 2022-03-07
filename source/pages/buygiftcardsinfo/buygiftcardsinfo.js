@@ -28,8 +28,10 @@ var WxParse = require('../../wxParse/wxParse.js');
       })
       super.onLoad(options);
       this.Base.setMyData({
-        coverid: 0,
-        priceid: 1,
+        coverid: 1,
+        coverindex: 0,
+        priceid: 0,
+        priceindex: -1,
         giftcardinfo_id:'',
         giftcardcover: '',
         giftcardprice_id: '',
@@ -48,6 +50,7 @@ var WxParse = require('../../wxParse/wxParse.js');
           cardinfo:e
         })
       })
+
       // 礼品卡封面
       giftcardsapi.coverbanner({giftcardinfo_id:this.Base.options.id},(e) => {
         this.Base.setMyData({
@@ -65,23 +68,23 @@ var WxParse = require('../../wxParse/wxParse.js');
 
     // 礼品卡封面选择
     selectcover(e){
-      var banner = this.Base.getMyData().cardbanner;
-      var cover = e.currentTarget.id;
-      var convercanner = banner[cover-1];
+      var coverindex = e.currentTarget.dataset.coverindex;
+      var coverid = e.currentTarget.id;
       this.Base.setMyData({
-        coverid : convercanner.id -1
+        coverindex,
+        coverid,
       })
     }
 
     // 礼品卡价格选择
     selectprice(e){
-      var money = e.currentTarget.id
-      console.log(money)
-      console.log(e)
-      var amount = this.Base.getMyData().cardprice[money-1].cardprice
+      var priceindex = e.currentTarget.dataset.priceindex;
+      var priceid = e.currentTarget.id;
+      var amount = this.Base.getMyData().cardprice[priceindex].cardprice;
       this.Base.setMyData({
-        priceid : money,
-        amount
+        priceindex,
+        priceid,
+        amount,
       })
     }
 
@@ -89,18 +92,22 @@ var WxParse = require('../../wxParse/wxParse.js');
     paygiftcard(e){
       var data = this.Base.getMyData();
       var idx = this.Base.getMyData().cardinfo.id;
-      console.log("这这这")
-      console.log(idx)
-      console.log(data)
+    
+      
+     if (data.priceid==0) {
+      this.Base.toast('请选择电子卡价格')
+      return
+     }
+     
       var giftcardsaip = new GiftcardsApi();
       var wechatapi = new WechatApi();
       var that = this;
       
       giftcardsaip.giftcardorder({
         giftcardinfo_id: this.Base.getMyData().cardinfo.id,
-        giftcardcover_id: Number(this.Base.getMyData().coverid) + Number(1),
-        giftcardprice_id:this.Base.getMyData().priceid,
-        amount:this.Base.getMyData().amount,
+        giftcardcover_id: this.Base.getMyData().coverid,
+        giftcardprice_id: this.Base.getMyData().priceid,
+        amount: this.Base.getMyData().amount,
       },(ret)=>{
         if(ret.code=='0'){
           wechatapi.prepaygiftcard({id:ret.return},(payret)=>{

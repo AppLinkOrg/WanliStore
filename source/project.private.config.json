@@ -307,6 +307,27 @@
                     "name": "",
                     "pathName": "pages/ordersubmit/ordersubmit",
                     "query": "goodsid=5",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+                    "query": "id=3",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardsinfo/giftcardsinfo",
+                    "query": "id=23",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+                    "query": "id=3",
                     "scene": null,
                     "launchMode": "default"
                 }
