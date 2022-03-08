@@ -328,6 +328,34 @@
                     "name": "",
                     "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
                     "query": "id=3",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardsinfo/giftcardsinfo",
+                    "query": "id=26",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcards/giftcards",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardshiyong/giftcardshiyong",
+                    "query": "goodsid=10",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/activity/activity",
+                    "query": "id=14",
                     "scene": null,
                     "launchMode": "default"
                 }

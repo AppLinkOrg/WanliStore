@@ -1,6 +1,8 @@
 <!-- pages/giftcardbuyjilu/giftcardbuyjilu.wxml -->
-
-<view  class="flex-row flex-column" style="background-color: rgba(243, 246, 247, 1);  min-height: 100vh;">
+<view class="flex-row kongbaitips min-height-100" wx:if="{{buygiftcardlist.length<=0}}">
+    <image  src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+</view>
+<view wx:else  class="flex-row flex-column min-height-100" style="background-color: rgba(243, 246, 247, 1);">
     <view wx:for="{{buygiftcardlist}}" class="flex-row flex-column" style="width: 696rpx;height: 204rpx;background: #FFFFFF;border-radius: 32rpx;margin-top: 20rpx;">
         <view class="flex-row" style="margin: 32rpx auto 32rpx 28rpx;">
             <image src="{{uploadpath}}giftcardinfo/{{item.cardcover_image}}" style="width: 236rpx;height: 140rpx;border-radius: 12rpx;background: #CECECE;"></image>

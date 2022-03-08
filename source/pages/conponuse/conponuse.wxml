@@ -1,32 +1,38 @@
 <!--pages/conponuse/conponuse.wxml-->
 <view class="flex-row flex-column firstbox">
-    <view class="listbox" wx:for="{{couponlist}}" id="{{item.id}}" bindtap="choseconpon">
-        <view>
-            <view class="flex-row">
-                <view class="seleceimg" >
-                    <image wx:if="{{item.id==couponid}}" src="{{uploadpath}}resource/{{item.id==couponid?res.chose2:res.chose}}" class="icon30"></image>
-                    <image wx:else src="{{uploadpath}}resource/{{res.chose}}" class="icon30"></image>
-                </view>
-                <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
-                    <view wx:if="{{item.type == 'A'}}" class="flex-row" style="line-height: 80rpx;">
-                        <view class="f-28 fontcolor">￥</view>
-                        <view class="f-56 fontcolor">{{item.amount}}</view>
+    <view class="flex-row kongbaitips min-height-100" wx:if="{{couponlist.length<=0}}">
+        <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+    </view>
+    <view wx:else>
+        <view class="listbox" wx:for="{{couponlist}}" id="{{item.id}}" bindtap="choseconpon">
+            <view>
+                <view class="flex-row">
+                    <view class="seleceimg">
+                        <image wx:if="{{item.id==couponid}}" src="{{uploadpath}}resource/{{item.id==couponid?res.chose2:res.chose}}" class="icon30"></image>
+                        <image wx:else src="{{uploadpath}}resource/{{res.chose}}" class="icon30"></image>
                     </view>
-                    <view wx:if="{{item.type == 'B'}}" class="flex-row" style="line-height: 80rpx;">
-                        <view class="f-56 fontcolor">{{item.zhekou/10}}</view>
-                        <view class="f-28 fontcolor">折</view>
+                    <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">
+                        <view wx:if="{{item.type == 'A'}}" class="flex-row" style="line-height: 80rpx;">
+                            <view class="f-28 fontcolor">￥</view>
+                            <view class="f-56 fontcolor">{{item.amount}}</view>
+                        </view>
+                        <view wx:if="{{item.type == 'B'}}" class="flex-row" style="line-height: 80rpx;">
+                            <view class="f-56 fontcolor">{{item.zhekou/10}}</view>
+                            <view class="f-28 fontcolor">折</view>
+                        </view>
+                        <view class="f-24" style="color: #999; line-height: 34rpx; height: 34rpx;">满{{item.manmoney}}元可用</view>
                     </view>
-                    <view class="f-24" style="color: #999; line-height: 34rpx; height: 34rpx;">满{{item.manmoney}}元可用</view>
+                    <view class="flex-1" style="margin-left: 40rpx;">
+                        <view class="f-32" style="font-weight: 500; color: #333333; line-height: 80rpx;">{{item.name}}</view>
+                        <view class="f-24" style="color: #999999;line-height: 34rpx;">有效期至{{item.end_time}}</view>
+                    </view>
                 </view>
-                <view class="flex-1" style="margin-left: 40rpx;">
-                    <view class="f-32" style="font-weight: 500; color: #333333; line-height: 80rpx;">{{item.name}}</view>
-                    <view class="f-24" style="color: #999999;line-height: 34rpx;">有效期至{{item.end_time}}</view>
+                <view class="flex-row flex-center" style="border-top: 2rpx solid #E1E3E699;">
+                    <view class="f-24" style="line-height: 34px;color: #999999;">备注:{{item.shiduan}}</view>
+                    <view class="flex-1"></view>
                 </view>
-            </view>
-            <view class="flex-row flex-center" style="border-top: 2rpx solid #E1E3E699;">
-                <view class="f-24" style="line-height: 34px;color: #999999;">备注:{{item.shiduan}}</view>
-                <view class="flex-1"></view>
             </view>
         </view>
     </view>
+
 </view>

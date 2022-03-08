@@ -31,5 +31,5 @@
 </view>
 
 <view class="flex-row flex-column fixbottom">
-    <view class="btns" bindtap="tosave" >发布</view>
+    <view class="btns" bindtap="{{flag==true?'tosave':''}}" >发布</view>
 </view>

@@ -40,7 +40,7 @@ import {
       var that = this;
       var mallapi = new MallApi();
       var giftcardsapi = new GiftcardsApi();
-      giftcardsapi.mygiftcardlist({},(e)=>{
+      giftcardsapi.mygiftcardlist({isuse:'A'},(e)=>{
           this.Base.setMyData({
             cardlist:e
           })

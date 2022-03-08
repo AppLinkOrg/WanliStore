@@ -44,10 +44,10 @@ import { GiftcardsApi } from "../../apis/giftcards.api";
       super.onLoad(options);
       this.Base.setMyData({
         typelist:[
-            {name:'已收到',value:'A'},
-            {name:'已赠送',value:'B'}
+            {name:'已收到',value:'E'},
+            {name:'已赠送',value:'C'}
         ],
-        flag: 'A',
+        flag: 'E',
         nowindex: 1,
         overlay: true,
         specificationsinfo: null,
@@ -63,31 +63,37 @@ import { GiftcardsApi } from "../../apis/giftcards.api";
     onMyShow() {
       var that = this;
       var giftcardsapi = new GiftcardsApi();
-      giftcardsapi.mygiftcardlist({},(e)=>{
-        var mygiftcardzengsong = e.filter(item =>{
-            return item.isuse == 'C';
-          })
-          var mygiftcardshoudao = e.filter(item =>{
-            return item.isuse == 'E';
-          })
+      giftcardsapi.mygiftcardlist({isuse:this.Base.getMyData().flag},(e)=>{
         this.Base.setMyData({
-            mygiftcardzengsong,
-            mygiftcardshoudao,
+            list:e
         })
       })
       giftcardsapi.zhengsongjilu({},(e)=>{
+        var data = this.Base.getMyData()
+        console.log("这这这")
+        console.log(this.Base.getMyData())
+        var shoudaojilu = e.filter(item =>{
+          return item.member_id == data.memberinfo.id
+        })
+        var zengsongjilu = e.filter(item =>{
+          return item.u_member_id == data.memberinfo.id
+        })
         this.Base.setMyData({
-          zhengsongjilu:e
+          shousong:e,
+          shoudaojilu,
+          zengsongjilu
         })
       })
     }
     switchtype(e){
+      var that = this;
         console.log("这这这")
         console.log(e)
         var id = e.currentTarget.id
         this.Base.setMyData({
             flag: id
         })
+        that.onMyShow()
       }
   }
   

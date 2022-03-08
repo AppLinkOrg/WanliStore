@@ -8,8 +8,12 @@
         </view>
     </view>
 
-    <view class="flex-row flex-column" style="display: {{flag == 'A' ? 'block' :'none'}}; min-height: 90vh; position: relative;">
-        <view style="margin-bottom: 92rpx; ">
+    <view class="flex-row flex-column" style="display: {{flag == 'A' ? 'block' :'none'}}; min-height: 90vh; width: 100%; position: relative;">
+        <view class="flex-row kongbaitips min-height-90"  wx:if="{{cardlist.length<=0}}">
+                <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+            </view>
+        <view wx:else style="margin-bottom: 92rpx; ">
+            
             <view class="flex-row cards" wx:for="{{cardlist}}" wx:key="item" bindtap="navigateto" id="/pages/giftcardsinfo/giftcardsinfo?id={{item.id}}">
                 <image wx:if="{{item.cardtype == 'A'}}" class="cardsimg" src="{{uploadpath}}giftcardinfo/{{coverbanner[item.giftcardinfo_id].image}}"></image>
                 <image wx:if="{{item.cardtype == 'B'}}" class="cardsimg" src="{{uploadpath}}giftcardinfo/{{item.cover}}"></image>
@@ -24,14 +28,13 @@
                 </view>
 
             </view>
-
         </view>
-        <view class="flex-row  bottombox" style="justify-content:center">
-                <view class="f-24 bottomcontrnt" bindtap="navigateto" id="/pages/giftcardbuyjilu/giftcardbuyjilu">购买记录</view>
-                <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
-                <view class="f-24 bottomcontrnt" bindtap="navigateto" id="/pages/giftcardshousongjilu/giftcardshousongjilu">收送记录</view>
-                <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
-                <view class="f-24 bottomcontrnt" bindtap="navigateto" id="/pages/giftcardshiyongjilu/giftcardshiyongjilu">使用记录</view>
+        <view class="flex-row  bottombox" style="justify-content:center;">
+            <view class="f-24 bottomcontrnt" bindtap="navigateto" id="/pages/giftcardbuyjilu/giftcardbuyjilu">购买记录</view>
+            <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
+            <view class="f-24 bottomcontrnt" bindtap="navigateto" id="/pages/giftcardshousongjilu/giftcardshousongjilu">收送记录</view>
+            <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
+            <view class="f-24 bottomcontrnt" bindtap="navigateto" id="/pages/giftcardshiyongjilu/giftcardshiyongjilu">使用记录</view>
         </view>
     </view>
 
@@ -40,8 +43,8 @@
         <view class="flex-row flex-column" style=" background: rgba(255, 255, 255, 1); min-height:90vh; width: 100vw;">
             <view style="width: 645rpx;">
                 <view style="margin-bottom: 180rpx;">
-                    <input id="{{}}"  style="margin-top: 56rpx;" bindinput="bindKeyInput" class="inputbox" type="number" placeholder="请输入卡号" value="" />
-                    <input id="{{}}" bindinput="bindPawInput"  class="inputbox" type="text" password placeholder="请输入卡密" value="" />
+                    <input id="{{}}" style="margin-top: 56rpx;" bindinput="bindKeyInput" class="inputbox" type="number" placeholder="请输入卡号" value="" />
+                    <input id="{{}}" bindinput="bindPawInput" class="inputbox" type="text" password placeholder="请输入卡密" value="" />
                     <view class="text">兑换须知</view>
                     <view style="margin-bottom: 40rpx;">instinfo</view>
                     <view class="text">使用须知</view>

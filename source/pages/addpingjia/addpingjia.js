@@ -28,7 +28,8 @@ import {
          pingfen:0,
          totalpf:5,
          imglist:[],
-         contents:''
+         contents:'',
+         flag:true
       })
     }
     onMyShow() {
@@ -94,6 +95,7 @@ import {
         var pingfen = data.pingfen;
         var contents = data.contents;
         var goods_id = data.info.goods_id;
+        var flag = data.flag;
         if(pingfen<=0){
             this.Base.toast('请给商品评分');
             return
@@ -101,6 +103,9 @@ import {
         if(contents==''){
             this.Base.toast('请给商品填写评价');
             return
+        }
+        if(flag==true){
+          flag=false
         }
         var orderapi = new OrderApi();
         orderapi.addpingjia({
@@ -111,22 +116,26 @@ import {
             imglist:JSON.stringify(imglist)
         },(ret)=>{
             if(ret.code=='0'){
-                wx.showModal({
-                  title:'提示',
-                  content:'评价发布成功',
-                  showCancel:false,
-                  success:(res)=>{
-                    if(res.confirm){
-                        wx.navigateBack({
-                          delta: 0,
+              this.Base.toast('评论成功~')
+              wx.navigateBack({
+                          delta: 1,
                         })
-                    }
-                  }
-                })
+                // wx.showModal({
+                //   title:'提示',
+                //   content:'评价发布成功',
+                //   showCancel:false,
+                //   success:(res)=>{
+                //     if(res.confirm){
+                //         wx.navigateBack({
+                //           delta: 0,
+                //         })
+                //     }
+                //   }
+                // })
             }else {
                 this.Base.toast(ret.result);
             }
-        })
+        },300)
     }
   }
   var content = new Content();
