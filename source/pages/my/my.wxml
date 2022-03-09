@@ -84,7 +84,7 @@
                     <image src="{{uploadpath}}resource/{{res.jifenshangcheng}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">积分商城</view>
                 </view>
-                <view class="flex-1 flex-row flex-column" bindtap="notdata">
+                <view class="flex-1 flex-row flex-column" bindtap="phonecall">
                     <image src="{{uploadpath}}resource/{{res.kefubangzhu}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">客服帮助</view>
                 </view>
@@ -100,7 +100,7 @@
             </view>
             <view class="height-60"></view>
             <view class="flex-row flex-center">
-                <view class="flex-1 flex-row flex-column" bindtap="notdata">
+                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/mypingjia/mypingjia">
                     <image src="{{uploadpath}}resource/{{res.wodepinjia}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">我的评价</view>
                 </view>

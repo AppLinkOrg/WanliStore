@@ -356,6 +356,69 @@
                     "name": "",
                     "pathName": "pages/activity/activity",
                     "query": "id=14",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/mypingjia/mypingjia",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/ordersubmit/ordersubmit",
+                    "query": "goodsid=5",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/activity/activity",
+                    "query": "id=14",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/conponuse/conponuse",
+                    "query": "goodsid=5&totalamount=26.00&couponid=1104",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/conponuse/conponuse",
+                    "query": "goodsid=5&totalamount=26.00&couponid=0",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcards/giftcards",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/duihuanjilu/duihuanjilu",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/addpingjia/addpingjia",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/activity/activity",
+                    "query": "id=16",
                     "scene": null,
                     "launchMode": "default"
                 }

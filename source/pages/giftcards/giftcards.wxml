@@ -32,6 +32,8 @@
         <view class="flex-row  bottombox" style="justify-content:center;">
             <view class="f-24 bottomcontrnt" bindtap="navigateto" id="/pages/giftcardbuyjilu/giftcardbuyjilu">购买记录</view>
             <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
+            <view class="f-24 bottomcontrnt" bindtap="navigateto" id="/pages/duihuanjilu/duihuanjilu">兑换记录</view>
+            <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
             <view class="f-24 bottomcontrnt" bindtap="navigateto" id="/pages/giftcardshousongjilu/giftcardshousongjilu">收送记录</view>
             <view class="f-24 bottomcontrnt" style="margin: 0 16rpx;">|</view>
             <view class="f-24 bottomcontrnt" bindtap="navigateto" id="/pages/giftcardshiyongjilu/giftcardshiyongjilu">使用记录</view>

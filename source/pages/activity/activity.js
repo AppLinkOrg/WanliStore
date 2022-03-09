@@ -34,20 +34,15 @@ class Content extends AppBase {
     this.Base.ActivitysApi = this.ActivitysApi
     var that = this;
     var activitysApi = new ActivitysApi();
-    var aa = this.Base.getMyData();
-    var times = ApiUtil.FormatDateTime(new Date());
-    
-   console.log("啥的健康")
-   console.log(aa)
     wx.setNavigationBarTitle({
       title: "活动详情"
     })
     var time = ApiUtil.FormatDateTime(new Date());
     var timess = ApiUtil.formatTime(new Date());
-    
     console.log("当前时间")
     console.log(time)
     console.log(timess)
+    
     this.Base.setMyData({
       paytype:'A',
       orderno:0,
@@ -60,11 +55,6 @@ class Content extends AppBase {
   })
     super.onLoad(options);
     this.Base.setMyData({
-      isCommitted : false,
-      nowindex: 1,
-      overlay: true,
-      specificationsinfo: null,
-      number: 1
     })
     var that = this;
     // 活动详情内容
@@ -75,6 +65,7 @@ class Content extends AppBase {
       WxParse.wxParse('content' , 'html', data.content, that,10) 
       console.log("这里")
       console.log(data.cannot)
+      // 将对象转成数组
       data.orderinfolen = Object.keys(data.orderinfo)
       data.sign= 0
       this.Base.setMyData({
@@ -91,6 +82,7 @@ class Content extends AppBase {
     
     // 报名信息
     activitysApi.information({activity_id:this.Base.options.id},(data)=>{
+      // 每一个信息加一个答案
       for(let item of data){
         item.value='';
       } 
@@ -117,9 +109,14 @@ class Content extends AppBase {
 // 选择器输入
   bindPickerChange(e) {
     console.log('picker发送选择改变，携带值为', e);
-    var question = this.Base.getMyData().question;
+    console.log(e)
+    // 得到问题的id
     var idx = e.currentTarget.id;
+
+    var question = this.Base.getMyData().question;
+    // 选择的下标
     var index = e.detail.value;
+    // 把选择的值给问题下面
     question[idx].value = question[idx].options[index].name;
     this.Base.setMyData({
       question

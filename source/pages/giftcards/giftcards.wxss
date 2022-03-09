@@ -44,7 +44,7 @@
 .bottombox {
     position: absolute;
     left: 50%;
-    margin-left: -200rpx;
+    margin-left: -264rpx;
     bottom: 44rpx;
 }
 

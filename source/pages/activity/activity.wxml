@@ -1,18 +1,22 @@
 <!--pages/activity/activity.wxml-->
 <view style="position: relative;">
-    <view class="activeliat">
+    <view class="activelist">
+        <!-- 轮播图 -->
         <swiper circular="{{true}}">
             <swiper-item wx:for="{{image}}" wx:key='id'>
                 <image src="{{uploadpath}}activity/{{item.img}}" class="activeimg" bindtap="tobanner" data-item="{{item}}"></image>
             </swiper-item>
         </swiper>
+        <!-- 活动名称 -->
         <view class="f-36 ">{{activityinfo.name}}</view>
+        <!-- 活动信息 -->
         <view class="question padding-top-40">【活动信息】</view>
         <view class="f-28 margin-top-16">活动时间：{{activityinfo.starttime}}-{{activityinfo.endtime}}</view>
         <view class="f-28 margin-top-16">报名时间：{{activityinfo.startbaoming}}-{{activityinfo.endbaoming}}</view>
         <view class="f-28 margin-top-16">活动地点：{{activityinfo.sddress}}</view>
         <view wx:if="{{activityinfo.price > 0}}" class="f-28 margin-top-16">报名费用：{{activityinfo.price}}</view>
         <view wx:else class="f-28 margin-top-16">报名费用：免费</view>
+        <!-- 活动内容 -->
         <view class="question padding-top-40">【活动内容】</view>
         <view class="padding-top-16">
             <!-- <import src="../../wxParse/wxParse.wxml" />
@@ -21,16 +25,30 @@
         </view>
 
 
-
+        <!-- 报名信息 -->
+        <!-- 判断有没有报名 -->
         <view wx:if="{{activityinfo.orderinfo.length==0}}">
+            <!-- 判断有没有问题 -->
             <view style="display: {{question.length == 0?'none':'block'}};" class="question padding-top-40">【报名信息填写】</view>
+            <!-- 表单 -->
             <form catchsubmit="formSubmit" id="submit">
+                <!-- 循环这些问题 -->
                 <view wx:for="{{question}}" wx:key='k' wx:for-index="index">
-                    <view class="question padding-top-40 padding-bottom-40">{{item.name}}</view>
+                    <!-- 问题 -->
+                    <view class="flex-row padding-top-40 padding-bottom-40">
+                        <view wx:if="{{item.write == 'A'}}">*</view>
+                        <view class="question">{{item.name}}</view>
+                    </view>
+
+                    <!-- 答案 -->
+                    <!-- 判断 有没有订单-->
                     <view wx:if="{{activityinfo.orderinfolen.length==0}}">
+                        <!-- 判断是否有选项  选择是而且问题按个表有问题列表-->
                         <view class="flex-row" wx:if="{{item.isxuan == '是' && item.options.length != 0}}">
-                            <picker name="{{index}}" class="answer f-28" style="width: 100%; height: 112rpx;" range-key="name" bindchange="bindPickerChange" id="{{index}}" range="{{item.options}}" value="{{index}}">
-                                <view wx:if="{{item.value == ''}}" style="width: 100%;">请选择</view>
+                            <!-- 单选选择器 -->
+                            <picker name="{{index}}" id="{{index}}" class="answer" range="{{item.options}}" range-key="name" bindchange="bindPickerChange">
+                                {{item.value==''?'请选择':item.value}}
+
                             </picker>
                             <image src="{{uploadpath}}resource/{{res.select}}" style="width: 28rpx; height: 28rpx;"></image>
                         </view>
@@ -70,12 +88,6 @@
                             <button disabled="true" class="btns margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
                         </view>
                     </view>
-                    <!-- <view wx:if="{{timess < activityinfo.endbaoming}}">
-                        <button class="btns margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
-                    </view> -->
-                    <!--  <view wx:else>
-                        <button disabled="true" class="btns margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
-                    </view> -->
                 </view>
             </form>
         </view>

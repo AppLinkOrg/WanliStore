@@ -40,7 +40,9 @@
     "pages/shouyimingxi/shouyimingxi",
     "pages/shouyitixian/shouyitixian",
     "pages/tixiansuccess/tixiansuccess",
-    "pages/goodspingjia/goodspingjia"
+    "pages/goodspingjia/goodspingjia",
+    "pages/mypingjia/mypingjia",
+    "pages/duihuanjilu/duihuanjilu"
 
   ],
   "permission": {

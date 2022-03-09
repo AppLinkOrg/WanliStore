@@ -62,18 +62,44 @@ import {
       var id = e.currentTarget.id;
       var flag = data.flag;
       console.log("这里")
-      console.log(data)
+      console.log(flag)
+      console.log(data.couponid)
       console.log(id)
-        
-
+        if (flag==false) {
+          if(id == data.couponid){
+            flag=true
+          }else{
+            flag=true
+          } 
+        }else{
+          if (id == data.couponid) {
+            flag=false
+          }
+        }
+        if(flag==false){
+          id=0
+        }
         this.Base.setMyData({
             couponid:id,
             flag
         })
+        // var pages = getCurrentPages();
+        // var prevPage = pages[pages.length - 2]; //上一个页面
+        // prevPage.setData({
+        //   couponid:id
+        //    })
+        //    wx.navigateBack({//返回
+        //      delta: 1
+        //    })
+    }
+
+    use(e){
+      var data = this.Base.getMyData();
+      var couponid  = data.couponid;
         var pages = getCurrentPages();
         var prevPage = pages[pages.length - 2]; //上一个页面
         prevPage.setData({
-          couponid:id
+          couponid
            })
            wx.navigateBack({//返回
              delta: 1
@@ -86,6 +112,7 @@ import {
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
   body.choseconpon = content.choseconpon;
+  body.use = content.use;
   
   
   Page(body)

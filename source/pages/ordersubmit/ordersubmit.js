@@ -177,8 +177,6 @@ import { CouponApi } from "../../apis/coupon.api";
       var lipin = 0;
       var liping = 0;
       var couponprice = 0;
-
-
       // 商品总价，商品价格+邮费
       totalamount = Number(info.price).toFixed(2);
 
@@ -285,12 +283,14 @@ import { CouponApi } from "../../apis/coupon.api";
                     url: '/pages/paysuccess/paysuccess?amount='+data.amount,
                   })
                 }else{
-                  // var cardid=0;
-                  // var couponid=0;
-                  // that.Base.setMyData({
-                  //   cardid,
-                  //   couponid
-                  // })
+                  console.log("没有付款")
+                  // var data = that.Base.getMyData();
+                  var couponid=0
+                  var giftcardid=0
+                  that.Base.setMyData({
+                    giftcardid,
+                    couponid
+                  })
                   
                 }
               }

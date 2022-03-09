@@ -55,6 +55,15 @@ class Content extends AppBase {
   todetail(e){
     this.Base.toast('暂未开放');
   }
+  phonecall(e){
+    var data = this.Base.getMyData();
+    console.log("data");
+    console.log(data);
+    var phone = data.instinfo.tel;
+    wx.makePhoneCall({
+      phoneNumber: phone,
+    })
+  }
 
   // sharefenxiao(e){
   //   this.onShareAppMessage();
@@ -84,5 +93,6 @@ body.notdata = content.notdata;
 body.todetail = content.todetail;
 body.sharefenxiao =content.sharefenxiao;
 body.onShareAppMessage = content.onShareAppMessage;
+body.phonecall=content.phonecall;
 
 Page(body)
