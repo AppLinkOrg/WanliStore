@@ -468,6 +468,20 @@
                     "name": "",
                     "pathName": "pages/ordersubmit/ordersubmit",
                     "query": "goodsid=5",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardshousongjilu/giftcardshousongjilu",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/my/my",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

@@ -722,7 +722,10 @@ button[disabled][type=primary] {
 .radius-10 {
   border-radius: 10rpx;
 }
-
+.icon-5 {
+  width: 10rpx;
+  height: 10rpx;
+}
 .icon-10 {
   width: 20rpx;
   height: 20rpx;

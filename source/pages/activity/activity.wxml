@@ -66,26 +66,26 @@
 
                 <view style="display: {{activityinfo.baomingjiangtai == 'B' ? '' : 'none'}};">
                     <view>
-                        <button class="btns margin-top-60" formType="submit" style="display: {{activityinfo.baomingid == '' ? 'block' : 'none'}};">报名</button>
+                        <button class="btns butcolor margin-top-60" formType="submit" style="display: {{activityinfo.baomingid == '' ? 'block' : 'none'}};">报名</button>
                     </view>
                     <view wx:if="{{timess < activityinfo.cannot}}">
-                        <button class="btns margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
+                        <button class="btns butcolor margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
                     </view>
                     <view wx:else>
-                        <button disabled="true" class="btns margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
+                        <button disabled="true" class="btns butcolor margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
                     </view>
 
                 </view>
                 <view style="display: {{activityinfo.baomingjiangtai == 'D' ? '' : 'none'}};">
                     <view style="display: {{activityinfo.baomingid == '' ? 'block' : 'none'}};">
-                        <button class="btns margin-top-60" disabled="true" style="display: {{activityinfo.baomingid == '' ? 'block' : 'none'}};">报名</button>
+                        <button class="btns butcolor  margin-top-60" disabled="true" style="display: {{activityinfo.baomingid == '' ? 'block' : 'none'}};">报名</button>
                     </view>
                     <view style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">
                         <view wx:if="{{timess < activityinfo.cannot}}">
-                            <button class="btns margin-top-60" bindtap="removebaoming">取消报名</button>
+                            <button class="btns butcolor margin-top-60" bindtap="removebaoming">取消报名</button>
                         </view>
                         <view wx:else>
-                            <button disabled="true" class="btns margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
+                            <button disabled="true" class="btns butcolor margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
                         </view>
                     </view>
                 </view>
@@ -118,26 +118,26 @@
                 </view>
                 <view style="display: {{activityinfo.baomingjiangtai == 'B' ? '' : 'none'}};">
                     <view>
-                        <button class="btns margin-top-60" formType="submit" style="display: {{activityinfo.baomingid == '' ? 'block' : 'none'}};">报名</button>
+                        <button class="btns butcolor margin-top-60" formType="submit" style="display: {{activityinfo.baomingid == '' ? 'block' : 'none'}};">报名</button>
                     </view>
                     <view wx:if="{{timess < activityinfo.cannot}}">
-                        <button class="btns margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
+                        <button class="btns butcolor margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
                     </view>
                     <view wx:else>
-                        <button disabled="true" class="btns margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
+                        <button disabled="true" class="btns butcolor margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
                     </view>
 
                 </view>
                 <view style="display: {{activityinfo.baomingjiangtai == 'D' ? '' : 'none'}};">
                     <view style="display: {{activityinfo.baomingid == '' ? 'block' : 'none'}};">
-                        <button class="btns margin-top-60" disabled="true" style="display: {{activityinfo.baomingid == '' ? 'block' : 'none'}};">报名</button>
+                        <button class="btns butcolor margin-top-60" disabled="true" style="display: {{activityinfo.baomingid == '' ? 'block' : 'none'}};">报名</button>
                     </view>
                     <view style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">
                         <view wx:if="{{timess < activityinfo.cannot}}">
-                            <button class="btns margin-top-60" bindtap="removebaoming">取消报名</button>
+                            <button class="btns butcolor margin-top-60" bindtap="removebaoming">取消报名</button>
                         </view>
                         <view wx:else>
-                            <button disabled="true" class="btns margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
+                            <button disabled="true" class="btns butcolor margin-top-60" bindtap="removebaoming" style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">取消报名</button>
                         </view>
                     </view>
                     <!-- <view wx:if="{{timess < activityinfo.endbaoming}}">

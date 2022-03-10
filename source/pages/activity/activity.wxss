@@ -30,7 +30,6 @@
 .btns {
     width: 100%rpx;
     line-height: 92rpx;
-    background: rgba(68, 181, 73, 1);
     border-radius: 48rpx;
     color: #FFFFFF;
     font-size: 32rpx;
