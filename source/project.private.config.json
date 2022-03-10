@@ -419,6 +419,55 @@
                     "name": "",
                     "pathName": "pages/activity/activity",
                     "query": "id=16",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/goodspingjia/goodspingjia",
+                    "query": "goods_id=5",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/mypingjia/mypingjia",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcards/giftcards",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardsinfo/giftcardsinfo",
+                    "query": "id=48",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardshousongjilu/giftcardshousongjilu",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardshiyong/giftcardshiyong",
+                    "query": "goodsid=5",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/ordersubmit/ordersubmit",
+                    "query": "goodsid=5",
                     "scene": null,
                     "launchMode": "default"
                 }

@@ -49,7 +49,6 @@ import { OrderApi } from "../../apis/order.api";
           var pingjiaimg = e.filter(item =>{
               return e.pingjia_id == pingjia_id
           })
-
           this.Base.setMyData({
             pingjiaimg:e
           })

@@ -28,6 +28,6 @@
                 <template is="wxParse" data="{{wxParseData:howbuy.nodes}}" />
             </view>
         </view>
-        <button class="pay butcolor" bindtap="paygiftcard" id="/pages/buygiftcardssuccess/buygiftcardssuccess?id={{cardinfo.id}}">确认支付</button>
+        <button class="pay butcolor" bindtap="paygiftcard" id="/pages/buygiftcardssuccess/buygiftcardssuccess?id={{cardinfo.id}}">确认支付{{cardprice[priceindex].buyprice}}</button>
     </view>
 </view>

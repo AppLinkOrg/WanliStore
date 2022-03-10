@@ -1,6 +1,6 @@
 <!--pages/goodspingjia/goodspingjia.wxml-->
 <view class="flex-row kongbaitips" wx:if="{{pingjialist.length<=0}}">
-    <image  src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+    <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
 </view>
 <view class="bgf3f6f7" wx:else>
     <view class="listbox" wx:for="{{pingjialist}}" wx:key="item">
@@ -12,6 +12,10 @@
                 </view>
                 <view class="flex-1"></view>
                 <view class="pjtime">{{item.shijian}}</view>
+            </view>
+            <view class="height-16"></view>
+            <view>
+                <image class="icon" id="{{item.pingfen}}" wx:for="{{item.pingfen-0}}" src="{{uploadpath}}resource/{{res.star2}}"></image>
             </view>
             <view class="pjcontent">{{item.content}}</view>
             <view class="height-16"></view>

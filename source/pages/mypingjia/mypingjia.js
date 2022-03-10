@@ -40,6 +40,17 @@ import { OrderApi } from "../../apis/order.api";
             pingjialist:e
         })
       })
+
+      orderapi.pingjiaimg({},(e)=>{
+        var data = this.Base.getMyData();
+        var pingjia_id = data.orderpingjia;
+        var pingjiaimg = e.filter(item =>{
+            return e.pingjia_id == pingjia_id
+        })
+        this.Base.setMyData({
+          pingjiaimg
+        })
+    })
   
     }
   

@@ -19,14 +19,9 @@ import {
     }
     onLoad(options) {
       this.Base.Page = this;
-  
       super.onLoad(options);
       this.Base.setMyData({
-        nowindex: 1,
-        overlay: true,
-        specificationsinfo: null,
-        number: 1,
-        id:this.Base.options.id
+        flag:this.Base.options.flag==undefined?'A':this.Base.options.flag,
       })
     }
     onMyShow() {
@@ -35,11 +30,12 @@ import {
   
     }
     navigateback(e){
+      // var flag=this.Base.getMyData().flag;
       // var pages = getCurrentPages();//获取页面栈
       // var currPage = pages[pages.length -1];//当前页面
       // var prevPage = pages[pages.leng-2]//上一个页面
       // prevPage.setData({
-      //   flag:'A'
+      //   type:flag
       // })
       wx.navigateBack({
         delta:1

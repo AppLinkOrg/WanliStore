@@ -54,9 +54,21 @@ import {
         giftcardsapi.sendmember({
           mygiftcard_id: this.Base.options.mygiftcard_id,
           u_member_id: this.Base.options.u_member_id
+        },(res)=>{
+          if(res.code == 0){
+            wx.redirectTo({
+              url: '/pages/giftcards/giftcards?flag=A',
+            })
+          }
+          if (res.code == -1) {
+            this.Base.toast("领取失败~")
+            wx.redirectTo({
+              url: '/pages/giftcards/giftcards?flag=A',
+            })
+            
+          }      
         })
       }
-     
     }
     
 
@@ -69,11 +81,10 @@ import {
 
     // 分享
     onShareAppMessage(res){
-      var giftcardsapi = new GiftcardsApi();
-      var cardinfo = this.Base.getMyData().cardinfo;
+      var memberinfo = this.Base.getMyData().memberinfo;
       return{
         title:'请分享给你的好友',    // 转发标题
-        path: '/pages/giftcardsinfo/giftcardsinfo?id='+this.Base.options.id + 'mygiftcard_id='+this.Base.options.id + '&' + 'u_member_id=' +  cardinfo.member_id,   // 当前页面 path ，必须是以 / 开头的完整路径 
+        path: '/pages/giftcardsinfo/giftcardsinfo?id='+this.Base.options.id + '&' + 'mygiftcard_id='+this.Base.options.id + '&' + 'u_member_id=' +  memberinfo.id,   // 当前页面 path ，必须是以 / 开头的完整路径 
       }
      
     }

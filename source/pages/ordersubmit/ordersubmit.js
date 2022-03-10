@@ -177,16 +177,16 @@ import { CouponApi } from "../../apis/coupon.api";
       var lipin = 0;
       var liping = 0;
       var couponprice = 0;
-      // 商品总价，商品价格+邮费
+      // 商品总价，商品价格
       totalamount = Number(info.price).toFixed(2);
-
+      yunfei = Number(info.yunfei).toFixed(2);
       // 优惠券使用
       if(data.couponid>0){
         if(data.couponinfo.type == 'A'){
           couponprice = data.couponinfo.amount
         }
         if(data.couponinfo.type == 'B'){
-          couponprice = (totalamount * (1- data.couponinfo.zhekou / 100) ).toFixed(2)
+          couponprice = (totalamount * (1-data.couponinfo.zhekou / 100) ).toFixed(2)
         } 
       }
       // 礼品卡使用
@@ -195,7 +195,9 @@ import { CouponApi } from "../../apis/coupon.api";
         var cardyue = data.giftcardinfo.yue;
         var cardid =data.giftcardinfo.id;
         if(data.couponid>0){
-          var price = Number(totalamount)-Number(couponprice).toFixed(2)
+          console.log("第三个日乌尔禾IE")
+          console.log(yunfei)
+          var price = (Number(totalamount)+Number(yunfei)-Number(couponprice)).toFixed(2)
           if(cardyue*1 > price*1){
             liping = price
           }else{
@@ -205,8 +207,8 @@ import { CouponApi } from "../../apis/coupon.api";
           console.log("这个怎么样？")
           console.log(cardyue)
           console.log(totalamount)
-          if(cardyue *1 > totalamount*1){
-            liping = totalamount
+          if(cardyue *1 > (Number(totalamount)+Number(yunfei)).toFixed(2)){
+            liping = (Number(totalamount)+Number(yunfei)).toFixed(2)
           }else{
             liping = cardyue
           }
@@ -214,16 +216,16 @@ import { CouponApi } from "../../apis/coupon.api";
         // 2、礼品卡余额
         if(data.giftcardid >0){
           if(data.couponid >0){
-            lipin=(Number(cardyue) - Number(totalamount) + Number(couponprice)).toFixed(2);
+            lipin=(Number(cardyue) - Number(totalamount) -Number(yunfei) + Number(couponprice)).toFixed(2);
           }else{
-            lipin = (Number(cardyue) - Number(totalamount)).toFixed(2);
+            lipin = (Number(cardyue) - Number(totalamount)-Number(yunfei)).toFixed(2);
           }
         }
     }
     // 总优惠金额
     youhui = (Number(couponprice)+ Number(liping)).toFixed(2);
     // 最终付款金额
-      amount =Number( totalamount - youhui).toFixed(2);
+      amount =(Number(totalamount) + Number(yunfei) - Number(youhui) ).toFixed(2);
 
       this.Base.setMyData({
         liping,

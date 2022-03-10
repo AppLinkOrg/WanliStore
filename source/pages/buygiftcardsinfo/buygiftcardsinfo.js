@@ -80,7 +80,7 @@ var WxParse = require('../../wxParse/wxParse.js');
     selectprice(e){
       var priceindex = e.currentTarget.dataset.priceindex;
       var priceid = e.currentTarget.id;
-      var amount = this.Base.getMyData().cardprice[priceindex].cardprice;
+      var amount = this.Base.getMyData().cardprice[priceindex].buyprice;
       this.Base.setMyData({
         priceindex,
         priceid,

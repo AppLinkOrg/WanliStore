@@ -4,7 +4,6 @@
 }
 
 .titlebox {
-    line-height: 32rpx;
     margin: 32rpx 0 16rpx 0;
 }
 

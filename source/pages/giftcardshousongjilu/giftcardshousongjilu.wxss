@@ -1,14 +1,12 @@
 /* pages/giftcardshousongjilu/giftcardshousongjilu.wxss */
 .navbox {
     width: 100%;
-    height: 112rpx;
 }
 .line {
     width: 46rpx;
     height: 4rpx;
 }
 .titlebox {
-    line-height: 32rpx;
     margin: 32rpx 0 16rpx 0;
 }
 .line_color{
@@ -18,8 +16,7 @@
 font-size: 24rpx;
 font-weight: 400;
 color: #999999;
-line-height: 34rpx;
-margin-top: 24rpx;
+/* margin-top: 24rpx; */
 }
 .v1 {
     font-size: 32rpx;
@@ -33,6 +30,5 @@ margin-top: 24rpx;
     font-size: 24rpx;
     font-weight: 400;
     color: #999999;
-    line-height: 34rpx;
     margin-top: 8rpx;
 }

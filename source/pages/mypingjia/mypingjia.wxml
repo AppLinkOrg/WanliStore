@@ -1,23 +1,29 @@
 <!--pages/mypingjia/mypingjia.wxml-->
 <view class="flex-row flex-column">
-<view class="height-20"></view>
-<view class="flex-row kongbaitips" wx:if="{{pingjialist.length<=0}}" style="min-height: 90vh;">
+    <view class="height-20"></view>
+    <view class="flex-row kongbaitips" wx:if="{{pingjialist.length<=0}}" style="min-height: 90vh;">
         <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
     </view>
-<view wx:else>
-    <view class="pingjiabox" wx:for="{{pingjialist}}">
-        <view class="contentbox">
-            <view class="flex-row flex-center">
-                <view class="danhao">订单号：{{item.order_orderno}}</view>
-                <view class="flex-1"></view>
-                <view class="shijian">{{item.shijian}}</view>
+    <view wx:else>
+        <view class="pingjiabox" wx:for="{{pingjialist}}">
+            <view class="contentbox">
+                <view class="flex-row flex-center">
+                    <view class="danhao">订单号：{{item.order_orderno}}</view>
+                    <view class="flex-1"></view>
+                    <view class="shijian">{{item.shijian}}</view>
+                </view>
+                <view class="height-16"></view>
+                <image class="icon" id="{{item.pingfen}}" wx:for="{{item.pingfen-0}}" src="{{uploadpath}}resource/{{res.star2}}"></image>
+                <view class="height-16"></view>
+                <view class="pingjiacontent">
+                    {{item.content}}
+                </view>
+                <view class="height-16"></view>
+                <view class="flex-row flex-wrap" style="gap: 43rpx;">
+                    <image wx:for="{{pingjiaimg}}" wx:for-item="itemimg" wx:key="itemimg" wx:if="{{item.id == itemimg.pingjia_id}}" class="pjimg" src="{{uploadpath}}pingjia/{{itemimg.img}}"></image>
+                </view>
             </view>
-            <view class="height-40"></view>
-            <view class="pingjiacontent">
-                {{item.content}}
-            </view>
-        </view>
 
+        </view>
     </view>
-</view>
 </view>

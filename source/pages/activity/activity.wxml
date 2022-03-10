@@ -36,7 +36,7 @@
                 <view wx:for="{{question}}" wx:key='k' wx:for-index="index">
                     <!-- 问题 -->
                     <view class="flex-row padding-top-40 padding-bottom-40">
-                        <view wx:if="{{item.write == 'A'}}">*</view>
+                        <view style="color: red;" wx:if="{{item.write == 'A'}}">*</view>
                         <view class="question">{{item.name}}</view>
                     </view>
 

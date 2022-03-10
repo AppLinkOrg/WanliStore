@@ -40,7 +40,11 @@ import {
     onMyShow() {
       var giftcardsapi = new GiftcardsApi();
       giftcardsapi.mygiftcardlist({},(e) => {
-        var cardlist = e.reverse();
+        
+        var arr = e.filter(item =>{
+          return item.isuse == 'A' || item.isuse == 'B' || item.isuse =='E'
+        })
+        var cardlist = arr.reverse();
         this.Base.setMyData({
           cardlist
         })

@@ -40,7 +40,10 @@ import {
       var that = this;
       var mallapi = new MallApi();
       var giftcardsapi = new GiftcardsApi();
-      giftcardsapi.mygiftcardlist({isuse:'A'},(e)=>{
+      giftcardsapi.mygiftcardlist({},(e)=>{
+        var arr = e.filter(item =>{
+          
+        })
           this.Base.setMyData({
             cardlist:e
           })
@@ -48,7 +51,6 @@ import {
     }
 
     chosedz(e){
-    
         var id = e.currentTarget.id;
         this.Base.setMyData({
             giftcardid:id
