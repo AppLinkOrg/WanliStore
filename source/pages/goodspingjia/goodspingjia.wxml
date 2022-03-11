@@ -1,5 +1,5 @@
 <!--pages/goodspingjia/goodspingjia.wxml-->
-<view class="flex-row kongbaitips" wx:if="{{pingjialist.length<=0}}">
+<view class="flex-row kongbaitips min-height-90" wx:if="{{pingjialist.length<=0}}">
     <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
 </view>
 <view class="bgf3f6f7" wx:else>
@@ -7,7 +7,8 @@
         <view style="margin: 32rpx;">
             <view class="flex-row">
                 <view class="flex-row">
-                    <image class="touxiang" src="{{item.member_avatarUrl}}"></image>
+                    <image  class="touxiang" src="{{item.member_avatarUrl}}"></image>
+                    <!-- <image class="touxiang" src="{{item.member_avatarUrl}}"></image> -->
                     <view class="name">{{item.member_nickName}}</view>
                 </view>
                 <view class="flex-1"></view>

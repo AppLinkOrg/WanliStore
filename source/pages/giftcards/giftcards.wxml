@@ -8,7 +8,7 @@
         </view>
     </view>
 
-    <view class="flex-row flex-column" style="display: {{flag == 'A' ? 'block' :'none'}}; min-height: 90vh; width: 100%; position: relative;">
+    <view class="flex-row flex-column" style="display: {{flag == 'A' ? 'block' :'none'}}; min-height: 90vh; position: relative;">
         <view class="flex-row kongbaitips min-height-90"  wx:if="{{cardlist.length<=0}}">
                 <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
             </view>

@@ -6,7 +6,7 @@
 </view>
 
 <view class="height-100"></view>
-<view class="flex-row kongbaitips" wx:if="{{list.length<=0}}">
+<view class="flex-row kongbaitips min-height-90" wx:if="{{list.length<=0}}">
     <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
 </view>
 <view wx:else>

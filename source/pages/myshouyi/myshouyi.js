@@ -48,15 +48,15 @@ import{
       var data = this.Base.getMyData();
       var fenxiaoapi = new FenxiaoApi();
       fenxiaoapi.tixianlist({},(e)=>{
-        var totleamount=0
-        for(let item of e){
-          if (item.txstatus=='B') {
-            totleamount = ( Number(totleamount) + Number(item.amount) ).toFixed(2);
-        }
-      }
+      //   var totleamount=0
+      //   for(let item of e){
+      //     if (item.txstatus=='B') {
+      //       totleamount = ({}).toFixed(2);
+      //   }
+      // }
         this.Base.setMyData({
           tixianlist:e,
-          totleamount,
+          // totleamount,
         })
         that.getsum();
       })
@@ -95,6 +95,7 @@ import{
       console.log(data);
       var arrivalsoon = 0;
       var ketixian = 0;
+      var totleamount = 0;
       var array = data.fenxiaojilu;
       console.log("为啊什么");
       console.log(array);
@@ -110,14 +111,19 @@ import{
         console.log("!!!")
         console.log(arraytixian)
         if(arraytixian != undefined){
+         
           for(let item of arraytixian){
-            ketixian = (Number(ketixian) - Number(item.amount)).toFixed(2) ;
+            if (item.txstatus=='B') {
+              totleamount = (Number(totleamount) + Number(item.amount)).toFixed(2);
+              ketixian = (Number(ketixian) - Number(item.amount)).toFixed(2) ;
+            }
           }
         }
 
         that.Base.setMyData({
           arrivalsoon,
           ketixian,
+          totleamount
         })
       } 
  

@@ -1,0 +1,22 @@
+<!--pages/feedback/feedback.wxml-->
+<view class="flex-row flex-column">
+    <view class="w">
+        <view>
+            <textarea class="h5 txt-33 textbox" maxlength="500" value="{{contents}}" bindinput="contentsFn" placeholder="请输入您要反馈的问题（5-500字以内）"></textarea>
+            <view class="margin-top-30">
+                <view class="f-28 txt-33 txt-weight-500 margin-bottom-20">图片（选填，提供问题截图）</view>
+                <view class="flex-row flex-wrap">
+                    <view class="pore" wx:for="{{imglist}}" wx:key='k' wx:for-index='idx'>
+                        <image src="{{uploadpath}}feedback/{{item.img}}" mode="aspectFit" bindtap="uploadimg" id='{{idx}}' class="uploadimg"></image>
+                        <image src="{{uploadpath}}resource/{{res.shanchu}}" class="shanchu" bindtap="shanchu" id="{{idx}}"></image>
+                    </view>
+                    <image src="{{uploadpath}}resource/{{res.feedbackimg}}" bindtap="uploadimg" id='-1' class="uploadimg"></image>
+                </view>
+            </view>
+        </view>
+        <view class="flex-row flex-column fixbottom butcolor">
+            <view class="btns butcolor" bindtap="tosave">提交意见</view>
+        </view>
+
+    </view>
+</view>

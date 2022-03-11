@@ -15,7 +15,7 @@
                     <view class="f-24" wx:if="{{item.isuse=='E'}}">未使用</view>
                     <view wx:else class="f-24">{{item.isuse_name}}</view>
                 </view>
-                <view class="f-20 explain">有效期三年</view>
+                <!-- <view class="f-20 explain">有效期三年</view> -->
             </view>
         </view>
     </view>

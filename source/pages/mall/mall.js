@@ -38,7 +38,9 @@ class Content extends AppBase {
  getlist(){
    var typeid = this.Base.getMyData().typeid;
    var mallapi = new MallApi();  
-    mallapi.goodslist({typeid:typeid}, (goodslist) => { 
+    mallapi.goodslist({typeid:typeid,
+      orderby:"r_main.seq"
+    }, (goodslist) => { 
       this.Base.setMyData({ goodslist });
     }); 
  }

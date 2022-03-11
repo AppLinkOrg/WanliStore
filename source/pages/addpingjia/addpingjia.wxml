@@ -18,7 +18,6 @@
     </view>
     <view class="margin-top-30">
         <view class="h5 txt-33 margin-bottom-20">商品评价图片</view>
-
         <view class="flex-row flex-wrap">
             <view class="pore" wx:for="{{imglist}}" wx:key='k' wx:for-index='idx'>
                 <image src="{{uploadpath}}pingjia/{{item.img}}" mode="aspectFit" bindtap="uploadimg" id='{{idx}}' class="uploadimg"></image>

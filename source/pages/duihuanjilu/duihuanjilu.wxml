@@ -10,7 +10,7 @@
             <view style="margin-left: 16rpx;">
                 <view class="v1">面值￥{{item.shiwukaprice}}</view>
                 <view class="v2">卡号：{{item.exchangecard_name}}</view>
-                <view class="v2">购买时间：{{item.shijian}}</view>
+                <view class="v2">兑换时间：{{item.shijian}}</view>
             </view>
 
         </view>

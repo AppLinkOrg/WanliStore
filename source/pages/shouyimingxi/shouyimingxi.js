@@ -41,7 +41,16 @@ import {
       var that = this;
       var mallapi = new MallApi();
       var fenxiaoapi = new FenxiaoApi();
-      fenxiaoapi.fenxiaojilu({},(e)=>{
+      var date = this.Base.getMyData().date;
+      var date_from = date+"-01";
+      var year = date.split("-")[0];
+          var month = date.split("-")[1]; 
+          var days = new Date(year,month,0).getDate();
+      var date_to = date+"-"+days;
+      fenxiaoapi.fenxiaojilu({
+        shijian_from:date_from,
+        shijian_to:date_to
+      },(e)=>{
         this.Base.setMyData({
           fenxiaojilu:e
         })
@@ -53,6 +62,7 @@ import {
       this.setData({
         date: e.detail.value
       })
+      this.onMyShow();
     }
 
   }

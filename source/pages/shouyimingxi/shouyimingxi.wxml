@@ -6,7 +6,7 @@
             <image style="width: 24rpx; height: 14rpx;" src="{{uploadpath}}resource/{{res.zhankai}}"></image>
         </view>
     </picker>
-    <view class="flex-row kongbaitips" wx:if="{{fenxiaojilu.length<=0}}">
+    <view class="flex-row kongbaitips min-height-90" wx:if="{{fenxiaojilu.length<=0}}">
         <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
     </view>
     <view wx:else>
@@ -18,7 +18,7 @@
                 <view>
                     <view class="f-28 txt-33 txt-bold">{{item.member2_nickName}}</view>
                     <view class="height-18"></view>
-                    <view class="f-24 txt-66" style="line-height: 28rpx;">加入时间 {{item.shijian}}</view>
+                    <view class="f-24 txt-66" style="line-height: 28rpx;">下单时间 {{item.shijian}}</view>
                 </view>
             </view>
             <view>
@@ -26,7 +26,6 @@
                 <view class="height-18"></view>
                 <view class="f-24" style="color: rgba(255, 123, 5, 1);">{{item.amount}}</view>
             </view>
-
         </view>
         <view style="border-bottom: 2px solid #E6E6E6; margin-top: 46rpx;"></view>
     </view>

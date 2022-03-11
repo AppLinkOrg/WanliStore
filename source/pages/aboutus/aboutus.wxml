@@ -1,0 +1,12 @@
+<!--pages/aboutus/aboutus.wxml-->
+<view class="flex-row flex-column">
+    <view class="w">
+        <view class="w flex-row flex-column">
+            <image class="img" src="{{uploadpath}}aboutus/{{aboutus.cover}}"></image>
+            <view class="height-30"></view>
+            <view class="title">{{aboutus.name}}</view>
+        </view>
+        <view class="height-58"></view>
+        <view class="content">{{aboutus.summary}}</view>
+    </view>
+</view>

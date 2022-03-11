@@ -52,6 +52,7 @@ import { CouponApi } from "../../apis/coupon.api";
           liping:0,
           couponid:0,
           keyongcoupon:0,
+          flagcard:false
       })
     }
     onMyShow() {
@@ -197,35 +198,72 @@ import { CouponApi } from "../../apis/coupon.api";
         if(data.couponid>0){
           console.log("第三个日乌尔禾IE")
           console.log(yunfei)
-          var price = (Number(totalamount)+Number(yunfei)-Number(couponprice)).toFixed(2)
-          if(cardyue*1 > price*1){
-            liping = price
+          if(data.sendtype=='A'){
+            var price = (Number(totalamount)+Number(yunfei)-Number(couponprice)).toFixed(2)
+            if(cardyue*1 > price*1){
+              liping = price
+            }else{
+              liping = cardyue
+            }
           }else{
-            liping = cardyue
+            var price = (Number(totalamount)-Number(couponprice)).toFixed(2)
+            if(cardyue*1 > price*1){
+              liping = price
+            }else{
+              liping = cardyue
+            }
           }
+          
         }else{
           console.log("这个怎么样？")
           console.log(cardyue)
           console.log(totalamount)
-          if(cardyue *1 > (Number(totalamount)+Number(yunfei)).toFixed(2)){
-            liping = (Number(totalamount)+Number(yunfei)).toFixed(2)
+          if (data.sendtype=='A') {
+            if(cardyue *1 > (Number(totalamount)+Number(yunfei)).toFixed(2)){
+              liping = (Number(totalamount)+Number(yunfei)).toFixed(2)
+            }else{
+              liping = cardyue
+            }
           }else{
-            liping = cardyue
+            if(cardyue *1 > Number(totalamount).toFixed(2)){
+              liping = Number(totalamount).toFixed(2)
+            }else{
+              liping = cardyue
+            }
           }
+         
         }
         // 2、礼品卡余额
         if(data.giftcardid >0){
           if(data.couponid >0){
-            lipin=(Number(cardyue) - Number(totalamount) -Number(yunfei) + Number(couponprice)).toFixed(2);
+            if (data.sendtype=='A') {
+              lipin=(Number(cardyue) - Number(totalamount) -Number(yunfei) + Number(couponprice)).toFixed(2);
+              
+            }else{
+              
+              lipin=(Number(cardyue) - Number(totalamount)+ Number(couponprice)).toFixed(2);
+            }         
           }else{
-            lipin = (Number(cardyue) - Number(totalamount)-Number(yunfei)).toFixed(2);
+            if (data.sendtype=='A') {
+              lipin = (Number(cardyue) - Number(totalamount)-Number(yunfei)).toFixed(2);
+              
+            }else{
+              
+              lipin = (Number(cardyue) - Number(totalamount)).toFixed(2);
+            }      
+            
           }
         }
     }
     // 总优惠金额
     youhui = (Number(couponprice)+ Number(liping)).toFixed(2);
     // 最终付款金额
+    if (data.sendtype=='A') {
       amount =(Number(totalamount) + Number(yunfei) - Number(youhui) ).toFixed(2);
+    }else{
+      amount =(Number(totalamount) - Number(youhui) ).toFixed(2);
+    }
+      
 
       this.Base.setMyData({
         liping,
@@ -252,73 +290,159 @@ import { CouponApi } from "../../apis/coupon.api";
         this.Base.toast('请选择门店地址');
         return
       }
-      var orderapi = new OrderApi();
-      var wechatapi = new WechatApi();
-      // 创建订单
-      orderapi.createorder({    
-        goods_id:this.Base.options.goodsid,
-        sendtype:data.sendtype,
-        price:data.info.price,
-        youhui:data.youhui,
-        couponprice:data.couponprice,
-        lipin:data.liping,
-        yunfei:data.yunfei,
-        amount:data.amount,
-        totalamount:data.totalamount,
-        store_id:data.store_id,
-        address_id:data.address_id,
-        beizhu:data.beizhu,
-        mygiftcard_id:data.cardid,
-        mycoupons_id:data.couponid
-      },(ret)=>{
-        console.log("手机号")
-        console.log(ret)
-        var data = this.Base.getMyData();
-        var that = this;
-      // 判断需要支付的金额是否大于0
-        if(data.amount !=0){
-          if(ret.code=='0'){
-            wechatapi.prepay({id:ret.return},(payret)=>{
-              payret.complete = function(e){
-                if (e.errMsg == "requestPayment:ok") {
-                  wx.reLaunch({
-                    url: '/pages/paysuccess/paysuccess?amount='+data.amount,
-                  })
-                }else{
-                  console.log("没有付款")
-                  // var data = that.Base.getMyData();
-                  var couponid=0
-                  var giftcardid=0
-                  that.Base.setMyData({
-                    giftcardid,
-                    couponid
-                  })
-                  
-                }
-              }
-              wx.requestPayment(payret);
-            })
-          }else {
-            this.Base.toast(ret.result);
+
+
+      var giftcardsapi = new GiftcardsApi();
+      if (data.giftcardid>0) {
+        giftcardsapi.mygiftcardinfo({id:data.giftcardid},(e)=>{
+          var flagcard = this.Base.getMyData().flagcard
+          console.log(flagcard + "按揭贷款对哦")
+          if (e.isuse == 'C' || e.isuse == 'D') {
+            this.Base.toast("该礼品卡不可使用~");
+            return
           }
-        }else{
-          // 不走支付
           var orderapi = new OrderApi();
-          var data = this.Base.getMyData();
-          console.log("data有什么")
-          console.log(data)
-          console.log(data.id)
-          console.log(this.Base.options.id)
-          // 更新订单状态
-          orderapi.updateorder({
-            id:ret.return
+          var wechatapi = new WechatApi();
+          // 创建订单
+          orderapi.createorder({    
+            goods_id:this.Base.options.goodsid,
+            sendtype:data.sendtype,
+            price:data.info.price,
+            youhui:data.youhui,
+            couponprice:data.couponprice,
+            lipin:data.liping,
+            yunfei:data.yunfei,
+            amount:data.amount,
+            totalamount:data.totalamount,
+            store_id:data.store_id,
+            address_id:data.address_id,
+            beizhu:data.beizhu,
+            mygiftcard_id:data.cardid,
+            mycoupons_id:data.couponid
+          },(ret)=>{
+            console.log("手机号")
+            console.log(ret)
+            var data = this.Base.getMyData();
+            var that = this;
+          // 判断需要支付的金额是否大于0
+            if(data.amount !=0){
+              if(ret.code=='0'){
+                wechatapi.prepay({id:ret.return},(payret)=>{
+                  payret.complete = function(e){
+                    if (e.errMsg == "requestPayment:ok") {
+                      wx.reLaunch({
+                        url: '/pages/paysuccess/paysuccess?amount='+data.amount,
+                      })
+                    }else{
+                      console.log("没有付款")
+                      // var data = that.Base.getMyData();
+                      var couponid=0
+                      var giftcardid=0
+                      that.Base.setMyData({
+                        giftcardid,
+                        couponid
+                      })
+                      
+                    }
+                  }
+                  wx.requestPayment(payret);
+                })
+              }else {
+                this.Base.toast(ret.result);
+              }
+            }else{
+              // 不走支付
+              var orderapi = new OrderApi();
+              var data = this.Base.getMyData();
+              console.log("data有什么")
+              console.log(data)
+              console.log(data.id)
+              console.log(this.Base.options.id)
+              // 更新订单状态
+              orderapi.updateorder({
+                id:ret.return
+              })
+              wx.reLaunch({
+                url: '/pages/paysuccess/paysuccess?amount='+data.amount,
+              })
+            }
+            
           })
-          wx.reLaunch({
-            url: '/pages/paysuccess/paysuccess?amount='+data.amount,
+  
+          this.Base.setMyData({
+            // flagcard
           })
-        }
+        })
+      }else{
         
-      })
+        var orderapi = new OrderApi();
+        var wechatapi = new WechatApi();
+        // 创建订单
+        orderapi.createorder({    
+          goods_id:this.Base.options.goodsid,
+          sendtype:data.sendtype,
+          price:data.info.price,
+          youhui:data.youhui,
+          couponprice:data.couponprice,
+          lipin:data.liping,
+          yunfei:data.yunfei,
+          amount:data.amount,
+          totalamount:data.totalamount,
+          store_id:data.store_id,
+          address_id:data.address_id,
+          beizhu:data.beizhu,
+          mygiftcard_id:data.cardid,
+          mycoupons_id:data.couponid
+        },(ret)=>{
+          console.log("手机号")
+          console.log(ret)
+          var data = this.Base.getMyData();
+          var that = this;
+        // 判断需要支付的金额是否大于0
+          if(data.amount !=0){
+            if(ret.code=='0'){
+              wechatapi.prepay({id:ret.return},(payret)=>{
+                payret.complete = function(e){
+                  if (e.errMsg == "requestPayment:ok") {
+                    wx.reLaunch({
+                      url: '/pages/paysuccess/paysuccess?amount='+data.amount,
+                    })
+                  }else{
+                    console.log("没有付款")
+                    // var data = that.Base.getMyData();
+                    var couponid=0
+                    var giftcardid=0
+                    that.Base.setMyData({
+                      giftcardid,
+                      couponid
+                    })
+                    
+                  }
+                }
+                wx.requestPayment(payret);
+              })
+            }else {
+              this.Base.toast(ret.result);
+            }
+          }else{
+            // 不走支付
+            var orderapi = new OrderApi();
+            var data = this.Base.getMyData();
+            console.log("data有什么")
+            console.log(data)
+            console.log(data.id)
+            console.log(this.Base.options.id)
+            // 更新订单状态
+            orderapi.updateorder({
+              id:ret.return
+            })
+            wx.reLaunch({
+              url: '/pages/paysuccess/paysuccess?amount='+data.amount,
+            })
+          }
+          
+        })
+      }
     }
     
   }

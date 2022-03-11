@@ -227,6 +227,9 @@ textarea {
 .txt-weight {
   font-weight: 500;
 }
+.txt-weight-500 {
+  font-weight: 500;
+}
 
 .nowrap {
   word-break: keep-all;

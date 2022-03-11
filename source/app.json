@@ -42,7 +42,9 @@
     "pages/tixiansuccess/tixiansuccess",
     "pages/goodspingjia/goodspingjia",
     "pages/mypingjia/mypingjia",
-    "pages/duihuanjilu/duihuanjilu"
+    "pages/duihuanjilu/duihuanjilu",
+    "pages/aboutus/aboutus",
+    "pages/feedback/feedback"
 
   ],
   "permission": {

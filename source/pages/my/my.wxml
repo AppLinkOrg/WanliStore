@@ -126,9 +126,28 @@
                     <image src="{{uploadpath}}resource/{{res.kefubangzhu}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">联系客服</view>
                 </view>
+                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/feedback/feedback">
+                    <image src="{{uploadpath}}resource/{{res.feedback}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">意见反馈</view>
+                </view>
+            </view>
+            <view class="height-60"></view>
+            <view class="flex-row flex-center">
+                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/aboutus/aboutus">
+                    <image src="{{uploadpath}}resource/{{res.aboutus}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">关于我们</view>
+                </view>
+                <button style="border: 0;padding: 0;margin: 0;" class="flex-1 flex-row flex-column" bindtap=""  plain="true">
+                    <!-- <image src="{{uploadpath}}resource/{{res.fenxiao}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20" style="line-height: 30rpx;">转发分享</view> -->
+                </button>
+                <view class="flex-1 flex-row flex-column" bindtap="">
+                    <!-- <image src="{{uploadpath}}resource/{{res.kefubangzhu}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">联系客服</view> -->
+                </view>
                 <view class="flex-1 flex-row flex-column">
                     <!-- <image src="{{uploadpath}}resource/{{res.shezhi}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">设置</view> -->
+                    <view class="h7 txt-66 margin-top-20">意见反馈</view> -->
                 </view>
             </view>
 

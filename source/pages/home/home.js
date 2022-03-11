@@ -27,7 +27,8 @@ class Content extends AppBase {
       })
     })
     var mallapi = new MallApi();
-    mallapi.goodslist({ishome:'Y'},(list)=>{
+    mallapi.goodslist({ishome:'Y',
+    orderby:"r_main.shouyepaixu"},(list)=>{
       this.Base.setMyData({
         list
       })
@@ -46,10 +47,22 @@ class Content extends AppBase {
     }else{
     }
   }
+
+  shipingkaiguan(e){
+    var instinfo = this.Base.getMyData().instinfo
+    if(instinfo.shiping=='是'){
+      wx.navigateTo({
+        url: '/pages/videolist/videolist',
+      })
+    }else{
+      this.Base.toast("此功能未开放")
+    }
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tobanner = content.tobanner;
+body.shipingkaiguan = content.shipingkaiguan;
 Page(body)

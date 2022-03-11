@@ -546,6 +546,7 @@ export class AppBase {
       }
     });
   }
+  
   uploadImage(modul, callback, count = 1, completecallback) {
     wx.chooseImage({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有

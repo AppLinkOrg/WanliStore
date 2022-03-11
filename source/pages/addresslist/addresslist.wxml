@@ -30,5 +30,5 @@
 </view>
 
 <view class="flex-row flex-column fixbottom">
-    <view class="btns" bindtap="navigateto" id='/pages/addressinfo/addressinfo'>新建地址</view>
+    <view class="btns butcolor" bindtap="navigateto" id='/pages/addressinfo/addressinfo'>新建地址</view>
 </view>

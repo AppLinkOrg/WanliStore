@@ -1,0 +1,23 @@
+/* pages/aboutus/aboutus.wxss */
+.w{
+    width: 625rpx;
+    margin-top: 30rpx;
+}
+.img {
+    width: 200rpx;
+    height: 200rpx;
+    background: #000000;
+    border-radius: 40rpx;
+}
+
+.title {
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #333333;
+}
+
+.content {
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #333333;
+}

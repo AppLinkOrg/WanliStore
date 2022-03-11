@@ -109,7 +109,9 @@
         <view class="flex-row flex-center margin-top-24">
             <view class="h5 txt-33">运费</view>
             <view class="flex-1"></view>
-            <view class="h5 txt-fc ">¥{{info.yunfei}}</view>
+            <view class="h5 txt-fc " wx:if="{{info.sendtype=='B'}}">暂无</view>
+            <view wx:else class="h5 txt-fc ">¥{{info.yunfei}}</view>
+
         </view>
         <view class="flex-row flex-center margin-top-24">
             <view class="h5 txt-33">优惠金额</view>

@@ -35,7 +35,8 @@ class Content extends AppBase {
     })
 
     var fenxiaoapi = new 	FenxiaoApi();
-    fenxiaoapi.tixianlist({},(e)=>{
+    var member_id = this.Base.getMyData().memberinfo.id
+    fenxiaoapi.tixianlist({member_id:member_id},(e)=>{
       var totleamount=0
       for(let item of e){
         if (item.txstatus=='B') {

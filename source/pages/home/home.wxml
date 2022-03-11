@@ -7,7 +7,7 @@
 <view class="flex-row flex-center">
 <view class="video-box">
   <view class="video-txt">在线视频</view>
-  <image src="{{uploadpath}}resource/{{res.zaixianshipin}}" bindtap="navigateto" id='/pages/videolist/videolist' class="videobox"></image>
+  <image src="{{uploadpath}}resource/{{res.zaixianshipin}}" bindtap="shipingkaiguan" id='/pages/videolist/videolist' class="videobox"></image>
 </view>
   <view class="margin-top-10">
     <view class="rightbox" bindtap="navigateto" id='/pages/giftcards/giftcards'>

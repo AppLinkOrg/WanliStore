@@ -62,6 +62,7 @@ import {
     uploadimg(e){
         var id = e.currentTarget.id;
         var imglist = this.Base.getMyData().imglist;
+        // 将图片上传到服务器对应的文件夹里面
         this.Base.uploadImage('pingjia',(ret)=>{
             if(id>=0){
                 imglist[id].img=ret;
@@ -70,7 +71,6 @@ import {
                     img:ret
                 })
             }
-           
             this.Base.setMyData({
                 imglist
             })

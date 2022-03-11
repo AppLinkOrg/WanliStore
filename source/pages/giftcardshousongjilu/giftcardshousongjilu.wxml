@@ -19,7 +19,7 @@
                         <view style="margin-left: 16rpx;">
                             <view class="v1">面值￥{{item.cardprice}}</view>
                             <view class="v2">卡号：{{item.mygiftcard_buynum}}</view>
-                            <view class="v2">收到时间：{{item.mygiftcard_receivetime}}</view>
+                            <view class="v2">收到时间：{{item.shijian}}</view>
                         </view>
                     </view>
 
@@ -28,7 +28,7 @@
                         <view style="margin-left: 16rpx;">
                             <view class="v1">面值￥{{item.mygiftcard_shiwukaprice}}</view>
                             <view class="v2">卡号：{{item.name}}</view>
-                            <view class="v2">收到时间：{{item.mygiftcard_receivetime}}</view>
+                            <view class="v2">收到时间：{{item.shijian}}</view>
                         </view>
                     </view>
                     <view class="height-24"></view>
@@ -51,7 +51,7 @@
                         <view style="margin-left: 16rpx;">
                             <view class="v1">面值￥{{item.cardprice}}</view>
                             <view class="v2">卡号：{{item.mygiftcard_buynum}}</view>
-                            <view class="v2">收到时间：{{item.mygiftcard_receivetime}}</view>
+                            <view class="v2">赠送时间：{{item.shijian}}</view>
                         </view>
                     </view>
 
@@ -60,7 +60,7 @@
                         <view style="margin-left: 16rpx;">
                             <view class="v1">面值￥{{item.mygiftcard_shiwukaprice}}</view>
                             <view class="v2">卡号：{{item.name}}</view>
-                            <view class="v2">收到时间：{{item.mygiftcard_receivetime}}</view>
+                            <view class="v2">赠送时间：{{item.shijian}}</view>
                         </view>
                     </view>
                     <view class="height-24"></view>

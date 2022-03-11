@@ -1,4 +1,7 @@
-<view>
+<view class="flex-row kongbaitips min-height-100" wx:if="{{list.length<=0}}">
+            <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+        </view>
+<view wx:else>
     <view wx:for="{{list}}" wx:key='k' class="orderbox">
         <view class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">{{item.orderstatus_name}}</view>
         <view class="flex-row flex-center margin-top-36" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
