@@ -20,9 +20,16 @@
 .margin-top-8 {
     margin-top: 8rpx
 }
+.timeimg{
+    width: 18rpx;
+    height: 18rpx;
+    margin-right: 10rpx;
+}
 .dzimg{
-    width: 50rpx;
+    width: 32rpx;
+    height: 18rpx;
     margin-top: 8rpx;
+    margin-right: 10rpx;
 }
 .sizeimg{
     width: 48rpx;

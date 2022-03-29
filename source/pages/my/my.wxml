@@ -2,6 +2,7 @@
     <view class="h174"></view>
     <view class="flex-row flex-center padding36">
 
+        <!-- 获取头像和昵称 -->
         <button open-type="getUserInfo" class="clear-button " hover-class="none" bindtap="bindgetUserProfile">
             <view class="touxiang" wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.avatarUrl=='')}}"></view>
             <image src="{{memberinfo.avatarUrl}}" class="touxiang" wx:else></image>
@@ -27,12 +28,13 @@
     </view>
 </view>
 
-<scroll-view scroll-y="true" class="scrollbox" style="height:{{globalData.hh-199}}px;">
-    <view class="shouyi flex-row flex-center" bindtap="navigateto" id="/pages/myshouyi/myshouyi">
+<scroll-view scroll-y="true" class="scrollbox" >
+    <!-- style="height:{{globalData.hh-199}}px;" -->
+    <!-- <view class="shouyi flex-row flex-center" bindtap="navigateto" id="/pages/myshouyi/myshouyi">
         <view class="h5 txt-white">我的收益：￥{{totleamount}}</view>
         <view class="flex-1"></view>
         <view class="h6 " style="color:#EBEBEB;">查看更多</view>
-    </view>
+    </view> -->
 
     <view class="mybox">
         <view class="height-90"></view>
@@ -87,7 +89,7 @@
                 <image src="{{uploadpath}}resource/{{res.mypinjian}}" class="mypinjian"></image>
             </view>
         </view>
-        <view class="flex-row flex-column">
+        <view class="flex-row flex-column" bindtap="tourl">
             <image src="{{uploadpath}}resource/{{res.myimg}}" class="myimg"></image>
         </view>
         <view class="fuwu">
@@ -122,17 +124,22 @@
                     <image src="{{uploadpath}}resource/{{res.fenxiao}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20" style="line-height: 30rpx;">转发分享</view>
                 </button>
+                <view class="flex-1 flex-row flex-column" bindtap="phonecall" bindtap="navigateto" id="/pages/myshouyi/myshouyi">
+                    <image src="{{uploadpath}}resource/{{res.wodeshouyi}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">我的收益</view>
+                </view>
                 <view class="flex-1 flex-row flex-column" bindtap="phonecall">
                     <image src="{{uploadpath}}resource/{{res.kefubangzhu}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">联系客服</view>
                 </view>
+                
+            </view>
+            <view class="height-60"></view>
+            <view class="flex-row flex-center">
                 <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/feedback/feedback">
                     <image src="{{uploadpath}}resource/{{res.feedback}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">意见反馈</view>
                 </view>
-            </view>
-            <view class="height-60"></view>
-            <view class="flex-row flex-center">
                 <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/aboutus/aboutus">
                     <image src="{{uploadpath}}resource/{{res.aboutus}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">关于我们</view>
@@ -141,10 +148,6 @@
                     <!-- <image src="{{uploadpath}}resource/{{res.fenxiao}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20" style="line-height: 30rpx;">转发分享</view> -->
                 </button>
-                <view class="flex-1 flex-row flex-column" bindtap="">
-                    <!-- <image src="{{uploadpath}}resource/{{res.kefubangzhu}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">联系客服</view> -->
-                </view>
                 <view class="flex-1 flex-row flex-column">
                     <!-- <image src="{{uploadpath}}resource/{{res.shezhi}}" class="icon"></image>
                     <view class="h7 txt-66 margin-top-20">意见反馈</view> -->

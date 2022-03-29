@@ -397,6 +397,8 @@ export class AppBase {
     })
     console.log(e);
   }
+
+  
   viewPhoto(e) {
     var img = e.currentTarget.id;
     console.log(img);
@@ -1139,6 +1141,4 @@ onShareAppMessage(e){
     path: '/pages/my/my?member_id='+this.Base.getMyData().memberinfo.id,  // 当前页面 path ，必须是以 / 开头的完整路径 
   }
 }
-
-
 }

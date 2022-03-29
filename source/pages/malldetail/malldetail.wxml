@@ -22,7 +22,7 @@
     <view class="flex-row flex-bottom margin-top-24">
         <view class="txt-c9 h6">￥</view>
         <view class="txt-c9 h4">{{info.price}}</view>
-        <view class="h6" style="color:#A1A3A6;">￥{{info.old_price}}</view>
+        <view wx:if="{{info.old_price>0}}" class="h6" style="color:#A1A3A6;">￥{{info.old_price}}</view>
     </view>
     <view class="height-50"></view>
     <view class="flex-row">
@@ -32,6 +32,8 @@
         <view class="fivebox">销量{{info.sales}}</view>
         <view class="flex-1"></view>
         <view class="fivebox">库存{{info.inventory}}</view>
+        <view class="flex-1"></view>
+        <view class="fivebox">规格{{info.specification}}</view>
     </view>
     <!-- <view class="flex-row flex-center">
         <view class="f-26" style="color:#3A3A3A;">优惠券</view>
@@ -40,33 +42,35 @@
         <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
     </view> -->
     <view class="height-50"></view>
-    <view class="flex-row">
+    <!-- <view class="flex-row">
         <view class="f-26" style="color:#3A3A3A;">规格</view>
         <view class="flex-1"></view>
         <view class="f-22 txt-99">{{info.specification}}</view>
-    </view>
+    </view> -->
     <view class="height-50"></view>
     <view class="flex-row flex-center">
         <view class="f-26" style="color:#3A3A3A;">商品评价</view>
         <view class="flex-1"></view>
         <view class="flex-row" bindtap="navigateto" id="/pages/goodspingjia/goodspingjia?goods_id={{info.id}}">
-            <view class="f-22 txt-99" >查看更多</view>
+            <view class="f-22 txt-99">查看更多</view>
             <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
         </view>
-
     </view>
-    <view class="height-50"></view>
-    <view class="f-26 margin-bottom-26" style="color:#3A3A3A;">视频</view>
-    <view class="flex-row flex-column">
-        <video src="{{uploadpath}}mall/{{info.video}}" play-btn-position="center" controls="true" show-center-play-btn="true" class="videos"></video>
+    <view wx:if="{{info.video}}">
+        <view class="height-50"></view>
+        <view class="f-26 margin-bottom-26" style="color:#3A3A3A;">视频</view>
+        <view class="flex-row flex-column">
+            <video src="{{uploadpath}}mall/{{info.video}}" play-btn-position="center" controls="true" show-center-play-btn="true" class="videos"></video>
+        </view>
     </view>
-
-
 
 </view>
 <view>
     <view class="padding10 f-26"> 商品详情</view>
-    <image src="{{uploadpath}}mall/{{info.details_figure}}" mode="widthFix" class="details_figure"></image>
+    <view class="flex-row flex-column">
+        <image src="{{uploadpath}}mall/{{info.details_figure}}" mode="widthFix" class="details_figure"></image>
+    </view>
+    
 </view>
 
 <view class="height-100"></view>

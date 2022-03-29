@@ -64,7 +64,7 @@
                         </view>
                     </view>
                     <view class="height-24"></view>
-                    <view class="haoyou">赠送好友：{{item.member_nickName}}</view>
+                    <view class="haoyou">赠送好友：{{item.nickName}}</view>
                 </view>
         </view>
         </view>

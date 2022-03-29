@@ -24,7 +24,7 @@
         </view>
     </view>
     <view  class="flex-row" style="position: absolute; bottom: 44rpx; width: 100%;">
-        <button wx:if="{{cardinfo.isuse == 'A'}}"  class="but zs" open-type='share'>送给好友</button>
+        <button wx:if="{{(cardinfo.isuse == 'A' && cardinfo.isshiyong != 1)}}"  class="but zs" open-type='share'>送给好友</button>
         <button wx:if="{{!(cardinfo.isuse=='C'||cardinfo.isuse=='D')}}"  class="but butcolor"  bindtap="gotoTabbar">立即使用</button>
     </view>
 </view>

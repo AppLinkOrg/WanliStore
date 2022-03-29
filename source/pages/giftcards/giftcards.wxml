@@ -13,7 +13,6 @@
                 <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
             </view>
         <view wx:else style="margin-bottom: 92rpx; ">
-            
             <view class="flex-row cards" wx:for="{{cardlist}}" wx:key="item" bindtap="navigateto" id="/pages/giftcardsinfo/giftcardsinfo?id={{item.id}}">
                 <image wx:if="{{item.cardtype == 'A'}}" class="cardsimg" src="{{uploadpath}}giftcardinfo/{{item.cardcover_image}}"></image>
                 <image wx:if="{{item.cardtype == 'B'}}" class="cardsimg" src="{{uploadpath}}giftcardinfo/{{item.cover}}"></image>
@@ -26,7 +25,6 @@
                     </view>
                     <view class="f-20 explain">{{item.explains}}</view>
                 </view>
-
             </view>
         </view>
         <view class="flex-row  bottombox" style="justify-content:center;">

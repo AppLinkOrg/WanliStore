@@ -20,7 +20,7 @@
         </view>
         <view class="height-220"></view>
         <view class="flex-row flex-column">
-            <button class="clear-button btns" formType="submit">保存</button>
+            <button class="clear-button butcolor btns" formType="submit">保存</button>
         </view>
     </form>
 </view>

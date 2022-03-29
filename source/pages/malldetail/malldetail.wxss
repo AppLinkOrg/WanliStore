@@ -43,7 +43,7 @@
 .videos {
     width: 686rpx;
     height: 386rpx;
-    border-radius: 30rpx;
+    /* border-radius: 30rpx; */
 }
 
 .margin-bottom-26 {
@@ -55,7 +55,7 @@
 }
 
 .details_figure {
-    width: 100vw;
+    width: 93vw;
     height: 100%;
 }
 
@@ -104,5 +104,4 @@
     font-size: 24rpx;
     font-weight: 400;
     color: #999999;
-    line-height: 34rpx;
 }

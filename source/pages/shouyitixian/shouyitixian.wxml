@@ -27,7 +27,7 @@
         <view class="height-24"></view>
         <view class="f-32 txt-99">{{instinfo.remarks}}</view>
         <view class="height-58"></view>
-        <button type="primarys" class="but" bindtap="tixianbut">提现</button>
+        <button type="primarys" class="but butcolor" bindtap="tixianbut">提现</button>
     </view>
 
 </view>

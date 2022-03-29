@@ -28,20 +28,20 @@ var WxParse = require('../../wxParse/wxParse.js');
       })
       super.onLoad(options);
       this.Base.setMyData({
-        coverid: 1,
+        coverid: 0,
         coverindex: 0,
         priceid: 0,
         priceindex: -1,
         giftcardinfo_id:'',
         giftcardcover: '',
         giftcardprice_id: '',
-        amount: '',
+        amount: 0,
         cardid:this.Base.options.id==undefined?0:this.Base.options.id
       })
     }
     onMyShow() {
       var giftcardsapi = new GiftcardsApi();
- 
+      
     // 礼品卡详情
       giftcardsapi.giftcardinfo({id:this.Base.options.id},(e) => {
         e.howbuy = ApiUtil.HtmlDecode(e.howbuy)
@@ -92,37 +92,56 @@ var WxParse = require('../../wxParse/wxParse.js');
     paygiftcard(e){
       var data = this.Base.getMyData();
       var idx = this.Base.getMyData().cardinfo.id;
-    
-      
+     console.log("s啊回复")
+     console.log(data)
+     console.log(data.cardprice[0].buyprice)
+    //  if(data.amount==0){
+    //    data.amount=data.cardprice[0].buyprice
+    //  }
+    //  console.log(idx)
+      // if (data.coverid==0) {
+      //   this.Base.toast('请选择电子卡封面')
+      //   return
+      //  }
      if (data.priceid==0) {
       this.Base.toast('请选择电子卡价格')
       return
      }
-     
       var giftcardsaip = new GiftcardsApi();
       var wechatapi = new WechatApi();
       var that = this;
-      
       giftcardsaip.giftcardorder({
         giftcardinfo_id: this.Base.getMyData().cardinfo.id,
-        giftcardcover_id: this.Base.getMyData().coverid,
+        giftcardcover_id: this.Base.getMyData().coverid==0?this.Base.getMyData().cardbanner[0].id:this.Base.getMyData().coverid,
         giftcardprice_id: this.Base.getMyData().priceid,
         amount: this.Base.getMyData().amount,
       },(ret)=>{
-        if(ret.code=='0'){
-          wechatapi.prepaygiftcard({id:ret.return},(payret)=>{
-            payret.complete = function(e){
-              if (e.errMsg == "requestPayment:ok") {
-                wx.reLaunch({
-                  url: '/pages/buygiftcardssuccess/buygiftcardssuccess?id='+ that.Base.options.id,
-                })
+        if(data.amount>0){
+          if(ret.code=='0'){
+            wechatapi.prepaygiftcard({id:ret.return},(payret)=>{
+              payret.complete = function(e){
+                if (e.errMsg == "requestPayment:ok") {
+                  wx.reLaunch({
+                    url: '/pages/buygiftcardssuccess/buygiftcardssuccess?id='+ that.Base.options.id,
+                  })
+                }
               }
-            }
-            wx.requestPayment(payret);
-          })
-        }else {
-          this.Base.toast(ret.result);
+              wx.requestPayment(payret);
+            })
+          }else {
+            this.Base.toast(ret.result);
+          }
+        }else{
+          if(ret.code=='0'){
+            giftcardsaip.updategiftcardorder({id:ret.return},(e)=>{
+              wx.reLaunch({
+                url: '/pages/buygiftcardssuccess/buygiftcardssuccess?id='+ that.Base.options.id,
+              })
+            })
+          }
+          
         }
+       
       })
     }
 

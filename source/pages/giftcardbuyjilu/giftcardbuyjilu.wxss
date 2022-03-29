@@ -11,6 +11,5 @@
     font-size: 24rpx;
     font-weight: 400;
     color: #999999;
-    line-height: 34rpx;
     margin-top: 8rpx;
 }

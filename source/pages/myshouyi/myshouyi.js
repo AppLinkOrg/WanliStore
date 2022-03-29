@@ -47,27 +47,19 @@ import{
       var mallapi = new MallApi();
       var data = this.Base.getMyData();
       var fenxiaoapi = new FenxiaoApi();
-      fenxiaoapi.tixianlist({},(e)=>{
-      //   var totleamount=0
-      //   for(let item of e){
-      //     if (item.txstatus=='B') {
-      //       totleamount = ({}).toFixed(2);
-      //   }
-      // }
-        this.Base.setMyData({
-          tixianlist:e,
-          // totleamount,
-        })
-        that.getsum();
-      })
       fenxiaoapi.fenxiaojilu({},(e)=>{
         this.Base.setMyData({
           fenxiaojilu:e
         })
         that.getsum();
       })
-  
-     
+      fenxiaoapi.tixianlist({},(e)=>{
+        this.Base.setMyData({
+          tixianlist:e,
+        })
+        that.getsum();
+      })
+
       var memberapi = new MemberApi();
       memberapi.info({},(e)=>{        
         this.Base.setMyData({
@@ -91,15 +83,12 @@ import{
     getsum(){
       var data = this.Base.getMyData();
       var that = this
-      console.log("进来吗");
-      console.log(data);
       var arrivalsoon = 0;
       var ketixian = 0;
       var totleamount = 0;
-      var array = data.fenxiaojilu;
-      console.log("为啊什么");
-      console.log(array);
-      for(let item of array){
+      // 
+      var arrayfenxiao = data.fenxiaojilu;
+      for(let item of arrayfenxiao){
         if(item.orderstatus=='A'){
           arrivalsoon = (Number(arrivalsoon) + Number(item.amount)).toFixed(2);
           }
@@ -108,14 +97,18 @@ import{
             }  
         }
         var arraytixian = data.tixianlist;
-        console.log("!!!")
-        console.log(arraytixian)
         if(arraytixian != undefined){
-         
           for(let item of arraytixian){
+            if(item.txstatus=='A'){
+              ketixian = (Number(ketixian) - Number(item.amount)).toFixed(2);
+            }
+            
             if (item.txstatus=='B') {
               totleamount = (Number(totleamount) + Number(item.amount)).toFixed(2);
-              ketixian = (Number(ketixian) - Number(item.amount)).toFixed(2) ;
+              ketixian = (Number(ketixian) - Number(item.amount)).toFixed(2)
+            }
+            if(item.txstatus=='C'){
+              ketixian = (Number(ketixian)).toFixed(2);
             }
           }
         }

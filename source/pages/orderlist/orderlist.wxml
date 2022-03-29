@@ -10,7 +10,7 @@
     <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
 </view>
 <view wx:else>
-    <view wx:for="{{list}}" wx:key='k' class="orderbox" style="display:{{item.orderstatus == 'Q'?'none':''}}">
+    <view wx:for="{{list}}" wx:key='k' class="orderbox">
         <view wx:if="{{(item.sendtype=='B'&&item.orderstatus=='B')}}" class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">待取货</view>
         <view wx:else class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">{{item.orderstatus_name}}</view>
         <view class="flex-row flex-center margin-top-36" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
@@ -44,34 +44,14 @@
             <view class="flex-1"></view>
             <view class="cancelbtn" bindtap="shanchuorder" id="{{item.id}}">删除订单</view>
         </view>
-    </view>
-    <view style="display: {{flag?'block':'none'}};">
-        <view class="flex-row kongbaitips" wx:if="{{quxiao.length<=0}}">
-            <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+        <view class="flex-row flex-center margin-top-30" wx:if="{{item.orderstatus=='R'}}">
+            <view class="flex-1"></view>
+            <view class="cancelbtn" bindtap="shanchuorder" id="{{item.id}}">删除订单</view>
         </view>
-        <view wx:for="{{quxiao}}" wx:key='k' class="orderbox">
-            <view class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">{{item.orderstatus_name}}</view>
-            <view class="flex-row flex-center margin-top-36" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
-                <image src="{{uploadpath}}mall/{{item.goods_cover}}" class="goods_img"></image>
-                <view class="flex-1"></view>
-                <view class="txt-33 f-36">￥{{item.price}}</view>
-            </view>
-            <view class="flex-row flex-center margin-top-16" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
-                <view class="h7 txt-88">订单号：{{item.orderno}}</view>
-                <view class="flex-1"></view>
-                <view class="h7 txt-88">下单时间：{{item.submit_time}}</view>
-            </view>
-            <view class="flex-row flex-center margin-top-30" wx:if="{{item.orderstatus=='Q'}}">
-                <view class="flex-1"></view>
-                <view class="cancelbtn" bindtap="shanchuorder" id="{{item.id}}">删除订单</view>
-            </view>
-            <view class="flex-row flex-center margin-top-30" wx:if="{{item.orderstatus=='R'}}">
-                <view class="flex-1"></view>
-                <view class="cancelbtn" bindtap="shanchuorder" id="{{item.id}}">删除订单</view>
-            </view>
+        <view class="flex-row flex-center margin-top-30" wx:if="{{item.orderstatus=='D'}}">
+            <view class="flex-1"></view>
+            <view class="cancelbtn" bindtap="quhuo" id="{{item.id}}">确认取货</view>
         </view>
+        <!-- <button class="cancelbtn" bindtap="quhuo" id="{{item.id}}">确认取货</button> -->
     </view>
-
-
-
 </view>

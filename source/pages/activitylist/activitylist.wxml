@@ -1,5 +1,5 @@
 <!--pages/activitylist/activitylist.wxml-->
-<view class="flex-row kongbaitips" wx:if="{{activitylist.length<=0}}">
+<view class="flex-row kongbaitips min-height-100" wx:if="{{activitylist.length<=0}}">
     <image  src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
 </view>
 

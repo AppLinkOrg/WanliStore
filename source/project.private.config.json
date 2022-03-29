@@ -538,8 +538,106 @@
                     "name": "",
                     "pathName": "pages/malldetail/malldetail",
                     "query": "id=5",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/orderlist/orderlist",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+                    "query": "id=3",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/conponuse/conponuse",
+                    "query": "goodsid=1&totalamount=26.00&couponid=0",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/feedback/feedback",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/store/store",
+                    "query": "goodsid=1&id=1",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+                    "query": "id=3",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+                    "query": "id=4",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/giftcardshiyongjilu/giftcardshiyongjilu",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/activity/activity",
+                    "query": "id=20",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/activity/activity",
+                    "query": "id=21",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/ordersubmit/ordersubmit",
+                    "query": "goodsid=1",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/ordersubmit/ordersubmit",
+                    "query": "goodsid=1",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/ordersubmit/ordersubmit",
+                    "query": "goodsid=5",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+                    "query": "id=3",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

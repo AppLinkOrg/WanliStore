@@ -41,10 +41,10 @@ import {
       var giftcardsapi = new GiftcardsApi();
       giftcardsapi.mygiftcardlist({},(e) => {
         
-        var arr = e.filter(item =>{
+        var cardlist = e.filter(item =>{
           return item.isuse == 'A' || item.isuse == 'B' || item.isuse =='E'
         })
-        var cardlist = arr.reverse();
+        // var cardlist = arr.reverse();
         this.Base.setMyData({
           cardlist
         })

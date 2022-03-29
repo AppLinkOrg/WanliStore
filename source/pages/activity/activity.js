@@ -218,37 +218,40 @@ class Content extends AppBase {
     wx.showModal({
       content:'确定取消报名',
       success:(ret)=>{
-        var data = this.Base.getMyData();
-        var money = data.activityinfo.price
-        console.log("价格呢2")
-        console.log(money)
-          if(money <= 0){
-            activitysApi.activityquxiao({id:data.activityinfo.baomingid.id},(e) => {
-              this.Base.setMyData({
-                quxiao:e
+        if(ret.confirm){
+          var data = this.Base.getMyData();
+          var money = data.activityinfo.price
+          console.log("价格呢2")
+          console.log(money)
+            if(money <= 0){
+              activitysApi.activityquxiao({id:data.activityinfo.baomingid.id},(e) => {
+                this.Base.setMyData({
+                  quxiao:e
+                })
               })
-            })
-            wx.navigateBack({
-              delta:1
-            })
-           }else
-        if(money > 0 ){
-          if(ret.confirm){
-            wechatapi.refundactivity({id:data.activityinfo.baomingid.id},(ret)=>{
-                if(ret.code>=0){
-                  wx.navigateBack({
-                    delta: 1
-                  })
-                    that.Base.toast('订单退款成功');
-                    that.onMyShow();
-                }else {
-                    that.Base.toast(ret.result);
-                }
-            })
+              wx.navigateBack({
+                delta:1
+              })
+             }else
+          if(money > 0 ){
+            if(ret.confirm){
+              wechatapi.refundactivity({id:data.activityinfo.baomingid.id},(ret)=>{
+                  if(ret.code>=0){
+                    wx.navigateBack({
+                      delta: 1
+                    })
+                      that.Base.toast('订单退款成功');
+                      that.onMyShow();
+                  }else {
+                      that.Base.toast(ret.result);
+                  }
+              })
+            }
+          }else{
+            that.Base.toast('订单退款成功');
           }
-        }else{
-          that.Base.toast('订单退款成功');
-        }        
+        }
+               
       }
     })
   }

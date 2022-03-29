@@ -1001,6 +1001,7 @@ button[disabled][type=primary] {
   background: linear-gradient(90deg, #54A475 0%, #2B533C 100%);
   margin-top: 268rpx;
   border-radius: 8rpx;
+  color: #fff;
 }
 
 .butcolor {

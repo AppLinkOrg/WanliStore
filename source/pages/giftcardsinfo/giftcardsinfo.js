@@ -27,17 +27,23 @@ import {
       wx.setNavigationBarTitle({
         title: "礼品卡详情"
       })
+      wx.hideShareMenu({
+        menus: ['shareAppMessage'],
+      })
       super.onLoad(options);
       this.Base.setMyData({
       })
       console.log("options是什么")
       console.log(this.Base.options)
 
+
+      wx.hideShareMenu()
     }
     onMyShow() {
 
       var that = this;
       var giftcardsapi = new GiftcardsApi();
+      
 
       giftcardsapi.mygiftcardinfo({id:this.Base.options.id},(e)=>{
         console.log(e)
@@ -61,7 +67,7 @@ import {
             })
           }
           if (res.code == -1) {
-            this.Base.toast("领取失败~")
+            // this.Base.toast("领取失败~")
             wx.redirectTo({
               url: '/pages/giftcards/giftcards?flag=A',
             })

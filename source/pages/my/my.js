@@ -33,6 +33,11 @@ class Content extends AppBase {
         addmember:e
       })
     })
+    memberapi.myimg({},(e)=>{
+      this.Base.setMyData({
+        myimg:e
+      })
+    })
 
     var fenxiaoapi = new 	FenxiaoApi();
     var member_id = this.Base.getMyData().memberinfo.id
@@ -66,6 +71,22 @@ class Content extends AppBase {
     })
   }
 
+  tourl(e){
+      var data = this.Base.getMyData();
+      var myimg = data.myimg;
+      if(myimg.type=='A'){
+        wx.navigateTo({
+          url: '/pages/malldetail/malldetail?id='+myimg.goods_id,
+        })
+      }else if(myimg.type=='B'){
+        wx.navigateTo({
+          url: myimg.url,
+        })
+      }else{
+      }
+    
+  }
+
   // sharefenxiao(e){
   //   this.onShareAppMessage();
   //   }
@@ -95,5 +116,6 @@ body.todetail = content.todetail;
 body.sharefenxiao =content.sharefenxiao;
 body.onShareAppMessage = content.onShareAppMessage;
 body.phonecall=content.phonecall;
+body.tourl=content.tourl;
 
 Page(body)

@@ -138,5 +138,6 @@
     <view class=" h5 txt-33 margin-left-24">实付款:</view>
     <view class="h4 txt-fc txt-bold margin-left-10">¥{{amount}}</view>
     <view class="flex-1"></view>
+    <!-- {{flag}} -->
     <view class="btns butcolor" bindtap="bindpay">立即支付</view>
 </view>

@@ -7,12 +7,12 @@
                 <view class="leftbox"  bindtap="chosedz" id="{{item.id}}">
                     <view class="flex-1 f-36">{{item.name}}</view>
                     <view class="flex-row flex-center timebox">
-                        <image src="{{uploadpath}}resource/{{res.time}}" class="icon-10 margin-right-10"></image>
+                        <image src="{{uploadpath}}resource/{{res.time}}" class="timeimg"></image>
                         <view class="h6 txt-66">{{item.opentime}}</view>
                     </view>
                     <view>
                         <view class="flex-1 flex-row margin-top-8">
-                            <image src="{{uploadpath}}resource/{{res.didian}}" class="icon-10 margin-right-10 dzimg"></image>
+                            <image src="{{uploadpath}}resource/{{res.didian}}" class="dzimg"></image>
                             <view class="h6 txt-66">{{item.address}}</view>
                         </view>
                     </view>
@@ -35,12 +35,12 @@
                 <view class="leftbox" bindtap="chosedz" id="{{item.id}}">
                     <view class="flex-1 f-36">{{item.name}}</view>
                     <view class="flex-row flex-center timebox">
-                        <image src="{{uploadpath}}resource/{{res.time}}" class="icon-10 margin-right-10"></image>
+                        <image src="{{uploadpath}}resource/{{res.time}}" class="timeimg"></image>
                         <view class="h6 txt-66">{{item.opentime}}</view>
                     </view>
                     <view>
                         <view class="flex-1 flex-row margin-top-8">
-                            <image src="{{uploadpath}}resource/{{res.didian}}" class="icon-10 margin-right-10 dzimg"></image>
+                            <image src="{{uploadpath}}resource/{{res.didian}}" class="dzimg"></image>
                             <view class="h6 txt-66">{{item.address}}</view>
                         </view>
                     </view>

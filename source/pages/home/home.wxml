@@ -40,7 +40,7 @@
         <view class="">{{item.name}}</view>
         <view class="flex-row flex-bottom h4 margin-top-10" style="color: #C94739;"><text class="h6" style="color: #C94739;">￥</text>{{item.price}}</view>
         <view class="flex-row flex-center">
-          <view class="h6" style="color: #CCCCCC;text-decoration: line-through;">￥{{item.old_price}}</view>
+          <view wx:if="{{item.old_price>0}}" class="h6" style="color: #CCCCCC;text-decoration: line-through;">￥{{item.old_price}}</view>
           <view class="flex-1"></view>
           <view class="btns butcolor" >立即购买</view>
         </view>

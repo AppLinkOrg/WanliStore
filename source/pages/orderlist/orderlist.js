@@ -28,10 +28,9 @@ import { WechatApi } from "../../apis/wechat.api";
               {name:'待发货',value:'B'},
               {name:'待收货',value:'C'},
               {name:'已完成',value:'F'},
-              {name:'已取消',value:'Q'},
+              {name:'已取消',value:'Q,R'},
           ],
-          orderstatus:this.Base.options.type==undefined?'':this.Base.options.type,
-          flag:false
+          orderstatus:this.Base.options.type==undefined?'':this.Base.options.type,   
       })
     }
     onMyShow() {
@@ -43,26 +42,13 @@ import { WechatApi } from "../../apis/wechat.api";
             list
         })
       })
-      orderapi.orderlist({},(e)=>{
-          var quxiao = e.filter(item =>{
-              return item.orderstatus=='Q' || item.orderstatus=='R'
-          })
-        this.Base.setMyData({
-            quxiao
-            
-        })
-      })
+     
     }
     switchtype(e){
         var orderstatus = e.currentTarget.id;
-        if(orderstatus=='Q'){
-            var flag= true
-        }else{
-            var flag= false
-        }
+        
         this.Base.setMyData({
             orderstatus,
-            flag
         })
         this.onMyShow();
     }
@@ -79,7 +65,6 @@ import { WechatApi } from "../../apis/wechat.api";
                         that.Base.toast('订单取消成功');
                         that.Base.setMyData({
                             orderstatus:'Q',
-                            flag:'true'
                         })
                         that.onMyShow();
                     })
@@ -129,6 +114,28 @@ import { WechatApi } from "../../apis/wechat.api";
             }
         })
     }
+    quhuo(e){
+        var that = this;
+        var id = e.currentTarget.id;
+        var orderapi = new OrderApi();
+        wx.showModal({
+            title:'订单提示',
+            content:'已确认收到商品',
+            success:(ret)=>{
+                if(ret.confirm){
+                    orderapi.shouhuo({id:id},(ret)=>{
+                        that.Base.setMyData({
+                            orderstatus:'F'
+                        })
+                        wx.navigateTo({
+                          url: '/pages/orderlist/orderlist?type='+this.Base.getMyData().orderstatus,
+                        })
+                    })
+                }
+            }
+        })
+    
+    }
      shanchuorder(e){
         var that = this;
         var id = e.currentTarget.id;
@@ -156,4 +163,5 @@ import { WechatApi } from "../../apis/wechat.api";
   body.refundorder = content.refundorder;
   body.shouhuo = content.shouhuo;
   body.shanchuorder = content.shanchuorder;
+  body.quhuo = content.quhuo;
   Page(body)
