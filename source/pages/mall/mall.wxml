@@ -38,7 +38,7 @@
                 <view class="flex-row flex-bottom margin-top-20">
                     <view class="txt-c9 h6">￥</view>
                     <view class="txt-c9 h4">{{item.price}}</view>
-                    <view class="h6 text-line-through margin-left-5" style="color:#CCCCCC;">￥{{item.old_price}}</view>
+                    <view wx:if="{{item.old_price>0}}" class="h6 text-line-through margin-left-5" style="color:#CCCCCC;">￥{{item.old_price}}</view>
                 </view>
             </view>
         </view>

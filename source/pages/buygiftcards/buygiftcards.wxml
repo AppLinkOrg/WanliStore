@@ -1,9 +1,14 @@
 <!--pages/buygiftcards/buygiftcards.wxml-->
-<view class="margin-left-24" wx:for="{{cardtype}}" wx:key="item" >
-    <view class="f-36 txt-500" style="line-height: 50px;">{{item.name}}</view>
-    <view class="flex-row flex-wrap" style="gap: 24rpx;">
-        <view wx:for="{{cardlist}}" wx:for-item="listitem" wx:if="{{item.id == listitem.giftcardtype_id}}"  wx:key="listitem" bindtap="navigateto" id="/pages/buygiftcardsinfo/buygiftcardsinfo?id={{listitem.id}}">
-            <image class="img" src="{{uploadpath}}giftcardinfo/{{listitem.giftcardcover}}"></image>
+<view class="flex-row kongbaitips min-height-100" wx:if="{{cardtype.length<=0}}">
+    <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+</view>
+<view wx:else>
+    <view class="margin-left-24" wx:for="{{cardtype}}" wx:key="item">
+        <view class="f-36 txt-500" style="line-height: 50px;">{{item.name}}</view>
+        <view class="flex-row flex-wrap" style="gap: 24rpx;">
+            <view wx:for="{{cardlist}}" wx:for-item="listitem" wx:if="{{item.id == listitem.giftcardtype_id}}" wx:key="listitem" bindtap="navigateto" id="/pages/buygiftcardsinfo/buygiftcardsinfo?id={{listitem.id}}">
+                <image class="img" src="{{uploadpath}}giftcardinfo/{{listitem.giftcardcover}}"></image>
+            </view>
         </view>
     </view>
 </view>

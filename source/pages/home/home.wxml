@@ -4,34 +4,37 @@
   </swiper-item>
 </swiper>
 
-<view class="flex-row flex-center">
-<view class="video-box">
-  <view class="video-txt">在线视频</view>
-  <image src="{{uploadpath}}resource/{{res.zaixianshipin}}" bindtap="shipingkaiguan" id='/pages/videolist/videolist' class="videobox"></image>
-</view>
-  <view class="margin-top-10">
-    <view class="rightbox" bindtap="navigateto" id='/pages/giftcards/giftcards'>
-      <view class="height-40"></view>
-      <view class="margin-left-28">
-        <view class="txt-bold">礼品卡下单</view>
-        <view class="h6 txt-33">新鲜日期工厂直发</view>
+<view style="min-height: 390rpx;">
+  <view style="position: absolute; width: 100%; min-height: 410rpx;border-radius: 20rpx; z-index: 100; background: #fff; bottom: 88rpx;">
+    <view class="flex-row flex-center">
+      <view class="video-box">
+        <view class="video-txt">在线视频</view>
+        <image src="{{uploadpath}}resource/{{res.zaixianshipin}}" bindtap="shipingkaiguan" id='/pages/videolist/videolist' class="videobox"></image>
       </view>
-      <image src="{{uploadpath}}resource/{{res.timian}}" class="timian"></image>
-    </view>
-    <view class="rightbox margin-top-6" bindtap="navigateto" id='/pages/buygiftcards/buygiftcards'>
-      <view class="height-40"></view>
-      <view class="margin-left-28">
-        <view class="txt-bold">购礼品卡</view>
-        <view class="h6 txt-33">面传情 心意礼</view>
+      <view class="margin-top-10">
+        <view class="rightbox" bindtap="navigateto" id='/pages/giftcards/giftcards'>
+          <view class="height-40"></view>
+          <view class="margin-left-28">
+            <view class="txt-bold">礼品卡下单</view>
+            <view class="h6 txt-33">新鲜日期工厂直发</view>
+          </view>
+          <image src="{{uploadpath}}resource/{{res.timian}}" class="timian"></image>
+        </view>
+        <view class="rightbox margin-top-6" bindtap="navigateto" id='/pages/buygiftcards/buygiftcards'>
+          <view class="height-40"></view>
+          <view class="margin-left-28">
+            <view class="txt-bold">购礼品卡</view>
+            <view class="h6 txt-33">面传情 心意礼</view>
+          </view>
+          <image src="{{uploadpath}}resource/{{res.lipinka}}" class="lipinka"></image>
+
+
+        </view>
       </view>
-      <image src="{{uploadpath}}resource/{{res.lipinka}}" class="lipinka"></image>
-
 
     </view>
-  </view>
-
+  </view>>
 </view>
-
 <view>
   <view class="listbox" wx:for="{{list}}" wx:key='k' bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}'>
     <view class="flex-row flex-center">
@@ -42,7 +45,7 @@
         <view class="flex-row flex-center">
           <view wx:if="{{item.old_price>0}}" class="h6" style="color: #CCCCCC;text-decoration: line-through;">￥{{item.old_price}}</view>
           <view class="flex-1"></view>
-          <view class="btns butcolor" >立即购买</view>
+          <view class="btns butcolor">立即购买</view>
         </view>
       </view>
     </view>
