@@ -3,7 +3,7 @@
         <view class="txt-white h3 margin-left-30">商城</view>
     </view>
     <view class="h34"></view>
-    <scroll-view scroll-x="true" class=" tab-h">
+    <scroll-view scroll-x="true" class="tab-h">
         <view class="tab-item {{idx==0?'margin-left-26 ':''}}" bindtap="bindtype" id='{{item.id}}' wx:for='{{typelist}}' wx:for-index='idx'>
             <view class="flex-row flex-column">
                 <view class="txt-d">{{item.name}}</view>
@@ -12,37 +12,43 @@
         </view>
     </scroll-view>
 </view>
-<scroll-view scroll-y="true" class="goodsbox " style="height:{{globalData.hh-165}}px;">
-    <view class="flex-row ">
-        <view class="flex-1 flex-row flex-column">
-            <view bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}' wx:for="{{goodslist}}" wx:key='k' wx:for-index="idx" wx:if="{{idx%2==0}}" class="goods">
-                <view class="h120"></view>
-                <view class="flex-row flex-column">
-                    <image src="{{uploadpath}}mall/{{item.cover}}" class="cover"></image>
+<swiper style="height:{{globalData.hh-165}}px;" bindchange="bindPage" current="0">
+    <swiper-item>
+        <scroll-view scroll-y="true" class="goodsbox" style="height:{{globalData.hh-165}}px;">
+            <view class="flex-row margin-top-42">
+                <view class="flex-1 flex-row flex-column">
+                    <view bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}' wx:for="{{goodslist}}" wx:key='k' wx:for-index="idx" wx:if="{{idx%2==0}}" class="goods border-bg">
+                        <view class="h120"></view>
+                        <view class="flex-row flex-column">
+                            <image src="{{uploadpath}}mall/{{item.cover}}" class="cover"></image>
+                        </view>
+                        <view class="margin-top">{{item.name}}</view>
+                        <view class="flex-row flex-bottom margin-top-20">
+                            <view class="txt-c9 h6">￥</view>
+                            <view class="txt-c9 h4">{{item.price}}</view>
+                            <view wx:if="{{item.old_price>0}}" class="h6 text-line-through margin-left-5" style="color:#CCCCCC;">
+                                ￥{{item.old_price}}
+                            </view>
+                        </view>
+                    </view>
                 </view>
-                <view class="margin-top">{{item.name}}</view>
-                <view class="flex-row flex-bottom margin-top-20">
-                    <view class="txt-c9 h6">￥</view>
-                    <view class="txt-c9 h4">{{item.price}}</view>
-                    <view wx:if="{{item.old_price>0}}" class="h6 text-line-through margin-left-5" style="color:#CCCCCC;">￥{{item.old_price}}</view>
+                <view class="flex-1 flex-row flex-column">
+                    <view bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}' wx:for="{{goodslist}}" wx:key='k' wx:for-index="idx" wx:if="{{idx%2!=0}}" class="goods border-bg">
+                        <view class="h120"></view>
+                        <view class="flex-row flex-column">
+                            <image src="{{uploadpath}}mall/{{item.cover}}" class="cover"></image>
+                        </view>
+                        <view class="margin-top">{{item.name}}</view>
+                        <view class="flex-row flex-bottom margin-top-20">
+                            <view class="txt-c9 h6">￥</view>
+                            <view class="txt-c9 h4">{{item.price}}</view>
+                            <view wx:if="{{item.old_price>0}}" class="h6 text-line-through margin-left-5" style="color:#CCCCCC;">
+                                ￥{{item.old_price}}
+                            </view>
+                        </view>
+                    </view>
                 </view>
             </view>
-        </view>
-        <view class="flex-1 flex-row flex-column">
-            <view bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}' wx:for="{{goodslist}}" wx:key='k' wx:for-index="idx" wx:if="{{idx%2!=0}}" class="goods">
-                <view class="h120"></view>
-                <view class="flex-row flex-column">
-                    <image src="{{uploadpath}}mall/{{item.cover}}" class="cover"></image>
-                </view>
-                <view class="margin-top">{{item.name}}</view>
-                <view class="flex-row flex-bottom margin-top-20">
-                    <view class="txt-c9 h6">￥</view>
-                    <view class="txt-c9 h4">{{item.price}}</view>
-                    <view wx:if="{{item.old_price>0}}" class="h6 text-line-through margin-left-5" style="color:#CCCCCC;">￥{{item.old_price}}</view>
-                </view>
-            </view>
-        </view>
-
-    </view>
-
-</scroll-view>
+        </scroll-view>
+    </swiper-item>
+</swiper>

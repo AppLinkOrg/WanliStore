@@ -630,7 +630,7 @@ button[disabled][type=primary] {
 }
 
 .margin-top-10 {
-  margin-top: 20rpx;
+  margin-top: 12rpx;
 }
 
 .margin-top-5 {

@@ -26,7 +26,7 @@ wx-swiper  .wx-swiper-dot-active{
   width: 284rpx;
   height: 366rpx;
   margin-left: 30rpx;
-  margin-top: 30rpx;
+  margin-top: 12rpx;
 }
 .zaixian {
   font-size: 28rpx;
@@ -70,7 +70,7 @@ wx-swiper  .wx-swiper-dot-active{
   margin-left: 28rpx;
 }
 .listbox {
-  margin: 30rpx;
+  margin: 12rpx 30rpx;
   padding: 34rpx 12rpx;
   background: #FFFFFF;
   box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18);

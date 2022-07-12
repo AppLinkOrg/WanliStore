@@ -1,645 +1,654 @@
 {
-    "setting": {},
-    "condition": {
-        "plugin": {
-            "list": []
+  "setting": {
+    "compileHotReLoad": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "我的",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
         },
-        "game": {
-            "list": []
+        {
+          "name": "商城",
+          "pathName": "pages/mall/mall",
+          "query": "",
+          "scene": null
         },
-        "gamePlugin": {
-            "list": []
+        {
+          "name": "在线视频",
+          "pathName": "pages/videolist/videolist",
+          "query": "",
+          "scene": null
         },
-        "miniprogram": {
-            "list": [
-                {
-                    "name": "我的",
-                    "pathName": "pages/my/my",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "商城",
-                    "pathName": "pages/mall/mall",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "在线视频",
-                    "pathName": "pages/videolist/videolist",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "礼品卡",
-                    "pathName": "pages/giftcards/giftcards",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "品牌活动",
-                    "pathName": "pages/activity/activity",
-                    "query": "id=5",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "积分商城",
-                    "pathName": "pages/integralmall/integralmall",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/myactivity/myactivity",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardsinfo/giftcardsinfo",
-                    "query": "id=7",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/ordersubmit/ordersubmit",
-                    "query": "goodsid=1",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/orderlist/orderlist",
-                    "query": "type=B",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcards/giftcards",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/buygiftcards/buygiftcards",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/buygiftcards/buygiftcards",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
-                    "query": "id=1",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/buygiftcards/buygiftcards",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/refundlist/refundlist",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/myactivity/myactivity",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardsinfo/giftcardsinfo",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/givegiftcards/givegiftcards",
-                    "query": "id=1",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/exchagessuccess/exchagessuccess",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardbuyjilu/giftcardbuyjilu",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardshiyong/giftcardshiyong",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/mycoupon/mycoupon",
-                    "query": "type=A",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/conponuse/conponuse",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/myshouyi/myshouyi",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/shouyimingxi/shouyimingxi",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/shouyitixian/shouyitixian",
-                    "query": "amount=100",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/tixiansuccess/tixiansuccess",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/addresslist/addresslist",
-                    "query": "chosetype=A&id=1",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardshiyongjilu/giftcardshiyongjilu",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardshousongjilu/giftcardshousongjilu",
-                    "query": "type=A",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/orderdetail/orderdetail",
-                    "query": "type=A",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/malldetail/malldetail",
-                    "query": "id=6",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/paysuccess/paysuccess",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/buygiftcardssuccess/buygiftcardssuccess",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/goodspingjia/goodspingjia",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/addpingjia/addpingjia",
-                    "query": "id=13",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/orderlist/orderlist",
-                    "query": "type=B",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/conponuse/conponuse",
-                    "query": "goodsid=5&totalamount=36.00",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/store/store",
-                    "query": "goodsid=5&id=0",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/ordersubmit/ordersubmit",
-                    "query": "goodsid=5",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/addresslist/addresslist",
-                    "query": "chosetype=A&id=7",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/ordersubmit/ordersubmit",
-                    "query": "goodsid=5",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
-                    "query": "id=3",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardsinfo/giftcardsinfo",
-                    "query": "id=23",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
-                    "query": "id=3",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardsinfo/giftcardsinfo",
-                    "query": "id=26",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcards/giftcards",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardshiyong/giftcardshiyong",
-                    "query": "goodsid=10",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/activity/activity",
-                    "query": "id=14",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/mypingjia/mypingjia",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/ordersubmit/ordersubmit",
-                    "query": "goodsid=5",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/activity/activity",
-                    "query": "id=14",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/conponuse/conponuse",
-                    "query": "goodsid=5&totalamount=26.00&couponid=1104",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/conponuse/conponuse",
-                    "query": "goodsid=5&totalamount=26.00&couponid=0",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcards/giftcards",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/duihuanjilu/duihuanjilu",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/addpingjia/addpingjia",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/activity/activity",
-                    "query": "id=16",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/goodspingjia/goodspingjia",
-                    "query": "goods_id=5",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/mypingjia/mypingjia",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcards/giftcards",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardsinfo/giftcardsinfo",
-                    "query": "id=48",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardshousongjilu/giftcardshousongjilu",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardshiyong/giftcardshiyong",
-                    "query": "goodsid=5",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/ordersubmit/ordersubmit",
-                    "query": "goodsid=5",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardshousongjilu/giftcardshousongjilu",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/my/my",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/aboutus/aboutus",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/feedback/feedback",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/ordersubmit/ordersubmit",
-                    "query": "goodsid=5",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
-                    "query": "id=3",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcards/giftcards",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/my/my",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/myshouyi/myshouyi",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/malldetail/malldetail",
-                    "query": "id=5",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/orderlist/orderlist",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
-                    "query": "id=3",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/conponuse/conponuse",
-                    "query": "goodsid=1&totalamount=26.00&couponid=0",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/feedback/feedback",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/store/store",
-                    "query": "goodsid=1&id=1",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
-                    "query": "id=3",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
-                    "query": "id=4",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/giftcardshiyongjilu/giftcardshiyongjilu",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/activity/activity",
-                    "query": "id=20",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/activity/activity",
-                    "query": "id=21",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/ordersubmit/ordersubmit",
-                    "query": "goodsid=1",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/ordersubmit/ordersubmit",
-                    "query": "goodsid=1",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/ordersubmit/ordersubmit",
-                    "query": "goodsid=5",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
-                    "query": "id=3",
-                    "launchMode": "default",
-                    "scene": null
-                }
-            ]
+        {
+          "name": "礼品卡",
+          "pathName": "pages/giftcards/giftcards",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "品牌活动",
+          "pathName": "pages/activity/activity",
+          "query": "id=5",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "积分商城",
+          "pathName": "pages/integralmall/integralmall",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/myactivity/myactivity",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardsinfo/giftcardsinfo",
+          "query": "id=7",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/ordersubmit/ordersubmit",
+          "query": "goodsid=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/orderlist/orderlist",
+          "query": "type=B",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcards/giftcards",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/buygiftcards/buygiftcards",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/buygiftcards/buygiftcards",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+          "query": "id=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/buygiftcards/buygiftcards",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/refundlist/refundlist",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/myactivity/myactivity",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardsinfo/giftcardsinfo",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/givegiftcards/givegiftcards",
+          "query": "id=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/exchagessuccess/exchagessuccess",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardbuyjilu/giftcardbuyjilu",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardshiyong/giftcardshiyong",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mycoupon/mycoupon",
+          "query": "type=A",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/conponuse/conponuse",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/myshouyi/myshouyi",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/shouyimingxi/shouyimingxi",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/shouyitixian/shouyitixian",
+          "query": "amount=100",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/tixiansuccess/tixiansuccess",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/addresslist/addresslist",
+          "query": "chosetype=A&id=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardshiyongjilu/giftcardshiyongjilu",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardshousongjilu/giftcardshousongjilu",
+          "query": "type=A",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/orderdetail/orderdetail",
+          "query": "type=A",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/malldetail/malldetail",
+          "query": "id=6",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/paysuccess/paysuccess",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/buygiftcardssuccess/buygiftcardssuccess",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/goodspingjia/goodspingjia",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/addpingjia/addpingjia",
+          "query": "id=13",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/orderlist/orderlist",
+          "query": "type=B",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/conponuse/conponuse",
+          "query": "goodsid=5&totalamount=36.00",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/store/store",
+          "query": "goodsid=5&id=0",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/ordersubmit/ordersubmit",
+          "query": "goodsid=5",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/addresslist/addresslist",
+          "query": "chosetype=A&id=7",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/ordersubmit/ordersubmit",
+          "query": "goodsid=5",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+          "query": "id=3",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardsinfo/giftcardsinfo",
+          "query": "id=23",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+          "query": "id=3",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardsinfo/giftcardsinfo",
+          "query": "id=26",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcards/giftcards",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardshiyong/giftcardshiyong",
+          "query": "goodsid=10",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/activity",
+          "query": "id=14",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mypingjia/mypingjia",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/ordersubmit/ordersubmit",
+          "query": "goodsid=5",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/activity",
+          "query": "id=14",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/conponuse/conponuse",
+          "query": "goodsid=5&totalamount=26.00&couponid=1104",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/conponuse/conponuse",
+          "query": "goodsid=5&totalamount=26.00&couponid=0",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcards/giftcards",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/duihuanjilu/duihuanjilu",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/addpingjia/addpingjia",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/activity",
+          "query": "id=16",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/goodspingjia/goodspingjia",
+          "query": "goods_id=5",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mypingjia/mypingjia",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcards/giftcards",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardsinfo/giftcardsinfo",
+          "query": "id=48",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardshousongjilu/giftcardshousongjilu",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardshiyong/giftcardshiyong",
+          "query": "goodsid=5",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/ordersubmit/ordersubmit",
+          "query": "goodsid=5",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardshousongjilu/giftcardshousongjilu",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/my",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/aboutus/aboutus",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/feedback/feedback",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/ordersubmit/ordersubmit",
+          "query": "goodsid=5",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+          "query": "id=3",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcards/giftcards",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/my",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/myshouyi/myshouyi",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/malldetail/malldetail",
+          "query": "id=5",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/orderlist/orderlist",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+          "query": "id=3",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/conponuse/conponuse",
+          "query": "goodsid=1&totalamount=26.00&couponid=0",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/feedback/feedback",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/store/store",
+          "query": "goodsid=1&id=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+          "query": "id=3",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+          "query": "id=4",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/giftcardshiyongjilu/giftcardshiyongjilu",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/activity",
+          "query": "id=20",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/activity",
+          "query": "id=21",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/ordersubmit/ordersubmit",
+          "query": "goodsid=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/ordersubmit/ordersubmit",
+          "query": "goodsid=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/ordersubmit/ordersubmit",
+          "query": "goodsid=5",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/buygiftcardsinfo/buygiftcardsinfo",
+          "query": "id=3",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mall/mall",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mall/mall",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
+      ]
     }
+  },
+  "projectname": "source",
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
 }

@@ -133,8 +133,6 @@ export class AppBase {
       preventTouchMove:base.preventTouchMove,
       bindgetUserProfile: base.bindgetUserProfile,
       navigateto:base.navigateto
-
-
     }
   }
   log() {
@@ -231,21 +229,16 @@ export class AppBase {
           AppBase.UserInfo.session_key = data.session_key;
           AppBase.UserInfo.upmember_id = that.Base.options.fenxiao;
           ApiConfig.SetToken(data.openid);
-          
          memberapi.addmember(AppBase.UserInfo, () => {
-          
             that.Base.setMyData({code:res.code}) 
             that.checkPermission();
-          
          });
-
         });
-       
       }
     });
 
       // this.checkPermission();
-     
+
       return false;
     } else {
       if (that.setMyData != undefined) {

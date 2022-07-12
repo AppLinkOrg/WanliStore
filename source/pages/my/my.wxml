@@ -72,7 +72,7 @@
         </view>
 
         <view class="lipin" bindtap="navigateto" id="/pages/giftcards/giftcards">
-            <view class="" style="font-weight: 500;margin-bottom:4rpx;">我的礼品卡</view>
+            <view class="txt-33" style="font-weight: 350;margin-bottom:4rpx;">我的礼品卡</view>
             <view class="txt-66 h6">来自桃花江美人窝的羞美人面</view>
             <image src="{{uploadpath}}resource/{{res.mylipinka}}" class="lipinka"></image>
         </view>
@@ -93,7 +93,7 @@
             <image src="{{uploadpath}}resource/{{res.myimg}}" class="myimg"></image>
         </view>
         <view class="fuwu">
-            <view class="f-36 txt-66" style="font-weight: 500;">会员服务</view>
+            <view class="txt-33" style="font-weight: 350;">会员服务</view>
             <view class="height-40"></view>
             <view class="flex-row flex-center">
                 <view class="flex-1 flex-row flex-column" bindtap="notdata">

@@ -3,7 +3,6 @@
     <image src="{{uploadpath}}indexbanner/{{item.img}}" class="hometop" bindtap="tobanner" data-item="{{item}}"></image>
   </swiper-item>
 </swiper>
-
 <view style="min-height: 390rpx;">
   <view style="position: absolute; width: 100%; min-height: 410rpx;border-radius: 20rpx; z-index: 100; background: #fff; bottom: 88rpx;">
     <view class="flex-row flex-center">
@@ -27,13 +26,10 @@
             <view class="h6 txt-33">面传情 心意礼</view>
           </view>
           <image src="{{uploadpath}}resource/{{res.lipinka}}" class="lipinka"></image>
-
-
         </view>
       </view>
-
     </view>
-  </view>>
+  </view>
 </view>
 <view>
   <view class="listbox" wx:for="{{list}}" wx:key='k' bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}'>
@@ -41,9 +37,14 @@
       <image src="{{uploadpath}}mall/{{item.cover}}" class="goodsimg"></image>
       <view class="flex-1 margin-left-20">
         <view class="">{{item.name}}</view>
-        <view class="flex-row flex-bottom h4 margin-top-10" style="color: #C94739;"><text class="h6" style="color: #C94739;">￥</text>{{item.price}}</view>
+        <view class="flex-row flex-bottom h4 margin-top-10" style="color: #C94739;">
+          <text class="h6" style="color: #C94739;">￥</text>
+          {{item.price}}
+        </view>
         <view class="flex-row flex-center">
-          <view wx:if="{{item.old_price>0}}" class="h6" style="color: #CCCCCC;text-decoration: line-through;">￥{{item.old_price}}</view>
+          <view wx:if="{{item.old_price>0}}" class="h6" style="color: #CCCCCC;text-decoration: line-through;">
+            ￥{{item.old_price}}
+          </view>
           <view class="flex-1"></view>
           <view class="btns butcolor">立即购买</view>
         </view>

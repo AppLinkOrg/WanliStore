@@ -106,6 +106,4 @@ import {
   body.bindKeyInput=content.bindKeyInput;
   body.tixianbut=content.tixianbut;
   body.allamount=content.allamount;
-  
-  
   Page(body)

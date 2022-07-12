@@ -194,7 +194,6 @@ export class WechatApi{
             },
             complete: function (res) {
                 console.log(res);
-            
                 if (showLoading)
                     ApiConfig.CloseLoading();
             }
