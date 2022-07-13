@@ -4,7 +4,7 @@
 }
 .listbox{
     width: 100%;
-    height: 270rpx;
+    height: auto;
     background-size: 100% 100%;
     padding: 32rpx 26rpx;
     box-sizing: border-box;

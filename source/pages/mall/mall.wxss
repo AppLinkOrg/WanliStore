@@ -7,6 +7,7 @@
  .tab-h {
   white-space: nowrap;
   display: flex;
+  margin: 20rpx 0 30rpx 0;
  }
  .tab-item {
    display: inline-block;
@@ -20,13 +21,17 @@
   height: 6rpx;
   background: transparent;
   border-radius: 3rpx;
-  margin-top: 28rpx;
+  margin-top: 20rpx;
  }
  .margin-left-26 {
    margin-left: 26rpx;
  }
  .typeline-bg {
-  background-color: rgba(90,165,122);
+  background-color: rgba(90,165,122); 
+  color: #3A3A3A;
+ }
+ .typetext-color {
+  color: #3A3A3A;
  }
  .h34 {
    height: 34rpx;
@@ -34,7 +39,6 @@
 .goodsbox {
   /* height: 60vh; */
   position: relative;
-  margin-top: -20rpx;
   z-index:2 ;
 }
  .goods {
@@ -62,6 +66,7 @@
 .border-bg{
   border: 1px solid #F8F6F7;
 }
-.margin-top-42{
-  margin-top: 120rpx;
+.margin-bottom-25{
+  margin-bottom: 25rpx;
 }
+
