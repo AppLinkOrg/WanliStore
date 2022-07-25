@@ -19,9 +19,26 @@ import {
     }
     onLoad(options) {
       this.Base.Page = this;
-  
+      var that = this;
       super.onLoad(options);
-     
+      this.Base.setMyData({
+        show: false,
+        position: 'bottom',
+        duration:300,
+        round:true
+      })
+      wx.getSystemInfo({ 
+      
+        success: function (res) { 
+          console.log(res,'在这');
+          let fen = 0.5;
+          let height = res.windowHeight *fen;
+          console.log(height);
+          that.Base.setMyData({
+                clientHeight: height 
+            }); 
+        } 
+    }) 
     }
     onMyShow() {
       var that = this;
@@ -50,13 +67,34 @@ import {
         url: '/pages/ordersubmit/ordersubmit?goodsid='+this.Base.getMyData().info.id,
       })
     }
-  
+
+    toshopcar(e){
+      wx.navigateTo({
+        url: '/pages/shopcar/shopcar?goodsid',
+      })
+    }
+    
+    joinshop(e){
+      this.Base.setMyData({
+        show: true,
+      
+      })
+    }
+
+    exit_btn(e) {
+      this.Base.setMyData({
+        show: false,
+      
+      })
+    }
   }
   
   var content = new Content();
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;
+  body.toshopcar = content.toshopcar;
   body.tobuy= content.tobuy;
-  
+  body.joinshop= content.joinshop;
+  body.exit_btn =content.exit_btn;
   Page(body)

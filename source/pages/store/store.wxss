@@ -27,8 +27,7 @@
 }
 .dzimg{
     width: 32rpx;
-    height: 18rpx;
-    margin-top: 8rpx;
+    height: 30rpx;
     margin-right: 10rpx;
 }
 .sizeimg{
@@ -59,4 +58,7 @@ line-height: 34px;
     left: 0;
     top: 0;
     z-index: 10;
+}
+.di_box{
+    align-items: center;
 }

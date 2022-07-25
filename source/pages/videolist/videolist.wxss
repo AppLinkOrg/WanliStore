@@ -39,3 +39,12 @@
     left: 0;
     z-index: 20;
 }
+/* .viedeo_box{
+    display: flex;
+    flex-direction: column;
+    margin: auto 20px;
+}
+.videoList{
+    background: red;
+    margin-top: 10px;
+} */

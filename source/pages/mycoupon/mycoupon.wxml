@@ -3,7 +3,7 @@
 <view class="flex-row  flex-column" style="background-color: rgba(243, 246, 247, 1); position: relative; min-height: 100vh;">
     <view class="flex-row navbox">
         <view class="flex-1  flex-row flex-column" wx:for="{{typelist}}" wx:key='k' bindtap="switchtype" id="{{item.value}}">
-            <view class="f-28 txt-weight text-center titlebox">{{item.name}}</view>
+            <view class="f-28 txt-weight  text-center titlebox  {{item.value==flag?'':'txt-88'}}" >{{item.name}}</view>
             <view class="line {{item.value==flag?'line_color':''}}"></view>
         </view>
     </view>

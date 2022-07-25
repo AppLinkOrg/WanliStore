@@ -1,4 +1,7 @@
 /* pages/myactivity/myactivity.wxss */
+page{
+    background-color: rgba(243, 246, 247, 1);
+}
 .boxcss {
     width: 33.33%;
     justify-content: center;
@@ -10,7 +13,7 @@
     top: 0;
     left: 0;
     z-index: 10;
-    background: #ffffff;
+    background-color: rgba(243, 246, 247, 1);
     padding-top: 40rpx;
 }
 .fw500 {

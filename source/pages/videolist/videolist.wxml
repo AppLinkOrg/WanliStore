@@ -15,3 +15,11 @@
     <video class='pos' style='width:100vw; height:400rpx;' object-fit="fill" loop='{{false}}' src='{{uploadpath}}onlinevideo/{{list[choseidx].video}}' play-btn-position="center" controls="true" autoplay='true' show-center-play-btn="true">
     </video>
 </view>
+
+<!-- <view class="viedeo_box"> -->
+<!-- 视频列表 -->
+    <!-- <view class="videoList" wx:for="{{list}}" wx:key='k' wx:for-index='idx'  bindtap="bindvideo" id='{{idx}}'>
+        <image class="" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
+      
+    </view> -->
+<!-- </view> -->

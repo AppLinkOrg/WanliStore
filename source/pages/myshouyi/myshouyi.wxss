@@ -1,1 +1,6 @@
 /* pages/myshouyi/myshouyi.wxss */
+.myke_box{
+    margin-left: 20px;
+
+    height: 100%
+}

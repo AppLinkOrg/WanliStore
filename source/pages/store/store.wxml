@@ -11,7 +11,7 @@
                         <view class="h6 txt-66">{{item.opentime}}</view>
                     </view>
                     <view>
-                        <view class="flex-1 flex-row margin-top-8">
+                        <view class="flex-1 flex-row margin-top-8 di_box">
                             <image src="{{uploadpath}}resource/{{res.didian}}" class="dzimg"></image>
                             <view class="h6 txt-66">{{item.address}}</view>
                         </view>
@@ -39,7 +39,7 @@
                         <view class="h6 txt-66">{{item.opentime}}</view>
                     </view>
                     <view>
-                        <view class="flex-1 flex-row margin-top-8">
+                        <view class="flex-1 flex-row margin-top-8 di_box">
                             <image src="{{uploadpath}}resource/{{res.didian}}" class="dzimg"></image>
                             <view class="h6 txt-66">{{item.address}}</view>
                         </view>

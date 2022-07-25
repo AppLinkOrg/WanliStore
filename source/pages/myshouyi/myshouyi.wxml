@@ -50,8 +50,8 @@
     
     <view class="height-24"></view>
     <view style="width: 700rpx;background-color: #fff;">
-        <view style="margin:  32rpx 32rpx 0 32rpx;">
-            <view class="f-36 txt-66 txt-weight" style="line-height: 50rpx;">我的客户</view>
+        <view class="myke_box">
+            <view class="f-36 txt-66 txt-weight" style="line-height: 50rpx;margin: 10px 0;">我的客户</view>
             <view wx:for="{{fenxiaouser}}" wx:key="{{item}}" id="{{item}}">
                 <view class="height-40"></view>
                 <view class="flex-row" style="margin-bottom: 46rpx;">

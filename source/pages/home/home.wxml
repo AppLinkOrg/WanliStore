@@ -4,7 +4,7 @@
   </swiper-item>
 </swiper>
 <view style="min-height: 390rpx;">
-  <view style="position: absolute; width: 100%; min-height: 410rpx;border-radius: 20rpx; z-index: 100; background: #fff; bottom: 88rpx;">
+  <view style="width: 100%; min-height: 410rpx;border-radius: 20rpx; z-index: 100; background: #fff; bottom: 88rpx;">
     <view class="flex-row flex-center">
       <view class="video-box">
         <view class="video-txt">在线视频</view>

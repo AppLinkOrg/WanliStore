@@ -44,6 +44,7 @@
     "pages/mypingjia/mypingjia",
     "pages/duihuanjilu/duihuanjilu",
     "pages/aboutus/aboutus",
+    "pages/shopcar/shopcar", 
     "pages/feedback/feedback"
 
   ],
