@@ -6,40 +6,39 @@
   },
   "setting": {
     "urlCheck": true,
-    "scopeDataCheck": false,
-    "coverView": true,
     "es6": false,
+    "enhance": true,
     "postcss": true,
-    "compileHotReLoad": false,
-    "lazyloadPlaceholderEnable": false,
     "preloadBackgroundData": false,
     "minified": true,
-    "autoAudits": false,
     "newFeature": false,
-    "uglifyFileName": false,
-    "uploadWithSourceMap": true,
-    "useIsolateContext": false,
+    "coverView": true,
     "nodeModules": false,
-    "enhance": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
     "useApiHostProcess": true,
-    "showShadowRootInWxmlPanel": true,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "disableUseStrict": false,
-    "ignoreUploadUnusedFiles": true,
-    "minifyWXML": true,
-    "useStaticServer": true,
-    "showES6CompileOption": false,
-    "checkInvalidKey": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "useCompilerPlugins": false
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": false,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.22.0",
@@ -47,6 +46,10 @@
   "projectname": "%E7%A2%97%E9%87%8C%E5%B0%8F%E9%93%BA",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
   "condition": {
     "plugin": {
       "list": []
@@ -147,9 +150,5 @@
         }
       ]
     }
-  },
-  "editorSetting": {
-    "tabIndent": "insertSpaces",
-    "tabSize": 2
   }
 }
