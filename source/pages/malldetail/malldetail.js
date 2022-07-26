@@ -12,7 +12,9 @@ import {
   import {
     MallApi
   } from "../../apis/mall.api.js";
-  
+  import {
+    addshopCart
+  } from "../../apis/addshopCart"
   class Content extends AppBase {
     constructor() {
       super();
@@ -25,25 +27,18 @@ import {
         show: false,
         position: 'bottom',
         duration:300,
-        round:true
+        round:true,
+        // 商品数量
+        quantity:1,
+        // 商品规格
+        norms:-1,
+    
       })
-      wx.getSystemInfo({ 
-      
-        success: function (res) { 
-          console.log(res,'在这');
-          let fen = 0.5;
-          let height = res.windowHeight *fen;
-          console.log(height);
-          that.Base.setMyData({
-                clientHeight: height 
-            }); 
-        } 
-    }) 
     }
     onMyShow() {
       var that = this;
       var mallapi = new MallApi();
-      
+    
       mallapi.goodsinfo({
         id: this.Base.options.id
       }, (info) => {
@@ -67,25 +62,98 @@ import {
         url: '/pages/ordersubmit/ordersubmit?goodsid='+this.Base.getMyData().info.id,
       })
     }
-
+    // 跳转购物车
     toshopcar(e){
       wx.navigateTo({
         url: '/pages/shopcar/shopcar?goodsid',
       })
     }
-    
+    // 遮罩层弹出
     joinshop(e){
       this.Base.setMyData({
         show: true,
       
       })
     }
-
+    // 退出遮罩层
     exit_btn(e) {
       this.Base.setMyData({
         show: false,
       
       })
+    }
+    // 增加数量按钮
+    addquantity (e) {
+      let quantity = this.Base.getMyData().quantity;
+      console.log(quantity);
+      quantity++;
+      this.Base.setMyData({
+        quantity
+      })
+    }
+
+    // 减少数量按钮
+    reducequantity (e) {
+      let quantity = this.Base.getMyData().quantity;
+      console.log(quantity);
+      quantity--;
+      this.Base.setMyData({
+        quantity
+      })
+    }
+
+    //输入框编辑数量
+    editInput(e) {
+      console.log(e);
+      let quantity = e.detail.value;
+      this.Base.setMyData({
+        quantity
+      })
+    }
+    // 获取商品规格
+    getnorms(e){
+      // console.log(e);
+      let norms = e.target.dataset.id;
+      this.Base.setMyData({
+        norms
+      })
+      
+  
+    }
+    // 提交到购物车
+    shopCartBtn(e){
+      var that  =this
+    //  数量
+      let quantity = this.Base.getMyData().quantity;
+      // let qian = this.Base.getMyData().
+      // 规格=？新商品
+      let norms = this.Base.getMyData().info.id;
+      if (norms == '-1') {
+        wx.showToast({
+          title: '请选择商品规格',
+          icon: 'none',
+          duration: 2000
+        })
+      }else{
+        console.log(quantity,norms);
+        var addshopCar  =new addshopCart();
+        addshopCar.addshopCart({
+          goods_id:norms,
+          mall_number:quantity
+        },res => {
+          console.log(res);
+          if (res.code == 0) {
+            wx.showToast({
+              title: '添加成功',
+              icon: 'success',
+              duration: 2000
+            })
+            that.Base.setMyData({
+              show: false,
+            })
+          }
+        })
+      }
     }
   }
   
@@ -97,4 +165,9 @@ import {
   body.tobuy= content.tobuy;
   body.joinshop= content.joinshop;
   body.exit_btn =content.exit_btn;
+  body.addquantity = content.addquantity;
+  body.reducequantity = content.reducequantity;
+  body.editInput = content.editInput;
+  body.shopCartBtn = content.shopCartBtn;
+  body.getnorms = content.getnorms;
   Page(body)

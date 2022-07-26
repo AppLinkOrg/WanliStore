@@ -1,29 +1,33 @@
 <view>
-    
-<view class="shopcar_box">
+
+  <view class="shopcar_box">
     <view class="shopcar_title">
-        <view class="shopcar_text">
-            编辑
-        </view>
+      <view class="shopcar_text">
+        编辑
+      </view>
     </view>
-</view>
- <view class="shopcar_main">
-        <!-- 商品 -->
-        <view class="main_box">
-        <view class="shop_car">
-            <!-- 按钮 -->
-            <view class="" hover-class="none" hover-stop-propagation="false">
-                1
-            </view>
-            <!-- 图片-->
-            <view class="" hover-class="none" hover-stop-propagation="false">
-                2
-            </view>
-            <!-- 名称 -->
-            <view class="" hover-class="none" hover-stop-propagation="false">
-                3
-            </view>
-        </view>
-        </view>
- </view>
+  </view>
+  <view class="shopcar_main">
+    <!-- 商品 -->
+    <view class="main_box" wx:for="{{shoCartList}}" wx:key="{{item.id}}">
+      <view class="shop_car">
+        <!-- <checkbox-group class="shop_car" bindchange="checkboxChange"> -->
+          <!-- 按钮 -->
+          <view class="shop_car_btn">
+            <checkbox value="1" checked="true" color="#ffff"></checkbox>
+            {{item.goods_id}}
+          </view>
+          <!-- 图片-->
+          <view class="shop_car_img">
+          <image class="shop_car_imgs" src="{{uploadpath}}mall/{{item.time.imglist[0].img}}" mode="widthFix" />
+   
+          </view>
+          <!-- 名称 -->
+          <view class="shop_car_name">
+             
+          </view>
+        <!-- </checkbox-group> -->
+      </view>
+    </view>
+  </view>
 </view>
