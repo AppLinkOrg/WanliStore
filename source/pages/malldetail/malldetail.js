@@ -32,6 +32,7 @@ import {
         quantity:1,
         // 商品规格
         norms:-1,
+        isShow:false
     
       })
     }
@@ -50,7 +51,7 @@ import {
       });
   
     }
-
+    // 跳转订单
     tobuy(e){
       var data = this.Base.getMyData();
       var inventory = data.info.inventory;
@@ -112,10 +113,16 @@ import {
     }
     // 获取商品规格
     getnorms(e){
-      // console.log(e);
+      console.log(e);
       let norms = e.target.dataset.id;
+      // let shopprice = e.currentTarget.dataset.price;
+      // let shopname = e.currentTarget.dataset.name;
+
+      
       this.Base.setMyData({
-        norms
+        norms,
+        
+        // shopname
       })
       
   
@@ -126,8 +133,11 @@ import {
     //  数量
       let quantity = this.Base.getMyData().quantity;
       // let qian = this.Base.getMyData().
+     
       // 规格=？新商品
-      let norms = this.Base.getMyData().info.id;
+      let goods_id = this.Base.getMyData().info.id;
+      let norms = this.Base.getMyData().norms;
+      
       if (norms == '-1') {
         wx.showToast({
           title: '请选择商品规格',
@@ -138,8 +148,9 @@ import {
         console.log(quantity,norms);
         var addshopCar  =new addshopCart();
         addshopCar.addshopCart({
-          goods_id:norms,
-          mall_number:quantity
+          goods_id,
+          mall_number:quantity,
+          norms
         },res => {
           console.log(res);
           if (res.code == 0) {

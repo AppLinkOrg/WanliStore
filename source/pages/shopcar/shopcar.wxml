@@ -1,62 +1,118 @@
-<view>
-
-  <view class="shopcar_box">
-    <view class="shopcar_title">
-      <view class="shopcar_text">
-        编辑
+<block wx:if="{{isDelete}}">
+  <view>
+    <view class="shopcar_box">
+      <view class="shopcar_title">
+        <view class="shopcar_text" bindtap="toDelete">
+          完成
+        </view>
       </view>
     </view>
-  </view>
-  <view class="shopcar_main">
-    <!-- 商品 -->
-    <view class="main_box" wx:for="{{shoCartList}}" wx:key="{{item.id}}">
-      <view class="shop_car">
-        <!-- <checkbox-group class="shop_car" bindchange="checkboxChange"> -->
+    <view class="shopcar_main">
+      <!-- 商品 -->
+      <view class="main_box" wx:for="{{shoCartList}}" wx:key="{{item.id}}">
+        <view class="shop_car">
+          <!-- <checkbox-group class="shop_car" bindchange="checkboxChange"> -->
           <!-- 按钮 -->
           <view class="shop_car_btn">
-            <checkbox  value="1" checked="true" style="width:70rpx;"></checkbox>
+            <checkbox value="1" checked="{{item.checked}}" style="width:70rpx;" bindtap="selectList" data-index="{{index}}"></checkbox>
           </view>
           <!-- 图片-->
           <view class="shop_car_img">
-          <image class="shop_car_imgs" src="../../images/icons/222.png" mode="widthFix" />
+            <image class="shop_car_imgs" src="{{uploadpath}}mall/{{item.shangpin[0].cover}}" mode="aspectFill" />
           </view>
           <!-- 名称 -->
           <view class="shop_car_name">
-             <view class="shop_car_ta">
-                羞美人手工日晒面伴手礼
-             </view>
-             <view class="shop_car_tb">
-               4人份拉面*2袋
-             </view>
-             <view class="shop_car_tc">
+            <view class="shop_car_ta">
+              {{item.shangpin[0].name}}
+            </view>
+            <view class="shop_car_tb">
+              {{item.guige[0].name}}
+            </view>
+            <view class="shop_car_tc">
               <view class="shop_car_tc_left">
-                 <view class="txt-c9 h6" >￥</view>
-                  <view class="txt-c9 h4">22</view>
+                <view class="txt-c9 h6">￥</view>
+                <view class="txt-c9 h4">{{item.guige[0].price}}</view>
               </view>
 
-                    <view class="num_btn_box">
-            <view class="btn_s btn_1" wx:if="{{quantity == 1}}">-</view>
-            <view class="btn_s btn_3" bindtap="reducequantity" wx:else>-</view>
-            <input class="btn_input" bindblur="editInput" type="number" value="{{quantity}}" />
-            <view class="btn_s btn_2" bindtap="addquantity">+</view>
-        </view>
-             </view>
+            </view>
           </view>
-        <!-- </checkbox-group> -->
+          <!-- </checkbox-group> -->
+        </view>
+      </view>
+    </view>
+    <view class="shopacr_bottom1">
+      <view class="shopacr_bottom_ta">
+        <checkbox value="" checked="{{selectAllStatus}}" bindtap="selectAll" style="width:70rpx;"></checkbox>
+        <text class="bootom_ta_text">全选</text>
+      </view>
+      <view class="shopacr_bottom_tc">
+        <button class="queren1" type="primary" bindtap="deleshopcart">删除</button>
       </view>
     </view>
   </view>
-  <view class="shopacr_bottom">
-    <view class="shopacr_bottom_ta">
-               <checkbox  value="" checked="true" style="width:70rpx;"></checkbox>
-               <text class="bootom_ta_text">全选</text>
-             </view>
-             <view class="shopacr_bottom_tb">
-              合计:   <view class="txt-c9 h6" >￥</view>
-                  <view class="mony">22</view>
-             </view>
-            <view class="shopacr_bottom_tc">
-              <button class="queren" type="primary">结算</button>
+</block>
+
+<!-- 完成 -->
+<block wx:else>
+  <view>
+    <view class="shopcar_box">
+      <view class="shopcar_title">
+        <view class="shopcar_text" bindtap="toDelete">
+          编辑
+        </view>
+      </view>
+    </view>
+    <view class="shopcar_main">
+      <!-- 商品 -->
+      <view class="main_box" wx:for="{{shoCartList}}" wx:key="{{item.id}}">
+        <view class="shop_car">
+          <checkbox-group class="shop_car" bindchange="checkboxChange">
+          <!-- 按钮 -->
+          <view class="shop_car_btn">
+            <checkbox value="{{item.goods_id}}" checked="{{item.checked}}" style="width:70rpx;" bindtap="selectList" data-index="{{index}}"></checkbox>
+          </view>
+          <!-- 图片-->
+          <view class="shop_car_img">
+            <image class="shop_car_imgs" src="{{uploadpath}}mall/{{item.shangpin[0].cover}}" mode="aspectFill" />
+          </view>
+          <!-- 名称 -->
+          <view class="shop_car_name">
+            <view class="shop_car_ta">
+              {{item.shangpin[0].name}}
             </view>
+            <view class="shop_car_tb">
+              {{item.guige[0].name}}
+            </view>
+            <view class="shop_car_tc">
+              <view class="shop_car_tc_left">
+                <view class="txt-c9 h6">￥</view>
+                <view class="txt-c9 h4">{{item.guige[0].price}}</view>
+              </view>
+
+              <view class="num_btn_box">
+                <view class="btn_s btn_1" data-index="{{index}}" wx:if="{{item.mall_number == 1}}">-</view>
+                <view class="btn_s btn_3" data-index="{{index}}" bindtap="reducequantity" wx:else>-</view>
+                <input class="btn_input" data-index="{{index}}" bindblur="editInput" type="number" value="{{item.mall_number}}" />
+                <view class="btn_s btn_2" data-index="{{index}}" bindtap="addquantity">+</view>
+              </view>
+            </view>
+          </view>
+          </checkbox-group>
+        </view>
+      </view>
+    </view>
+    <view class="shopacr_bottom">
+      <view class="shopacr_bottom_ta">
+        <checkbox value="" checked="{{selectAllStatus}}" bindtap="selectAll" style="width:70rpx;"></checkbox>
+        <text class="bootom_ta_text">全选</text>
+      </view>
+      <view class="shopacr_bottom_tb">
+        合计: <view class="txt-c9 h6">￥</view>
+        <view class="mony">{{totalPrice}}</view>
+      </view>
+      <view class="shopacr_bottom_tc">
+        <button class="queren" type="primary" bindtap="tobuy">结算</button>
+      </view>
+    </view>
   </view>
-</view>
+</block>

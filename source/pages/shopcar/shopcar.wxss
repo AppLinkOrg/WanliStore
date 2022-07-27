@@ -43,6 +43,7 @@ page {
 .shop_car {
   display: flex;
   width: 100%;
+  height: 100%;
   align-items: center;
 }
 
@@ -83,7 +84,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 
 .shop_car_imgs {
   width: 100%;
-  height: 100%;
+  height: 110px
 }
 
 .shopacr_bottom {
@@ -95,6 +96,17 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   z-index: 100;
   display: flex;
   align-items: center;
+}
+.shopacr_bottom1{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  background-color: #FFFFFF;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .shop_car_name {
@@ -143,7 +155,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 .num_btn_box {
   margin-right: 10px;
   display: flex;
-  width: 33%;
+  width: 50%;
   border: 1px solid #dcdcdc;
   border-radius: 5px;
 }
@@ -152,7 +164,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 110%;
   font-size: 20px;
 }
 
@@ -205,6 +217,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   margin-left: 8px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .shopacr_bottom_ta,.shopacr_bottom_tb{
   height: 100%;
@@ -227,13 +240,26 @@ align-items: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+}
+.queren1{
+  background-color: #dcdcdc!important;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 
+  color: #Cccc;
 }
 .shopacr_bottom_tc{
   display: flex;
   align-items: center;
-  margin-left: 90px;
+  margin-left: 40px;
   height: 60%;
   width: 35%;
   border-radius: 50px;
+}
+.shopacr_bottom_tc1{
+
 }
