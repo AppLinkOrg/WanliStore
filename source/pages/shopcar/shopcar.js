@@ -31,7 +31,10 @@ class Content extends AppBase {
       totalPrice: 0,
       selectAllStatus: false, // 全选状态 默认全选
       // 删除页面
-      isDelete:false
+      isDelete:false,
+      // 删除列表
+      deleList:[],
+      delename:'',
 
     })
     super.onLoad(options);
@@ -75,8 +78,17 @@ class Content extends AppBase {
     this.getTotalPrice();      //重新获取总价
 
   }
+  // 点击多选框
   checkboxChange(e) {
     console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+    
+    let deleList = this.Base.getMyData().deleList;
+    let value = e.detail.value[0];
+    (deleList.indexOf(value) > -1) ? deleList.splice(deleList.indexOf(value), 1) : deleList.push(value)
+    this.Base.setMyData({
+      delename:deleList
+    })
+    // console.log(deleList,'hahahahah');
   }
 
   // 增加数量按钮
@@ -201,9 +213,10 @@ class Content extends AppBase {
   // 删除事件
   deleshopcart() {
     let goods_id = this.Base.getMyData().shoCartList.goods_id;
+    let idlist = this.Base.getMyData().delename;
     var deleshopCart = new deleteshopcart();
     deleshopCart.deleteshopcart({
-      
+      idlist:["1"]
     },res => {
       console.log(res);
     })

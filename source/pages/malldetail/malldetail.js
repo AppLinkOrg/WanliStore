@@ -150,7 +150,8 @@ import {
         addshopCar.addshopCart({
           goods_id,
           mall_number:quantity,
-          norms
+          norms,
+      
         },res => {
           console.log(res);
           if (res.code == 0) {

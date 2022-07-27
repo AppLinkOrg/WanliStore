@@ -11,10 +11,10 @@
       <!-- 商品 -->
       <view class="main_box" wx:for="{{shoCartList}}" wx:key="{{item.id}}">
         <view class="shop_car">
-          <!-- <checkbox-group class="shop_car" bindchange="checkboxChange"> -->
+          <checkbox-group class="shop_car" bindchange="checkboxChange">
           <!-- 按钮 -->
           <view class="shop_car_btn">
-            <checkbox value="1" checked="{{item.checked}}" style="width:70rpx;" bindtap="selectList" data-index="{{index}}"></checkbox>
+            <checkbox value="{{item.id}}" checked="{{item.checked}}" style="width:70rpx;" bindtap="selectList" data-index="{{index}}" data-id="{{item.id}}"></checkbox>
           </view>
           <!-- 图片-->
           <view class="shop_car_img">
@@ -36,13 +36,13 @@
 
             </view>
           </view>
-          <!-- </checkbox-group> -->
+          </checkbox-group>
         </view>
       </view>
     </view>
     <view class="shopacr_bottom1">
       <view class="shopacr_bottom_ta">
-        <checkbox value="" checked="{{selectAllStatus}}" bindtap="selectAll" style="width:70rpx;"></checkbox>
+        <checkbox value="" checked="{{selectAllStatus}}" bindtap="selectAll" style="width:70rpx;" ></checkbox>
         <text class="bootom_ta_text">全选</text>
       </view>
       <view class="shopacr_bottom_tc">
@@ -69,7 +69,7 @@
           <checkbox-group class="shop_car" bindchange="checkboxChange">
           <!-- 按钮 -->
           <view class="shop_car_btn">
-            <checkbox value="{{item.goods_id}}" checked="{{item.checked}}" style="width:70rpx;" bindtap="selectList" data-index="{{index}}"></checkbox>
+            <checkbox value="{{item.id}}" checked="{{item.checked}}" style="width:70rpx;" bindtap="selectList" data-index="{{index}}" data-id="{{item.id}}"></checkbox>
           </view>
           <!-- 图片-->
           <view class="shop_car_img">
@@ -103,8 +103,10 @@
     </view>
     <view class="shopacr_bottom">
       <view class="shopacr_bottom_ta">
-        <checkbox value="" checked="{{selectAllStatus}}" bindtap="selectAll" style="width:70rpx;"></checkbox>
+          <checkbox-group class="shop_car" bindchange="checkboxChange">
+        <checkbox value="{{selectAllStatus}}" checked="{{selectAllStatus}}" bindtap="selectAll" style="width:70rpx;"></checkbox>
         <text class="bootom_ta_text">全选</text>
+        </checkbox-group>
       </view>
       <view class="shopacr_bottom_tb">
         合计: <view class="txt-c9 h6">￥</view>
