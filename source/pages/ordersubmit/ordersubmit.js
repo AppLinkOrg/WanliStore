@@ -110,16 +110,16 @@ class Content extends AppBase {
     // 获取商品内容
     // console.log(giftcardid)
     // console.log(this.Base.options, '是什么东西');
-    // mallapi.goodsinfo({
-    //   id: this.Base.getMyData().goods_id
-    // }, (info) => {
-    //   this.Base.setMyData({
-    //     info:[info]
-    //   });
-    console.log(this.Base.getMyData().shopList,'2222');
-    let shopList = that.Base.getMyData().shopList;
-    if (shopList.length > 0) {
-      console.log('运行了哦');
+    mallapi.goodsinfo({
+      id: this.Base.getMyData().goods_id
+    }, (info) => {
+      this.Base.setMyData({
+        info:info
+      });
+      let shopList = that.Base.getMyData().shopList;
+      console.log(shopList,'2222');
+   
+    
       // 礼品卡
       var couponapi = new CouponApi();
       console.log("couponid有么")
@@ -168,8 +168,8 @@ class Content extends AppBase {
         })
       }
       this.getsum();
-    }
-    // });
+  
+    });
 
 
     var memberapi = new MemberApi();
@@ -230,22 +230,27 @@ class Content extends AppBase {
       beizhu: e.detail.value
     })
   }
+  // 计算总金额
   getsum() {
     var data = this.Base.getMyData();
     // 每个商品的总价格
     // 数量
     let goods_number = data.goods_number;
-    let guigeprice = data.guigeList.price;
+    console.log(goods_number,'数量');
+    let guigeprice = data.shopList[0].price;
+    console.log(guigeprice,'单价');
     let totalprice = goods_number * guigeprice;
+    console.log(totalprice,'总价');
     this.Base.setMyData({
       totalprice
     })
     console.log("有什么")
     console.log(data)
     console.log(this.Base.options)
-    var info = data.info;
+    var info = data.shopList;
     var sendtype = data.sendtype;
-    var yunfei = sendtype == 'A' ? Number(info[0].yunfei).toFixed(2) : Number(0).toFixed(2);
+    console.log(info[0].shangpin[0].yunfei,'我是运费');
+    var yunfei = sendtype == 'A' ? Number(info[0].shangpin[0].yunfei).toFixed(2) : Number(0).toFixed(2);
     var amount = 0;
     var totalamount = 0;
     var youhui = 0;
@@ -254,7 +259,7 @@ class Content extends AppBase {
     var couponprice = 0;
     // 商品总价，商品价格
     totalamount = Number(totalprice).toFixed(2);
-    yunfei = Number(info[0].yunfei).toFixed(2);
+    yunfei = Number(info[0].shangpin[0].yunfei).toFixed(2);
     // 优惠券使用
     if (data.couponid > 0) {
       if (data.couponinfo.type == 'A') {
@@ -396,9 +401,10 @@ class Content extends AppBase {
         }
         var orderapi = new OrderApi();
         var wechatapi = new WechatApi();
-        // 创建订单
+        // 创建订单  
+        console.log(this.Base.getMyData().goods_id,'hhhhhhhhh');
         orderapi.createorder({
-          goods_id: this.Base.options.goodsid,
+          goods_id: this.Base.getMyData().goods_id,
           sendtype: data.sendtype,
           price: data.totalprice,
           youhui: data.youhui,
@@ -478,8 +484,10 @@ class Content extends AppBase {
       var orderapi = new OrderApi();
       var wechatapi = new WechatApi();
       // 创建订单
+      console.log(this.Base.getMyData().goods_id,'hhhhhhhhh');
+      let goods_id = this.Base.getMyData().goods_id;
       orderapi.createorder({
-        goods_id: this.Base.options.goodsid,
+        goods_id: goods_id,
         sendtype: data.sendtype,
         // 价格不对 没有商品数量 价格 ==  单价x数量
         price: data.totalprice,
@@ -488,7 +496,7 @@ class Content extends AppBase {
         lipin: data.liping,
         yunfei: data.yunfei,
         amount: data.amount,
-        totalamount: data.totalamount,
+        totalamount: data.totalprice,
         store_id: data.store_id,
         address_id: data.address_id,
         beizhu: data.beizhu,
@@ -517,7 +525,7 @@ class Content extends AppBase {
                   var couponid = 0
                   var giftcardid = 0
                   var flag = true
-                  var amount = (Number(data.totalprice) + Number(data.info[0].yunfei)).toFixed(2)
+                  var amount = (Number(data.totalprice) + Number(data.shopList[0].yunfei)).toFixed(2)
                   var youhui = 0
                   that.Base.setMyData({
                     giftcardid,
