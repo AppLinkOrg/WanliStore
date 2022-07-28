@@ -96,6 +96,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   z-index: 100;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .shopacr_bottom1{
   position: fixed;
@@ -255,7 +256,7 @@ align-items: center;
 .shopacr_bottom_tc{
   display: flex;
   align-items: center;
-  margin-left: 40px;
+  
   height: 60%;
   width: 35%;
   border-radius: 50px;

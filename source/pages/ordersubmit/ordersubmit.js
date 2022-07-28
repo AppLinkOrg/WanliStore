@@ -27,7 +27,9 @@ import {
 import {
   CouponApi
 } from "../../apis/coupon.api";
-
+import {
+  spelist
+} from "../../apis/spelist.js";
 
 class Content extends AppBase {
   constructor() {
@@ -37,6 +39,8 @@ class Content extends AppBase {
     this.Base.Page = this;
 
     super.onLoad(options);
+
+    console.log(options.query)
     wx.setNavigationBarTitle({
       title: "创建订单"
     })
@@ -57,24 +61,66 @@ class Content extends AppBase {
       couponid: 0,
       keyongcoupon: 0,
       flagcard: false,
-      flag: true
+      flag: true,
+      info: []
     })
   }
+
   onMyShow() {
     var that = this;
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.emit('acceptDataFromOpenedPage', { data: 'test' });
+    eventChannel.emit('someEvent', { data: 'test' });
+    // 监听 acceptDataFromOpenerPage 事件，获取上一页面通过 eventChannel 传送到当前页面的数据
+    eventChannel.on('shop_id', function (data) {
+
+      that.setData({
+        goods_number: data.goods_number,
+        guige_id: data.guige_id,
+        goods_id: data.id
+      })
+
+      // 通过规格接口查出需要的数据
+      var speList = new spelist();
+      speList.spelist({
+        id: data.guige_id,
+        goods_id: data.id
+      }, res => {
+        console.log(res, 'hahahahahahahah');
+        res[0].mall_number = data.goods_number
+        that.Base.setMyData({
+          shopList: res
+        })
+      })
+    })
+    // 购物车数据
+    wx.getStorage({
+      key: 'shopList',
+      success(res) {
+        console.log(res.data, '2222')
+        that.Base.setMyData({
+          shopList: res.data
+        })
+      }
+    })
     var mallapi = new MallApi();
     console.log("有神")
     console.log(this.Base.Page)
 
-
+    // 获取商品内容
     // console.log(giftcardid)
-    mallapi.goodsinfo({
-      id: this.Base.options.goodsid
-    }, (info) => {
-      this.Base.setMyData({
-        info
-      });
-
+    // console.log(this.Base.options, '是什么东西');
+    // mallapi.goodsinfo({
+    //   id: this.Base.getMyData().goods_id
+    // }, (info) => {
+    //   this.Base.setMyData({
+    //     info:[info]
+    //   });
+    console.log(this.Base.getMyData().shopList,'2222');
+    let shopList = that.Base.getMyData().shopList;
+    if (shopList.length > 0) {
+      console.log('运行了哦');
+      // 礼品卡
       var couponapi = new CouponApi();
       console.log("couponid有么")
       console.log(this.Base.getMyData().couponid)
@@ -88,7 +134,7 @@ class Content extends AppBase {
           this.getsum();
         })
       }
-
+      // 优惠卷
       couponapi.mycoupon({}, (e) => {
         var data = this.Base.getMyData();
         console.log('data有什么')
@@ -106,7 +152,7 @@ class Content extends AppBase {
       })
       console.log("keyongcoupon赋值了吗")
       console.log(this.Base.getMyData().keyongcoupon)
-
+      // 	我的礼品卡
       var giftcardsapi = new GiftcardsApi();
       console.log("giftcardid有么")
       console.log(this.Base.getMyData().giftcardid)
@@ -122,7 +168,8 @@ class Content extends AppBase {
         })
       }
       this.getsum();
-    });
+    }
+    // });
 
 
     var memberapi = new MemberApi();
@@ -138,6 +185,7 @@ class Content extends AppBase {
         address_id: memberinfo.address_id
       })
     }
+    // 地址
     if (this.Base.getMyData().address_id > 0 && this.Base.getMyData().sendtype == 'A') {
       memberapi.addressinfo({
         id: this.Base.getMyData().address_id,
@@ -184,12 +232,20 @@ class Content extends AppBase {
   }
   getsum() {
     var data = this.Base.getMyData();
+    // 每个商品的总价格
+    // 数量
+    let goods_number = data.goods_number;
+    let guigeprice = data.guigeList.price;
+    let totalprice = goods_number * guigeprice;
+    this.Base.setMyData({
+      totalprice
+    })
     console.log("有什么")
     console.log(data)
     console.log(this.Base.options)
     var info = data.info;
     var sendtype = data.sendtype;
-    var yunfei = sendtype == 'A' ? Number(info.yunfei).toFixed(2) : Number(0).toFixed(2);
+    var yunfei = sendtype == 'A' ? Number(info[0].yunfei).toFixed(2) : Number(0).toFixed(2);
     var amount = 0;
     var totalamount = 0;
     var youhui = 0;
@@ -197,8 +253,8 @@ class Content extends AppBase {
     var liping = 0;
     var couponprice = 0;
     // 商品总价，商品价格
-    totalamount = Number(info.price).toFixed(2);
-    yunfei = Number(info.yunfei).toFixed(2);
+    totalamount = Number(totalprice).toFixed(2);
+    yunfei = Number(info[0].yunfei).toFixed(2);
     // 优惠券使用
     if (data.couponid > 0) {
       if (data.couponinfo.type == 'A') {
@@ -326,7 +382,7 @@ class Content extends AppBase {
     })
 
 
-
+    // 礼品卡
     var giftcardsapi = new GiftcardsApi();
     if (data.giftcardid > 0) {
       giftcardsapi.mygiftcardinfo({
@@ -344,7 +400,7 @@ class Content extends AppBase {
         orderapi.createorder({
           goods_id: this.Base.options.goodsid,
           sendtype: data.sendtype,
-          price: data.info.price,
+          price: data.totalprice,
           youhui: data.youhui,
           couponprice: data.couponprice,
           lipin: data.liping,
@@ -378,7 +434,7 @@ class Content extends AppBase {
                     var couponid = 0
                     var giftcardid = 0
                     var flag = true
-                    var amount = (Number(data.info.price) + Number(data.info.yunfei)).toFixed(2)
+                    var amount = (Number(data.totalprice) + Number(data.info[0].yunfei)).toFixed(2)
                     var youhui = 0
                     that.Base.setMyData({
                       giftcardid,
@@ -418,14 +474,15 @@ class Content extends AppBase {
         })
       })
     } else {
-
+      // 没有礼品卡
       var orderapi = new OrderApi();
       var wechatapi = new WechatApi();
       // 创建订单
       orderapi.createorder({
         goods_id: this.Base.options.goodsid,
         sendtype: data.sendtype,
-        price: data.info.price,
+        // 价格不对 没有商品数量 价格 ==  单价x数量
+        price: data.totalprice,
         youhui: data.youhui,
         couponprice: data.couponprice,
         lipin: data.liping,
@@ -445,6 +502,7 @@ class Content extends AppBase {
         // 判断需要支付的金额是否大于0
         if (data.amount != 0) {
           if (ret.code == '0') {
+            // 调起支付
             wechatapi.prepay({
               id: ret.return
             }, (payret) => {
@@ -459,7 +517,7 @@ class Content extends AppBase {
                   var couponid = 0
                   var giftcardid = 0
                   var flag = true
-                  var amount = (Number(data.info.price) + Number(data.info.yunfei)).toFixed(2)
+                  var amount = (Number(data.totalprice) + Number(data.info[0].yunfei)).toFixed(2)
                   var youhui = 0
                   that.Base.setMyData({
                     giftcardid,
@@ -497,7 +555,16 @@ class Content extends AppBase {
     }
   }
 
+  onUnload() {
+    wx.removeStorage({
+      key: 'shopList',
+    })
+  }
+
+
 }
+
+
 
 var content = new Content();
 var body = content.generateBodyJson();

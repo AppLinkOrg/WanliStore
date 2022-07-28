@@ -96,8 +96,8 @@
     </view>
     <!-- <view class="flex-1"></view> -->
     <view class="btn_box">
-    <view class="btns butcolor" bindtap="joinshop">加入购物车</view>
-    <view class="btns butcolors" bindtap="tobuy" id="/pages/ordersubmit/ordersubmit?goodsid={{info.id}}">立即购买</view>
+    <view class="btns butcolor" bindtap="joinshop" data-index="1">加入购物车</view>
+    <view class="btns butcolors" bindtap="tobuy"  data-id="{{info.id}}" id="/pages/ordersubmit/ordersubmit?goodsid={{info.id}}" data-index="2">立即购买</view>
     </view>
 </view>
 <page-container show="{{show}}" position="{{position}}" duration="{{duration}}" round="{{round}}">
@@ -133,7 +133,8 @@
         </view>
       </view>
     
-        <button class="queren" bindtap="shopCartBtn" type="primary">确认</button>
+        <button class="queren" bindtap="shopCartBtn" type="primary" wx:if="{{isShop == 1}}">添加</button>
+        <button class="queren" bindtap="tobuybtn"  type="primary"  wx:else>购买</button>
     
   </view>
 </page-container>

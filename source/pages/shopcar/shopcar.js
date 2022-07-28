@@ -31,10 +31,9 @@ class Content extends AppBase {
       totalPrice: 0,
       selectAllStatus: false, // 全选状态 默认全选
       // 删除页面
-      isDelete:false,
+      isDelete: false,
       // 删除列表
-      deleList:[],
-      delename:'',
+
 
     })
     super.onLoad(options);
@@ -81,13 +80,10 @@ class Content extends AppBase {
   // 点击多选框
   checkboxChange(e) {
     console.log('checkbox发生change事件，携带value值为：', e.detail.value)
-    
-    let deleList = this.Base.getMyData().deleList;
-    let value = e.detail.value[0];
-    (deleList.indexOf(value) > -1) ? deleList.splice(deleList.indexOf(value), 1) : deleList.push(value)
     this.Base.setMyData({
-      delename:deleList
+      isDaleList: e.detail.value
     })
+
     // console.log(deleList,'hahahahah');
   }
 
@@ -177,12 +173,27 @@ class Content extends AppBase {
   // 购物车全选事件
   selectAll(e) {
     let selectAllStatus = this.Base.getMyData().selectAllStatus; // 是否全选状态
-    selectAllStatus = !selectAllStatus;
-    let shoCartList = this.Base.getMyData().shoCartList; // 获取购物车列表
 
+    selectAllStatus = !selectAllStatus;
+    console.log(selectAllStatus, '修改后');
+    let shoCartList = this.Base.getMyData().shoCartList; // 获取购物车列表
+    let isDaleList = this.Base.getMyData().isDaleList;
     for (let i = 0; i < shoCartList.length; i++) {
+      // 把所有状态修改
       shoCartList[i].checked = selectAllStatus;
+
     }           // 改变所有商品状态
+    if (selectAllStatus) {
+      // 全选框为真   获取所有id
+      for (let j = 0; j < shoCartList.length; j++) {
+        let hh = shoCartList[j].id;
+        isDaleList.push(hh);
+      }
+    }
+    if (selectAllStatus == false) {
+      // 全选框为真   获取所有id
+      isDaleList.length = 0;
+    }
     this.setData({
       selectAllStatus: selectAllStatus,
       shoCartList: shoCartList
@@ -193,33 +204,61 @@ class Content extends AppBase {
   // 跳转订单
   tobuy(e) {
     var data = this.Base.getMyData();
-    var inventory = data.shoCartList.shangpin[0].inventory;
-    console.log(inventory);
-    if (inventory <= 0) {
-      this.Base.toast("没有库存啦~");
-      return
-    }
-    // wx.navigateTo({
-    //   url: '/pages/ordersubmit/ordersubmit?goodsid=' + this.Base.getMyData().shoCartList.shangpin[0].id,
-    // })
+    // var inventory = data.shoCartList.shangpin[0].inventory;
+    // console.log(inventory);
+    // if (inventory <= 0) {
+    //   this.Base.toast("没有库存啦~");
+    //   return
+    // }
+    let shoCartList = this.Base.getMyData().shoCartList;
+    let shopList = [];
+    shopList=shoCartList.filter(ele => ele.checked == true);
+    console.log(shopList);
+    let isDaleList = this.Base.getMyData().isDaleList;
+    wx.setStorage({
+      key:"shopList",
+      data:shopList
+    })
+     wx.navigateTo({
+      url: '/pages/ordersubmit/ordersubmit?goodsid'
+    })
   }
   // 转换页面
   toDelete() {
     let isDelete = this.Base.getMyData().isDelete; // 是否全选状态
     this.Base.setMyData({
-      isDelete:!isDelete
+      isDelete: !isDelete
     })
   }
   // 删除事件
   deleshopcart() {
-    let goods_id = this.Base.getMyData().shoCartList.goods_id;
-    let idlist = this.Base.getMyData().delename;
-    var deleshopCart = new deleteshopcart();
-    deleshopCart.deleteshopcart({
-      idlist:["1"]
-    },res => {
-      console.log(res);
+    let that = this
+    wx.showModal({
+      title: '提示',
+      content: '您确定将该商品移除购物车？',
+      success(res) {
+        if (res.confirm) {
+
+          let idlist = that.Base.getMyData().isDaleList;
+          var deleshopCart = new deleteshopcart();
+          deleshopCart.deleteshopcart({
+            idlist
+          }, res => {
+            if (res.code == 0) {
+              wx.showToast({
+                title: '移出成功',
+                icon: 'success',
+                duration: 2000
+              })
+              that.onLoad();
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
+
   }
 
 }
