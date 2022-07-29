@@ -135,7 +135,7 @@ class Content extends AppBase {
     let total = 0;
     for (let i = 0; i < shoCartList.length; i++) { // 循环列表得到每个数据
       if (shoCartList[i].checked) { // 判断选中才会计算价格
-        total += shoCartList[i].mall_number * shoCartList[i].guige[0].price; // 所有价格加起来
+        total += shoCartList[i].mall_number * shoCartList[i].price; // 所有价格加起来
       }
     }
     this.Base.setMyData({

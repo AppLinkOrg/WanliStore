@@ -62,7 +62,8 @@ class Content extends AppBase {
       keyongcoupon: 0,
       flagcard: false,
       flag: true,
-      info: []
+      info: [],
+      str:[],
     })
   }
 
@@ -87,13 +88,14 @@ class Content extends AppBase {
         goods_id: data.id
       }, res => {
         console.log(res, 'hahahahahahahah');
-        res[0].mall_number = data.goods_number
+        res[0].mall_number = data.goods_number;
+        res[0].specifications_id = data.guige_id;
         that.Base.setMyData({
           shopList: res
         })
       })
     })
-    // 购物车数据
+    // 购物车数据 
     wx.getStorage({
       key: 'shopList',
       success(res) {
@@ -106,7 +108,7 @@ class Content extends AppBase {
     var mallapi = new MallApi();
     console.log("有神")
     console.log(this.Base.Page)
-
+    
     // 获取商品内容
     // console.log(giftcardid)
     // console.log(this.Base.options, '是什么东西');
@@ -116,10 +118,8 @@ class Content extends AppBase {
       this.Base.setMyData({
         info:info
       });
-      let shopList = that.Base.getMyData().shopList;
-      console.log(shopList,'2222');
-   
-    
+ 
+        //2
       // 礼品卡
       var couponapi = new CouponApi();
       console.log("couponid有么")
@@ -215,8 +215,6 @@ class Content extends AppBase {
       })
     }
 
-
-
   }
   swtichsend(e) {
     var sendtype = e.currentTarget.id
@@ -233,17 +231,37 @@ class Content extends AppBase {
   // 计算总金额
   getsum() {
     var data = this.Base.getMyData();
+    let totalprice = 0;
     // 每个商品的总价格
     // 数量
     let goods_number = data.goods_number;
     console.log(goods_number,'数量');
-    let guigeprice = data.shopList[0].price;
-    console.log(guigeprice,'单价');
-    let totalprice = goods_number * guigeprice;
-    console.log(totalprice,'总价');
+    if (goods_number == undefined) {
+
+        let shopList = data.shopList;
+        for (let i = 0; i < shopList.length; i++) {
+          let aa  =   shopList[i].mall_number * shopList[i].price
+          totalprice += aa
+        }
+        this.Base.setMyData({
+          totalprice
+        })
+      
+    }else{
+
+      let guigeprice = data.shopList[0].price;
+      console.log(guigeprice,'单价');
+      // 这里运行了
+      totalprice = goods_number * guigeprice;
+      console.log(totalprice,'总价');
+    }
+   
+    
+    
     this.Base.setMyData({
       totalprice
     })
+
     console.log("有什么")
     console.log(data)
     console.log(this.Base.options)
@@ -332,6 +350,16 @@ class Content extends AppBase {
           }
 
         }
+      }
+      var data = this.Base.getMyData();
+      let shopList = data.shopList;
+      let str = data.str;
+      console.log(shopList,'2222');
+      console.log(str,'3333');
+      for (let i = 0; i < shopList.length; i++) {
+     
+        let strid = shopList[i].specifications_id;
+        str.push(strid);
       }
     }
     // 总优惠金额
@@ -439,7 +467,7 @@ class Content extends AppBase {
                     // var data = that.Base.getMyData();
                     var couponid = 0
                     var giftcardid = 0
-                    var flag = true
+                    let flag = false
                     var amount = (Number(data.totalprice) + Number(data.info[0].yunfei)).toFixed(2)
                     var youhui = 0
                     that.Base.setMyData({
@@ -485,23 +513,54 @@ class Content extends AppBase {
       var wechatapi = new WechatApi();
       // 创建订单
       console.log(this.Base.getMyData().goods_id,'hhhhhhhhh');
+      // 这里还要给一份礼品卡
+    var data = this.Base.getMyData();
+    let shopList = data.shopList;
+    let str = data.str;
+    console.log(shopList,'2222');
+    console.log(str,'3333');
+    for (let i = 0; i < shopList.length; i++) {
+   
+      let strid = shopList[i].specifications_id;
+      str.push(strid);
+    }
+
+
       let goods_id = this.Base.getMyData().goods_id;
       orderapi.createorder({
+        // 商品id  可有可无
         goods_id: goods_id,
+        // 商品数量
+        goods_number:data.goods_number,
+        // 商品单价
+        goods_price:data.shopList[0].price,
+        //配送方式
         sendtype: data.sendtype,
         // 价格不对 没有商品数量 价格 ==  单价x数量
         price: data.totalprice,
+        // 优惠卷
         youhui: data.youhui,
+        // 优惠卷金额
         couponprice: data.couponprice,
+        // 礼品卡
         lipin: data.liping,
+        // 运费
         yunfei: data.yunfei,
+        // 计算后的总价格
         amount: data.amount,
+        // 商品总价格
         totalamount: data.totalprice,
+        // 门店
         store_id: data.store_id,
+        // 地址
         address_id: data.address_id,
+        // 备注
         beizhu: data.beizhu,
+        // 我的礼品卡
         mygiftcard_id: data.cardid,
-        mycoupons_id: data.couponid
+        // 我的优惠券
+        mycoupons_id: data.couponid,
+        str:data.str
       }, (ret) => {
         console.log("手机号")
         console.log(ret)
@@ -524,7 +583,7 @@ class Content extends AppBase {
                   // var data = that.Base.getMyData();
                   var couponid = 0
                   var giftcardid = 0
-                  var flag = true
+                  let flag = false
                   var amount = (Number(data.totalprice) + Number(data.shopList[0].yunfei)).toFixed(2)
                   var youhui = 0
                   that.Base.setMyData({
@@ -568,7 +627,11 @@ class Content extends AppBase {
       key: 'shopList',
     })
   }
-
+  onHide(){
+    wx.removeStorage({
+      key: 'shopList',
+    })
+  }
 
 }
 

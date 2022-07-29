@@ -168,11 +168,11 @@ class Content extends AppBase {
     let norms = e.target.dataset.id;
     // let shopprice = e.currentTarget.dataset.price;
     // let shopname = e.currentTarget.dataset.name;
-
+    let price = e.target.dataset.price
 
     this.Base.setMyData({
       norms,
-
+      price
       // shopname
     })
 
@@ -188,7 +188,8 @@ class Content extends AppBase {
     // 规格=？新商品
     let goods_id = this.Base.getMyData().info.id;
     let norms = this.Base.getMyData().norms;
-
+    console.log(norms,'22');
+    let price = this.Base.getMyData().price;
     if (norms == '-1') {
       wx.showToast({
         title: '请选择商品规格',
@@ -202,7 +203,7 @@ class Content extends AppBase {
         goods_id,
         mall_number: quantity,
         norms,
-
+        price
       }, res => {
         console.log(res);
         if (res.code == 0) {

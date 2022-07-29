@@ -89,7 +89,7 @@
               <view class="shop_car_tc">
                 <view class="shop_car_tc_left">
                   <view class="txt-c9 h6">￥</view>
-                  <view class="txt-c9 h4">{{item.guige[0].price}}</view>
+                  <view class="txt-c9 h4">{{item.price}}</view>
                 </view>
 
                 <view class="num_btn_box">

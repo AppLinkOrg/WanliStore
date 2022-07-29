@@ -90,7 +90,7 @@
         <view class="shop_car_tc">
           <view class="shop_car_tc_left">
             <view class="txt-c9 h6">￥</view>
-            <view class="txt-c9 ">{{item.guige[0].price}}</view>
+            <view class="txt-c9 ">{{item.price}}</view>
           </view>
           <view class="num_btn_box">
             x{{item.mall_number}}
@@ -140,7 +140,7 @@
     <view class="flex-row flex-center">
       <view class="h5 txt-33">商品金额</view>
       <view class="flex-1"></view>
-      <view class="h5" style="color:#888888;">¥{{totalamount}}</view>
+      <view class="h5" style="color:#888888;">¥{{totalprice}}</view>
     </view>
     <view class="flex-row flex-center margin-top-24">
       <view class="h5 txt-33">运费</view>
