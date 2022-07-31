@@ -534,6 +534,8 @@ class Content extends AppBase {
         goods_number: data.shopList[0].mall_number,
         // 商品单价
         goods_price: data.shopList[0].price,
+        // 商品规格
+        goods_guige_id:data.guige_id,
         //配送方式
         sendtype: data.sendtype,
         // 价格不对 没有商品数量 价格 ==  单价x数量
