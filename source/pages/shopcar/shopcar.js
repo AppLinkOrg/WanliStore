@@ -204,15 +204,26 @@ class Content extends AppBase {
   // 跳转订单
   tobuy(e) {
     var data = this.Base.getMyData();
-    // var inventory = data.shoCartList.shangpin[0].inventory;
-    // console.log(inventory);
-    // if (inventory <= 0) {
-    //   this.Base.toast("没有库存啦~");
-    //   return
-    // }
-    let shoCartList = this.Base.getMyData().shoCartList;
-    let shopList = [];
-    shopList=shoCartList.filter(ele => ele.checked == true);
+    
+        let shoCartList = this.Base.getMyData().shoCartList;
+        let shopList = [];
+        shopList=shoCartList.filter(ele => ele.checked == true);
+        console.log('被选中的',shopList);
+        // let shop_id= [];
+    //     for (let i = 0; i < shoCartList.length; i++) {
+    //       let aa = shopList[i].specifications_id;
+    //       shop_id.push(aa);
+    //     }
+    // // 更新购物车表里数据
+    // var upshopCat = new shopcartlist();
+    // upshopCat.shopcartup({
+    //   shop_id:shop_id
+    // },res => {
+    //   console.log(res);
+    // })
+
+
+
     console.log(shopList);
     let isDaleList = this.Base.getMyData().isDaleList;
     wx.setStorage({

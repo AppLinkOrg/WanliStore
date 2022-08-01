@@ -16,7 +16,7 @@
         <view class="flex-row flex-center margin-top-36" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
             <image src="{{uploadpath}}mall/{{item.goods_cover}}" class="goods_img"></image>
             <view class="flex-1"></view>
-            <view class="txt-33 f-36">￥{{item.price}}</view>
+            <view class="txt-33 f-36">￥{{item.amount}}</view>
         </view>
         <view class="flex-row flex-center margin-top-16" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
             <view class="h7 txt-88">订单号：{{item.orderno}}</view>

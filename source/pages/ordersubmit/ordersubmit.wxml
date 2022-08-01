@@ -101,7 +101,7 @@
       
     </view>
      <view style="padding:10px;margin: 0 10px;">
-      <view class="flex-row flex-center" bindtap="navigateto" id="/pages/giftcardshiyong/giftcardshiyong?goodsid={{info[0].id}}">
+      <view class="flex-row flex-center" bindtap="navigateto" id="/pages/giftcardshiyong/giftcardshiyong?goodsid={{shopList[0].id}}">
         <view class="h5 txt-33">礼品卡</view>
         <view class="flex-1"></view>
         <view wx:if="{{giftcardid > 0}}">
@@ -119,7 +119,7 @@
 
       </view>
       <view class="height-50"></view>
-      <view class="flex-row flex-center" bindtap="navigateto" id="/pages/conponuse/conponuse?goodsid={{info[0].id}}&totalamount={{totalamount}}&couponid={{couponid}}">
+      <view class="flex-row flex-center" bindtap="navigateto" id="/pages/conponuse/conponuse?goodsid={{shopList[0].id}}&totalamount={{totalamount}}&couponid={{couponid}}">
         <view class="h5 txt-33">优惠券</view>
         <view class="cbox" style="background-image:url({{uploadpath}}resource/{{res.couponbgicon}})">{{keyongcoupon}}张可用</view>
         <view class="flex-1"></view>
