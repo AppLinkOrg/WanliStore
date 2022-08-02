@@ -31,7 +31,7 @@
 }
 .goods {
     margin: 0 24rpx;
-    padding: 42rpx 24rpx;
+    display: flex;
 }
 .cover {
     width: 108rpx;

@@ -21,8 +21,8 @@
     background: #44B549;
 }
 .orderbox {
-    margin: 0 24rpx ;
-    padding: 30rpx 24rpx;
+    margin: 10px 24rpx ;
+
     background: #FFFFFF;
     border-radius: 20rpx;
 }
@@ -60,4 +60,10 @@
 }
 .margin-top-16 {
     margin-top: 16rpx;
+}
+.teamList{
+    width: 144px;
+}
+.image_boxs{
+    display: flex;
 }

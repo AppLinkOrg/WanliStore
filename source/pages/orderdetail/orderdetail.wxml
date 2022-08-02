@@ -76,7 +76,17 @@
     </view>
 
     <view class="goods">
-        <image src="{{uploadpath}}mall/{{info.goods_cover}}" class="cover" bindtap="navigateto" id="/pages/malldetail/malldetail?id={{info.goods_id}}"></image>
+          <view class="image_boxs" wx:if="{{info.team.length > 0}}">
+            <view class="teamList" wx:for="{{info.team}}" wx:for-item="teamList" wx:key="index" >
+            <image  src="{{uploadpath}}mall/{{teamList.goods.cover}}" class="goods_img" ></image>
+            </view>
+        </view>
+        <view class="image_boxs" wx:else>
+          <view>
+            <image src="{{uploadpath}}mall/{{info.goods_cover}}" class="cover" bindtap="navigateto" id="/pages/malldetail/malldetail?id={{info.goods_id}}"></image>
+            </view>
+        </view>
+
         <view class="height-50"></view>
         <view class="flex-row flex-center">
             <view class="h5 txt-33">礼品卡</view>
