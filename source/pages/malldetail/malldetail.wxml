@@ -41,7 +41,8 @@
     <view class="flex-row flex-center titele_top_main1">
         <view class="f-26" style="color:#3A3A3A; ">优惠券</view>
         <view class="flex-1"></view>
-        <view class="f-22 txt-99">暂无可选优惠券</view>
+        <view class="f-22 txt-99" bindtap="tomycoupon" wx:if="{{couponList.length > 0}}">{{couponList.length}}张可用</view>
+        <view class="f-22 txt-99" wx:else>暂无可选优惠券</view>
         <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
     </view>
     <!-- <view class="height-50"></view> -->
@@ -107,7 +108,7 @@
         <image class="test_top_image" src="{{uploadpath}}mall/{{info.imglist[0].img}}" mode="widthFix" />
         </view>
         <view class="test_top_right">
-            <text style="font-size:16px;color:red;font-weight: 500;">￥</text>{{info.price}}
+            <text style="font-size:16px;color:red;font-weight: 500;">￥</text>{{prices}}
         </view>
         <!-- <view> -->
             <view bindtap="exit_btn" class="btn_exit"><image class="image_2" src="{{uploadpath}}resource/{{res.guanbi}}" mode="widthFix"  /></view>

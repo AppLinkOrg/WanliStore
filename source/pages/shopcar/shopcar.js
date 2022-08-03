@@ -90,13 +90,26 @@ class Content extends AppBase {
   // 增加数量按钮
   addquantity(e) {
     const index = e.currentTarget.dataset.index;
-    console.log(index);
+    // 购物车Id
+    const specifications_id = e.currentTarget.dataset.spe_id;
+    const zhuangtaiid = e.currentTarget.dataset.zhuangtai;
+    
     let shoCartList = this.Base.getMyData().shoCartList; // 获取购物车列表
     let mall_number = shoCartList[index].mall_number;
-    console.log(typeof (mall_number));
+    console.log('原来的值',mall_number);
+    
+    
     mall_number++;
     shoCartList[index].mall_number = mall_number;
-
+    
+    var shopcart = new shopcartlist();
+    shopcart.addshopcartnum({
+      specifications_id,
+      mall_number,
+      zhuangtaiid
+    },res => {
+      console.log(res);
+    })
     this.setData({
       shoCartList: shoCartList
     });
@@ -106,10 +119,22 @@ class Content extends AppBase {
   // 减少数量按钮
   reducequantity(e) {
     const index = e.currentTarget.dataset.index;
+    const specifications_id = e.currentTarget.dataset.spe_id;
+    const zhuangtaiid = e.currentTarget.dataset.zhuangtai;
+
+
     let shoCartList = this.Base.getMyData().shoCartList; // 获取购物车列表
     let mall_number = shoCartList[index].mall_number;
     mall_number--;
     shoCartList[index].mall_number = mall_number;
+    var shopcart = new shopcartlist();
+    shopcart.addshopcartnum({
+      specifications_id,
+      mall_number,
+      zhuangtaiid
+    },res => {
+      console.log(res);
+    })
     this.setData({
       shoCartList: shoCartList
     });
@@ -120,9 +145,21 @@ class Content extends AppBase {
   editInput(e) {
     console.log(e);
     const index = e.currentTarget.dataset.index;
+    const specifications_id = e.currentTarget.dataset.spe_id;
+    const zhuangtaiid = e.currentTarget.dataset.zhuangtai;
+
     let shoCartList = this.Base.getMyData().shoCartList; // 获取购物车列表
     let value = e.detail.value;
     shoCartList[index].mall_number = value;
+
+    var shopcart = new shopcartlist();
+    shopcart.addshopcartnum({
+      specifications_id,
+      mall_number:value,
+      zhuangtaiid
+    },res => {
+      console.log(res);
+    })
     this.setData({
       shoCartList: shoCartList
     })
@@ -206,21 +243,27 @@ class Content extends AppBase {
     var data = this.Base.getMyData();
     
         let shoCartList = this.Base.getMyData().shoCartList;
-        let shopList = [];
-        shopList=shoCartList.filter(ele => ele.checked == true);
+      
+        let shopList=shoCartList.filter(ele => ele.checked == true);
         console.log('被选中的',shopList);
         // let shop_id= [];
-    //     for (let i = 0; i < shoCartList.length; i++) {
-    //       let aa = shopList[i].specifications_id;
-    //       shop_id.push(aa);
-    //     }
+        // let shop_dd = {};
+        // for (let i = 0; i < shoCartList.length; i++) {
+        //   let aa = shopList[i].specifications_id;
+        //   let bb = shopList[i].mall_number;
+        //   shop_dd.specifications_id = aa;
+        //   shop_dd.mall_number = bb;
+        //   shop_id.push(shop_dd);
+        // }
+        // console.log(shop_id,'hhhh');
     // // 更新购物车表里数据
-    // var upshopCat = new shopcartlist();
-    // upshopCat.shopcartup({
-    //   shop_id:shop_id
-    // },res => {
-    //   console.log(res);
-    // })
+    var upshopCat = new shopcartlist();
+    upshopCat.shopcartup({
+      shop_id:JSON.stringify(shopList),
+      primary_id:1
+    },res => {
+      
+    })
 
 
 

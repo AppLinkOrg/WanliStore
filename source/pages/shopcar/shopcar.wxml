@@ -46,8 +46,9 @@
           <checkbox value="" checked="{{selectAllStatus}}" bindtap="selectAll" style="width:70rpx;"></checkbox>
           <text class="bootom_ta_text">全选</text>
         </view>
-        <view class="shopacr_bottom_tc">
-          <button class="queren1" type="primary" bindtap="deleshopcart">删除</button>
+        <view style="width:165px"></view>
+        <view class="shopacr_bottom_tc1">
+          <button class="queren1"  bindtap="deleshopcart">删除</button>
         </view>
       </view>
     </checkbox-group>
@@ -93,10 +94,10 @@
                 </view>
 
                 <view class="num_btn_box">
-                  <view class="btn_s btn_1" data-index="{{index}}" wx:if="{{item.mall_number == 1}}">-</view>
-                  <view class="btn_s btn_3" data-index="{{index}}" bindtap="reducequantity" wx:else>-</view>
-                  <input class="btn_input" data-index="{{index}}" bindblur="editInput" type="number" value="{{item.mall_number}}" />
-                  <view class="btn_s btn_2" data-index="{{index}}" bindtap="addquantity">+</view>
+                  <view class="btn_s btn_1" data-index="{{index}}"  data-spe_id="{{item.specifications_id}}" data-zhuangtai="0" wx:if="{{item.mall_number == 1}}">-</view>
+                  <view class="btn_s btn_3" data-index="{{index}}" data-spe_id="{{item.specifications_id}}" data-zhuangtai="0"  bindtap="reducequantity" wx:else>-</view>
+                  <input class="btn_input" data-index="{{index}}" data-spe_id="{{item.specifications_id}}"  data-zhuangtai="1" bindblur="editInput" type="number" value="{{item.mall_number}}" />
+                  <view class="btn_s btn_2" data-index="{{index}}" data-spe_id="{{item.specifications_id}}" data-zhuangtai="2"  bindtap="addquantity">+</view>
                 </view>
               </view>
             </view>

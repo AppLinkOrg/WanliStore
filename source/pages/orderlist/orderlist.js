@@ -33,6 +33,7 @@ class Content extends AppBase {
                 { name: '已取消', value: 'Q,R' },
             ],
             orderstatus: this.Base.options.type == undefined ? '' : this.Base.options.type,
+            listnum:0,
         })
         console.log(this.Base.getMyData().orderstatus,'22323');
     }
@@ -43,11 +44,13 @@ class Content extends AppBase {
         var orderstatus = this.Base.getMyData().orderstatus;
          orderapi.orderlist({ orderstatus: orderstatus }, (list) => {
             // this.teamList(list);
+           
             that.Base.setMyData({
                 list
             })
-            console.log(list, '2222222222222222222222222222222');
+         
         })
+
        
     }
 

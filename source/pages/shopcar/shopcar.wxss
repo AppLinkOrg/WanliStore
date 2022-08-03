@@ -80,6 +80,9 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 .shop_car_img {
   width: 30%;
   margin-left: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
 }
 
 .shop_car_imgs {
@@ -107,7 +110,6 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   z-index: 100;
   display: flex;
   align-items: center;
-  justify-content: space-around;
 }
 
 .shop_car_name {
@@ -244,14 +246,14 @@ align-items: center;
   height: 100%;
 }
 .queren1{
-  background-color: #dcdcdc!important;
+    
+background: #FFFFFF;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-
-  color: #Cccc;
+  color: #666666;
 }
 .shopacr_bottom_tc{
   display: flex;
@@ -262,5 +264,9 @@ align-items: center;
   border-radius: 50px;
 }
 .shopacr_bottom_tc1{
-
+  width: 108px;
+height: 40px;
+background: #FFFFFF;
+border-radius: 20px;
+border: 1px solid #CCCCCC;
 }

@@ -15,6 +15,9 @@ import {
 import {
   addshopCart
 } from "../../apis/addshopCart"
+import {
+  CouponApi
+} from "../../apis/coupon.api";
 class Content extends AppBase {
   constructor() {
     super();
@@ -32,14 +35,15 @@ class Content extends AppBase {
       quantity: 1,
       // 商品规格
       norms: -1,
-      isShow: false
+      isShow: false,
+      prices:0
 
     })
   }
   onMyShow() {
     var that = this;
     var mallapi = new MallApi();
-
+    var coupon = new CouponApi();
     mallapi.goodsinfo({
       id: this.Base.options.id
     }, (info) => {
@@ -49,7 +53,13 @@ class Content extends AppBase {
       });
 
     });
+    coupon.mycoupon({
 
+    },res => {
+      that.Base.setMyData({
+        couponList:res
+      })
+    })
   }
   // 跳转订单
   tobuy(e) {
@@ -110,7 +120,12 @@ class Content extends AppBase {
 
   }
 
-
+// 跳转优惠卷
+  tomycoupon(){
+    wx.navigateTo({
+      url: '/pages/mycoupon/mycoupon',
+    })
+  }
 
   // 跳转购物车
   toshopcar(e) {
@@ -172,7 +187,8 @@ class Content extends AppBase {
 
     this.Base.setMyData({
       norms,
-      price
+      price,
+      prices:price
       // shopname
     })
 
@@ -235,4 +251,5 @@ body.editInput = content.editInput;
 body.shopCartBtn = content.shopCartBtn;
 body.getnorms = content.getnorms;
 body.tobuybtn = content.tobuybtn;
+body.tomycoupon = content.tomycoupon;
 Page(body)

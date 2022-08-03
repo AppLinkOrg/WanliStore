@@ -1006,7 +1006,8 @@ button[disabled][type=primary] {
 
 .butcolor {
   color: white;
-  background: linear-gradient(90deg, #54A475 0%, #2B533C 100%);
+  /* background: linear-gradient(90deg, #54A475 0%, #2B533C 100%); */
+  background: #5AA57A;
 }
 
 .pay {

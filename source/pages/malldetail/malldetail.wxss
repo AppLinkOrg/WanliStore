@@ -293,7 +293,7 @@
     border-right: 1px solid #dcdcdc;
 }
 .btn_input{
-    width: 120%;
+    width: 85%;
     height: 27px;
     display: flex;
     align-items: center;

@@ -4,9 +4,27 @@
 <view wx:else>
     <view wx:for="{{list}}" wx:key='k' class="orderbox">
         <view class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">{{item.orderstatus_name}}</view>
-        <view class="flex-row flex-center margin-top-36" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
-            <image src="{{uploadpath}}mall/{{item.goods_cover}}" class="goods_img"></image>
-            <view class="flex-1"></view>
+        <view class="flex-row flex-center margin-top-36 image_mybox" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
+             
+            <!-- 图片区域 -->
+      <view class="image_boxs" wx:if="{{item.team.goods.length > 0}}">
+        <view class="teamList" wx:for="{{item.team.goods}}" wx:for-item="teamList" wx:key="index" wx:if="{{index <2}}">
+          <image src="{{uploadpath}}mall/{{teamList.cover}}" class="goods_img"></image>
+        </view>
+       <view v-if="teamList.length > 2">
+          <view class="teamList1">
+            <image src="{{uploadpath}}mall/{{item.team.goods[2].cover}}" class="goods_img" />
+            <view class="txtmore">+{{item.team.goods.length -2}}</view> 
+            </view>
+        </view>
+      </view>
+      <view class="image_boxs" wx:else>
+        <view>
+          <image src="{{uploadpath}}mall/{{item.goods_cover}}" class="goods_img"></image>
+        </view>
+      </view>
+
+
             <view class="txt-33 f-36">￥{{item.price}}</view>
         </view>
         <view class="flex-row flex-center margin-top-16" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
