@@ -45,7 +45,8 @@
     "pages/duihuanjilu/duihuanjilu",
     "pages/aboutus/aboutus",
     "pages/shopcar/shopcar", 
-    "pages/feedback/feedback"
+    "pages/feedback/feedback",
+    "pages/shopitem/shopitem" 
 
   ],
   "permission": {

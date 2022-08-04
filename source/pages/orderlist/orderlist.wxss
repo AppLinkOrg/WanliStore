@@ -1,4 +1,7 @@
 /* pages/orderlist/orderlist.wxss */
+page{
+    background: #F3F6F7;
+}
 .fixtop {
     width: 100vw;
     position: fixed;

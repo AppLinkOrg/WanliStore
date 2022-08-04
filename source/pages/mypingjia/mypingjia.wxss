@@ -7,7 +7,7 @@
     margin: 18rpx;
 }
 .contentbox{
-    margin: 40rpx 16rpx;
+    margin: 40rpx 16rpx 0  16rpx;
 }
 .danhao {
     font-size: 24rpx;
@@ -41,4 +41,40 @@
 }
 page{
     background-color: rgba(243, 246, 247, 1);
+}
+.cart_box_iamge{
+    width: 144rpx;
+    height: 144rpx;
+    border-radius: 10px;
+    justify-content: center;
+}
+.cart_box{
+    margin: 10px  10px 10px 10px;
+    display: flex;
+    background-color:#F6F6F6 ;
+    border-radius: 5px;
+}
+.cart_name{
+    width: 154px;
+height: 20px;
+font-size: 14px;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #333333;
+line-height: 20px;
+}
+.cart_guige{
+    width: 117px;
+height: 17px;
+font-size: 12px;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #999999;
+line-height: 17px;
+}
+.cart_right{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

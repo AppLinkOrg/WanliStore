@@ -1,9 +1,9 @@
 <view class="margin26">
     <view wx:if="{{(info.sendtype=='B'&&info.orderstatus=='B')}}" class="txt-33 f-36">待取货</view>
-    <view wx:else class="txt-33 f-36">{{info.orderstatus_name}}</view>
+    <view wx:else class="txt-33 f-36" style="font-weight: bold;">{{info.orderstatus_name}}</view>
 </view>
 <view>
-    <view wx:if="{{info.sendtype=='A'}}">
+    <view wx:if="{{info.sendtype=='A'}}" style="margin: 20px 0px;">
 
         <view class="flex-row flex-center dizhibox" wx:if='{{info.orderstatus=="A"}}' bindtap="navigateto" id='/pages/addresslist/addresslist?chosetype=A&id={{address_id}}'>
 
@@ -16,7 +16,7 @@
                         <view class="txt-33 h5">{{info.address_name}}</view>
                         <view class="txt-33 h5 margin-left-20">{{info.address_mobile}}</view>
                     </view>
-                    <view class="f-36 txt-99" style="font-weight: 500;">{{info.address_address}}</view>
+                    <view class="f-30 txt-99" style="font-weight: 500;margin-top: 10px;">{{info.address_address}}</view>
                 </view>
             </view>
             <view class="h5 txt-33" wx:if="{{info.orderstatus=='A'}}">修改</view>

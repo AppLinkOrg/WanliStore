@@ -550,7 +550,7 @@ class Content extends AppBase {
       }
 
 
-      let goods_id = this.Base.getMyData().goods_id;
+      let goods_id = this.Base.getMyData().shopList[0].goods_id;
       orderapi.createorder({
         // 商品id  可有可无
         goods_id: goods_id,
@@ -559,7 +559,7 @@ class Content extends AppBase {
         // 商品单价
         goods_price: data.shopList[0].price,
         // 商品规格
-        goods_guige_id:data.guige_id,
+        goods_guige_id:data.shopList[0].guige[0].id,
         //配送方式
         sendtype: data.sendtype,
         // 价格不对 没有商品数量 价格 ==  单价x数量

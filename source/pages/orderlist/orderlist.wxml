@@ -11,6 +11,9 @@
 </view>
 <view wx:else>
   <view wx:for="{{list}}" wx:key='k' class="orderbox">
+  <view style="margin: 10px;">
+    
+ 
     <view wx:if="{{(item.sendtype=='B'&&item.orderstatus=='B')}}" class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">待取货</view>
     <view wx:else class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">{{item.orderstatus_name}}</view>
     <view class="flex-row flex-center margin-top-36 image_mybox" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
@@ -19,7 +22,7 @@
         <view class="teamList" wx:for="{{item.team.goods}}" wx:for-item="teamList" wx:key="index" wx:if="{{index <2}}">
           <image src="{{uploadpath}}mall/{{teamList.cover}}" class="goods_img"></image>
         </view>
-
+      <!-- 遮罩层 -->
         <view v-if="teamList.length > 2">
           <view class="teamList1">
             <image src="{{uploadpath}}mall/{{item.team.goods[2].cover}}" class="goods_img" />
@@ -55,7 +58,8 @@
     </view>
     <view class="flex-row flex-center margin-top-30" wx:if="{{item.orderstatus=='F' && item.ispingjia==''}}">
       <view class="flex-1"></view>
-      <view class="cancelbtn" bindtap="navigateto" id="/pages/addpingjia/addpingjia?id={{item.id}}">去评价</view>
+      <view wx:if="{{item.team.goods.length >1}}" class="cancelbtn" bindtap="navigateto" id="/pages/shopitem/shopitem?id={{item.id}}">去评价</view>
+      <view wx:else class="cancelbtn" bindtap="navigateto" id="/pages/addpingjia/addpingjia?id={{item.team[0].pricelist}}&&goods_id={{item.team[0].goods_id}}&&order_id={{item.id}}">去评价</view>
     </view>
     <view class="flex-row flex-center margin-top-30" wx:if="{{item.orderstatus=='Q'}}">
       <view class="flex-1"></view>
@@ -71,4 +75,5 @@
     </view>
     <!-- <button class="cancelbtn" bindtap="quhuo" id="{{item.id}}">确认取货</button> -->
   </view>
+   </view>
 </view>

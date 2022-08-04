@@ -1,4 +1,7 @@
 /* pages/ordersubmit/ordersubmit.wxss */
+page{
+    background: #F3F6F7;
+}
 .margin26 {
    margin: 48rpx 26rpx 30rpx;
 }
@@ -30,9 +33,12 @@
     border-radius: 12rpx;
 }
 .goods {
-    margin: 0 30rpx;
+    margin:0px 24rpx;
     display: flex;
     flex-direction: column;
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
 }
 .cover {
     width: 108rpx;
@@ -50,7 +56,8 @@
 }
 .total {
     margin: 0 30rpx;
-
+    background-color: #FFFFFF;
+    padding: 10px;
 }
 .margin-top-24 {
     margin-top: 24rpx;

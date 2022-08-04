@@ -13,6 +13,9 @@ import {
   import {
     OrderApi
   } from "../../apis/order.api.js";
+  import {
+    spelist
+  } from "../../apis/spelist.js";
   class Content extends AppBase {
     constructor() {
       super();
@@ -24,6 +27,7 @@ import {
       wx.setNavigationBarTitle({
         title: "发布评价"
       })
+      console.log(options,'232323');
       this.Base.setMyData({
          pingfen:0,
          totalpf:5,
@@ -35,12 +39,26 @@ import {
     onMyShow() {
       var that = this;
       var orderapi = new OrderApi();
-      orderapi.orderinfo({id:this.Base.options.id},(info)=>{
+      var speList = new spelist();
+      // 订单详情
+      // orderapi.orderinfo({id:this.Base.options.id},(info)=>{
+      //   this.Base.setMyData({
+      //       info
+      //   })
+      // })
+      // 商品详情
+   
+    // 查询u规格表
+      speList.spelist({
+        id: this.Base.options.id,
+        goods_id: this.Base.options.goods_id
+      }, (info) => {
+  
         this.Base.setMyData({
-            info
-        })
-      })
-     
+          info
+        });
+  
+      });
     }
     bindpf(e){
         var id = e.currentTarget.id;
@@ -94,8 +112,9 @@ import {
         var imglist = data.imglist;
         var pingfen = data.pingfen;
         var contents = data.contents;
-        var goods_id = data.info.goods_id;
+        var goods_id = data.info[0].goods_id;
         var flag = data.flag;
+        var guigeid = data.info[0].guige[0].id;
         if(pingfen<=0){
             this.Base.toast('请给商品评分');
             return
@@ -109,10 +128,11 @@ import {
         }
         var orderapi = new OrderApi();
         orderapi.addpingjia({
-            order_id:this.Base.options.id,
+            order_id:this.Base.options.order_id,
             content:contents,
             pingfen:pingfen,
             goods_id:goods_id,
+            guigeid:guigeid,
             imglist:JSON.stringify(imglist)
         },(ret)=>{
             if(ret.code=='0'){

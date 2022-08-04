@@ -13,8 +13,8 @@
                     <view class="shijian">{{item.shijian}}</view>
                 </view>
                 <view class="height-16"></view>
+                <!-- 评分 -->
                 <image class="icon" id="{{item.pingfen}}" wx:for="{{item.pingfen-0}}" src="{{uploadpath}}resource/{{res.star2}}"></image>
-                <view class="height-16"></view>
                 <view class="pingjiacontent">
                     {{item.content}}
                 </view>
@@ -22,8 +22,23 @@
                 <view class="flex-row flex-wrap" style="gap: 43rpx;">
                     <image wx:for="{{pingjiaimg}}" wx:for-item="itemimg" wx:key="itemimg" wx:if="{{item.id == itemimg.pingjia_id}}" class="pjimg" src="{{uploadpath}}pingjia/{{itemimg.img}}"></image>
                 </view>
+                <view class="height-16"></view>
             </view>
+            <view class="cart_box">
+                <view style="shijian">
+                    <image class="cart_box_iamge" src="{{uploadpath}}mall/{{item.goods[0].cover}}" mode="widthFix" />
+                </view>
+                <view class="cart_right">
+                    <view class="cart_name">
+                      {{item.goods[0].name}}
+                    </view>  
+                    <view style="height:10rpx"></view>
+                    <view class="cart_guige">
+                    规格:   {{item.specifications_name}}
+                    </view> 
+                </view>
 
+            </view>
         </view>
     </view>
 </view>

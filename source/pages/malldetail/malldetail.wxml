@@ -22,11 +22,13 @@
     <view class="margin-top-28">
         <text class="f-26 txt-99 titele_top_main">{{info.summary}}</text>
     </view>
+    
     <view class="flex-row flex-bottom margin-top-24 titele_top_main">
         <view class="txt-c9 h6" >￥</view>
         <view class="txt-c9 h4">{{info.price}}</view>
         <view wx:if="{{info.old_price>0}}" class="h6 titele_top_main" style="color:#A1A3A6;text-decoration: line-through;">￥{{info.old_price}}</view>
     </view>
+        <view style="height:4px;background:#F5F5F5"></view>
     <!-- <view class="height-50"></view> -->
     <!-- <view class="flex-row">
         <view class="fivebox" wx:if="{{info.yunfei!=0}}">邮费￥{{info.yunfei}}</view>
@@ -45,6 +47,7 @@
         <view class="f-22 txt-99" wx:else>暂无可选优惠券</view>
         <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
     </view>
+      <view style="height:4px;background:#F5F5F5"></view>
     <!-- <view class="height-50"></view> -->
     <!-- <view class="flex-row">
         <view class="f-26" style="color:#3A3A3A;">规格</view>
@@ -54,12 +57,14 @@
     <!-- <view class="height-50"></view> -->
     <view class="flex-row flex-center titele_top_main1">
         <view class="f-26" style="color:#3A3A3A;">商品评价</view>
+      
         <view class="flex-1"></view>
         <view class="flex-row" bindtap="navigateto" id="/pages/goodspingjia/goodspingjia?goods_id={{info.id}}">
             <view class="f-22 txt-99">查看更多</view>
             <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
         </view>
     </view>
+      <view style="height:4px;background:#F5F5F5"></view>
     <view wx:if="{{info.video}}">
         <!-- <view class="height-50"></view> -->
         <view class="f-26 margin-bottom-26 titele_top_main2"  style="color:#3A3A3A;">视频</view>

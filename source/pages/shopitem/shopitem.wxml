@@ -1,0 +1,25 @@
+<view class="boxs" wx:for="{{info}}" key="{{item.id}}">
+        <view style="height:20rpx" > </view>
+        <view class="image_boxs"    >
+        <view>
+          <image src="{{uploadpath}}mall/{{item.cover}}" class="goods_img"></image>
+        </view>
+         <view class="shop_car_name">
+              <view class="shop_car_ta">
+                {{item.name}}
+              </view>
+              <view class="shop_car_tb">
+                {{item.guige[0].name}}
+                 </view>
+              <view class="shop_car_tc">
+                <view class="shop_car_tc_left">
+                  <view class="txt-c9 h6">￥</view>
+                  <view class="txt-c9 h4">{{item.guige[0].price}} </view>
+                </view>
+                <view class="shop_number" wx:if="{{item.ispingjia == ''}}">
+                    <view  class="cancelbtn" bindtap="navigateto" id="/pages/addpingjia/addpingjia?id={{item.guige[0].id}}&&goods_id={{item.guige[0].goods_id}}&&order_id={{options.id}}">去评价</view>
+              </view>
+      </view>
+      </view>
+        </view>
+</view>

@@ -1,4 +1,7 @@
 /* pages/mall/mall.wxss */
+page{
+  background-color: #F5F5F5;
+}
  .topimg{
    width: 100vw;
    height: 330rpx;
