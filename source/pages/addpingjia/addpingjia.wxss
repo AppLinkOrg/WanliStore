@@ -10,8 +10,7 @@ page{
 .uploadimg {
     width: 200rpx;
     height: 200rpx;
-    margin-right: 20rpx;
-    margin-bottom: 20rpx;
+    margin: 0 10px;
 }
 
 .pore {
@@ -110,4 +109,16 @@ page{
     text-align: center;
     font-size: 24rpx;
     color: #333333;
+}
+.pingjianeirong{
+  background-color: #F3F6F7;
+  padding: 10px;
+  border-radius: 4px; 
+  margin-top: 17px;
+}
+.pingjiacont{
+  margin-bottom: 10px;
+}
+.pingjia_top{
+  width: 100%;
 }

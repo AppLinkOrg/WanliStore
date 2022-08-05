@@ -26,7 +26,7 @@ page {
 }
 
 .shopcar_main {
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 .main_box {
@@ -36,7 +36,7 @@ page {
   margin-top: 10px;
   display: flex;
   border-radius: 10px;
-
+  
   height: 128px;
 }
 

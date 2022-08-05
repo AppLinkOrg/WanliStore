@@ -5,7 +5,7 @@
         <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
     </view>
     <view wx:else>
-        <view class="pingjiabox" wx:for="{{pingjialist}}">
+        <view class="pingjiabox" wx:for="{{pingjialist}}" bindtap="navigateto" id="/pages/pingjiaxiangqing/pingjiaxiangqing?id={{item.id}}">
             <view class="contentbox">
                 <view class="flex-row flex-center">
                     <view class="danhao">订单号：{{item.order_orderno}}</view>
@@ -19,7 +19,7 @@
                     {{item.content}}
                 </view>
                 <view class="height-16"></view>
-                <view class="flex-row flex-wrap" style="gap: 43rpx;">
+                <view class="flex-row flex-wrap" style="gap: 15rpx;">
                     <image wx:for="{{pingjiaimg}}" wx:for-item="itemimg" wx:key="itemimg" wx:if="{{item.id == itemimg.pingjia_id}}" class="pjimg" src="{{uploadpath}}pingjia/{{itemimg.img}}"></image>
                 </view>
                 <view class="height-16"></view>

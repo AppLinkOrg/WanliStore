@@ -2,7 +2,7 @@
     <view wx:if="{{(info.sendtype=='B'&&info.orderstatus=='B')}}" class="txt-33 f-36">待取货</view>
     <view wx:else class="txt-33 f-36" style="font-weight: bold;">{{info.orderstatus_name}}</view>
 </view>
-<view>
+<view style="margin-bottom: 100px;">
     <view wx:if="{{info.sendtype=='A'}}" style="margin: 20px 0px;">
 
         <view class="flex-row flex-center dizhibox" wx:if='{{info.orderstatus=="A"}}' bindtap="navigateto" id='/pages/addresslist/addresslist?chosetype=A&id={{address_id}}'>
@@ -39,7 +39,7 @@
         </view>
 
     </view>
-    <view wx:else>
+    <view style="margin-bottom: 20px;" wx:else>
 
         <view class="flex-row flex-center dizhibox" wx:if="{{info.orderstatus=='A'}}" bindtap="navigateto" id='/pages/store/store?goodsid={{info.goods_id}}&id={{store_id}}'>
 
@@ -79,7 +79,7 @@
         <view class="image_boxs" wx:if="{{info.team.length > 0}}">
             <view class="teamList" wx:for="{{info.team}}" wx:for-item="teamList" wx:key="index" >
                 <view>
-                <image  src="{{uploadpath}}mall/{{teamList.goods.cover}}" class="goods_img" bindtap="navigateto" id="/pages/malldetail/malldetail?id={{info.goods_id}}"></image>
+                <image  src="{{uploadpath}}mall/{{teamList.goods.cover}}" class="goods_img" bindtap="navigateto" id="/pages/malldetail/malldetail?id={{teamList.goods_id}}"></image>
                 </view>
               <view class="shop_car_name">
               <view class="shop_car_ta">

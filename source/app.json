@@ -46,7 +46,8 @@
     "pages/aboutus/aboutus",
     "pages/shopcar/shopcar", 
     "pages/feedback/feedback",
-    "pages/shopitem/shopitem" 
+    "pages/shopitem/shopitem" ,
+    "pages/pingjiaxiangqing/pingjiaxiangqing" 
 
   ],
   "permission": {

@@ -372,7 +372,7 @@ button[type=primary] {
 }
 
 button[type=primarys] {
-  background-color: rgba(68, 181, 73, 1);
+  /* background-color: rgba(68, 181, 73, 1); */
 }
 
 button.button-hover[type=primary] {
@@ -998,7 +998,8 @@ button[disabled][type=primary] {
   line-height: 92rpx;
   width: 520rpx;
   text-align: center;
-  background: linear-gradient(90deg, #54A475 0%, #2B533C 100%);
+  /* background: linear-gradient(90deg, #54A475 0%, #2B533C 100%); */
+  background-color: #5AA57A;
   margin-top: 268rpx;
   border-radius: 8rpx;
   color: #fff;

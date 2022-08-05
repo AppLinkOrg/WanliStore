@@ -56,8 +56,11 @@ class Content extends AppBase {
     coupon.mycoupon({
 
     },res => {
+      var keshiyonglist = res.filter(item =>{
+        return item.usesstatus == 'A'
+      })
       that.Base.setMyData({
-        couponList:res
+        couponList:keshiyonglist
       })
     })
   }

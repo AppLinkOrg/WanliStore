@@ -53,7 +53,6 @@ import {
         id: this.Base.options.id,
         goods_id: this.Base.options.goods_id
       }, (info) => {
-  
         this.Base.setMyData({
           info
         });

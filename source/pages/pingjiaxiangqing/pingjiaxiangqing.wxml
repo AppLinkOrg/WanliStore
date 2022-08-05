@@ -1,0 +1,44 @@
+<!--pages/goodspingjia/goodspingjia.wxml-->
+<view class="flex-row kongbaitips min-height-90" wx:if="{{pingjialist.length<=0}}">
+    <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+</view>
+<view class="bgf3f6f7" wx:else>
+    <view class="listbox" >
+        <view style="margin: 16px 16px 0px 16px;">
+            <view class="flex-row">
+                <view class="flex-row">
+                    <image  class="touxiang" src="{{info.member_avatarUrl}}"></image>
+                    <!-- <image class="touxiang" src="{{info.member_avatarUrl}}"></image> -->
+                    <view class="name">{{info.member_nickName}}</view>
+                </view>
+                <view class="flex-1"></view>
+                <view class="pjtime">{{info.shijian}}</view>
+            </view>
+            <view class="height-16"></view>
+            <view>
+                <image class="icon" id="{{info.pingfen}}" wx:for="{{info.pingfen-0}}" src="{{uploadpath}}resource/{{res.star2}}"></image>
+            </view>
+            <view class="pjcontent">{{info.content}}</view>
+            <view class="height-16"></view>
+            <view class="imgs_box" wx:for="{{pingjiaimg}}"  wx:key=" {{item.img}}" >
+               <!-- http://applinkupload.oss-cn-shenzhen.aliyuncs.com/alucard263096/wanlistore/pingjia/3c3480a04a5ba6d0fae251c52c12aa37_220804170701_1393166797.png -->
+                <image  class="pjimg" src="{{uploadpath}}pingjia/{{item.img}}"></image>
+            </view>
+        </view>
+         <view class="cart_box">
+                <view>
+                    <image class="cart_box_iamge" src="{{uploadpath}}mall/{{info.goods_cover}}" mode="widthFix" />
+                </view>
+                <view class="cart_right">
+                    <view class="cart_name">
+                      {{info.goods_name}}
+                    </view>  
+                    <view style="height:10rpx"></view>
+                    <view class="cart_guige">
+                    规格:   {{info.specifications_name}}
+                    </view> 
+                </view>
+            </view>
+    </view>
+    
+</view>

@@ -14,7 +14,7 @@
        <view v-if="teamList.length > 2">
           <view class="teamList1">
             <image src="{{uploadpath}}mall/{{item.team.goods[2].cover}}" class="goods_img" />
-            <view class="txtmore">+{{item.team.goods.length -2}}</view> 
+                    <view wx:if="{{ item.team.goods.length > 2}}" class="txtmore">+{{item.team.goods.length -2}}</view>
             </view>
         </view>
       </view>
