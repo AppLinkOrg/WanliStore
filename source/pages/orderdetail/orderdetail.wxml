@@ -193,9 +193,9 @@
     <view class="cancelbtn margin-right-20" bindtap="refundorder">取消订单</view>
 </view>
 
-<view class="flex-row flex-center fixbottom" wx:if="{{info.orderstatus=='C'}}">
-    <view class="flex-1"></view>
-    <view class="cancelbtn margin-right-20" bindtap="shouhuo">确认收货</view>
+<view class="flex-row flex-center fixbottom" style="float: right;" wx:if="{{info.orderstatus=='C'}}">
+    <view class="cancelbtn" >申请售后</view>
+    <view class="cancelbtn margin-right-20" style="color:#5AA57A;border:1px solid #5AA57A;wxcs_style_border:2rpx solid #5AA57A;" bindtap="shouhuo">确认收货</view>
 </view>
 <view class="flex-row flex-center fixbottom" wx:if="{{info.orderstatus=='D'}}">
     <view class="flex-1"></view>

@@ -224,7 +224,7 @@ export class AppBase {
           code: res.code,
           grant_type: "authorization_code"
         }, data => {
-          console.log(data);
+          console.log(data,'22222222222');
           AppBase.UserInfo.openid = data.openid;
           AppBase.UserInfo.session_key = data.session_key;
           AppBase.UserInfo.upmember_id = that.Base.options.fenxiao;

@@ -1,0 +1,76 @@
+page {
+    background-color: #F3F6F7;
+}
+
+.return_reason {
+    margin: 10px 10px 0px 10px;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.return_number {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.return_right {
+    display: flex;
+    align-items: center;
+}
+
+.return_mode {
+    display: flex;
+    margin: 15px 10px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.mode_name {
+    margin: 10px 0;
+
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #333333;
+}
+
+.return_beizhu {
+    margin: 10px 10px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.uploadimg {
+    width: 100px;
+    background: #FFFFFF;
+
+}
+
+.phone_box {
+    display: flex;
+    margin: 10px;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+  .bottom_btn{
+   
+    margin: 30px 10px;
+    height: 46px;
+  }
+  .btns{
+    border-radius: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
