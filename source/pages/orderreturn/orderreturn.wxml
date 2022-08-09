@@ -1,36 +1,65 @@
 <view class="orderRetrunBox">
-    <view class="return_reason">
-        <view style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #333333;">申请原因</view>
-        <view style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color:#999999;margin-top: 10px;">请您详细填写申请原因和需要申请的商品</view>
-        <!-- 商品名字 -->
-        <view style="margin-top:40px;border-bottom: 1px solid #EEEEEE;"><input style="font-size: 16px;" type="text"></input></view>
-        <view style="margin-top: 15px;">申请金额</view>
-        <view class="return_number">
-            <view class="return_left">
-            <text class="h5">¥</text><text class="h3" style="margin-left: 5px;">2323</text>
-            </view>
-            <view class="return_right">
-                <image style="height: 12px; width: 10px;margin-right:5px" src="{{uploadpath}}resource/{{res.qianbi}}" mode="widthFix" /><text style="font-size:12px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #666666;">修改金额</text>
-            </view>
-        </view>
+  <view class="return_reason">
+    <view style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #333333;">申请原因</view>
+    <view style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color:#999999;margin-top: 10px;">请您详细填写申请原因和需要申请的商品</view>
+    <!-- 商品名字 -->
+    <view style="margin-top:40px;border-bottom: 1px solid #EEEEEE;">
+      <input bindblur="goodsname" style="font-size: 16px;" type="text"></input>
     </view>
-     <view class="return_mode">
-        <!-- <view class="height-30" hover-class="none" hover-stop-propagation="false"></view> -->
-        <view class="mode_name">
-            退货方式
-        </view>
-         <view class="mode_name">
-      <text class="mode_name">自行寄回</text>  <image style="height: 12px; width: 6px;margin-left:10px;" src="{{uploadpath}}resource/{{res.orderall}}" mode="widthFix" />
-        </view>
+    <view style="margin-top: 15px;">申请金额</view>
+    <view class="return_number">
+      <view class="return_left">
+        <text class="h5">¥</text>
+        <text wx:if="{{isprice == false}}" class="h3 return_price_name">{{return_price}}</text>
+        <input class="h3 return_price_name" focus="true" bindblur="getprice" wx:else style="font-size: 48rpx;" type="text" value="{{return_price}}"></input>
+      </view>
+      <view class="return_right" bindtap="setprice">
+        <image style="height: 12px; width: 10px;margin-right:5px" src="{{uploadpath}}resource/{{res.qianbi}}" mode="widthFix" /><text style="font-size:12px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #666666;">修改金额</text>
+      </view>
     </view>
-     <view class="return_beizhu">
-        <view style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #333333;">订单备注</view>
-        <view style="margin-top:10px"><textarea placeholder="请您详细填写申请说明" style="width: 100%;" focus="{{focus}}" /></view>
-        <view style="padding: 5px;"><image src="{{uploadpath}}resource/{{res.return_img}}" class="uploadimg" mode="widthFix"></image></view></view>
-     <view class="phone_box" style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color:#333333;">
-        <text style="margin:10px 0px">联系电话</text><input style="margin-left:10px" placeholder="请输入手机号" type="number" />
+  </view>
+  <view class="return_mode">
+    <!-- <view class="height-30" hover-class="none" hover-stop-propagation="false"></view> -->
+    <view class="mode_name">
+      退货方式
     </view>
-     <view class="bottom_btn">
-        <view class="btns butcolor">提交</view>
+    <view class="mode_name" bindtap="tanc">
+      <text class="mode_name" wx:if="{{order_type == 'A'}}">自行寄回</text>
+      <text class="mode_name" wx:if="{{order_type == 'B'}}">店面返还</text>
+      <image style="height: 12px; width: 6px;margin-left:10px;" src="{{uploadpath}}resource/{{res.orderall}}" mode="widthFix" />
+    </view>
+  </view>
+  <view class="return_beizhu">
+    <view style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #333333;">订单备注</view>
+    <view style="margin-top:10px">
+      <textarea placeholder="请您详细填写申请说明" value="{{contents}}" bindinput="contentsFn" style="width: 100%;" focus="{{focus}}" />
+    </view>
+
+
+    <view style="padding: 5px;" class="returnimgs_boxs">
+      <view class="pore" wx:for="{{imglist}}" wx:key='k' wx:for-index='idx'>
+        <image src="{{uploadpath}}returnOrder/{{item.img}}" mode="widthFix" bindtap="uploadimg" id='{{idx}}' class="uploadimg"></image>
+        <image src="{{uploadpath}}resource/{{res.shanchu}}" class="shanchu" bindtap="shanchu" id="{{idx}}"></image>
+      </view>
+
+
+      <image src="{{uploadpath}}resource/{{res.return_img}}" bindtap="uploadimg" id='-1' class="uploadimg" mode="widthFix" />
+    </view>
+
+
+  </view>
+  <view class="phone_box" style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color:#333333;">
+    <text style="margin:10px 0px">联系电话</text>
+    <input bindblur="getphone" style="margin-left:10px" placeholder="请输入手机号" type="number" />
+  </view>
+  <view class="bottom_btn">
+    <view class="btns butcolor" bindtap="setordertrun">提交</view>
+  </view>
 </view>
-</view>
+<page-container show="{{show}}" position="{{position}}" duration="{{duration}}" round="{{round}}">
+  <view class="pageBox">
+    <view class="pageBox_text" wx:for="{{return_type}}" wx:key="index" data-type="{{item.type}}" bindtap="setreturn_type">
+      {{item.name}}
+    </view>
+  </view>
+</page-container>

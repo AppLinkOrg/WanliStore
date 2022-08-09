@@ -194,7 +194,8 @@
 </view>
 
 <view class="flex-row flex-center fixbottom" style="float: right;" wx:if="{{info.orderstatus=='C'}}">
-    <view class="cancelbtn" >申请售后</view>
+     <view class="cancelbtn" wx:if="{{info.shouhou.length > 0}}" bindtap="navigateto" id="/pages/orderreturndetail/orderreturndetail?shouhouid={{info.shouhou[0].id}}&&id={{info.id}}">售后详情</view> 
+   <view class="cancelbtn" wx:else bindtap="navigateto" id="/pages/orderreturn/orderreturn?id={{info.id}}&&orderno={{info.orderno}}" >申请售后</view>
     <view class="cancelbtn margin-right-20" style="color:#5AA57A;border:1px solid #5AA57A;wxcs_style_border:2rpx solid #5AA57A;" bindtap="shouhuo">确认收货</view>
 </view>
 <view class="flex-row flex-center fixbottom" wx:if="{{info.orderstatus=='D'}}">

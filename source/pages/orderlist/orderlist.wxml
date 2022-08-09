@@ -53,7 +53,10 @@
       <view class="cancelbtn" bindtap="refundorder" id="{{item.id}}">取消订单</view>
     </view>
     <view class="flex-row flex-center margin-top-30" wx:if="{{item.orderstatus=='C'}}" style="float: right;">
-     <view class="cancelbtn" bindtap="navigateto" id="/pages/orderreturn/orderreturn?id={{item.id}}" style="margin-right: 10px;" >申请售后</view>
+     <!-- wx:if="{{item.shouhou.length > 0}}" -->
+     <view class="cancelbtn"  wx:if="{{item.shouhou.length > 0}}" bindtap="navigateto" id="/pages/orderreturndetail/orderreturndetail?shouhouid={{item.shouhou[0].id}}&&id={{item.id}}" style="margin-right: 10px;" >售后详情</view> 
+     <view class="cancelbtn" wx:else bindtap="navigateto" id="/pages/orderreturn/orderreturn?id={{item.id}}&&orderno={{item.orderno}}" style="margin-right: 10px;" >申请售后</view> 
+
       <view class="cancelbtn" bindtap="shouhuo"  style="color:#5AA57A;border:1px solid #5AA57A;wxcs_style_border:2rpx solid #5AA57A;" id="{{item.id}}">确认收货</view>
     </view>
     <view class="flex-row flex-center margin-top-30" wx:if="{{item.orderstatus=='F' && item.ispingjia==''}}">

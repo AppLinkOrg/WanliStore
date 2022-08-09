@@ -87,20 +87,20 @@
           <view class="shop_car_tb">
             {{item.guige[0].name}}
           </view>
-        <view class="shop_car_tc">
-          <view class="shop_car_tc_left">
-            <view class="txt-c9 h6">￥</view>
-            <view class="txt-c9 ">{{item.price}}</view>
+          <view class="shop_car_tc">
+            <view class="shop_car_tc_left">
+              <view class="txt-c9 h6">￥</view>
+              <view class="txt-c9 ">{{item.price}}</view>
+            </view>
+            <view class="num_btn_box">
+              x{{item.mall_number}}
+            </view>
           </view>
-          <view class="num_btn_box">
-            x{{item.mall_number}}
-          </view>
-        </view>
         </view>
       </view>
-      
+
     </view>
-     <view style="padding:10px;margin: 0 10px;">
+    <view style="padding:10px;margin: 0 10px;">
       <view class="flex-row flex-center" bindtap="navigateto" id="/pages/giftcardshiyong/giftcardshiyong?goodsid={{shopList[0].id}}">
         <view class="h5 txt-33">礼品卡</view>
         <view class="flex-1"></view>

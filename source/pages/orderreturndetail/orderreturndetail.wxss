@@ -1,0 +1,182 @@
+/* pages/ordersubmit/ordersubmit.wxss */
+page{
+    background: #F3F6F7;
+}
+.margin26 {
+   margin: 48rpx 26rpx 30rpx;
+}
+.txt-44 {
+    width: 156rpx;
+    height: 60rpx;
+    color: #44B549;
+    border-radius: 30rpx;
+    line-height: 60rpx;
+    text-align: center;
+    background: #FFFFFF;
+}
+
+.dizhi {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 16rpx;
+}
+
+.righticon {
+    width: 28rpx;
+    height: 28rpx;
+    margin-left: 16rpx;
+}
+.dizhibox {
+    margin: 0 22rpx 0 26rpx;
+    padding: 22rpx 16rpx 28rpx 24rpx;
+    background: #FFFFFF;
+    border-radius: 12rpx;
+    margin-bottom: 15px;
+}
+.goods {
+    margin:0px 24rpx;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+}
+.cover {
+    width: 108rpx;
+    height: 108rpx;
+}
+.cbox {
+    width: 96rpx;
+    height: 32rpx;
+    background-size: 100% 100%;
+    font-size: 22rpx;
+    color: #FFFFFF;
+    margin-left: 20rpx;
+    line-height: 32rpx;
+    text-align: center;
+}
+.total {
+    margin: 0 30rpx;
+    background-color: #FFFFFF;
+    padding: 10px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+}
+.margin-top-24 {
+    margin-top: 24rpx;
+}
+.txt-fc {
+    color: #FC0000;
+}
+.fixbottom {
+    width: 100vw;
+    padding: 20rpx 0;
+    background: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    justify-content:flex-end;
+}
+.margin-left-24 {
+    margin-left: 24rpx;
+}
+.ziti {
+    padding: 2rpx 4rpx;
+    background: #44B549;
+    border-radius: 2rpx;
+    color: #FFFFFF;
+    font-size: 20rpx;
+    margin-right: 8rpx;
+}
+.xgbtn {
+    width: 148rpx;
+    height: 54rpx;
+    border-radius: 27rpx;
+    border: 2rpx solid #333333;
+    line-height: 54rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #333333;
+}
+.cancelbtn {
+    width: 148rpx;
+    height: 54rpx;
+    border-radius: 27rpx;
+    border: 2rpx solid #333333;
+    line-height: 54rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #333333;
+    margin-left: 32rpx;
+}
+.paybtn {
+    width: 124rpx;
+    height: 54rpx;
+    border-radius: 27rpx;
+    border: 2rpx solid #44B549;
+    line-height: 54rpx;
+    text-align: center;
+    color: #44B549;
+    font-size: 24rpx;
+    margin-left: 32rpx;
+    margin-right: 24rpx;
+}
+.image_boxs{
+    display: flex;
+    flex-direction: column;
+}
+.goods_img{
+    width: 144rpx;
+    height: 144rpx;
+}
+.teamList{
+    display: flex;
+    margin: 10px 0;
+}
+.shop_car_name {
+    height: 80%;
+    width: 70%;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .shop_car_ta {
+    font-size: 14px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #454954;
+    line-height: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .shop_car_tb {
+  
+    height: 24px;
+    
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #a8a4a4;
+   
+  }
+  
+  .shop_car_tc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .shop_car_tc_left {
+    display: flex;
+    align-items: center;
+  }
+  .shop_number{
+    font-size: 14px;
+    color: #464040;
+  }

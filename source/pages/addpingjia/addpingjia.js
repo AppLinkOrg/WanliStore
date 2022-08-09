@@ -81,6 +81,7 @@ import {
         var imglist = this.Base.getMyData().imglist;
         // 将图片上传到服务器对应的文件夹里面
         this.Base.uploadImage('pingjia',(ret)=>{
+          console.log(ret,'55555555');
             if(id>=0){
                 imglist[id].img=ret;
             }else {
@@ -154,7 +155,8 @@ import {
             }else {
                 this.Base.toast(ret.result);
             }
-        },300)
+        
+          },300)
     }
   }
   var content = new Content();

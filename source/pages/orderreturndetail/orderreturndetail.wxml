@@ -1,0 +1,107 @@
+<view class="margin26">
+  <!-- <view wx:if="{{(info.sendtype=='B'&&info.orderstatus=='B')}}" class="txt-33 f-36">待取货</view>
+    <view wx:else class="txt-33 f-36" style="font-weight: bold;">{{info.orderstatus_name}}</view> -->
+  <view class="txt-33" wx:if="{{info.shouhou[0].orderstatus == 'A'}}" style="font-size:18px;font-family:PingFangSC-Medium, PingFang SC;font-weight:500;color: #333333;">等待商家处理</view>
+   <view class="txt-33" wx:else-if="{{info.shouhou[0].orderstatus == 'B'}}" style="font-size:18px;font-family:PingFangSC-Medium, PingFang SC;font-weight:500;color: #333333;">请寄回商品</view>
+</view>
+<view style="margin-bottom: 100px;">
+<!-- 状态改变 -->
+  <view wx:if="{{info.shouhou[0].orderstatus == 'A'}}" style="margin: 10px 0px;"></view>
+  <!-- 商品详情 -->
+    <view class="goods">
+    <view style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;">
+        申请信息
+    </view>
+      <view class="image_boxs" wx:if="{{info.team.length > 0}}">
+        <view class="teamList" wx:for="{{info.team}}" wx:for-item="teamList" wx:key="index">
+          <view>
+            <image src="{{uploadpath}}mall/{{teamList.goods.cover}}" class="goods_img" bindtap="navigateto" id="/pages/malldetail/malldetail?id={{teamList.goods_id}}"></image>
+          </view>
+          <view class="shop_car_name">
+            <view class="shop_car_ta">
+              {{teamList.goods.name}}
+            </view>
+            <view class="shop_car_tb">
+              {{teamList.goods.guige.name}}
+            </view>
+            <view class="shop_car_tc">
+              <view class="shop_car_tc_left">
+                <view class="txt-c9 h6">￥</view>
+                <view class="txt-c9 h4">{{teamList.goods.guige.price}}</view>
+              </view>
+              <view class="shop_number">
+                x{{teamList.num}}
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- <image src="{{uploadpath}}mall/{{info.goods_cover}}" class="cover" bindtap="navigateto" id="/pages/malldetail/malldetail?id={{info.goods_id}}"></image> -->
+      </view>
+      <view class="image_boxs" wx:else>
+        <view class="teamList" hover-class="none" hover-stop-propagation="false">
+
+          <view>
+            <image src="{{uploadpath}}mall/{{info.goods_cover}}" class="cover" bindtap="navigateto" id="/pages/malldetail/malldetail?id={{info.goods_id}}"></image>
+          </view>
+          <view class="shop_car_name">
+            <view class="shop_car_ta">
+              {{info.goods_name}}
+            </view>
+            <view class="shop_car_tb">
+              {{teamList.goods.guige.name}}
+            </view>
+            <view class="shop_car_tc">
+              <view class="shop_car_tc_left">
+                <view class="txt-c9 h6">￥</view>
+                <view class="txt-c9 h4">{{info.price}}</view>
+              </view>
+              <view class="shop_number">
+                x1
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="height-70"></view>
+    <view class="total">
+      <view class="flex-row flex-center">
+        <view class="h5 txt-33">订单编号</view>
+        <view class="flex-1"></view>
+        <view class="h5" style="color:#888888;">{{info.orderno}}</view>
+      </view>
+      <view class="flex-row flex-center margin-top-24">
+        <view class="h5 txt-33">申请原因</view>
+        <view class="flex-1"></view>
+        <view class="h5" style="color:#888888;">{{info.shouhou[0].goods_id}}</view>
+
+      </view>
+      <view class="flex-row flex-center margin-top-24">
+        <view class="h5 txt-33">申请金额</view>
+        <view class="flex-1"></view>
+        <view class="h5" style="color:#888888;">¥{{info.shouhou[0].price}}</view>
+      </view>
+      <view class="flex-row flex-center margin-top-24">
+        <view class="h5 txt-33">退货方式</view>
+        <view class="flex-1"></view>
+        <view wx:if="{{info.shouhou[0].returntype == 'A'}}" class="h5" style="color:#888888;">自行寄回</view>
+        <view wx:else class="h5" style="color:#888888;">店铺返还</view>
+      </view>
+      <view class="flex-row flex-center margin-top-24">
+        <view class="h5 txt-33">申请时间</view>
+        <view class="flex-1"></view>
+        <view class="h5" style="color:#888888;">{{info.shouhou[0].submit_time}}</view>
+      </view>
+      <view class="flex-row flex-center margin-top-24">
+        <view class="h5 txt-33">订单备注</view>
+        <view class="flex-1"></view>
+        <view class="h5" style="color:#888888;">{{info.shouhou[0].beizhu}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="flex-row flex-center fixbottom" style="float: right;" wx:if="{{info.orderstatus=='C'}}">
+    <view class="cancelbtn" wx:if="{{info.shouhou.length > 0}}" bindtap="navigateto" id="/pages/orderreturn/orderreturn?id={{item.id}}&&orderno={{item.orderno}}">撤销申请</view>
+    <view class="cancelbtn margin-right-20" style="color:#5AA57A;border:1px solid #5AA57A;wxcs_style_border:2rpx solid #5AA57A;" bindtap="shouhuo">修改申请</view>
+  </view>
