@@ -1,12 +1,50 @@
 <view class="margin26">
   <!-- <view wx:if="{{(info.sendtype=='B'&&info.orderstatus=='B')}}" class="txt-33 f-36">待取货</view>
     <view wx:else class="txt-33 f-36" style="font-weight: bold;">{{info.orderstatus_name}}</view> -->
-  <view class="txt-33" wx:if="{{info.shouhou[0].orderstatus == 'A'}}" style="font-size:18px;font-family:PingFangSC-Medium, PingFang SC;font-weight:500;color: #333333;">等待商家处理</view>
-   <view class="txt-33" wx:else-if="{{info.shouhou[0].orderstatus == 'B'}}" style="font-size:18px;font-family:PingFangSC-Medium, PingFang SC;font-weight:500;color: #333333;">请寄回商品</view>
+    <!-- 自行寄回 -->
+  <view wx:if="{{info.shouhou[0].returntype == 'A'}}">  
+  <view class="txt-33" wx:if="{{info.shouhou[0].orderstatus == 'A'}}"  class="title_name">等待商家处理</view>
+  <view class="txt-33" wx:elif="{{info.shouhou[0].orderstatus == 'B'}}"  class="title_name">请寄回商品</view>
+  <view class="txt-33" wx:elif="{{info.shouhou[0].orderstatus == 'C'}}"  class="title_name">审核未通过,请联系商家</view>
+  <view class="txt-33" wx:elif="{{info.shouhou[0].orderstatus == 'D'}}"  class="title_name">已寄回，等待商家处理</view>
+  </view>
+  <!-- 店面返还 -->
+  <view wx:elif="{{info.shouhou[0].returntype == 'B'}}">
+    <view class="txt-33" wx:if="{{info.shouhou[0].orderstatus == 'A'}}"   class="title_name">等待商家处理</view>
+    <view class="txt-33" wx:elif="{{info.shouhou[0].orderstatus == 'B'}}" class="title_name">请返还商品</view>
+    <view class="txt-33" wx:elif="{{info.shouhou[0].orderstatus == 'C'}}" class="title_name">审核未通过,请联系商家</view>
+    <view class="txt-33" wx:elif="{{info.shouhou[0].orderstatus == 'E'}}" class="title_name">已返还，等待商家处理</view>
+  </view>
 </view>
 <view style="margin-bottom: 100px;">
 <!-- 状态改变 -->
-  <view wx:if="{{info.shouhou[0].orderstatus == 'A'}}" style="margin: 10px 0px;"></view>
+  <view wx:if="{{info.shouhou[0].orderstatus == 'B'}}" style="margin: 10px;">
+    <!-- 退货地址 -->
+    <view class="address_box">
+    <view wx:if="{{info.shouhou[0].returntype == 'A'}}" style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;">
+      退货地址      
+    </view>
+    <view wx:elif="{{info.shouhou[0].returntype == 'B'}}" style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;">
+      返还门店      
+    </view>
+    <view class="address_main" >
+      <view class="address_top" style="display:flex">{{info.shouhou[0].address_name}} 
+      <text style="margin-left: 15px;" class="address_tops">{{info.shouhou[0].address_phone}}</text>
+      <view class="flex-1"></view>
+        <view class="address_tops fuzhi" bindtap="fuzhi">复制</view>
+      </view>
+      <view class="address_bottom">
+        {{info.shouhou[0].address}}
+      </view>
+    </view>
+      <view wx:if="{{info.shouhou[0].returntype == 'A'}}" class="gotokuaidi" bindtap="navigateto" id="/pages/kuaididanhao/kuaididanhao?id={{info.shouhou[0].id}}&&returntype={{info.shouhou[0].returntype}}">
+        填写快递信息
+      </view>
+    <view wx:elif="{{info.shouhou[0].returntype == 'B'}}" class="gotokuaidi" bindtap="getupdataorder" data-id="{{info.shouhou[0].id}}" data-orderstatus="{{info.shouhou[0].orderstatus}}">
+        我已返还
+      </view>
+    </view>
+  </view>
   <!-- 商品详情 -->
     <view class="goods">
     <view style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;">
@@ -98,10 +136,25 @@
         <view class="flex-1"></view>
         <view class="h5" style="color:#888888;">{{info.shouhou[0].beizhu}}</view>
       </view>
+      <view class="flex-row flex-center margin-top-24">
+        <view class="h5 txt-33">联系电话</view>
+        <view class="flex-1"></view>
+        <view class="h5" style="color:#888888;">{{info.shouhou[0].member_phone}}</view>
+      </view>
     </view>
   </view>
 
-  <view class="flex-row flex-center fixbottom" style="float: right;" wx:if="{{info.orderstatus=='C'}}">
+  <view class="flex-row flex-center fixbottom" style="float: right;" wx:if="{{info.shouhou[0].orderstatus == 'C'}}">
     <view class="cancelbtn" wx:if="{{info.shouhou.length > 0}}" bindtap="navigateto" id="/pages/orderreturn/orderreturn?id={{item.id}}&&orderno={{item.orderno}}">撤销申请</view>
     <view class="cancelbtn margin-right-20" style="color:#5AA57A;border:1px solid #5AA57A;wxcs_style_border:2rpx solid #5AA57A;" bindtap="shouhuo">修改申请</view>
   </view>
+   <view class="flex-row flex-center fixbottom" style="float: right;" wx:if="{{info.shouhou[0].orderstatus == 'B'}}">
+    <view class="cancelbtn" wx:if="{{info.shouhou.length > 0}}" style="margin-right: 10px;" bindtap="navigateto" id="/pages/orderreturn/orderreturn?id={{item.id}}&&orderno={{item.orderno}}">撤销申请</view>
+ 
+  </view>
+     <view class="flex-row flex-center fixbottom" style="float: right;" wx:if="{{info.shouhou[0].orderstatus == 'A'}}">
+     <view class="cancelbtn" wx:if="{{info.shouhou.length > 0}}" bindtap="navigateto" id="/pages/orderreturn/orderreturn?id={{item.id}}&&orderno={{item.orderno}}">撤销申请</view>
+    <view class="cancelbtn margin-right-20" style="color:#5AA57A;border:1px solid #5AA57A;wxcs_style_border:2rpx solid #5AA57A;" bindtap="shouhuo">修改申请</view>
+  </view>
+  
+

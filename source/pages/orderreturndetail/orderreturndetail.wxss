@@ -1,10 +1,12 @@
 /* pages/ordersubmit/ordersubmit.wxss */
-page{
+page {
     background: #F3F6F7;
 }
+
 .margin26 {
-   margin: 48rpx 26rpx 30rpx;
+    margin: 48rpx 26rpx 30rpx;
 }
+
 .txt-44 {
     width: 156rpx;
     height: 60rpx;
@@ -26,6 +28,7 @@ page{
     height: 28rpx;
     margin-left: 16rpx;
 }
+
 .dizhibox {
     margin: 0 22rpx 0 26rpx;
     padding: 22rpx 16rpx 28rpx 24rpx;
@@ -33,18 +36,21 @@ page{
     border-radius: 12rpx;
     margin-bottom: 15px;
 }
+
 .goods {
-    margin:0px 24rpx;
+    margin: 0px 24rpx;
     display: flex;
     flex-direction: column;
     background: #FFFFFF;
     border-radius: 10px;
     padding: 10px;
 }
+
 .cover {
     width: 108rpx;
     height: 108rpx;
 }
+
 .cbox {
     width: 96rpx;
     height: 32rpx;
@@ -55,6 +61,7 @@ page{
     line-height: 32rpx;
     text-align: center;
 }
+
 .total {
     margin: 0 30rpx;
     background-color: #FFFFFF;
@@ -62,12 +69,15 @@ page{
     margin-bottom: 100px;
     border-radius: 10px;
 }
+
 .margin-top-24 {
     margin-top: 24rpx;
 }
+
 .txt-fc {
     color: #FC0000;
 }
+
 .fixbottom {
     width: 100vw;
     padding: 20rpx 0;
@@ -76,11 +86,13 @@ page{
     bottom: 0;
     left: 0;
     z-index: 10;
-    justify-content:flex-end;
+    justify-content: flex-end;
 }
+
 .margin-left-24 {
     margin-left: 24rpx;
 }
+
 .ziti {
     padding: 2rpx 4rpx;
     background: #44B549;
@@ -89,6 +101,7 @@ page{
     font-size: 20rpx;
     margin-right: 8rpx;
 }
+
 .xgbtn {
     width: 148rpx;
     height: 54rpx;
@@ -99,6 +112,7 @@ page{
     font-size: 24rpx;
     color: #333333;
 }
+
 .cancelbtn {
     width: 148rpx;
     height: 54rpx;
@@ -110,6 +124,7 @@ page{
     color: #333333;
     margin-left: 32rpx;
 }
+
 .paybtn {
     width: 124rpx;
     height: 54rpx;
@@ -122,28 +137,32 @@ page{
     margin-left: 32rpx;
     margin-right: 24rpx;
 }
-.image_boxs{
+
+.image_boxs {
     display: flex;
     flex-direction: column;
 }
-.goods_img{
+
+.goods_img {
     width: 144rpx;
     height: 144rpx;
 }
-.teamList{
+
+.teamList {
     display: flex;
     margin: 10px 0;
 }
+
 .shop_car_name {
     height: 80%;
     width: 70%;
     margin-left: 20px;
     display: flex;
     flex-direction: column;
-    
-  }
-  
-  .shop_car_ta {
+
+}
+
+.shop_car_ta {
     font-size: 14px;
     font-family: PingFangSC-Semibold, PingFang SC;
     font-weight: 600;
@@ -152,31 +171,118 @@ page{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-  
-  .shop_car_tb {
-  
+}
+
+.shop_car_tb {
+
     height: 24px;
-    
+
     border-radius: 4px;
     font-size: 14px;
     font-family: PingFangSC-Regular, PingFang SC;
     font-weight: 400;
     color: #a8a4a4;
-   
-  }
-  
-  .shop_car_tc {
+
+}
+
+.shop_car_tc {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  
-  .shop_car_tc_left {
+}
+
+.shop_car_tc_left {
     display: flex;
     align-items: center;
-  }
-  .shop_number{
+}
+
+.shop_number {
     font-size: 14px;
     color: #464040;
-  }
+}
+
+.address_box {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.address_main {
+
+    margin: 20px 0px;
+
+    background: #F3F6F7;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.address_top {
+
+
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #666666;
+    margin: 20px 0px 10px 15px;
+}
+
+.address_tops {
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #666666;
+
+}
+
+.address_bottom {
+    display: flex;
+    flex-wrap: wrap;
+
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #666666;
+    margin: 15px 10px 20px 15px;
+}
+
+.gotokuaidi {
+    width: 100%;
+    height: 46px;
+    border-radius: 4px;
+    border: 1px solid #5AA57A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #5AA57A;
+
+}
+
+.title_name {
+    font-size: 18px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: bold;
+    color: #333333;
+}
+
+.fuzhi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    border: 1px solid #5AA57A;
+    width: 25px;
+    height: 17px;
+    font-size: 10px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #5AA57A;
+    line-height: 14px;
+    margin-right: 10px;
+}

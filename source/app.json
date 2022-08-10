@@ -49,7 +49,8 @@
     "pages/shopitem/shopitem" ,
     "pages/pingjiaxiangqing/pingjiaxiangqing" ,
     "pages/orderreturn/orderreturn" ,
-    "pages/orderreturndetail/orderreturndetail" 
+    "pages/orderreturndetail/orderreturndetail",
+    "pages/kuaididanhao/kuaididanhao" 
 
   ],
   "permission": {

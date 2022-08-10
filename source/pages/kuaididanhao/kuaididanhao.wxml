@@ -1,0 +1,25 @@
+<view>
+  <view class="order_title">
+    请填写寄件信息，并认真核对
+  </view>
+  <view class="input_box">
+    <view class="input_main">
+      <view class="main_name">
+        快递公司
+      </view>
+      <view class="main_name">
+        <input bindblur="getkuaidi" style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;" type="text" value="" placeholder="请输入快递公司名称" />
+      </view>
+
+    </view>
+    <view class="main_name">
+      快递单号
+    </view>
+    <view class="main_name">
+      <input bindblur="getorder" style="font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;" type="text" value="" placeholder="请输入快递单号" />
+    </view>
+  </view>
+  <view class="flex-row flex-column fixbottom">
+  <view class="btns butcolor" bindtap="sumitBtn">提交</view>
+</view>
+</view>
