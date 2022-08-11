@@ -51,10 +51,13 @@ class Content extends AppBase {
       order_type: 'A',
       contents: '',
       imglist: [],
+      return_name:'',
       order_id: this.Base.options.id,
-      orderno: this.Base.options.orderno
+      orderno: this.Base.options.orderno,
+      
+      xiugai: this.Base.options.xiugai
     })
-    console.log(this.Base.options.id, this.Base.options.orderno, '我在这呢,总订单id');
+    console.log(this.Base.options.id, this.Base.options.orderno, this.Base.options.xiugai, '我在这呢,总订单id');
   }
   onMyShow() {
     var that = this;
@@ -62,11 +65,8 @@ class Content extends AppBase {
   }
   // 获取名称
   goodsname(e) {
-    console.log(e);
-    let name = e.detail.value;
-    console.log(name);
     this.Base.setMyData({
-      return_name: name
+      return_name: e.detail.value
     })
   }
   // 修改金额
@@ -156,6 +156,7 @@ class Content extends AppBase {
     let price = data.return_price;
     let beizhu = data.contents;
     let imglist = data.imglist;
+    let primary_id = data.xiugai;
     var pattern = /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/
 
 
@@ -175,28 +176,52 @@ class Content extends AppBase {
       this.Base.toast('请输入正确的手机号码');
       return
     }
+    if (primary_id == 1) {
+      orderapi.amendedpetition({
+        orderno_id,
+        member_phone,
+        returntype: return_type,
+        goods_id,
+        price,
+        beizhu,
+        orderno,
+        imglist: JSON.stringify(imglist)
+      }, res => {
+        console.log(res);
+        if (res.code == '0') {
+          this.Base.toast('提交成功')
+          wx.navigateBack({
+            delta: 1,
+          })
+        } else {
+          this.Base.toast(res.result);
+        }
 
-    orderapi.addreturunorder({
-      orderno_id,
-      member_phone,
-      returntype: return_type,
-      goods_id,
-      price,
-      beizhu,
-      orderno,
-      imglist: JSON.stringify(imglist)
-    }, res => {
-      console.log(res);
-      if (res.code == '0') {
-        this.Base.toast('提交成功')
-        wx.navigateBack({
-          delta: 1,
-        })
-      } else {
-        this.Base.toast(res.result);
-      }
+      })
+    } else {
 
-    })
+      orderapi.addreturunorder({
+        orderno_id,
+        member_phone,
+        returntype: return_type,
+        goods_id,
+        price,
+        beizhu,
+        orderno,
+        imglist: JSON.stringify(imglist)
+      }, res => {
+        console.log(res);
+        if (res.code == '0') {
+          this.Base.toast('提交成功')
+          wx.navigateBack({
+            delta: 1,
+          })
+        } else {
+          this.Base.toast(res.result);
+        }
+
+      })
+    }
 
 
   }

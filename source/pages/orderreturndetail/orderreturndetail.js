@@ -99,7 +99,6 @@ class Content extends AppBase {
     var data = this.Base.getMyData();
     wx.setClipboardData({
       data: data.info.shouhou[0].address,
-      
       success (res) {
         // wx.getClipboardData({
         //   success (res) {
@@ -110,6 +109,27 @@ class Content extends AppBase {
       }
     })
   }
+
+  // 撤销申请
+  delectoreder (e) {
+    var orderapi = new OrderApi();
+    console.log(e);
+    let id =e.currentTarget.dataset.id
+    orderapi.delectreturnorder({
+      idlist:id
+    },res => {
+      console.log(res);
+      if (res.code == 0) {
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        })
+        this.onMyShow();
+      }
+    })
+  }
+
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -121,4 +141,5 @@ body.cancelorder = content.cancelorder;
 body.refundorder = content.refundorder;
 body.getupdataorder = content.getupdataorder;
 body.fuzhi = content.fuzhi;
+body.delectoreder = content.delectoreder;
 Page(body)

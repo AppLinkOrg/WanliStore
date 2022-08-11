@@ -1,17 +1,18 @@
 <view class="orderRetrunBox">
   <view class="return_reason">
     <view style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #333333;">申请原因</view>
-    <view style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color:#999999;margin-top: 10px;">请您详细填写申请原因和需要申请的商品</view>
+    <!-- <view style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color:#999999;margin-top: 10px;">请您详细填写申请原因和需要申请的商品</view> -->
     <!-- 商品名字 -->
-    <view style="margin-top:40px;border-bottom: 1px solid #EEEEEE;">
-      <input bindblur="goodsname" style="font-size: 16px;" type="text"></input>
+    <view style="margin-top:15px;border-bottom: 1px solid #EEEEEE;">
+      <!-- <input bindblur="goodsname" style="font-size: 16px;" type="text"></input> -->
+        <textarea placeholder="请您详细填写申请原因和需要申请的商品" value="{{return_name}}" bindinput="goodsname" style="width: 100%;" focus="{{focus}}" />
     </view>
     <view style="margin-top: 15px;">申请金额</view>
     <view class="return_number">
       <view class="return_left">
         <text class="h5">¥</text>
         <text wx:if="{{isprice == false}}" class="h3 return_price_name">{{return_price}}</text>
-        <input class="h3 return_price_name" focus="true" bindblur="getprice" wx:else style="font-size: 48rpx;" type="text" value="{{return_price}}"></input>
+        <input class="h3 return_price_name" focus="true" bindblur="getprice" wx:else style="font-size: 48rpx;" type="digit" value="{{return_price}}"></input>
       </view>
       <view class="return_right" bindtap="setprice">
         <image style="height: 12px; width: 10px;margin-right:5px" src="{{uploadpath}}resource/{{res.qianbi}}" mode="widthFix" /><text style="font-size:12px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #666666;">修改金额</text>
@@ -36,9 +37,9 @@
     </view>
 
 
-    <view style="padding: 5px;" class="returnimgs_boxs">
+    <view class="returnimgs_boxs">
       <view class="pore" wx:for="{{imglist}}" wx:key='k' wx:for-index='idx'>
-        <image src="{{uploadpath}}returnOrder/{{item.img}}" mode="widthFix" bindtap="uploadimg" id='{{idx}}' class="uploadimg"></image>
+        <image src="{{uploadpath}}returnOrder/{{item.img}}" mode="widthFix" bindtap="uploadimgs" id='{{idx}}' class="uploadimg"></image>
         <image src="{{uploadpath}}resource/{{res.shanchu}}" class="shanchu" bindtap="shanchu" id="{{idx}}"></image>
       </view>
 
