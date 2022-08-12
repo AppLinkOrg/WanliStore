@@ -1,160 +1,172 @@
 <view style="background-image:url({{uploadpath}}resource/{{res.my_topimg}})" class="topbox ">
-    <view class="h174"></view>
-    <view class="flex-row flex-center padding36">
+  <view class="h174"></view>
+  <view class="flex-row flex-center padding36">
 
-        <!-- 获取头像和昵称 -->
-        <button open-type="getUserInfo" class="clear-button " hover-class="none" bindtap="bindgetUserProfile">
-            <view class="touxiang" wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.avatarUrl=='')}}"></view>
-            <image src="{{memberinfo.avatarUrl}}" class="touxiang" wx:else></image>
+    <!-- 获取头像和昵称 -->
+    <button open-type="getUserInfo" class="clear-button " hover-class="none" bindtap="bindgetUserProfile">
+      <view class="touxiang" wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.avatarUrl=='')}}"></view>
+      <image src="{{memberinfo.avatarUrl}}" class="touxiang" wx:else></image>
+    </button>
+    <view class="flex-1">
+      <view class="flex-row flex-center">
+        <button open-type="getPhoneNumber" class="clear-button " hover-class="none" wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.mobile=='')}}" bindgetphonenumber="getPhoneNo">
+          <view class="txt-white h4 margin-left-16">点击授权手机号</view>
         </button>
-        <view class="flex-1">
-            <view class="flex-row flex-center">
-                <button open-type="getPhoneNumber" class="clear-button " hover-class="none" wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.mobile=='')}}" bindgetphonenumber="getPhoneNo">
-                    <view class="txt-white h4 margin-left-16">点击授权手机号</view>
-                </button>
-                <view wx:else class="txt-white h4 margin-left-16">{{memberinfo.mobile}}</view>
-                <view class="flex-1"></view>
-                <view class="jifen">积分：0</view>
-            </view>
+        <view wx:else class="txt-white h4 margin-left-16">{{memberinfo.mobile}}</view>
+        <view class="flex-1"></view>
+        <view class="jifen">积分：0</view>
+      </view>
 
-            <view class="flex-row flex-center">
-                <view class="txt-white h5">ID:{{memberinfo.id}}</view>
-                <view class="tuijianren"></view>
-                <view class="h7 txt-white">推荐人</view>
-            </view>
-
-        </view>
+      <view class="flex-row flex-center">
+        <view class="txt-white h5">ID:{{memberinfo.id}}</view>
+        <view class="tuijianren"></view>
+        <view class="h7 txt-white">推荐人</view>
+      </view>
 
     </view>
+
+  </view>
 </view>
 
-<scroll-view scroll-y="true" class="scrollbox" >
-    <!-- style="height:{{globalData.hh-199}}px;" -->
-    <!-- <view class="shouyi flex-row flex-center" bindtap="navigateto" id="/pages/myshouyi/myshouyi">
+<scroll-view scroll-y="true" class="scrollbox">
+  <!-- style="height:{{globalData.hh-199}}px;" -->
+  <!-- <view class="shouyi flex-row flex-center" bindtap="navigateto" id="/pages/myshouyi/myshouyi">
         <view class="h5 txt-white">我的收益：￥{{totleamount}}</view>
         <view class="flex-1"></view>
         <view class="h6 " style="color:#EBEBEB;">查看更多</view>
     </view> -->
 
-    <view class="mybox">
-        <view class="height-90"></view>
-        <view class="orderbox">
-            <view class="flex-row flex-center quanbu">
-                <view class="f32 txt-33">我的订单</view>
-                <view class="flex-1"></view>
-                <view class="flex-row flex-center" bindtap="navigateto" id="/pages/orderlist/orderlist">
-                    <view class="f-24 txt-99">全部</view>
-                    <view class="width-8"></view>
-                    <image src="{{uploadpath}}resource/{{res.orderall}}" mode="widthFix" class="icon-5"></image>
-                </view>
-
-            </view>
-
-            <view class="flex-row flex-center">
-                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/orderlist/orderlist?type=A">
-                    <image src="{{uploadpath}}resource/{{res.orderA}}" mode="widthFix" class="ordericon"></image>
-                    <view class="txt-66 h6">待付款</view>
-                </view>
-                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/orderlist/orderlist?type=B">
-                    <image src="{{uploadpath}}resource/{{res.orderB}}" mode="widthFix" class="ordericon"></image>
-                    <view class="txt-66 h6">待发货</view>
-                </view>
-                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/orderlist/orderlist?type=C">
-                    <image src="{{uploadpath}}resource/{{res.orderC}}" mode="widthFix" class="ordericon"></image>
-                    <view class="txt-66 h6">待收货</view>
-                </view>
-                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/refundlist/refundlist">
-                    <image src="{{uploadpath}}resource/{{res.orderT}}" mode="widthFix" class="ordericon"></image>
-                    <view class="txt-66 h6">待取货</view>
-                </view>
-            </view>
-
+  <view class="mybox">
+    <view class="height-90"></view>
+    <view class="orderbox">
+      <view class="flex-row flex-center quanbu">
+        <view class="f32 txt-33">我的订单</view>
+        <view class="flex-1"></view>
+        <view class="flex-row flex-center" bindtap="navigateto" id="/pages/orderlist/orderlist">
+          <view class="f-24 txt-99">全部</view>
+          <view class="width-8"></view>
+          <image src="{{uploadpath}}resource/{{res.orderall}}" mode="widthFix" class="icon-5"></image>
         </view>
 
-        <view class="lipin" bindtap="navigateto" id="/pages/giftcards/giftcards">
-            <view class="txt-33" style="font-weight: 350;margin-bottom:4rpx;">我的礼品卡</view>
-            <view class="txt-66 h6">来自桃花江美人窝的羞美人面</view>
-            <image src="{{uploadpath}}resource/{{res.mylipinka}}" class="lipinka"></image>
-        </view>
+      </view>
 
-        <view class="flex-row flex-center ">
-            <view class="timian flex-1" bindtap="navigateto" id="/pages/buygiftcards/buygiftcards">
-                <view class="">购礼品卡</view>
-                <view class="txt-66 h6">新鲜日期工厂直发</view>
-                <image src="{{uploadpath}}resource/{{res.mytimian}}" class="mytimian"></image>
-            </view>
-            <view class="pinjian flex-1" bindtap="navigateto" id="/pages/activitylist/activitylist">
-                <view class="">品鉴活动</view>
-                <view class="txt-66 h6">羞美人线下品鉴会报名</view>
-                <image src="{{uploadpath}}resource/{{res.mypinjian}}" class="mypinjian"></image>
-            </view>
+      <view class="flex-row flex-center">
+        <view class="flex-1 flex-row flex-column c" bindtap="navigateto" id="/pages/orderlist/orderlist?type=A">
+          <view class="view_qipao" wx:if="{{fukuan.length >0}}">
+            <text class="text_qipao">{{fukuan.length}}</text>
+          </view>
+          <image src="{{uploadpath}}resource/{{res.orderA}}" mode="widthFix" class="ordericon"></image>
+          <view class="txt-66 h6">待付款</view>
         </view>
-        <view class="flex-row flex-column" bindtap="tourl">
-            <image src="{{uploadpath}}resource/{{res.myimg}}" class="myimg"></image>
+        <view class="flex-1 flex-row flex-column c" bindtap="navigateto" id="/pages/orderlist/orderlist?type=B">
+          <view class="view_qipao" wx:if="{{fahuo.length >0}}">
+            <text class="text_qipao">{{fahuo.length}}</text>
+          </view>
+          <image src="{{uploadpath}}resource/{{res.orderB}}" mode="widthFix" class="ordericon"></image>
+          <view class="txt-66 h6">待发货</view>
         </view>
-        <view class="fuwu">
-            <view class="txt-33" style="font-weight: 350;">会员服务</view>
-            <view class="height-40"></view>
-            <view class="flex-row flex-center">
-                <view class="flex-1 flex-row flex-column" bindtap="notdata">
-                    <image src="{{uploadpath}}resource/{{res.jifenshangcheng}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">积分商城</view>
-                </view>
-                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/addresslist/addresslist">
-                    <image src="{{uploadpath}}resource/{{res.dizhiguanli}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">地址管理</view>
-                </view>
-                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/myactivity/myactivity?type=A">
-                    <image src="{{uploadpath}}resource/{{res.activity}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">我的活动</view>
-                </view>               
-                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/mycoupon/mycoupon?type=A">
-                    <image src="{{uploadpath}}resource/{{res.youhuiquan}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">优惠券</view>
-                </view>
+        <view class="flex-1 flex-row flex-column c" bindtap="navigateto" id="/pages/orderlist/orderlist?type=C">
+          <view class="view_qipao" wx:if="{{shouhuo.length >0}}">
+            <text class="text_qipao">{{shouhuo.length}}</text>
+          </view>
+          <image src="{{uploadpath}}resource/{{res.orderC}}" mode="widthFix" class="ordericon"></image>
+          <view class="txt-66 h6">待收货</view>
+        </view>
+        <view class="flex-1 flex-row flex-column c" bindtap="navigateto" id="/pages/refundlist/refundlist">
+          <view class="view_qipao" wx:if="{{qukuo.length >0}}">
+            <text class="text_qipao">{{qukuo.length}}</text>
+          </view>
+          <image src="{{uploadpath}}resource/{{res.orderT}}" mode="widthFix" class="ordericon"></image>
+          <view class="txt-66 h6">待取货</view>
+        </view>
+      </view>
 
-            </view>
-            <view class="height-60"></view>
-            <view class="flex-row flex-center">
-                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/mypingjia/mypingjia">
-                    <image src="{{uploadpath}}resource/{{res.wodepinjia}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">我的评价</view>
-                </view>
-                <button style="border: 0;padding: 0;margin: 0;" class="flex-1 flex-row flex-column" bindtap="sharefenxiao" open-type="share" plain="true">
-                    <image src="{{uploadpath}}resource/{{res.fenxiao}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20" style="line-height: 30rpx;">转发分享</view>
-                </button>
-                <view class="flex-1 flex-row flex-column" bindtap="phonecall" bindtap="navigateto" id="/pages/myshouyi/myshouyi">
-                    <image src="{{uploadpath}}resource/{{res.wodeshouyi}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">我的收益</view>
-                </view>
-                <view class="flex-1 flex-row flex-column" bindtap="phonecall">
-                    <image src="{{uploadpath}}resource/{{res.kefubangzhu}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">联系客服</view>
-                </view>
-                
-            </view>
-            <view class="height-60"></view>
-            <view class="flex-row flex-center">
-                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/feedback/feedback">
-                    <image src="{{uploadpath}}resource/{{res.feedback}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">意见反馈</view>
-                </view>
-                <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/aboutus/aboutus">
-                    <image src="{{uploadpath}}resource/{{res.aboutus}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">关于我们</view>
-                </view>
-                <button style="border: 0;padding: 0;margin: 0;" class="flex-1 flex-row flex-column" bindtap=""  plain="true">
-                    <!-- <image src="{{uploadpath}}resource/{{res.fenxiao}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20" style="line-height: 30rpx;">转发分享</view> -->
-                </button>
-                <view class="flex-1 flex-row flex-column">
-                    <!-- <image src="{{uploadpath}}resource/{{res.shezhi}}" class="icon"></image>
-                    <view class="h7 txt-66 margin-top-20">意见反馈</view> -->
-                </view>
-            </view>
-
-        </view>
     </view>
+
+    <view class="lipin" bindtap="navigateto" id="/pages/giftcards/giftcards">
+      <view class="txt-33" style="font-weight: 350;margin-bottom:4rpx;">我的礼品卡</view>
+      <view class="txt-66 h6">来自桃花江美人窝的羞美人面</view>
+      <image src="{{uploadpath}}resource/{{res.mylipinka}}" class="lipinka"></image>
+    </view>
+
+    <view class="flex-row flex-center ">
+      <view class="timian flex-1" bindtap="navigateto" id="/pages/buygiftcards/buygiftcards">
+        <view class="">购礼品卡</view>
+        <view class="txt-66 h6">新鲜日期工厂直发</view>
+        <image src="{{uploadpath}}resource/{{res.mytimian}}" class="mytimian"></image>
+      </view>
+      <view class="pinjian flex-1" bindtap="navigateto" id="/pages/activitylist/activitylist">
+        <view class="">品鉴活动</view>
+        <view class="txt-66 h6">羞美人线下品鉴会报名</view>
+        <image src="{{uploadpath}}resource/{{res.mypinjian}}" class="mypinjian"></image>
+      </view>
+    </view>
+    <view class="flex-row flex-column" bindtap="tourl">
+      <image src="{{uploadpath}}resource/{{res.myimg}}" class="myimg"></image>
+    </view>
+    <view class="fuwu">
+      <view class="txt-33" style="font-weight: 350;">会员服务</view>
+      <view class="height-40"></view>
+      <view class="flex-row flex-center">
+        <view class="flex-1 flex-row flex-column" bindtap="notdata">
+          <image src="{{uploadpath}}resource/{{res.jifenshangcheng}}" class="icon"></image>
+          <view class="h7 txt-66 margin-top-20">积分商城</view>
+        </view>
+        <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/addresslist/addresslist">
+          <image src="{{uploadpath}}resource/{{res.dizhiguanli}}" class="icon"></image>
+          <view class="h7 txt-66 margin-top-20">地址管理</view>
+        </view>
+        <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/myactivity/myactivity?type=A">
+          <image src="{{uploadpath}}resource/{{res.activity}}" class="icon"></image>
+          <view class="h7 txt-66 margin-top-20">我的活动</view>
+        </view>
+        <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/mycoupon/mycoupon?type=A">
+          <image src="{{uploadpath}}resource/{{res.youhuiquan}}" class="icon"></image>
+          <view class="h7 txt-66 margin-top-20">优惠券</view>
+        </view>
+
+      </view>
+      <view class="height-60"></view>
+      <view class="flex-row flex-center">
+        <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/mypingjia/mypingjia">
+          <image src="{{uploadpath}}resource/{{res.wodepinjia}}" class="icon"></image>
+          <view class="h7 txt-66 margin-top-20">我的评价</view>
+        </view>
+        <button style="border: 0;padding: 0;margin: 0;" class="flex-1 flex-row flex-column" bindtap="sharefenxiao" open-type="share" plain="true">
+          <image src="{{uploadpath}}resource/{{res.fenxiao}}" class="icon"></image>
+          <view class="h7 txt-66 margin-top-20" style="line-height: 30rpx;">转发分享</view>
+        </button>
+        <view class="flex-1 flex-row flex-column" bindtap="phonecall" bindtap="navigateto" id="/pages/myshouyi/myshouyi">
+          <image src="{{uploadpath}}resource/{{res.wodeshouyi}}" class="icon"></image>
+          <view class="h7 txt-66 margin-top-20">我的收益</view>
+        </view>
+        <view class="flex-1 flex-row flex-column" bindtap="phonecall">
+          <image src="{{uploadpath}}resource/{{res.kefubangzhu}}" class="icon"></image>
+          <view class="h7 txt-66 margin-top-20">联系客服</view>
+        </view>
+
+      </view>
+      <view class="height-60"></view>
+      <view class="flex-row flex-center">
+        <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/feedback/feedback">
+          <image src="{{uploadpath}}resource/{{res.feedback}}" class="icon"></image>
+          <view class="h7 txt-66 margin-top-20">意见反馈</view>
+        </view>
+        <view class="flex-1 flex-row flex-column" bindtap="navigateto" id="/pages/aboutus/aboutus">
+          <image src="{{uploadpath}}resource/{{res.aboutus}}" class="icon"></image>
+          <view class="h7 txt-66 margin-top-20">关于我们</view>
+        </view>
+        <button style="border: 0;padding: 0;margin: 0;" class="flex-1 flex-row flex-column" bindtap="" plain="true">
+          <!-- <image src="{{uploadpath}}resource/{{res.fenxiao}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20" style="line-height: 30rpx;">转发分享</view> -->
+        </button>
+        <view class="flex-1 flex-row flex-column">
+          <!-- <image src="{{uploadpath}}resource/{{res.shezhi}}" class="icon"></image>
+                    <view class="h7 txt-66 margin-top-20">意见反馈</view> -->
+        </view>
+      </view>
+
+    </view>
+  </view>
 
 </scroll-view>

@@ -8,6 +8,7 @@ import {
   InstApi
 } from "../../apis/inst.api.js";
 import { MemberApi } from "../../apis/member.api";
+import { OrderApi } from "../../apis/order.api";
 import { FenxiaoApi } from "../../apis/fenxiao.api";
 
 class Content extends AppBase {
@@ -51,6 +52,26 @@ class Content extends AppBase {
       this.Base.setMyData({
         tixianlist:e,
         totleamount,
+      })
+    })
+
+    var orderapi = new OrderApi();
+     orderapi.orderlist({ orderstatus: '' }, (list) => {
+        // this.teamList(list);
+       
+        // 过滤
+        let fukuan = list.filter(ele => ele.orderstatus == 'A');
+        let fahuo = list.filter(ele => ele.orderstatus == 'B');
+        let shouhuo = list.filter(ele => ele.orderstatus == 'C');
+        let qukuo = list.filter(ele => ele.orderstatus == 'D');
+        console.log(fukuan);
+        
+        that.Base.setMyData({
+          orderList:list,
+          fukuan,
+          fahuo,
+          shouhuo,
+          qukuo
       })
     })
 

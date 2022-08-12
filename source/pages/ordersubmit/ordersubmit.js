@@ -405,6 +405,10 @@ class Content extends AppBase {
       this.Base.toast('请选择地址');
       return
     }
+    if (data.sendtype == 'A' && !data.addressinfo.address) {
+      this.Base.toast('请选择地址');
+      return
+    }
     // 判断有没有选门店
     if (data.sendtype == 'B' && data.store_id <= 0) {
       this.Base.toast('请选择门店地址');

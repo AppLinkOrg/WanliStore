@@ -54,33 +54,6 @@ class Content extends AppBase {
        
     }
 
-    // teamList(list) {
-    //     var that = this;
-    //     var mallapi = new MallApi();
-    //     console.log(list, '2222222222222');
-    //     // var mallapi = new MallApi();
-    //     // let list = that.Base.getMyData().list;
-    //     for (let i = 0; i < list.length; i++) {
-    //         console.log(list[i].team.length > 0, '有东西吗');
-    //         // 判断每个team是否有值？
-    //         if (list[i].team.length > 0) {
-    //             // 返回的true 我只取3个 因为i只有三个
-    //             console.log(list[i].team[i], '看看是什么');
-    //             for (let j = 0; j < list[i].team.length; j++) {
-    //                 //    我需要 每个team的id
-    //                 let goods_id = list[i].team[j].goods_id;
-    //                 mallapi.goodsinfo({
-    //                     id: goods_id
-    //                 }, (res) => {
-    //                     list[i].team[j].haha = res
-    //                 });
-    //             }
-    //         }
-    //     }
-    // }
-
-
-
 
 
 

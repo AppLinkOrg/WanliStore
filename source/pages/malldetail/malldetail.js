@@ -18,6 +18,9 @@ import {
 import {
   CouponApi
 } from "../../apis/coupon.api";
+import {
+  shopcartlist
+} from '../../apis/shopCartList';
 class Content extends AppBase {
   constructor() {
     super();
@@ -39,6 +42,9 @@ class Content extends AppBase {
       prices:0
 
     })
+
+
+
   }
   onMyShow() {
     var that = this;
@@ -61,6 +67,17 @@ class Content extends AppBase {
       })
       that.Base.setMyData({
         couponList:keshiyonglist
+      })
+    })
+
+
+    var shopcart = new shopcartlist();
+   
+    shopcart.shopcartlist({}, res => {
+      console.log(res, '我是第一');
+      that.Base.setMyData({
+        // infoList:newArr,
+        shoCartList: res
       })
     })
   }
@@ -234,6 +251,7 @@ class Content extends AppBase {
           that.Base.setMyData({
             show: false,
           })
+          this.onMyShow();
         }
       })
     }

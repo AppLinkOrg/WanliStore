@@ -84,6 +84,7 @@
     box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18);
     border-radius: 20rpx;
     padding: 24rpx 0 42rpx;
+    
 }
 
 .lipin {
@@ -150,3 +151,25 @@
     height: 60rpx;
 }
 .button[plain]{ border:0 } 
+.view_qipao{
+    width: 30rpx;
+    height: 30rpx;  
+    background-color:red;  
+    border-radius: 50%;  
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    position: absolute;
+    top: 0;
+    left: 50px;
+  }
+  
+  .text_qipao{
+    color: white;
+    font-size: 20rpx;
+  }
+  .c{
+    position: relative;
+    justify-content: center;
+    height: 140rpx;
+  }

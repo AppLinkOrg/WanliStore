@@ -43,13 +43,25 @@ import {
       }
      
     }
+
+   
+
+
     formSubmit(e){
         var data = e.detail.value;
+        console.log(data,'xczxczxc');
+        if (!data.address) {
+          console.log('2323');
+          this.Base.toast('请填写地址');
+      return
+        }
         if(this.Base.options.id>0){
             data.primary_id=this.Base.options.id;
         }
         console.log(data)
         data.moren = data.moren?'Y':'N';
+        
+        console.log('2323');
         var memberapi = new MemberApi();
         memberapi.addaddress(data,(ret)=>{
             if(ret.code=='0'){
@@ -67,5 +79,6 @@ import {
   var body = content.generateBodyJson();
   body.onLoad = content.onLoad; 
   body.onMyShow = content.onMyShow;
+
   body.formSubmit = content.formSubmit;
   Page(body)

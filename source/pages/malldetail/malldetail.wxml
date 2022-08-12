@@ -96,8 +96,14 @@
         <view class="h7 txt-66">客服</view>
     </view>
       <view class="flex-row flex-column bottom_icon" bindtap="toshopcar">
+      <view style="position: relative;">
+      <view class="view_qipao" wx:if="{{shoCartList.length >0}}">
+	    <text class="text_qipao" >{{shoCartList.length}}</text>
+      </view>  
         <image src="{{uploadpath}}resource/{{res.gouwuche}}" class="kefuicon"></image>
         <view class="h7 txt-66">购物车</view>
+
+      </view> 
     </view>
     </view>
     <!-- <view class="flex-1"></view> -->
