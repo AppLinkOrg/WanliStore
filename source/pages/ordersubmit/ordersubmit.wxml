@@ -74,8 +74,7 @@
   <view class="goods">
     <!-- <image src="{{uploadpath}}mall/{{info[0].cover}}" class="cover"></image> -->
     <!-- wx:if="{{storeinfo.id == item.tihuo[0].fid && sendtype=='B'}}" -->
-    
-    <view  wx:for="{{shopList}}" wx:key="{{item.id}}" class="{{item.tihuo[0].length == 0 || storeinfo.id == item.tihuo[0].fid && sendtype=='B'?'main_boxs':'main_box'}}" wx:if="{{sendtype=='B'}}">
+    <view  wx:for="{{shopList}}" wx:key="{{item.id}}" class="{{storeinfo.id == item.tihuo[0].fid?'main_box':'main_boxs' }}" wx:if="{{sendtype=='B'}}">
       <view class="shop_car">
         <!-- 图片-->
         <view class="shop_car_img">
@@ -101,7 +100,7 @@
         </view>
       </view>
     </view>
-      
+      <!-- 商家配送  -->
     <view class="main_box" wx:for="{{shopList}}" wx:key="{{item.id}}" wx:if="{{sendtype=='A'}}">
       <view class="shop_car">
         <!-- 图片-->

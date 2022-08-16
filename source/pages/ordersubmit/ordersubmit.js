@@ -254,21 +254,43 @@ class Content extends AppBase {
   // 计算总金额
   getsum() {
     var data = this.Base.getMyData();
+    var sendtype = data.sendtype;
     let totalprice = 0;
     // 每个商品的总价格
     // 数量
     let goods_number = data.goods_number;
+  
     console.log(goods_number, '数量');
     if (goods_number == undefined) {
-
-      let shopList = data.shopList;
-      for (let i = 0; i < shopList.length; i++) {
-        let aa = shopList[i].mall_number * shopList[i].price
-        totalprice += aa
+      if (sendtype == 'B') {
+        let storeinfoid = data.storeinfo.id;
+        let shopList = data.shopList;
+        shopList = shopList.filter((item) => {
+          return !!item.tihuo[0];
+        });
+        shopList = shopList.filter((item) => {
+          return item.tihuo[0].fid == storeinfoid;
+        });
+        for (let i = 0; i < shopList.length; i++) {
+          let aa = shopList[i].mall_number * shopList[i].price
+          totalprice += aa
+        }
+        this.Base.setMyData({
+          totalprice
+        })
       }
-      this.Base.setMyData({
-        totalprice
-      })
+      if (sendtype == 'A') {
+
+        let shopList = data.shopList;
+        for (let i = 0; i < shopList.length; i++) {
+          let aa = shopList[i].mall_number * shopList[i].price
+          totalprice += aa
+        }
+        this.Base.setMyData({
+          totalprice
+        })
+      }
+
 
     } else {
 
@@ -289,7 +311,6 @@ class Content extends AppBase {
     console.log(data)
     console.log(this.Base.options)
     var info = data.shopList;
-    var sendtype = data.sendtype;
     console.log(info[0].shangpin[0].yunfei, '我是运费');
     var yunfei = sendtype == 'A' ? Number(info[0].shangpin[0].yunfei).toFixed(2) : Number(0).toFixed(2);
     var amount = 0;
@@ -464,16 +485,32 @@ class Content extends AppBase {
         let str = data.str;
         console.log(shopList, '2222');
         console.log(str, '3333');
-
-        if (flag == false && isgogo == true) {
-
-          for (let i = 0; i < shopList.length; i++) {
-
-            let strid = shopList[i].specifications_id;
-            str.push(strid);
+        if (data.sendtype == 'A') {
+          
+          if (flag == false && isgogo == true) {
+            for (let i = 0; i < shopList.length; i++) {
+              let strid = shopList[i].specifications_id;
+              str.push(strid);
+            }
           }
         }
-
+   
+        if (data.sendtype == 'B') {
+          let storeinfoid = data.storeinfo.id;
+          if (flag == false && isgogo == true) {
+            shopList = shopList.filter((item) => {
+              return !!item.tihuo[0];
+            });
+            shopList = shopList.filter((item) => {
+              return item.tihuo[0].fid == storeinfoid;
+            });
+            for (let i = 0; i < shopList.length; i++) {
+              let strid = shopList[i].specifications_id;
+              str.push(strid);
+            }
+          }
+          
+        }
 
 
         var orderapi = new OrderApi();
@@ -589,13 +626,33 @@ class Content extends AppBase {
       console.log(shopList, '2222');
       console.log(str, '3333');
       // flag才能走进去  isgogo true 才能走进去
-      if (flag == false && isgogo == true) {
-        console.log('走一次');
-        for (let i = 0; i < shopList.length; i++) {
-
-          let strid = shopList[i].specifications_id;
-          str.push(strid);
+      if (data.sendtype == 'A') {
+        
+        if (flag == false && isgogo == true) {
+          console.log('走一次');
+          for (let i = 0; i < shopList.length; i++) {
+  
+            let strid = shopList[i].specifications_id;
+            str.push(strid);
+          }
         }
+      }
+
+      if (data.sendtype == 'B') {
+        let storeinfoid = data.storeinfo.id;
+        if (flag == false && isgogo == true) {
+          shopList = shopList.filter((item) => {
+            return !!item.tihuo[0];
+          });
+          shopList = shopList.filter((item) => {
+            return item.tihuo[0].fid == storeinfoid;
+          });
+          for (let i = 0; i < shopList.length; i++) {
+            let strid = shopList[i].specifications_id;
+            str.push(strid);
+          }
+        }
+        
       }
 
 

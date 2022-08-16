@@ -160,7 +160,7 @@ page {
 
     display: flex;
     border-radius: 10px;
-
+    margin-top: 10px;
     height: 128px;
 }
 .main_boxs{
@@ -170,9 +170,9 @@ page {
 
     display: flex;
     border-radius: 10px;
-
+    margin-top: 10px;
     height: 128px;
-    background-color: #454954;
+    background-color: #a7a8ab3b;
 }
 
 .shop_car {
@@ -189,7 +189,8 @@ page {
 
 .shop_car_imgs {
     width: 100%;
-    height: 110px
+    height: 110px;
+    border-radius: 10px;
 }
 
 .shop_car_ta {
