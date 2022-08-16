@@ -26,7 +26,7 @@
             </view>
         </view>
          <view class="cart_box">
-                <view>
+                <view class="shijian">
                     <image class="cart_box_iamge" src="{{uploadpath}}mall/{{info.goods_cover}}" mode="widthFix" />
                 </view>
                 <view class="cart_right">

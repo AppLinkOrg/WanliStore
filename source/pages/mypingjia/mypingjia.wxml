@@ -25,7 +25,7 @@
                 <view class="height-16"></view>
             </view>
             <view class="cart_box">
-                <view style="shijian">
+                <view class="shijian">
                     <image class="cart_box_iamge" src="{{uploadpath}}mall/{{item.goods[0].cover}}" mode="widthFix" />
                 </view>
                 <view class="cart_right">

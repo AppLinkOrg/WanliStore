@@ -30,14 +30,19 @@ import { OrderApi } from "../../apis/order.api";
     }
     onMyShow() {
       var that = this;
+      var data = this.Base.getMyData()
+      var mallApi = new MallApi();
       var orderapi = new OrderApi();
-      orderapi.orderpingjia({},(e)=>{
+      mallApi.pingjialistc({
+        goods_id:data.goods_id
+      },(e)=>{
         var data = this.Base.getMyData();
-        console.log("data.goods_id是什么")
+        console.log("data.goods_id是什么",e)
         console.log(data.goods_id)
         var pingjialist = e.filter(item =>{
           return item.goods_id == data.goods_id
         })
+        console.log(pingjialist);
           this.Base.setMyData({
             orderpingjia:e,
             pingjialist
@@ -45,7 +50,7 @@ import { OrderApi } from "../../apis/order.api";
       })
       orderapi.pingjiaimg({},(e)=>{
           var data = this.Base.getMyData();
-          var pingjia_id = data.orderpingjia;
+          var pingjia_id = data.orderpingjia.id;
           var pingjiaimg = e.filter(item =>{
               return e.pingjia_id == pingjia_id
           })

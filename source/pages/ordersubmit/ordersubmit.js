@@ -30,7 +30,7 @@ import {
 import {
   spelist
 } from "../../apis/spelist.js";
-
+import { ApiUtil } from "../../apis/apiutil";
 class Content extends AppBase {
   constructor() {
     super();
@@ -65,7 +65,7 @@ class Content extends AppBase {
       flag: true,
       info: [],
       str: [],
-      isgogo:true
+      isgogo: true
     })
   }
 
@@ -101,9 +101,8 @@ class Content extends AppBase {
     wx.getStorage({
       key: 'shopList',
       success(res) {
-        console.log(res.data, '2222')
         that.Base.setMyData({
-          shopList: res.data
+          shopList: res.data,
         })
       }
     })
@@ -121,6 +120,8 @@ class Content extends AppBase {
         info: info
       });
 
+
+
       //2
       // 礼品卡
       var couponapi = new CouponApi();
@@ -134,6 +135,24 @@ class Content extends AppBase {
             couponinfo: e
           })
           this.getsum();
+        })
+      }
+      // //  // 地址
+      if (this.Base.getMyData().shopList.length < 2) {
+        var mylat = this.Base.getMyData().mylat;
+        var mylng = this.Base.getMyData().mylng;
+        var goodsid = this.Base.getMyData().shopList[0].goods_id;
+        console.log(goodsid);
+        var mallapi = new MallApi();
+        mallapi.usestore({ goodsid, mylat, mylng }, (usestore) => {
+          console.log(usestore, '何方要写');
+          for (let item of usestore) {
+            var distance = ApiUtil.GetDistance(mylat, mylng, item.lat, item.lng);
+            item.miletext = ApiUtil.GetMileTxt(distance);
+          }
+          this.Base.setMyData({
+            usexxstore: usestore
+          })
         })
       }
       // 优惠卷
@@ -187,7 +206,8 @@ class Content extends AppBase {
         address_id: memberinfo.address_id
       })
     }
-    // 地址
+
+
     if (this.Base.getMyData().address_id > 0 && this.Base.getMyData().sendtype == 'A') {
       memberapi.addressinfo({
         id: this.Base.getMyData().address_id,
@@ -230,6 +250,7 @@ class Content extends AppBase {
       beizhu: e.detail.value
     })
   }
+
   // 计算总金额
   getsum() {
     var data = this.Base.getMyData();
@@ -399,7 +420,7 @@ class Content extends AppBase {
     } else {
       var flag = false
     }
-     // flag = false
+    // flag = false
     // 判断有没有选地址
     if (data.sendtype == 'A' && data.address_id <= 0) {
       this.Base.toast('请选择地址');
@@ -437,7 +458,7 @@ class Content extends AppBase {
           this.Base.toast("该礼品卡不可使用~");
           return
         }
-        
+
         let isgogo = data.isgogo;
         let shopList = data.shopList;
         let str = data.str;
@@ -447,26 +468,26 @@ class Content extends AppBase {
         if (flag == false && isgogo == true) {
 
           for (let i = 0; i < shopList.length; i++) {
-    
+
             let strid = shopList[i].specifications_id;
             str.push(strid);
           }
         }
-   
 
-        
+
+
         var orderapi = new OrderApi();
         var wechatapi = new WechatApi();
         // 创建订单  
         console.log(this.Base.getMyData().goods_id, 'hhhhhhhhh');
         orderapi.createorder({
           goods_id: this.Base.getMyData().shopList[0].goods_id,
-             // 商品数量
-        goods_number: data.shopList[0].mall_number,
-        // 商品单价
-        goods_price: data.shopList[0].price,
-        // 商品规格
-        goods_guige_id:data.shopList[0].guige[0].id,
+          // 商品数量
+          goods_number: data.shopList[0].mall_number,
+          // 商品单价
+          goods_price: data.shopList[0].price,
+          // 商品规格
+          goods_guige_id: data.shopList[0].guige[0].id,
           sendtype: data.sendtype,
           price: data.totalprice,
           youhui: data.youhui,
@@ -495,9 +516,11 @@ class Content extends AppBase {
               wechatapi.prepay({
                 id: ret.return
               }, (payret) => {
+
                 payret.complete = function (e) {
+
+                  var data = that.Base.getMyData();
                   if (e.errMsg == "requestPayment:ok") {
-                    console.log(data,'222');
                     wx.reLaunch({
                       url: '/pages/paysuccess/paysuccess?amount=' + data.amount,
                     })
@@ -510,7 +533,7 @@ class Content extends AppBase {
                     let isgogo = data.isgogo
                     isgogo = false
                     var amount = (Number(data.totalprice) + Number(data.shopList[0].shangpin[0].yunfei)).toFixed(2);
-                    console.log(amount,'设么的点点滴滴');
+                    console.log(amount, '设么的点点滴滴');
                     var youhui = 0
                     that.Base.setMyData({
                       giftcardid,
@@ -536,12 +559,12 @@ class Content extends AppBase {
             console.log(data)
             console.log(data.id)
             console.log(this.Base.options.id)
-            console.log(ret.return,'你算什么东西');
+            console.log(ret.return, '你算什么东西');
             // 更新订单状态
             orderapi.updateorder({
               id: ret.return
             })
-           
+
             wx.reLaunch({
               url: '/pages/paysuccess/paysuccess?amount=' + data.amount,
             })
@@ -569,7 +592,7 @@ class Content extends AppBase {
       if (flag == false && isgogo == true) {
         console.log('走一次');
         for (let i = 0; i < shopList.length; i++) {
-  
+
           let strid = shopList[i].specifications_id;
           str.push(strid);
         }
@@ -585,7 +608,7 @@ class Content extends AppBase {
         // 商品单价
         goods_price: data.shopList[0].price,
         // 商品规格
-        goods_guige_id:data.shopList[0].guige[0].id,
+        goods_guige_id: data.shopList[0].guige[0].id,
         //配送方式
         sendtype: data.sendtype,
         // 价格不对 没有商品数量 价格 ==  单价x数量
@@ -622,14 +645,14 @@ class Content extends AppBase {
         if (data.amount != 0) {
           if (ret.code == '0') {
             // 调起支付
-            console.log(data.amount,'有吗？？？');
+            console.log(data.amount, '有吗？？？');
             wechatapi.prepay({
               id: ret.return
             }, (payret) => {
               payret.complete = function (e) {
                 let datas = that.Base.getMyData();
                 if (e.errMsg == "requestPayment:ok") {
-                  console.log(datas,'222');
+                  console.log(datas, '222');
                   wx.reLaunch({
                     url: '/pages/paysuccess/paysuccess?amount=' + datas.amount,
                   })
@@ -642,8 +665,8 @@ class Content extends AppBase {
                   let isgogo = data.isgogo
                   isgogo = false
                   var amount = (Number(data.totalprice) + Number(data.shopList[0].shangpin[0].yunfei)).toFixed(2)
-                  console.log(data.totalprice,'总价',data.shopList[0].shangpin[0].yunfei,'youhui');
-                  console.log(amount,'设么的点点滴滴');
+                  console.log(data.totalprice, '总价', data.shopList[0].shangpin[0].yunfei, 'youhui');
+                  console.log(amount, '设么的点点滴滴');
                   var youhui = 0
                   that.Base.setMyData({
                     giftcardid,

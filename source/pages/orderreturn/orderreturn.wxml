@@ -39,7 +39,7 @@
 
     <view class="returnimgs_boxs">
       <view class="pore" wx:for="{{imglist}}" wx:key='k' wx:for-index='idx'>
-        <image src="{{uploadpath}}returnOrder/{{item.img}}" mode="widthFix" bindtap="uploadimgs" id='{{idx}}' class="uploadimg"></image>
+        <image src="{{uploadpath}}returnOrder/{{item.img}}"  bindtap="uploadimgs" id='{{idx}}' class="uploadimg"></image>
         <image src="{{uploadpath}}resource/{{res.shanchu}}" class="shanchu" bindtap="shanchu" id="{{idx}}"></image>
       </view>
 

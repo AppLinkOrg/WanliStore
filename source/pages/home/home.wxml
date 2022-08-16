@@ -3,6 +3,7 @@
     <image src="{{uploadpath}}indexbanner/{{item.img}}" class="hometop" bindtap="tobanner" data-item="{{item}}"></image>
   </swiper-item>
 </swiper>
+<view style="border-radius:10px">
 <view style="min-height: 390rpx;">
   <view style="width: 100%; min-height: 410rpx;border-radius: 20rpx; z-index: 100; background: #fff; bottom: 88rpx;">
     <view class="flex-row flex-center">
@@ -51,4 +52,5 @@
       </view>
     </view>
   </view>
+</view>
 </view>

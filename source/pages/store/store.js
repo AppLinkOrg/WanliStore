@@ -48,6 +48,15 @@ import { ApiUtil } from "../../apis/apiutil";
               list
           })
       })
+      mallapi.suoshustore({mylat,mylng},(list)=>{
+        for(let item of list){
+          var distance = ApiUtil.GetDistance(mylat,mylng,item.lat,item.lng);
+          item.miletext = ApiUtil.GetMileTxt(distance);
+        }
+          this.Base.setMyData({
+              sssss:list
+          })
+      })
       mallapi.usestore({goodsid:this.Base.options.goodsid,mylat,mylng},(usestore)=>{
         for(let item of usestore){
           var distance = ApiUtil.GetDistance(mylat,mylng,item.lat,item.lng);

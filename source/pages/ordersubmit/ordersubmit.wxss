@@ -49,14 +49,7 @@ page {
     padding: 60rpx 24rpx;
     background: #FFFFFF;
     border-radius: 20rpx;
-    margin-bottom: 1
-    
-    
-    
-    
-    
-    
-    0px;
+    margin-bottom: 10px;
 }
 
 .goods {
@@ -111,6 +104,33 @@ page {
     z-index: 10;
 }
 
+.fixbottomd {
+    width: 100vw;
+    padding: 20rpx 0;
+    background: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.title_tishi {
+    width: 100%;
+
+    background: #5AA57A;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #FFFFFF;
+    
+}
+
 .margin-left-24 {
     margin-left: 24rpx;
 }
@@ -142,6 +162,17 @@ page {
     border-radius: 10px;
 
     height: 128px;
+}
+.main_boxs{
+    width: 100%;
+
+
+
+    display: flex;
+    border-radius: 10px;
+
+    height: 128px;
+    background-color: #454954;
 }
 
 .shop_car {

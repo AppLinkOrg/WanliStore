@@ -1,6 +1,6 @@
 .hometop {
   width: 100vw;
-  height: 974rpx;
+  height: 930rpx;
 }
 wx-swiper .wx-swiper-dot{
   width: 40rpx;

@@ -4,7 +4,7 @@
     </view>
     <view class="h34"></view>
 </view>
-<scroll-view scroll-x="true" class="tab-h">
+<scroll-view scroll-x="true" class="tab-h" >
     <view class="tab-item {{idx==0?'margin-left-26 ':''}}" bindtap="bindtype" id='{{item.id}}' wx:for='{{typelist}}' wx:for-index='idx'>
         <view class="flex-row flex-column">
             <view class="txt-d {{typeid==item.id?'typetext-color':''}}">{{item.name}}</view>
@@ -12,6 +12,8 @@
         </view>
     </view>
 </scroll-view>
+ <swiper class="goodsbox" style="height:{{globalData.hh-165}}px;" bindchange='pagechange' >
+  <swiper-item  id='{{item.id}}' wx:for='{{typelist}}' wx:for-index='idx' >
 <scroll-view scroll-y="true" class="goodsbox" style="height:{{globalData.hh-165}}px;">
     <view class="flex-row">
         <view class="flex-1 flex-row flex-column">
@@ -31,7 +33,7 @@
             </view>
         </view>
         <view class="flex-1 flex-row flex-column">
-            <view bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}' wx:for="{{goodslist}}" wx:key='k' wx:for-index="idx" wx:if="{{idx%2!=0}}" class="goods border-bg">
+            <view bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}' wx:for="{{goodslist}}" wx:key='k' wx:for-index="idx" wx:if="{{idx%2!=0}}" class="goods border-bg margin-bottom-25">
                 <view class="h120"></view>
                 <view class="flex-row flex-column">
                     <image src="{{uploadpath}}mall/{{item.cover}}" class="cover"></image>
@@ -48,3 +50,5 @@
         </view>
     </view>
 </scroll-view>
+  </swiper-item>
+ </swiper>

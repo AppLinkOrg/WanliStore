@@ -7,9 +7,9 @@
         <view style="margin: 32rpx;">
             <view class="flex-row">
                 <view class="flex-row">
-                    <image  class="touxiang" src="{{item.member_avatarUrl}}"></image>
+                    <image  class="touxiang" src="{{item.touxiang[0].avatarUrl}}"></image>
                     <!-- <image class="touxiang" src="{{item.member_avatarUrl}}"></image> -->
-                    <view class="name">{{item.member_nickName}}</view>
+                    <view class="name">{{item.nickName}}</view>
                 </view>
                 <view class="flex-1"></view>
                 <view class="pjtime">{{item.shijian}}</view>

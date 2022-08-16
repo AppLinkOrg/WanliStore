@@ -35,13 +35,13 @@
 
   <!-- 自提 -->
   <view wx:else>
-    <view wx:if="{{store_id==0}}" class="flex-row flex-center dizhibox" bindtap="navigateto" id='/pages/store/store?goodsid={{info[0].id}}&id={{store_id}}'>
+    <view wx:if="{{store_id==0}}" class="flex-row flex-center dizhibox" bindtap="navigateto" id='/pages/store/store?goodsid={{shopList[0].shangpin[0].id}}&id={{store_id}}'>
       <image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi"></image>
       <view class="f-36 txt-33">点击选择地址</view>
       <view class="flex-1"></view>
       <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
     </view>
-    <view wx:else class="flex-row flex-center dizhibox" bindtap="navigateto" id='/pages/store/store?goodsid={{info[0].id}}&id={{store_id}}'>
+    <view wx:else class="flex-row flex-center dizhibox" bindtap="navigateto" id='/pages/store/store?goodsid={{shopList[0].shangpin[0].id}}&id={{store_id}}'>
       <view class="flex-1 ">
         <view>
           <view class="flex-row flex-center">
@@ -73,7 +73,9 @@
 
   <view class="goods">
     <!-- <image src="{{uploadpath}}mall/{{info[0].cover}}" class="cover"></image> -->
-    <view class="main_box" wx:for="{{shopList}}" wx:key="{{item.id}}">
+    <!-- wx:if="{{storeinfo.id == item.tihuo[0].fid && sendtype=='B'}}" -->
+    
+    <view  wx:for="{{shopList}}" wx:key="{{item.id}}" class="{{item.tihuo[0].length == 0 || storeinfo.id == item.tihuo[0].fid && sendtype=='B'?'main_boxs':'main_box'}}" wx:if="{{sendtype=='B'}}">
       <view class="shop_car">
         <!-- 图片-->
         <view class="shop_car_img">
@@ -98,8 +100,36 @@
           </view>
         </view>
       </view>
-
     </view>
+      
+    <view class="main_box" wx:for="{{shopList}}" wx:key="{{item.id}}" wx:if="{{sendtype=='A'}}">
+      <view class="shop_car">
+        <!-- 图片-->
+        <view class="shop_car_img">
+          <image class="shop_car_imgs" src="{{uploadpath}}mall/{{item.shangpin[0].cover}}" mode="aspectFill" />
+        </view>
+        <!-- 名称 -->
+        <view class="shop_car_name">
+          <view class="shop_car_ta">
+            {{item.shangpin[0].name}}
+          </view>
+          <view class="shop_car_tb">
+            {{item.guige[0].name}}
+          </view>
+          <view class="shop_car_tc">
+            <view class="shop_car_tc_left">
+              <view class="txt-c9 h6">￥</view>
+              <view class="txt-c9 ">{{item.price}}</view>
+            </view>
+            <view class="num_btn_box">
+              x{{item.mall_number}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
     <view style="padding:10px;margin: 0 10px;">
       <view class="flex-row flex-center" bindtap="navigateto" id="/pages/giftcardshiyong/giftcardshiyong?goodsid={{shopList[0].id}}">
         <view class="h5 txt-33">礼品卡</view>
@@ -161,11 +191,16 @@
     </view>
   </view>
 </view>
-
-<view class="flex-row flex-center fixbottom">
+<view class="flex-row flex-center fixbottomd">
+  <view class="title_tishi" wx:if="{{sendtype=='B'&& usexxstore.length <1 }}">
+  该门店暂无此商品
+  </view>
+<view class="flex-row flex-center" style="width:100%;margin: 10px 0; ">
   <view class=" h5 txt-33 margin-left-24">实付款:</view>
   <view class="h4 txt-fc txt-bold margin-left-10">¥{{amount}}</view>
   <view class="flex-1"></view>
   <!-- {{flag}} -->
-  <view class="btns butcolor" bindtap="bindpay">立即支付</view>
+  <view class="btns butcolor"  wx:if="{{sendtype=='B'&& usexxstore.length <1 }}" style="color: #a9a9a9;">立即支付</view>
+  <view class="btns butcolor" bindtap="bindpay" wx:else>立即支付</view>
+</view>
 </view>

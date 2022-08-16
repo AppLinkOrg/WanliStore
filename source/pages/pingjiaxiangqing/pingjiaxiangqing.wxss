@@ -86,3 +86,7 @@ line-height: 17px;
     border-radius: 10px;
     justify-content: center;
 }
+.shijian{
+  display: flex;
+  align-items: center;
+}

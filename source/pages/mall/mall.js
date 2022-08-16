@@ -65,6 +65,35 @@ class Content extends AppBase {
   bindPage(e) {
     console.log(e, '--------bindPage---------');
   }
+
+  pagechange(e) {
+
+    // 通过touch判断，改变tab的下标值
+    if ("touch" === e.detail.source) {
+      // let currentPageIndex = this.data.currentIndex;
+      let typeid = e.detail.current+1
+      // console.log(currentPageIndex);s
+      // console.log(currentPageIndex);
+      // currentPageIndex = (currentPageIndex + 1) % 2;
+      // console.log(currentPageIndex);
+      // cu
+      // 拿到当前索引并动态改变
+      this.setData({
+        typeid
+      })
+
+      var mallapi = new MallApi();
+      mallapi.goodslist({
+        typeid: typeid,
+        orderby: "r_main.seq"
+      }, (goodslist) => {
+        this.Base.setMyData({
+          goodslist
+        });
+      });
+
+    }
+  }
 }
 
 var content = new Content();
@@ -74,4 +103,5 @@ body.onMyShow = content.onMyShow;
 body.getlist = content.getlist;
 body.bindtype = content.bindtype;
 body.changPage = content.bindPage;
+body.pagechange = content.pagechange;
 Page(body)
