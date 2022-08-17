@@ -276,6 +276,7 @@ class Content extends AppBase {
             totalprice
           })
         } else {
+          let storeinfoid = data.store_id;
           console.log('进来了', 'cxzczx');
           // 过滤空数组
           shopList = shopList.filter((item) => {
@@ -293,22 +294,35 @@ class Content extends AppBase {
               }
             }
           }
+       
+          // if (storeinfoid in array)
+          // {
+          //   this.Base.setMyData({
+             
+          //     foss:true
+          //   })
+          // }
+          // 更新商品
+          // var mallapi = new MallApi();
+          // mallapi.updatamallis({
+          //   arrdy:JSON.stringify(arrdy),
+          // },res => {
+          //   console.log(res,'更新');
+          // })
+ 
 
-
-          arrdy.forEach(item => {
-            item.addState = 'A';
-          })
           console.log(arrdy, 'cxzczx');
           shopList = arrdy;
           console.log(shopList, '出来楼');
           for (let i = 0; i < shopList.length; i++) {
+            // shopList[i].
             let aa = shopList[i].mall_number * shopList[i].price
             totalprice += aa
           }
           this.Base.setMyData({
             totalprice,
             mendianxx: arrdy,
-            foss:true
+          
           })
         }
         // shopList = shopList.filter((item) => {

@@ -69,14 +69,29 @@
       <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
     </view>
   </view>
-
-
+  <wxs module="ISCN">
+  function ISContain(mendi, id){
+    var i = 0;
+    for (i;i < mendi.length; i++)
+    {
+      if (mendi[i]['fid'] == id)
+      {
+        return false;
+      }
+    }
+    return true;
+    
+  }
+  module.exports = {
+    ISContain:ISContain,
+  }
+  </wxs>
   <view class="goods">
     <!-- <image src="{{uploadpath}}mall/{{info[0].cover}}" class="cover"></image> addState  --> 
     <!-- wx:if="{{storeinfo.id == item.tihuo[0].fid && sendtype=='B'}}" -->
-    <view  wx:for="{{shopList}}" wx:key="{{item.id}}" class="{{ store_id == 0 || store_id == item.tihuo[store_id-1].fid?'main_box':'main_boxs' }}" wx:if="{{sendtype=='B'}}">
+    <view  wx:for="{{shopList}}" wx:key="{{item.id}}" class="main_box" wx:if="{{sendtype=='B'}}">
       <view class="shop_car">
-        <view class=" {{ store_id == 0 || item.tihuo[store_id-1].fid?'mendiantitle':'txtmore'}}" data-id="{{item.tihuo[index].fid}}">该门店暂无此商品</view>
+        <view wx:if="{{ store_id != 0 && ISCN.ISContain(item.tihuo, store_id)}}" class="txtmore" data-id="{{item.tihuo[index].fid}}">该门店暂无此商品</view>
         <!-- 图片-->
         <view class="shop_car_img">
           <image class="shop_car_imgs" src="{{uploadpath}}mall/{{item.shangpin[0].cover}}" mode="aspectFill" />
