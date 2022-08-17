@@ -72,10 +72,11 @@
 
 
   <view class="goods">
-    <!-- <image src="{{uploadpath}}mall/{{info[0].cover}}" class="cover"></image> -->
+    <!-- <image src="{{uploadpath}}mall/{{info[0].cover}}" class="cover"></image> addState  --> 
     <!-- wx:if="{{storeinfo.id == item.tihuo[0].fid && sendtype=='B'}}" -->
-    <view  wx:for="{{shopList}}" wx:key="{{item.id}}" class="{{storeinfo.id == item.tihuo[0].fid?'main_box':'main_boxs' }}" wx:if="{{sendtype=='B'}}">
+    <view  wx:for="{{shopList}}" wx:key="{{item.id}}" class="{{ store_id == 0 || store_id == item.tihuo[store_id-1].fid?'main_box':'main_boxs' }}" wx:if="{{sendtype=='B'}}">
       <view class="shop_car">
+        <view class=" {{ store_id == 0 || item.tihuo[store_id-1].fid?'mendiantitle':'txtmore'}}" data-id="{{item.tihuo[index].fid}}">该门店暂无此商品</view>
         <!-- 图片-->
         <view class="shop_car_img">
           <image class="shop_car_imgs" src="{{uploadpath}}mall/{{item.shangpin[0].cover}}" mode="aspectFill" />
@@ -98,7 +99,8 @@
             </view>
           </view>
         </view>
-      </view>
+
+    </view>
     </view>
       <!-- 商家配送  -->
     <view class="main_box" wx:for="{{shopList}}" wx:key="{{item.id}}" wx:if="{{sendtype=='A'}}">
@@ -191,7 +193,7 @@
   </view>
 </view>
 <view class="flex-row flex-center fixbottomd">
-  <view class="title_tishi" wx:if="{{sendtype=='B'&& usexxstore.length <1 }}">
+  <view class="title_tishi" wx:if="{{sendtype=='B'&& mendianxx.length <1 }}">
   该门店暂无此商品
   </view>
 <view class="flex-row flex-center" style="width:100%;margin: 10px 0; ">
@@ -199,7 +201,7 @@
   <view class="h4 txt-fc txt-bold margin-left-10">¥{{amount}}</view>
   <view class="flex-1"></view>
   <!-- {{flag}} -->
-  <view class="btns butcolor"  wx:if="{{sendtype=='B'&& usexxstore.length <1 }}" style="color: #a9a9a9;">立即支付</view>
+  <view class="btns butcolor"  wx:if="{{sendtype=='B'&& mendianxx.length <1 }}" style="color: #a9a9a9;">立即支付</view>
   <view class="btns butcolor" bindtap="bindpay" wx:else>立即支付</view>
 </view>
 </view>

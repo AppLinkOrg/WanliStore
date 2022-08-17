@@ -65,7 +65,8 @@ class Content extends AppBase {
       flag: true,
       info: [],
       str: [],
-      isgogo: true
+      isgogo: true,
+      foss:false,
     })
   }
 
@@ -259,25 +260,60 @@ class Content extends AppBase {
     // 每个商品的总价格
     // 数量
     let goods_number = data.goods_number;
-  
+
     console.log(goods_number, '数量');
     if (goods_number == undefined) {
+      // 如果门店自提  门店==0 没有门店   0没有门店 1
       if (sendtype == 'B') {
-        let storeinfoid = data.storeinfo.id;
+        let storeinfoid = data.store_id;
         let shopList = data.shopList;
-        shopList = shopList.filter((item) => {
-          return !!item.tihuo[0];
-        });
-        shopList = shopList.filter((item) => {
-          return item.tihuo[0].fid == storeinfoid;
-        });
-        for (let i = 0; i < shopList.length; i++) {
-          let aa = shopList[i].mall_number * shopList[i].price
-          totalprice += aa
+        if (storeinfoid == 0) {
+          for (let i = 0; i < shopList.length; i++) {
+            let aa = shopList[i].mall_number * shopList[i].price
+            totalprice += aa
+          }
+          this.Base.setMyData({
+            totalprice
+          })
+        } else {
+          console.log('进来了', 'cxzczx');
+          // 过滤空数组
+          shopList = shopList.filter((item) => {
+            return !!item.tihuo[0];
+          });
+          console.log(shopList, '我看看');
+          // console.log(shopList.tihuo[storeinfoid-1].fid);
+          // 1就是0 2就是1
+          let arrdy = [];
+          for (let index = 0; index < shopList.length; index++) {
+            for (let x = 0; x < shopList[index].tihuo.length; x++) {
+              let aa = shopList[index].tihuo[x].fid;
+              if (aa == storeinfoid) {
+                arrdy.push(shopList[index]);
+              }
+            }
+          }
+
+
+          arrdy.forEach(item => {
+            item.addState = 'A';
+          })
+          console.log(arrdy, 'cxzczx');
+          shopList = arrdy;
+          console.log(shopList, '出来楼');
+          for (let i = 0; i < shopList.length; i++) {
+            let aa = shopList[i].mall_number * shopList[i].price
+            totalprice += aa
+          }
+          this.Base.setMyData({
+            totalprice,
+            mendianxx: arrdy,
+            foss:true
+          })
         }
-        this.Base.setMyData({
-          totalprice
-        })
+        // shopList = shopList.filter((item) => {
+        //   return item.tihuo[storeinfoid-1].fid == storeinfoid;
+        // });
       }
       if (sendtype == 'A') {
 
@@ -293,12 +329,62 @@ class Content extends AppBase {
 
 
     } else {
+      if (sendtype == 'A') {
+        let guigeprice = data.shopList[0].price;
+        console.log(guigeprice, '单价');
+        // 这里运行了
+        totalprice = goods_number * guigeprice;
+        console.log(totalprice, '总价');
+      }
+      if (sendtype == 'B') {
+        let storeinfoid = data.store_id;
+        let shopList = data.shopList;
+        if (storeinfoid == 0) {
+          for (let i = 0; i < shopList.length; i++) {
+            let aa = shopList[i].mall_number * shopList[i].price
+            totalprice += aa
+          }
+          this.Base.setMyData({
+            totalprice
+          })
+        } else {
+          console.log('进来了', 'cxzczx');
+          // 过滤空数组
+          shopList = shopList.filter((item) => {
+            return !!item.tihuo[0];
+          });
+          console.log(shopList, '我看看');
+          // console.log(shopList.tihuo[storeinfoid-1].fid);
+          // 1就是0 2就是1
+          let arrdy = [];
+          for (let index = 0; index < shopList.length; index++) {
+            for (let x = 0; x < shopList[index].tihuo.length; x++) {
+              let aa = shopList[index].tihuo[x].fid;
+              if (aa == storeinfoid) {
+                arrdy.push(shopList[index]);
+              }
+            }
+          }
+          arrdy.forEach(item => {
+            item.addState = 'A';
+          })
+          shopList = arrdy;
+          console.log(shopList, '出来楼');
 
-      let guigeprice = data.shopList[0].price;
-      console.log(guigeprice, '单价');
-      // 这里运行了
-      totalprice = goods_number * guigeprice;
-      console.log(totalprice, '总价');
+          for (let i = 0; i < shopList.length; i++) {
+            let aa = shopList[i].mall_number * shopList[i].price
+            totalprice += aa
+          }
+
+          this.Base.setMyData({
+            totalprice,
+            mendianxx: arrdy
+          })
+        }
+        // shopList = shopList.filter((item) => {
+        //   return item.tihuo[storeinfoid-1].fid == storeinfoid;
+        // });
+      }
     }
 
 
@@ -486,7 +572,7 @@ class Content extends AppBase {
         console.log(shopList, '2222');
         console.log(str, '3333');
         if (data.sendtype == 'A') {
-          
+
           if (flag == false && isgogo == true) {
             for (let i = 0; i < shopList.length; i++) {
               let strid = shopList[i].specifications_id;
@@ -494,22 +580,56 @@ class Content extends AppBase {
             }
           }
         }
-   
+
         if (data.sendtype == 'B') {
-          let storeinfoid = data.storeinfo.id;
-          if (flag == false && isgogo == true) {
-            shopList = shopList.filter((item) => {
-              return !!item.tihuo[0];
-            });
-            shopList = shopList.filter((item) => {
-              return item.tihuo[0].fid == storeinfoid;
-            });
-            for (let i = 0; i < shopList.length; i++) {
-              let strid = shopList[i].specifications_id;
-              str.push(strid);
+          let storeinfoid = data.store_id;
+          if (storeinfoid == 0) {
+            if (flag == false && isgogo == true) {
+              shopList = shopList.filter((item) => {
+                return !!item.tihuo[0];
+              });
+              console.log(shopList, '我看看');
+              // shopList = shopList.filter((item) => {
+              //   return item.tihuo[storeinfoid].fid == storeinfoid;
+              // });
+              for (let i = 0; i < shopList.length; i++) {
+                let strid = shopList[i].specifications_id;
+                str.push(strid);
+              }
+            }
+          } else {
+
+            if (flag == false && isgogo == true) {
+              // 过滤空数组
+              shopList = shopList.filter((item) => {
+                return !!item.tihuo[0];
+              });
+              console.log('进来了', 'cxzczx');
+
+              console.log(shopList, '我看看');
+              // console.log(shopList.tihuo[storeinfoid-1].fid);
+              // 1就是0 2就是1
+              let arrdy = [];
+              for (let index = 0; index < shopList.length; index++) {
+                for (let x = 0; x < shopList[index].tihuo.length; x++) {
+                  let aa = shopList[index].tihuo[x].fid;
+                  if (aa == storeinfoid) {
+                    arrdy.push(shopList[index]);
+                  }
+                }
+              }
+              shopList = arrdy;
+              console.log(shopList, '出来楼');
+              // shopList = shopList.filter((item) => {
+              //   return item.tihuo[storeinfoid].fid == storeinfoid;
+              // });
+              for (let i = 0; i < shopList.length; i++) {
+                let strid = shopList[i].specifications_id;
+                str.push(strid);
+              }
             }
           }
-          
+
         }
 
 
@@ -627,11 +747,11 @@ class Content extends AppBase {
       console.log(str, '3333');
       // flag才能走进去  isgogo true 才能走进去
       if (data.sendtype == 'A') {
-        
+
         if (flag == false && isgogo == true) {
           console.log('走一次');
           for (let i = 0; i < shopList.length; i++) {
-  
+
             let strid = shopList[i].specifications_id;
             str.push(strid);
           }
@@ -639,20 +759,50 @@ class Content extends AppBase {
       }
 
       if (data.sendtype == 'B') {
-        let storeinfoid = data.storeinfo.id;
-        if (flag == false && isgogo == true) {
-          shopList = shopList.filter((item) => {
-            return !!item.tihuo[0];
-          });
-          shopList = shopList.filter((item) => {
-            return item.tihuo[0].fid == storeinfoid;
-          });
-          for (let i = 0; i < shopList.length; i++) {
-            let strid = shopList[i].specifications_id;
-            str.push(strid);
+        let storeinfoid = data.store_id;
+        if (storeinfoid == 0) {
+          if (flag == false && isgogo == true) {
+            shopList = shopList.filter((item) => {
+              return !!item.tihuo[0];
+            });
+            console.log(shopList, '我看看');
+            for (let i = 0; i < shopList.length; i++) {
+              let strid = shopList[i].specifications_id;
+              str.push(strid);
+            }
           }
+        } else {
+          if (flag == false && isgogo == true) {
+            shopList = shopList.filter((item) => {
+              return !!item.tihuo[0];
+            });
+            console.log('进来了', 'cxzczx');
+            console.log(shopList, '我看看');
+            // console.log(shopList.tihuo[storeinfoid-1].fid);
+            // 1就是0 2就是1
+            let arrdy = [];
+            for (let index = 0; index < shopList.length; index++) {
+              for (let x = 0; x < shopList[index].tihuo.length; x++) {
+                let aa = shopList[index].tihuo[x].fid;
+                if (aa == storeinfoid) {
+                  arrdy.push(shopList[index]);
+                }
+              }
+            }
+            shopList = arrdy;
+            console.log(shopList, '出来楼');
+            // shopList = shopList.filter((item) => {
+            //   return item.tihuo[storeinfoid].fid == storeinfoid;
+            // });
+            for (let i = 0; i < shopList.length; i++) {
+              let strid = shopList[i].specifications_id;
+              str.push(strid);
+            }
+          }
+
+
         }
-        
+
       }
 
 

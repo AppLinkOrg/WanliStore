@@ -22,6 +22,7 @@
                     <view class="flex-row">
                         <image class="sizeimg" bindtap="phonecall" data-phone="{{item.mobile}}" src="{{uploadpath}}resource/{{res.phone}}"></image>
                         <view style="width: 24rpx;"></view>
+                        
                         <image class="sizeimg" bindtap="openMap" id="{{item.address}}" src="{{uploadpath}}resource/{{res.map}}"></image>
                     </view>
 
