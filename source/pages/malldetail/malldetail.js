@@ -39,7 +39,7 @@ class Content extends AppBase {
       // 商品规格
       norms: -1,
       isShow: false,
-      prices:0
+      prices: 0
 
     })
 
@@ -61,23 +61,26 @@ class Content extends AppBase {
     });
     coupon.mycoupon({
 
-    },res => {
-      var keshiyonglist = res.filter(item =>{
+    }, res => {
+      var keshiyonglist = res.filter(item => {
         return item.usesstatus == 'A'
       })
       that.Base.setMyData({
-        couponList:keshiyonglist
+        couponList: keshiyonglist
       })
     })
 
 
     var shopcart = new shopcartlist();
-   
+
     shopcart.shopcartlist({}, res => {
       console.log(res, '我是第一');
+      let shoCartList = res.filter((item) => {
+        return !!item.shangpin[0];
+      });
       that.Base.setMyData({
         // infoList:newArr,
-        shoCartList: res
+        shoCartList
       })
     })
   }
@@ -95,15 +98,15 @@ class Content extends AppBase {
 
     console.log(e);
     let id = e.currentTarget.dataset.index;
-    
+
     this.Base.setMyData({
       isShop: id,
-      goods_idss:e.currentTarget.dataset.id,
+      goods_idss: e.currentTarget.dataset.id,
       show: true,
     })
 
   }
-  tobuybtn(e){
+  tobuybtn(e) {
     var that = this
     //  数量
     let goods_number = this.Base.getMyData().quantity;
@@ -117,7 +120,7 @@ class Content extends AppBase {
         icon: 'none',
         duration: 2000
       })
-    }else{
+    } else {
 
       wx.navigateTo({
         url: '/pages/ordersubmit/ordersubmit?goodsid',
@@ -129,19 +132,19 @@ class Content extends AppBase {
           someEvent: function (data) {
             console.log(data)
           }
-         
-          },
+
+        },
         success: function (res) {
           // 通过 eventChannel 向被打开页面传送数据
-          res.eventChannel.emit('shop_id', { id:goods_idss,goods_number:goods_number,guige_id:norms })
+          res.eventChannel.emit('shop_id', { id: goods_idss, goods_number: goods_number, guige_id: norms })
         }
       })
     }
 
   }
 
-// 跳转优惠卷
-  tomycoupon(){
+  // 跳转优惠卷
+  tomycoupon() {
     wx.navigateTo({
       url: '/pages/mycoupon/mycoupon',
     })
@@ -208,7 +211,7 @@ class Content extends AppBase {
     this.Base.setMyData({
       norms,
       price,
-      prices:price
+      prices: price
       // shopname
     })
 
@@ -224,7 +227,7 @@ class Content extends AppBase {
     // 规格=？新商品
     let goods_id = this.Base.getMyData().info.id;
     let norms = this.Base.getMyData().norms;
-    console.log(norms,'22');
+    console.log(norms, '22');
     let price = this.Base.getMyData().price;
     if (norms == '-1') {
       wx.showToast({

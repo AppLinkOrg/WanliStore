@@ -51,9 +51,12 @@ class Content extends AppBase {
       //     res[i].list = info;
       //   });
       // }
+      let  shoCartList = res.filter((item) => {
+        return !!item.shangpin[0];
+      });
       that.Base.setMyData({
         // infoList:newArr,
-        shoCartList: res
+        shoCartList
       })
     })
 
@@ -214,7 +217,11 @@ class Content extends AppBase {
     selectAllStatus = !selectAllStatus;
     console.log(selectAllStatus, '修改后');
     let shoCartList = this.Base.getMyData().shoCartList; // 获取购物车列表
+    //  shoCartList = shoCartList.filter((item) => {
+    //   return !!item.shangpin[0];
+    // });
     let isDaleList = this.Base.getMyData().isDaleList;
+    
     for (let i = 0; i < shoCartList.length; i++) {
       // 把所有状态修改
       shoCartList[i].checked = selectAllStatus;

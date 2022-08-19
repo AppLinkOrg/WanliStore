@@ -146,7 +146,7 @@
     </view>
 
 
-    <view style="padding:10px;margin: 0 10px;">
+    <view style="padding:10px 0px;margin: 0 10px;">
       <view class="flex-row flex-center" bindtap="navigateto" id="/pages/giftcardshiyong/giftcardshiyong?goodsid={{shopList[0].id}}">
         <view class="h5 txt-33">礼品卡</view>
         <view class="flex-1"></view>
@@ -181,12 +181,12 @@
       </view>
     </view>
   </view>
-  <view class="height-70"></view>
+  <view class="height-10"></view>
   <view class="total">
     <view class="flex-row flex-center">
       <view class="h5 txt-33">商品金额</view>
       <view class="flex-1"></view>
-      <view class="h5" style="color:#888888;">¥{{totalprice}}</view>
+      <view class="h5" style="color:red;">¥{{totalprice}}</view>
     </view>
     <view class="flex-row flex-center margin-top-24">
       <view class="h5 txt-33">运费</view>
@@ -200,7 +200,7 @@
       <view class="flex-1"></view>
       <view class="h5 txt-fc ">¥{{youhui}}</view>
     </view>
-    <view class="height-70"></view>
+    <view class="height-20"></view>
     <view class="flex-row flex-center ">
       <view class="h5 txt-33">订单备注</view>
       <input type="text" class="flex-1 text-right h5 txt-33" value="{{beizhu}}" bindinput="beizhuFn" placeholder="请选择备注" />

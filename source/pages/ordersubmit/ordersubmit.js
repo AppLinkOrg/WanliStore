@@ -564,6 +564,18 @@ class Content extends AppBase {
     this.Base.setMyData({
       flag
     })
+    // 判断用户是否授权
+      if (data.memberinfo.nickName=='' || data.memberinfo.avatarUrl=='') {
+        this.Base.toast('授权昵称，头像');
+        return
+      }
+      // 判断用户是否授权
+      if (data.memberinfo.mobile=='') {
+        this.Base.toast('请授权手机号');
+        return
+      }
+
+
 
 
     // 礼品卡
