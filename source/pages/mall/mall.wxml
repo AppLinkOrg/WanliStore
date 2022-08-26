@@ -12,7 +12,7 @@
         </view>
     </view>
 </scroll-view>
- <swiper class="goodsbox" style="height:{{globalData.hh-165}}px;" bindchange='pagechange' >
+ <swiper class="goodsbox" style="height:{{globalData.hh-165}}px;" bindchange='pagechange' current="{{typeid-1}}">
   <swiper-item  id='{{item.id}}' wx:for='{{typelist}}' wx:for-index='idx' >
 <scroll-view scroll-y="true" class="goodsbox" style="height:{{globalData.hh-165}}px;">
     <view class="flex-row">

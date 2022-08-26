@@ -1,3 +1,6 @@
+  <view class="sing_ddd" bindtap="bindgetUserProfile" wx:if='{{memberinfo.avatarUrl == "" && memberinfo.avatarUrl == ""}}'></view>
+  <view class="sing_ddds" bindtap="bindgetUserProfile" wx:else></view>
+
 <view class="flex-row flex-center fixedtop" style="top:{{globalData.Custom.top}}px;height:{{globalData.Custom.height}}px;">
     <image src="{{uploadpath}}resource/{{res.backicon}}" bindtap="backPage" class="backicon"></image>
     <view class="flex-1"></view>

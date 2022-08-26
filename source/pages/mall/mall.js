@@ -67,16 +67,13 @@ class Content extends AppBase {
   }
 
   pagechange(e) {
-
+        console.log(e);
     // 通过touch判断，改变tab的下标值
     if ("touch" === e.detail.source) {
       // let currentPageIndex = this.data.currentIndex;
+      console.log(e.detail.current,'我看 看看');
       let typeid = e.detail.current+1
-      // console.log(currentPageIndex);s
-      // console.log(currentPageIndex);
-      // currentPageIndex = (currentPageIndex + 1) % 2;
-      // console.log(currentPageIndex);
-      // cu
+  
       // 拿到当前索引并动态改变
       this.setData({
         typeid

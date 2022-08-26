@@ -1,4 +1,7 @@
 <!--pages/buygiftcards/buygiftcards.wxml-->
+<view class="sing_ddd" bindtap="bindgetUserProfile" wx:if='{{memberinfo.avatarUrl == "" && memberinfo.avatarUrl == ""}}'></view>
+  <view class="sing_ddds" bindtap="bindgetUserProfile" wx:else></view>
+
 <view class="flex-row kongbaitips min-height-100" wx:if="{{cardtype.length<=0}}">
     <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
 </view>

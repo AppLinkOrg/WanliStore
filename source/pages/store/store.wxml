@@ -1,91 +1,136 @@
 <view class="bgf3f6f7 flex-row flex-column">
-    <view class="contentbox-700">
-      <view class="txt-66 h5 textbox">所有门店</view>
-        <view class="listbox li" wx:for="{{sssss}}" wx:key='item' style="background-color: #fff;">
-            <view class="flex-row">
-                <view class="leftbox" bindtap="chosedz" id="{{item.id}}">
-                    <view class="flex-1 f-36">{{item.name}}</view>
-                    <view class="flex-row flex-center timebox">
-                        <image src="{{uploadpath}}resource/{{res.time}}" class="timeimg"></image>
-                        <view class="h6 txt-66">{{item.opentime}}</view>
-                    </view>
-                    <view>
-                        <view class="flex-1 flex-row margin-top-8 di_box">
-                            <image src="{{uploadpath}}resource/{{res.didian}}" class="dzimg"></image>
-                            <view class="h6 txt-66">{{item.address}}</view>
-                        </view>
-                    </view>
-                </view>
+	<view class="contentbox-700">
+		<view class="txt-66 h5 textbox">所有门店</view>
+		<view
+		 class="listbox li"
+		 wx:for="{{sssss}}"
+		 wx:key='item'
+		 style="background-color: #fff;"
+		>
+			<view class="flex-row">
+				<view class="leftbox" bindtap="chosedz" id="{{item.id}}">
+					<view class="flex-1 f-36">{{item.name}}</view>
+					<view class="flex-row flex-center timebox">
+						<image src="{{uploadpath}}resource/{{res.time}}" class="timeimg" />
+						<view class="h6 txt-66">{{item.opentime}}</view>
+					</view>
+					<view>
+						<view class="flex-1 flex-row margin-top-8 di_box">
+							<image src="{{uploadpath}}resource/{{res.didian}}" class="dzimg" />
+							<view class="h6 txt-66">{{item.address}}</view>
+						</view>
+					</view>
+				</view>
 
-                <view class="rightbox">
-                    <view class="f-24 txt-99 distance">距离{{item.miletext}}</view>
-                    <view class="flex-row">
-                        <image class="sizeimg" bindtap="phonecall" data-phone="{{item.mobile}}" src="{{uploadpath}}resource/{{res.phone}}"></image>
-                        <view style="width: 24rpx;"></view>
-                        
-                        <image class="sizeimg" bindtap="openMap" id="{{item.address}}" src="{{uploadpath}}resource/{{res.map}}"></image>
-                    </view>
+				<view class="rightbox">
+					<view class="f-24 txt-99 distance">距离{{item.miletext}}</view>
+					<view class="flex-row">
+						<image
+						 class="sizeimg"
+						 bindtap="phonecall"
+						 data-phone="{{item.mobile}}"
+						 src="{{uploadpath}}resource/{{res.phone}}"
+						/>
+						<view style="width: 24rpx;" />
 
-                </view>
-            </view>
-        </view>
-        <view class="txt-66 h5 textbox">常用门店</view>
-        <view class="listbox" wx:for="{{usestore}}" wx:key='item' style="background-image: url({{uploadpath}}resource/{{res.biaoqian}});">
-            <view class="flex-row">
+						<image
+						 class="sizeimg"
+						 bindtap="openMap"
+						 id="{{item.address}}"
+						 src="{{uploadpath}}resource/{{res.map}}"
+						/>
+					</view>
 
-                <view class="leftbox"  bindtap="chosedz" id="{{item.id}}">
-                    <view class="flex-1 f-36">{{item.name}}</view>
-                    <view class="flex-row flex-center timebox">
-                        <image src="{{uploadpath}}resource/{{res.time}}" class="timeimg"></image>
-                        <view class="h6 txt-66">{{item.opentime}}</view>
-                    </view>
-                    <view>
-                        <view class="flex-1 flex-row margin-top-8 di_box">
-                            <image src="{{uploadpath}}resource/{{res.didian}}" class="dzimg"></image>
-                            <view class="h6 txt-66">{{item.address}}</view>
-                        </view>
-                    </view>
-                </view>
+				</view>
+			</view>
+		</view>
+		<view class="txt-66 h5 textbox">常用门店</view>
+		<view
+		 class="listbox"
+		 wx:for="{{usestore}}"
+		 wx:key='item'
+		 style="background-image: url({{uploadpath}}resource/{{res.biaoqian}});"
+		>
+			<view class="flex-row">
 
-                <view class="rightbox">
-                    <view class="f-24 txt-99 distance">距离{{item.miletext}}</view>
-                    <view class="flex-row">
-                        <image class="sizeimg" bindtap="phonecall" data-phone="{{item.mobile}}" src="{{uploadpath}}resource/{{res.phone}}"></image>
-                        <view style="width: 24rpx;"></view>
-                        <image class="sizeimg" bindtap="openMap" id="{{item.address}}" src="{{uploadpath}}resource/{{res.map}}"></image>
-                    </view>
+				<view class="leftbox" bindtap="chosedz" id="{{item.id}}">
+					<view class="flex-1 f-36">{{item.name}}</view>
+					<view class="flex-row flex-center timebox">
+						<image src="{{uploadpath}}resource/{{res.time}}" class="timeimg" />
+						<view class="h6 txt-66">{{item.opentime}}</view>
+					</view>
+					<view>
+						<view class="flex-1 flex-row margin-top-8 di_box">
+							<image src="{{uploadpath}}resource/{{res.didian}}" class="dzimg" />
+							<view class="h6 txt-66">{{item.address}}</view>
+						</view>
+					</view>
+				</view>
 
-                </view>
-            </view>
-        </view>
-        <view class="txt-66 h5 textbox">其他门店</view>
-        <view class="listbox li" wx:for="{{list}}" wx:key='item' style="background-color: #fff;">
-            <view class="flex-row">
-                <view class="leftbox" bindtap="chosedz" id="{{item.id}}">
-                    <view class="flex-1 f-36">{{item.name}}</view>
-                    <view class="flex-row flex-center timebox">
-                        <image src="{{uploadpath}}resource/{{res.time}}" class="timeimg"></image>
-                        <view class="h6 txt-66">{{item.opentime}}</view>
-                    </view>
-                    <view>
-                        <view class="flex-1 flex-row margin-top-8 di_box">
-                            <image src="{{uploadpath}}resource/{{res.didian}}" class="dzimg"></image>
-                            <view class="h6 txt-66">{{item.address}}</view>
-                        </view>
-                    </view>
-                </view>
+				<view class="rightbox">
+					<view class="f-24 txt-99 distance">距离{{item.miletext}}</view>
+					<view class="flex-row">
+						<image
+						 class="sizeimg"
+						 bindtap="phonecall"
+						 data-phone="{{item.mobile}}"
+						 src="{{uploadpath}}resource/{{res.phone}}"
+						/>
+						<view style="width: 24rpx;" />
+						<image
+						 class="sizeimg"
+						 bindtap="openMap"
+						 id="{{item.address}}"
+						 src="{{uploadpath}}resource/{{res.map}}"
+						/>
+					</view>
 
-                <view class="rightbox">
-                    <view class="f-24 txt-99 distance">距离{{item.miletext}}</view>
-                    <view class="flex-row">
-                        <image class="sizeimg" bindtap="phonecall" data-phone="{{item.mobile}}" src="{{uploadpath}}resource/{{res.phone}}"></image>
-                        <view style="width: 24rpx;"></view>
-                        <image class="sizeimg" bindtap="openMap" id="{{item.address}}" src="{{uploadpath}}resource/{{res.map}}"></image>
-                    </view>
+				</view>
+			</view>
+		</view>
+		<view class="txt-66 h5 textbox">其他门店</view>
+		<view
+		 class="listbox li"
+		 wx:for="{{list}}"
+		 wx:key='item'
+		 style="background-color: #fff;"
+		>
+			<view class="flex-row">
+				<view class="leftbox" bindtap="chosedz" id="{{item.id}}">
+					<view class="flex-1 f-36">{{item.name}}</view>
+					<view class="flex-row flex-center timebox">
+						<image src="{{uploadpath}}resource/{{res.time}}" class="timeimg" />
+						<view class="h6 txt-66">{{item.opentime}}</view>
+					</view>
+					<view>
+						<view class="flex-1 flex-row margin-top-8 di_box">
+							<image src="{{uploadpath}}resource/{{res.didian}}" class="dzimg" />
+							<view class="h6 txt-66">{{item.address}}</view>
+						</view>
+					</view>
+				</view>
 
-                </view>
-            </view>
-        </view>
-    </view>
+				<view class="rightbox">
+					<view class="f-24 txt-99 distance">距离{{item.miletext}}</view>
+					<view class="flex-row">
+						<image
+						 class="sizeimg"
+						 bindtap="phonecall"
+						 data-phone="{{item.mobile}}"
+						 src="{{uploadpath}}resource/{{res.phone}}"
+						/>
+						<view style="width: 24rpx;" />
+						<image
+						 class="sizeimg"
+						 bindtap="openMap"
+						 id="{{item.address}}"
+						 src="{{uploadpath}}resource/{{res.map}}"
+						/>
+					</view>
+
+				</view>
+			</view>
+		</view>
+	</view>
 </view>
 

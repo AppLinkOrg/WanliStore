@@ -1,25 +1,54 @@
 <!-- 视频列表 -->
 <view class="">
-    <view wx:for="{{list}}" wx:key='k' wx:for-index='idx' class="pore" bindtap="bindvideo" id='{{idx}}'>
-        <image src="{{uploadpath}}onlinevideo/{{item.cover}}" class="videoimg"></image>
-        <view class="title">
-            <view class="">{{item.name}}</view>
-        </view>
-    </view>
+	<view
+	 wx:for="{{list}}"
+	 wx:key='k'
+	 wx:for-index='idx'
+	 class="pore"
+	 bindtap="bindvideo"
+	 id='{{idx}}'
+	>
+		<image src="{{uploadpath}}onlinevideo/{{item.cover}}" class="videoimg" />
+		<view class="title">
+			<view class="">{{item.name}}</view>
+		</view>
+	</view>
 </view>
 <!-- 点击返回视频播放 -->
-<view wx:if='{{choseidx > -1}}' bindtap="bindvideo" id='-1' class="mask"></view>
+<view
+ wx:if='{{choseidx > -1}}'
+ bindtap="bindvideo"
+ id='-1'
+ class="mask"
+/>
 
 <!-- 视频播放 -->
 <view wx:if='{{choseidx > -1}}' class="showvideo">
-    <video class='pos' style='width:100vw; height:400rpx;' object-fit="fill" loop='{{false}}' src='{{uploadpath}}onlinevideo/{{list[choseidx].video}}' play-btn-position="center" controls="true" autoplay='true' show-center-play-btn="true">
-    </video>
+	<video
+	 class='pos'
+	 style='width:100vw; height:400rpx;'
+	 object-fit="fill"
+	 loop='{{false}}'
+	 src='{{uploadpath}}onlinevideo/{{list[choseidx].video}}'
+	 play-btn-position="center"
+	 controls="true"
+	 autoplay='true'
+	 show-center-play-btn="true"
+	/>
 </view>
 
 <!-- <view class="viedeo_box"> -->
-<!-- 视频列表 -->
-    <!-- <view class="videoList" wx:for="{{list}}" wx:key='k' wx:for-index='idx'  bindtap="bindvideo" id='{{idx}}'>
-        <image class="" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" />
-      
-    </view> -->
+	<!-- 视频列表 -->
+	<!-- <view
+	 class="videoList"
+	 wx:for="{{list}}"
+	 wx:key='k'
+	 wx:for-index='idx'
+	 bindtap="bindvideo"
+	 id='{{idx}}'
+	>
+		<image src="{{uploadpath}}onlinevideo/{{item.cover}}" />
+
+	</view> -->
 <!-- </view> -->
+

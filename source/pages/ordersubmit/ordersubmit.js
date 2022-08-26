@@ -66,7 +66,7 @@ class Content extends AppBase {
       info: [],
       str: [],
       isgogo: true,
-      foss:false,
+      foss: false,
     })
   }
 
@@ -294,11 +294,11 @@ class Content extends AppBase {
               }
             }
           }
-       
+
           // if (storeinfoid in array)
           // {
           //   this.Base.setMyData({
-             
+
           //     foss:true
           //   })
           // }
@@ -309,7 +309,7 @@ class Content extends AppBase {
           // },res => {
           //   console.log(res,'更新');
           // })
- 
+
 
           console.log(arrdy, 'cxzczx');
           shopList = arrdy;
@@ -322,7 +322,7 @@ class Content extends AppBase {
           this.Base.setMyData({
             totalprice,
             mendianxx: arrdy,
-          
+
           })
         }
         // shopList = shopList.filter((item) => {
@@ -565,15 +565,15 @@ class Content extends AppBase {
       flag
     })
     // 判断用户是否授权
-      if (data.memberinfo.nickName=='' || data.memberinfo.avatarUrl=='') {
-        this.Base.toast('授权昵称，头像');
-        return
-      }
-      // 判断用户是否授权
-      if (data.memberinfo.mobile=='') {
-        this.Base.toast('请授权手机号');
-        return
-      }
+    if (data.memberinfo.nickName == '' || data.memberinfo.avatarUrl == '') {
+      this.Base.toast('授权昵称，头像');
+      return
+    }
+    // 判断用户是否授权
+    if (data.memberinfo.mobile == '') {
+      this.Base.toast('请授权手机号');
+      return
+    }
 
 
 
@@ -742,7 +742,7 @@ class Content extends AppBase {
             console.log(data)
             console.log(data.id)
             console.log(this.Base.options.id)
-            console.log(ret.return, '你算什么东西');
+            console.log(ret.return, '你什么东西');
             // 更新订单状态
             orderapi.updateorder({
               id: ret.return
@@ -791,7 +791,7 @@ class Content extends AppBase {
             shopList = shopList.filter((item) => {
               return !!item.tihuo[0];
             });
-            console.log(shopList, '我看看');
+
             for (let i = 0; i < shopList.length; i++) {
               let strid = shopList[i].specifications_id;
               str.push(strid);
@@ -802,8 +802,7 @@ class Content extends AppBase {
             shopList = shopList.filter((item) => {
               return !!item.tihuo[0];
             });
-            console.log('进来了', 'cxzczx');
-            console.log(shopList, '我看看');
+
             // console.log(shopList.tihuo[storeinfoid-1].fid);
             // 1就是0 2就是1
             let arrdy = [];

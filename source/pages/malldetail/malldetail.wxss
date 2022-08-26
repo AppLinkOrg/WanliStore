@@ -1,4 +1,15 @@
 /* pages/malldetail/malldetail.wxss */
+.sing_ddd{
+    width: 100%;
+    height: 100vh;
+    background: #f9f9f900;
+    position: fixed;
+    top: 0;
+    z-index: 555;
+  }
+  .sing_ddds{
+    display: none;
+  }
 
 .fixedtop {
     width: 100vw;
@@ -134,7 +145,7 @@
     font-weight: 400;
     color: #FFFFFF;
 
-    width: 20%;
+    width: 25%;
 
 }
 

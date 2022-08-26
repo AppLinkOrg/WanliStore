@@ -1,78 +1,109 @@
 <view class="flex-row flex-center sendbox">
-  <view class="{{sendtype=='A'?'sendactive':'txt-44'}} h6" bindtap="swtichsend" id='A'>商家配送</view>
-  <view class="{{sendtype=='B'?'sendactive':'txt-44'}} h6" bindtap="swtichsend" id='B'>到店自提</view>
+	<view class="{{sendtype=='A'?'sendactive':'txt-44'}} h6" bindtap="swtichsend" id='A'>商家配送</view>
+	<view class="{{sendtype=='B'?'sendactive':'txt-44'}} h6" bindtap="swtichsend" id='B'>到店自提</view>
 </view>
 
 <view>
-  <!-- 商家配送 -->
-  <view wx:if="{{sendtype=='A'}}">
-    <!-- 没有选地址的话，转跳到地址列表 -->
-    <view wx:if="{{address_id==0}}" class="flex-row flex-center dizhibox" bindtap="navigateto" id='/pages/addresslist/addresslist?chosetype=A&id={{address_id}}'>
-      <!-- 展示的内容 -->
-      <image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi"></image>
-      <view class="f-36 txt-33">点击选择地址</view>
-      <view class="flex-1"></view>
-      <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
-    </view>
-    <!-- 否则，点击也转跳到地址列表 -->
-    <view wx:else class="flex-row flex-center dizhibox" bindtap="navigateto" id='/pages/addresslist/addresslist?chosetype=A&id={{address_id}}'>
-      <view class="flex-1 flex-row">
-        <!-- 展示内容 -->
-        <image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi"></image>
-        <view>
-          <view class="f-36 txt-33" style="font-weight: 500;">{{addressinfo.address}}</view>
+	<!-- 商家配送 -->
+	<view wx:if="{{sendtype=='A'}}">
+		<!-- 没有选地址的话，转跳到地址列表 -->
+		<view
+		 wx:if="{{address_id==0}}"
+		 class="flex-row flex-center dizhibox"
+		 bindtap="navigateto"
+		 id='/pages/addresslist/addresslist?chosetype=A&id={{address_id}}'
+		>
+			<!-- 展示的内容 -->
+			<image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi" />
+			<view class="f-36 txt-33">点击选择地址</view>
+			<view class="flex-1" />
+			<image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon" />
+		</view>
+		<!-- 否则，点击也转跳到地址列表 -->
+		<view
+		 wx:else
+		 class="flex-row flex-center dizhibox"
+		 bindtap="navigateto"
+		 id='/pages/addresslist/addresslist?chosetype=A&id={{address_id}}'
+		>
+			<view class="flex-1 flex-row">
+				<!-- 展示内容 -->
+				<image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi" />
+				<view>
+					<view class="f-36 txt-33" style="font-weight: 500;">{{addressinfo.address}}</view>
 
-          <view class="flex-row flex-center">
-            <view class="txt-99 h5">{{addressinfo.name}}</view>
-            <view class="txt-99 h5 margin-left-10">{{addressinfo.mobile}}</view>
-          </view>
-        </view>
-      </view>
-      <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
-    </view>
+					<view class="flex-row flex-center">
+						<view class="txt-99 h5">{{addressinfo.name}}</view>
+						<view class="txt-99 h5 margin-left-10">{{addressinfo.mobile}}</view>
+					</view>
+				</view>
+			</view>
+			<image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon" />
+		</view>
 
-  </view>
+	</view>
 
-  <!-- 自提 -->
-  <view wx:else>
-    <view wx:if="{{store_id==0}}" class="flex-row flex-center dizhibox" bindtap="navigateto" id='/pages/store/store?goodsid={{shopList[0].shangpin[0].id}}&id={{store_id}}'>
-      <image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi"></image>
-      <view class="f-36 txt-33">点击选择地址</view>
-      <view class="flex-1"></view>
-      <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
-    </view>
-    <view wx:else class="flex-row flex-center dizhibox" bindtap="navigateto" id='/pages/store/store?goodsid={{shopList[0].shangpin[0].id}}&id={{store_id}}'>
-      <view class="flex-1 ">
-        <view>
-          <view class="flex-row flex-center">
-            <view class="ziti">自提</view>
-            <view class="f-36 txt-33" style="font-weight: 500;">{{storeinfo.name}}</view>
-          </view>
+	<!-- 自提 -->
+	<view wx:else>
+		<view
+		 wx:if="{{store_id==0}}"
+		 class="flex-row flex-center dizhibox"
+		 bindtap="navigateto"
+		 id='/pages/store/store?goodsid={{shopList[0].shangpin[0].id}}&id={{store_id}}'
+		>
+			<image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi" />
+			<view class="f-36 txt-33">点击选择地址</view>
+			<view class="flex-1" />
+			<image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon" />
+		</view>
+		<view
+		 wx:else
+		 class="flex-row flex-center dizhibox"
+		 bindtap="navigateto"
+		 id='/pages/store/store?goodsid={{shopList[0].shangpin[0].id}}&id={{store_id}}'
+		>
+			<view class="flex-1 ">
+				<view>
+					<view class="flex-row flex-center">
+						<view class="ziti">自提</view>
+						<view class="f-36 txt-33" style="font-weight: 500;">{{storeinfo.name}}</view>
+					</view>
 
-          <view class="flex-row flex-center">
-            <view class="txt-66 h5">{{storeinfo.address}}</view>
-          </view>
-        </view>
-      </view>
-      <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
-    </view>
-    <view wx:if="{{address_id==0}}" class="dizhibox flex-row flex-center" bindtap="navigateto" id="/pages/addresslist/addresslist?chosetype=B&id={{tihuoren_id}}">
-      <view class="h5 txt-33">提货人</view>
-      <view class="flex-1"></view>
-      <view class="h5" style="color: #888;">{{addressthr.name}}{{addressthr.mobile}}</view>
-      <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
-    </view>
-    <view wx:else class="flex-row flex-center dizhibox" bindtap="navigateto" id='/pages/addresslist/addresslist?chosetype=B&id={{tihuoren_id}}'>
-      <view class="h5 txt-33">提货人</view>
-      <view class="flex-1"></view>
-      <view class="h5" style="color: #888;">{{addressthr.name}}{{addressthr.mobile}}</view>
-      <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
-    </view>
-  </view>
-  <wxs module="ISCN">
-  function ISContain(mendi, id){
-    var i = 0;
-    for (i;i < mendi.length; i++)
+					<view class="flex-row flex-center">
+						<view class="txt-66 h5">{{storeinfo.address}}</view>
+					</view>
+				</view>
+			</view>
+			<image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon" />
+		</view>
+		<view
+		 wx:if="{{address_id==0}}"
+		 class="dizhibox flex-row flex-center"
+		 bindtap="navigateto"
+		 id="/pages/addresslist/addresslist?chosetype=B&id={{tihuoren_id}}"
+		>
+			<view class="h5 txt-33">提货人</view>
+			<view class="flex-1" />
+			<view class="h5" style="color: #888;">{{addressthr.name}}{{addressthr.mobile}}</view>
+			<image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon" />
+		</view>
+		<view
+		 wx:else
+		 class="flex-row flex-center dizhibox"
+		 bindtap="navigateto"
+		 id='/pages/addresslist/addresslist?chosetype=B&id={{tihuoren_id}}'
+		>
+			<view class="h5 txt-33">提货人</view>
+			<view class="flex-1" />
+			<view class="h5" style="color: #888;">{{addressthr.name}}{{addressthr.mobile}}</view>
+			<image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon" />
+		</view>
+	</view>
+	<wxs module="ISCN">
+		function ISContain(mendi, id){
+		var i = 0;
+		for (i;i
+		< mendi.length; i++)
     {
       if (mendi[i]['fid'] == id)
       {
@@ -80,7 +111,7 @@
       }
     }
     return true;
-    
+
   }
   module.exports = {
     ISContain:ISContain,
@@ -217,6 +248,11 @@
   <view class="flex-1"></view>
   <!-- {{flag}} -->
   <view class="btns butcolor"  wx:if="{{sendtype=='B'&& mendianxx.length <1 }}" style="color: #a9a9a9;">立即支付</view>
+   <view class="btns butcolor" wx:elif="{{ memberinfo==null || (memberinfo!=null && memberinfo.mobile=='')}}">
+   
+    <button open-type="getPhoneNumber" class="btns butcolor" bindgetphonenumber="getPhoneNo">去支付 </button>
+   </view>
   <view class="btns butcolor" bindtap="bindpay" wx:else>立即支付</view>
 </view>
 </view>
+
