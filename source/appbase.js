@@ -447,10 +447,18 @@ export class AppBase {
             },
             complete: function (res) {
               console.log("complete");
-              console.log(res);
+              console.log(res,"授权失败");
             }
           });
-        }
+        },
+        // fail:function(res){
+        //   wx.showToast({
+        //     title: '授权失败',
+        //     icon: 'success',
+        //     duration: 1000
+        //   })
+        //   console.log(res);
+        // }
       });
     } else {
       AppBase.QQMAP.reverseGeocoder({

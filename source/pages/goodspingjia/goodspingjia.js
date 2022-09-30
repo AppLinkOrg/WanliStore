@@ -42,7 +42,6 @@ import { OrderApi } from "../../apis/order.api";
         var pingjialist = e.filter(item =>{
           return item.goods_id == data.goods_id
         })
-        console.log(pingjialist);
           this.Base.setMyData({
             orderpingjia:e,
             pingjialist

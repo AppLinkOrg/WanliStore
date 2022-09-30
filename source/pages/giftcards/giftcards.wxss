@@ -41,10 +41,10 @@
 }
 
 .bottombox {
-    position: absolute;
+    /* position: absolute;
     left: 50%;
     margin-left: -264rpx;
-    bottom: 44rpx;
+    bottom: 44rpx; */
 }
 
 .bottomcontrnt {

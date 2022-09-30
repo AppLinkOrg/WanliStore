@@ -34,19 +34,19 @@
   </view>
   <view class="pingjianeirong">
     
-  <view class="pingjia_top">
+  <view class="pingjia_top" style="font-size: 12rpx;">
     <!-- <view class="h5 txt-33 margin-bottom-20">商品评价</view> -->
-    <textarea  class="pingjiacont" value="{{contents}}" bindinput="contentsFn" maxlength="-1" name="" id="" cols="30" rows="10" placeholder="请输入商品评价"></textarea>
+    <textarea  class="pingjiacont" value="{{contents}}" bindinput="contentsFn" maxlength="-1" name="" id="" cols="30" rows="10" placeholder="从多个角度评价商品，可以帮助更多想买的人~"></textarea>
   </view>
   <view class="pingjia_bottom">
     <!-- <view class="h5 txt-33 margin-bottom-20">商品评价图片</view> -->
     <view class="flex-row flex-wrap" style="align-items:center;">
+      <image src="{{uploadpath}}resource/{{res.uploadimg}}" bindtap="uploadimg" id='-1' class="uploadimg line"></image>
       <view class="pore" wx:for="{{imglist}}" wx:key='k' wx:for-index='idx'>
-        <image src="{{uploadpath}}pingjia/{{item.img}}" bindtap="uploadimg" id='{{idx}}' class="uploadimg"></image>
+        <image src="{{uploadpath}}pingjia/{{item.img}}" bindtap="uploadimg" id='{{idx}}' class="uploadimg" style="margin-right: 10rpx;border-radius: 10rpx;margin-top: 12rpx;"></image>
         <image src="{{uploadpath}}resource/{{res.shanchu}}" class="shanchu" bindtap="shanchu" id="{{idx}}"></image>
       </view>
-
-      <image src="{{uploadpath}}resource/{{res.uploadimg}}" bindtap="uploadimg" id='-1' class="uploadimg"></image>
+     
     </view>
   </view>
   </view>

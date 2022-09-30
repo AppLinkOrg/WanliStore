@@ -51,7 +51,7 @@ class Content extends AppBase {
       //     res[i].list = info;
       //   });
       // }
-      let  shoCartList = res.filter((item) => {
+      let shoCartList = res.filter((item) => {
         return !!item.shangpin[0];
       });
       that.Base.setMyData({
@@ -77,7 +77,7 @@ class Content extends AppBase {
       })
     }
 
-    this.getTotalPrice();      //重新获取总价
+    this.getTotalPrice(); //重新获取总价
 
   }
   // 点击多选框
@@ -96,21 +96,21 @@ class Content extends AppBase {
     // 购物车Id
     const specifications_id = e.currentTarget.dataset.spe_id;
     const zhuangtaiid = e.currentTarget.dataset.zhuangtai;
-    
+
     let shoCartList = this.Base.getMyData().shoCartList; // 获取购物车列表
     let mall_number = shoCartList[index].mall_number;
-    console.log('原来的值',mall_number);
-    
-    
+    console.log('原来的值', mall_number);
+
+
     mall_number++;
     shoCartList[index].mall_number = mall_number;
-    
+
     var shopcart = new shopcartlist();
     shopcart.addshopcartnum({
       specifications_id,
       mall_number,
       zhuangtaiid
-    },res => {
+    }, res => {
       console.log(res);
     })
     this.setData({
@@ -135,7 +135,7 @@ class Content extends AppBase {
       specifications_id,
       mall_number,
       zhuangtaiid
-    },res => {
+    }, res => {
       console.log(res);
     })
     this.setData({
@@ -158,9 +158,9 @@ class Content extends AppBase {
     var shopcart = new shopcartlist();
     shopcart.addshopcartnum({
       specifications_id,
-      mall_number:value,
+      mall_number: value,
       zhuangtaiid
-    },res => {
+    }, res => {
       console.log(res);
     })
     this.setData({
@@ -207,7 +207,7 @@ class Content extends AppBase {
       })
     }
 
-    this.getTotalPrice();      //重新获取总价
+    this.getTotalPrice(); //重新获取总价
   }
 
   // 购物车全选事件
@@ -221,12 +221,12 @@ class Content extends AppBase {
     //   return !!item.shangpin[0];
     // });
     let isDaleList = this.Base.getMyData().isDaleList;
-    
+
     for (let i = 0; i < shoCartList.length; i++) {
       // 把所有状态修改
       shoCartList[i].checked = selectAllStatus;
 
-    }           // 改变所有商品状态
+    } // 改变所有商品状态
     if (selectAllStatus) {
       // 全选框为真   获取所有id
       for (let j = 0; j < shoCartList.length; j++) {
@@ -242,45 +242,43 @@ class Content extends AppBase {
       selectAllStatus: selectAllStatus,
       shoCartList: shoCartList
     });
-    this.getTotalPrice();  //重新获取总价
+    this.getTotalPrice(); //重新获取总价
   }
 
   // 跳转订单
   tobuy(e) {
+
     var data = this.Base.getMyData();
-    
-        let shoCartList = this.Base.getMyData().shoCartList;
-      
-        let shopList=shoCartList.filter(ele => ele.checked == true);
-        console.log('被选中的',shopList);
-        // let shop_id= [];
-        // let shop_dd = {};
-        // for (let i = 0; i < shoCartList.length; i++) {
-        //   let aa = shopList[i].specifications_id;
-        //   let bb = shopList[i].mall_number;
-        //   shop_dd.specifications_id = aa;
-        //   shop_dd.mall_number = bb;
-        //   shop_id.push(shop_dd);
-        // }
-        // console.log(shop_id,'hhhh');
+
+    let shoCartList = this.Base.getMyData().shoCartList;
+
+    let shopList = shoCartList.filter(ele => ele.checked == true);
+    console.log('被选中的', shopList);
+    // let shop_id= [];
+    // let shop_dd = {};
+    // for (let i = 0; i < shoCartList.length; i++) {
+    //   let aa = shopList[i].specifications_id;
+    //   let bb = shopList[i].mall_number;
+    //   shop_dd.specifications_id = aa;
+    //   shop_dd.mall_number = bb;
+    //   shop_id.push(shop_dd);
+    // }
+    // console.log(shop_id,'hhhh');
     // // 更新购物车表里数据
     var upshopCat = new shopcartlist();
     upshopCat.shopcartup({
-      shop_id:JSON.stringify(shopList),
-      primary_id:1
-    },res => {
-      
+      shop_id: JSON.stringify(shopList),
+      primary_id: 1
+    }, res => {
+
     })
-
-
-
     console.log(shopList);
     let isDaleList = this.Base.getMyData().isDaleList;
     wx.setStorage({
-      key:"shopList",
-      data:shopList
+      key: "shopList",
+      data: shopList
     })
-     wx.navigateTo({
+    wx.navigateTo({
       url: '/pages/ordersubmit/ordersubmit?goodsid'
     })
   }
@@ -299,7 +297,6 @@ class Content extends AppBase {
       content: '您确定将该商品移除购物车？',
       success(res) {
         if (res.confirm) {
-
           let idlist = that.Base.getMyData().isDaleList;
           var deleshopCart = new deleteshopcart();
           deleshopCart.deleteshopcart({

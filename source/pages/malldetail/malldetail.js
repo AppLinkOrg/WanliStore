@@ -120,7 +120,14 @@ class Content extends AppBase {
         icon: 'none',
         duration: 2000
       })
-    } else {
+    }else if(goods_number == '0'){
+      wx.showToast({
+        title: '商品的数量不能为0',
+        icon: 'none',
+        duration: 2000
+      })
+    } 
+    else {
 
       wx.navigateTo({
         url: '/pages/ordersubmit/ordersubmit?goodsid',

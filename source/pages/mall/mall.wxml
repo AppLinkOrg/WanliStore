@@ -20,7 +20,7 @@
             <view bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}' wx:for="{{goodslist}}" wx:key='k' wx:for-index="idx" wx:if="{{idx%2==0}}" class="goods border-bg margin-bottom-25">
                 <view class="h120"></view>
                 <view class="flex-row flex-column">
-                    <image src="{{uploadpath}}mall/{{item.cover}}" class="cover"></image>
+                    <image src="{{uploadpath}}mall/{{item.cover}}" class="cover" ></image>
                 </view>
                 <view class="margin-top">{{item.name}}</view>
                 <view class="flex-row flex-bottom margin-top-20">

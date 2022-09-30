@@ -10,21 +10,24 @@ page{
 .uploadimg {
     width: 100px;
     height: 100px;
-  
 }
-
+.line{
+  border: 2rpx dashed #CACACC;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+}
 .pore {
     position: relative;
-    width: 111px;
-    height: 111px;
+    width: auto;
+    height: auto;
 }
 
 .shanchu {
     width: 40rpx;
     height: 70rpx;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 3px;
+    top: -8px;
     z-index: 5;
 }
 
@@ -117,9 +120,11 @@ page{
   padding: 10px 0px;
   border-radius: 4px; 
   margin-top: 17px;
+  padding: 0 18rpx;
 }
 .pingjiacont{
   margin-bottom: 10px;
+  width: 98%;
 }
 .pingjia_top{
   width: 100%;

@@ -28,7 +28,7 @@ import {
         title: "礼品卡详情"
       })
       wx.hideShareMenu({
-        menus: ['shareAppMessage'],
+        menus: ['shareAppMessage','shareTimeline'],
       })
       super.onLoad(options);
       this.Base.setMyData({

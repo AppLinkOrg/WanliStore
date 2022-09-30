@@ -91,7 +91,7 @@
 .homeicon {
     width: 38rpx;
     height: 35rpx;
-    margin-bottom: 8rpx;
+    margin-bottom: 5rpx;
 
 }
 
@@ -102,7 +102,7 @@
 .kefuicon {
     width: 36rpx;
     height: 38rpx;
-    /* margin-bottom: 8rpx; */
+    margin-bottom: 5rpx;
 }
 
 .btns {
@@ -174,6 +174,8 @@
     display: flex;
     align-items: center;
     flex: 1;
+    justify-content: space-around;
+  
 }
 
 .bottom_icon {

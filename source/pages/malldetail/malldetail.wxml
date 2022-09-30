@@ -1,39 +1,40 @@
-  <view class="sing_ddd" bindtap="bindgetUserProfile" wx:if='{{memberinfo.avatarUrl == "" && memberinfo.avatarUrl == ""}}'></view>
-  <view class="sing_ddds" bindtap="bindgetUserProfile" wx:else></view>
+<view class="sing_ddd" bindtap="bindgetUserProfile" wx:if='{{memberinfo.avatarUrl == "" && memberinfo.avatarUrl == ""}}'></view>
+<view class="sing_ddds" bindtap="bindgetUserProfile" wx:else></view>
 
 <view class="flex-row flex-center fixedtop" style="top:{{globalData.Custom.top}}px;height:{{globalData.Custom.height}}px;">
-    <image src="{{uploadpath}}resource/{{res.backicon}}" bindtap="backPage" class="backicon"></image>
-    <view class="flex-1"></view>
-    <view class="f-34 margin-right-68">商品详情</view>
-    <view class="flex-1"></view>
+  <image src="{{uploadpath}}resource/{{res.backicon}}" bindtap="backPage" class="backicon"></image>
+  <view class="flex-1"></view>
+  <view class="f-34 margin-right-68">商品详情</view>
+  <view class="flex-1"></view>
 </view>
 
 <view>
-    <swiper class="imgs">
-        <swiper-item wx:for="{{info.imglist}}" wx:key='k'>
-            <image src="{{uploadpath}}mall/{{item.img}}" class="imgs"></image>
-        </swiper-item>
-    </swiper>
+  <swiper class="imgs">
+    <swiper-item wx:for="{{info.imglist}}" wx:key='k'>
+      <image src="{{uploadpath}}mall/{{item.img}}" class="imgs"></image>
+    </swiper-item>
+  </swiper>
 
 </view>
 
 <view class="padding26">
-<view class="titele_top">
-    <view class="title_top_text">库存 {{info.inventory}}</view> <view class="title_top_text">{{info.sales}}人已付款</view>
-</view>
-    <view class="f-36 titele_top_main" style="color:#3A3A3A;">{{info.name}}</view>
-    <view class="margin-top-28">
-        <text class="f-26 txt-99 titele_top_main">{{info.summary}}</text>
-    </view>
-    
-    <view class="flex-row flex-bottom margin-top-24 titele_top_main">
-        <view class="txt-c9 h6" >￥</view>
-        <view class="txt-c9 h4">{{info.price}}</view>
-        <view wx:if="{{info.old_price>0}}" class="h6 titele_top_main" style="color:#A1A3A6;text-decoration: line-through;">￥{{info.old_price}}</view>
-    </view>
-        <view style="height:4px;background:#F5F5F5"></view>
-    <!-- <view class="height-50"></view> -->
-    <!-- <view class="flex-row">
+  <view class="titele_top">
+    <view class="title_top_text">库存 {{info.inventory}}</view>
+    <view class="title_top_text">{{info.sales}}人已付款</view>
+  </view>
+  <view class="f-36 titele_top_main" style="color:#3A3A3A;">{{info.name}}</view>
+  <view class="margin-top-28">
+    <text class="f-26 txt-99 titele_top_main">{{info.summary}}</text>
+  </view>
+
+  <view class="flex-row flex-bottom margin-top-24 titele_top_main">
+    <view class="txt-c9 h6">￥</view>
+    <view class="txt-c9 h4">{{info.price}}</view>
+    <view wx:if="{{info.old_price>0}}" class="h6 titele_top_main" style="color:#A1A3A6;text-decoration: line-through;">￥{{info.old_price}}</view>
+  </view>
+  <view style="height:4px;background:#F5F5F5"></view>
+  <!-- <view class="height-50"></view> -->
+  <!-- <view class="flex-row">
         <view class="fivebox" wx:if="{{info.yunfei!=0}}">邮费￥{{info.yunfei}}</view>
         <view wx:else class="fivebox">包邮</view>
         <view class="flex-1"></view>
@@ -43,113 +44,113 @@
         <view class="flex-1"></view>
         <view class="fivebox">规格{{info.specification}}</view>
     </view> -->
-    <view class="flex-row flex-center titele_top_main1">
-        <view class="f-26" style="color:#3A3A3A; ">优惠券</view>
-        <view class="flex-1"></view>
-        <view class="f-22 txt-99" bindtap="tomycoupon" wx:if="{{couponList.length > 0}}">{{couponList.length}}张可用</view>
-        <view class="f-22 txt-99" wx:else>暂无可选优惠券</view>
-        <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
-    </view>
-      <view style="height:4px;background:#F5F5F5"></view>
-    <!-- <view class="height-50"></view> -->
-    <!-- <view class="flex-row">
+  <view class="flex-row flex-center titele_top_main1">
+    <view class="f-26" style="color:#3A3A3A; ">优惠券</view>
+    <view class="flex-1"></view>
+    <view class="f-22 txt-99" bindtap="tomycoupon" wx:if="{{couponList.length > 0}}">{{couponList.length}}张可用</view>
+    <view class="f-22 txt-99" wx:else>暂无可选优惠券</view>
+    <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
+  </view>
+  <view style="height:4px;background:#F5F5F5"></view>
+  <!-- <view class="height-50"></view> -->
+  <!-- <view class="flex-row">
         <view class="f-26" style="color:#3A3A3A;">规格</view>
         <view class="flex-1"></view>
         <view class="f-22 txt-99">{{info.specification}}</view>
     </view> -->
-    <!-- <view class="height-50"></view> -->
-    <view class="flex-row flex-center titele_top_main1">
-        <view class="f-26" style="color:#3A3A3A;">商品评价</view>
-      
-        <view class="flex-1"></view>
-        <view class="flex-row" bindtap="navigateto" id="/pages/goodspingjia/goodspingjia?goods_id={{info.id}}">
-            <view class="f-22 txt-99">查看更多</view>
-            <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
-        </view>
-    </view>
-      <view style="height:4px;background:#F5F5F5"></view>
-    <view wx:if="{{info.video}}">
-        <!-- <view class="height-50"></view> -->
-        <view class="f-26 margin-bottom-26 titele_top_main2"  style="color:#3A3A3A;">视频</view>
-        <view class="flex-row flex-column">
-            <video src="{{uploadpath}}mall/{{info.video}}" play-btn-position="center" controls="true" show-center-play-btn="true" class="videos"></video>
-        </view>
-    </view>
+  <!-- <view class="height-50"></view> -->
+  <view class="flex-row flex-center titele_top_main1">
+    <view class="f-26" style="color:#3A3A3A;">商品评价</view>
 
+    <view class="flex-1"></view>
+    <view class="flex-row" bindtap="navigateto" id="/pages/goodspingjia/goodspingjia?goods_id={{info.id}}">
+      <view class="f-22 txt-99">查看更多</view>
+      <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image>
+    </view>
+  </view>
+  <view style="height:4px;background:#F5F5F5"></view>
+  <view wx:if="{{info.video}}">
+    <!-- <view class="height-50"></view> -->
+    <view class="f-26 margin-bottom-26 titele_top_main2" style="color:#3A3A3A;">视频</view>
+    <view class="flex-row flex-column">
+      <video src="{{uploadpath}}mall/{{info.video}}" play-btn-position="center" controls="true" show-center-play-btn="true" class="videos"></video>
+    </view>
+  </view>
 </view>
 <view>
-    <view class="padding10 f-26"> 商品详情</view>
-    <view class="flex-row flex-column">
-        <image src="{{uploadpath}}mall/{{info.details_figure}}" mode="widthFix" class="details_figure"></image>
-    </view>
-    
+  <view class="padding10 f-26"> 商品详情</view>
+  <view class="flex-row flex-column">
+    <image src="{{uploadpath}}mall/{{info.details_figure}}" mode="widthFix" class="details_figure"></image>
+  </view>
 </view>
 
 <view class="height-100"></view>
 <view class="flex-row flex-center fixbottom ">
 
-    <view class="bottom_left">
-    <view class="flex-row flex-column margin-left-26" bindtap="backHome">
-        <image src="{{uploadpath}}resource/{{res.homeicon}}" class="homeicon"></image>
-        <view class="h7 txt-66">首页</view>
+  <view class="bottom_left">
+    <view class="flex-row flex-column " bindtap="backHome">
+      <image src="{{uploadpath}}resource/{{res.homeicon}}" class="homeicon"></image>
+      <view class="h7 txt-66">首页</view>
     </view>
     <!-- <view class="w70"></view> -->
-    <view class="flex-row flex-column bottom_icon" bindtap="phoneCall" id="{{instinfo.customerservicemobile}}">
-        <image src="{{uploadpath}}resource/{{res.kefuicon}}" class="kefuicon"></image>
-        <view class="h7 txt-66">客服</view>
+    <view class="flex-row flex-column " bindtap="phoneCall" id="{{instinfo.customerservicemobile}}">
+      <image src="{{uploadpath}}resource/{{res.kefuicon}}" class="kefuicon"></image>
+      <view class="h7 txt-66">客服</view>
     </view>
-      <view class="flex-row flex-column bottom_icon" bindtap="toshopcar">
-      <view style="position: relative;">
-      <view class="view_qipao" wx:if="{{shoCartList.length >0}}">
-	    <text class="text_qipao" >{{shoCartList.length}}</text>
-      </view>  
+    <view class="flex-row flex-column " bindtap="toshopcar">
+      <view style="position: relative;" class="flex-row flex-column">
+        <view class="view_qipao" wx:if="{{shoCartList.length >0}}">
+          <text class="text_qipao">{{shoCartList.length}}</text>
+        </view>
         <image src="{{uploadpath}}resource/{{res.gouwuche}}" class="kefuicon"></image>
         <view class="h7 txt-66">购物车</view>
-
-      </view> 
+      </view>
     </view>
-    </view>
-    <!-- <view class="flex-1"></view> -->
-    <view class="btn_box">
+  </view>
+  <!-- <view class="flex-1"></view> -->
+  <view class="btn_box">
     <view class="btns butcolor" bindtap="joinshop" data-index="1">加入购物车</view>
-    <view class="btns butcolors" bindtap="tobuy"  data-id="{{info.id}}" id="/pages/ordersubmit/ordersubmit?goodsid={{info.id}}" data-index="2">立即购买</view>
-    </view>
+    <view class="btns butcolors" bindtap="tobuy" data-id="{{info.id}}" id="/pages/ordersubmit/ordersubmit?goodsid={{info.id}}" data-index="2">立即购买</view>
+  </view>
 </view>
 <page-container show="{{show}}" position="{{position}}" duration="{{duration}}" round="{{round}}">
   <view class="test" style="height: 100%">
     <view class="test_top">
-        <view class="test_top_left">
+      <view class="test_top_left">
         <image class="test_top_image" src="{{uploadpath}}mall/{{info.imglist[0].img}}" mode="widthFix" />
-        </view>
-        <view class="test_top_right">
-            <text style="font-size:16px;color:red;font-weight: 500;">￥</text>{{prices}}
-        </view>
-        <!-- <view> -->
-            <view bindtap="exit_btn" class="btn_exit"><image class="image_2" src="{{uploadpath}}resource/{{res.guanbi}}" mode="widthFix"  /></view>
-        <!-- </view> -->
+      </view>
+      <!-- 总价 -->
+      <view class="test_top_right">
+        <text style="font-size:16px;color:red;font-weight: 500;">￥</text>{{prices}}
+      </view>
+      <!-- <view> -->
+      <view bindtap="exit_btn" class="btn_exit">
+        <image class="image_2" src="{{uploadpath}}resource/{{res.guanbi}}" mode="widthFix" />
+      </view>
+      <!-- </view> -->
     </view>
     <view class="test_main">
-        <view style="color: #333333;margin-left: 10px;font-weight:500;font-size:16px;">规格</view>
-        <view class="guige">
-            <!-- 渲染 -->   
-            <view class="one_guige  {{norms == item.id?'one_guige1':'one_guige' }}" data-price="{{item.price}}" data-id="{{item.id}}" bindtap="getnorms"  wx:for="{{info.guige}}"> 
-                {{item.name}}
-            </view>
+      <view style="color: #333333;margin-left: 10px;font-weight:500;font-size:16px;">规格</view>
+      <view class="guige">
+        <!-- 渲染 -->
+        <view class="one_guige  {{norms == item.id?'one_guige1':'one_guige' }}" data-price="{{item.price}}" data-id="{{item.id}}" bindtap="getnorms" wx:for="{{info.guige}}">
+          {{item.name}}
+        </view>
 
-        </view>
-    </view>
-      <view class="numbox">
-        <view>数量</view>
-        <view class="num_btn_box">
-            <view class="btn_s btn_1" wx:if="{{quantity == 1}}">-</view>
-            <view class="btn_s btn_3" bindtap="reducequantity" wx:else>-</view>
-            <input class="btn_input" bindblur="editInput" type="number" value="{{quantity}}" />
-            <view class="btn_s btn_2" bindtap="addquantity">+</view>
-        </view>
       </view>
-    
-        <button class="queren" bindtap="shopCartBtn" type="primary" wx:if="{{isShop == 1}}">添加</button>
-        <button class="queren" bindtap="tobuybtn"  type="primary"  wx:else>购买</button>
-    
+    </view>
+    <view class="numbox">
+      <view>数量</view>
+      <view class="num_btn_box">
+        <view class="btn_s btn_1" wx:if="{{quantity == 1}}">-</view>
+        <view class="btn_s btn_3" bindtap="reducequantity" wx:else>-</view>
+        <input class="btn_input" bindblur="editInput" type="number" value="{{quantity}}" type="digit" />
+        <view class="btn_s btn_2" bindtap="addquantity">+</view>
+      </view>
+    </view>
+
+    <button class="queren" bindtap="shopCartBtn" type="primary" wx:if="{{isShop == 1}}">添加</button>
+    <button class="queren" bindtap="tobuybtn" type="primary" wx:else>购买</button>
+
   </view>
 </page-container>
