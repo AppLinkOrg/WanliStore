@@ -113,7 +113,7 @@
             <view class="mony">{{totalPrice}}</view>
           </view>
         </view>
-        <view class="shopacr_bottom_tc">
+        <view class="shopacr_bottom_tc margin-right-20">
           <button class="queren" type="primary" bindtap="tobuy">结算</button>
         </view>
       </view>

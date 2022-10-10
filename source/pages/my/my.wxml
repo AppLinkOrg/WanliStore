@@ -10,17 +10,21 @@
     <view class="flex-1">
       <view class="flex-row flex-center">
         <button open-type="getPhoneNumber" class="clear-button " hover-class="none" wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.mobile=='')}}" bindgetphonenumber="getPhoneNo">
-          <view class="txt-white h4 margin-left-16">点击授权手机号</view>
+          <view class="txt-white h4 ">点击授权手机号</view>
         </button>
-        <view wx:else class="txt-white h4 margin-left-16">{{memberinfo.mobile}}</view>
+        <view wx:else>
+          <view class="txt-white h4 ">{{memberinfo.nickName}}</view>
+          <view class="txt-white h5 ">{{memberinfo.mobile}}</view>
+        </view>
+        
         <view class="flex-1"></view>
         <view class="jifen">积分：0</view>
       </view>
 
       <view class="flex-row flex-center">
-        <view class="txt-white h5">ID:{{memberinfo.id}}</view>
+        <view class="txt-white h6">ID:{{memberinfo.id}}</view>
         <view class="tuijianren"></view>
-        <view class="h7 txt-white">推荐人</view>
+        <view class="h6 txt-white">推荐人</view>
       </view>
 
     </view>
@@ -40,7 +44,7 @@
     <view class="height-90"></view>
     <view class="orderbox">
       <view class="flex-row flex-center quanbu">
-        <view class="f32 txt-33">我的订单</view>
+        <view class="f32 txt-33 txt-bold">我的订单</view>
         <view class="flex-1"></view>
         <view class="flex-row flex-center" bindtap="navigateto" id="/pages/orderlist/orderlist">
           <view class="f-24 txt-99">全部</view>
@@ -84,19 +88,19 @@
     </view>
 
     <view class="lipin" bindtap="navigateto" id="/pages/giftcards/giftcards">
-      <view class="txt-33" style="font-weight: 350;margin-bottom:4rpx;">我的礼品卡</view>
+      <view class="txt-33 txt-bold" style="margin-bottom:4rpx;">我的礼品卡</view>
       <view class="txt-66 h6">来自桃花江美人窝的羞美人面</view>
       <image src="{{uploadpath}}resource/{{res.mylipinka}}" class="lipinka"></image>
     </view>
 
     <view class="flex-row flex-center ">
       <view class="timian flex-1" bindtap="navigateto" id="/pages/buygiftcards/buygiftcards">
-        <view class="">购礼品卡</view>
+        <view class="txt-bold">购礼品卡</view>
         <view class="txt-66 h6">新鲜日期工厂直发</view>
         <image src="{{uploadpath}}resource/{{res.mytimian}}" class="mytimian"></image>
       </view>
       <view class="pinjian flex-1" bindtap="navigateto" id="/pages/activitylist/activitylist">
-        <view class="">品鉴活动</view>
+        <view class="txt-bold">品鉴活动</view>
         <view class="txt-66 h6">羞美人线下品鉴会报名</view>
         <image src="{{uploadpath}}resource/{{res.mypinjian}}" class="mypinjian"></image>
       </view>
@@ -105,7 +109,7 @@
       <image src="{{uploadpath}}resource/{{res.myimg}}" class="myimg"></image>
     </view>
     <view class="fuwu">
-      <view class="txt-33" style="font-weight: 350;">会员服务</view>
+      <view class="txt-33 txt-bold" >会员服务</view>
       <view class="height-40"></view>
       <view class="flex-row flex-center">
         <view class="flex-1 flex-row flex-column" bindtap="notdata">

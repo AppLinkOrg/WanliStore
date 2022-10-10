@@ -59,5 +59,7 @@
 }
 .text{
     font-size: 28rpx;
+    font-weight: 400;
+    font-family: PingFangSC-Regular, PingFang SC;
     margin-bottom: 16rpx;
 }

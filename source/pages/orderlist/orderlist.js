@@ -29,6 +29,7 @@ class Content extends AppBase {
                 { name: '待付款', value: 'A' },
                 { name: '待发货', value: 'B' },
                 { name: '待收货', value: 'C' },
+                { name: '待取货', value: 'D' },
                 { name: '已完成', value: 'F' },
                 { name: '已取消', value: 'Q,R' },
             ],

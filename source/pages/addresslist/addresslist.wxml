@@ -29,6 +29,12 @@
     </view>
 </view>
 
-<view class="flex-row flex-column fixbottom">
+<!-- <view class="flex-row flex-column fixbottom">
     <view class="btns butcolor" bindtap="navigateto" id='/pages/addressinfo/addressinfo'>新建地址</view>
+</view> -->
+
+<view class="flex-row center w-100" >
+  <view bindtap="navigateto" id='/pages/addressinfo/addressinfo' class="pay flex-row center margin-left-40 margin-right-40 butcolor">
+    <view class="line-height-90 butcolor">新建地址</view>
+  </view>
 </view>

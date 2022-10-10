@@ -608,11 +608,18 @@ button[disabled][type=primary] {
 .height-70 {
   height: 70rpx;
 }
-
+.height-90 {
+  height: 90rpx;
+}
+.height-95 {
+  height: 95rpx;
+}
 .height-100 {
   height: 100rpx;
 }
-
+.height-120 {
+  height: 120rpx;
+}
 .height-150 {
   height: 150rpx;
 }
@@ -816,7 +823,9 @@ button[disabled][type=primary] {
 .line-height-0 {
   line-height: 0rpx;
 }
-
+.line-height-90 {
+  line-height: 90rpx;
+}
 
 
 .tabs {
@@ -952,6 +961,7 @@ button[disabled][type=primary] {
 
 .border-orange {
   border: 2rpx solid #FF6900;
+  
 }
 
 .nodata {
@@ -1006,19 +1016,29 @@ button[disabled][type=primary] {
 }
 
 .butcolor {
+ 
   color: white;
   /* background: linear-gradient(90deg, #54A475 0%, #2B533C 100%); */
   background: #5AA57A;
 }
-
-.pay {
-  width: 678rpx;
-  height: 92rpx;
-  border-radius: 48rpx;
-  position: absolute;
-  bottom: 70rpx;
+.w-100{
+  width: 100%;
 }
 
+.pay {
+  /* width: 100%; */
+  width: 670rpx;
+  height: 90rpx;
+  border-radius: 48rpx;
+  position: fixed;
+  bottom: 70rpx;
+}
+.center{
+  justify-content: center;
+}
+.between{
+  justify-content: space-between;
+}
 .fontcolor {
   color: rgba(68, 181, 73, 1);
 }

@@ -12,10 +12,8 @@
 <view wx:else>
   <view wx:for="{{list}}" wx:key='k' class="orderbox">
   <view style="margin: 10px;">
-    
- 
-    <view wx:if="{{(item.sendtype=='B'&&item.orderstatus=='B')}}" class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">待取货</view>
-    <view wx:else class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">{{item.orderstatus_name}}</view>
+    <!-- <view wx:if="{{item.sendtype=='B'&&item.orderstatus=='D'}}" class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">待取货</view> -->
+    <view class="h5 txt-44" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">{{item.orderstatus_name}}</view>
     <view class="flex-row flex-center margin-top-36 image_mybox" bindtap="navigateto" id="/pages/orderdetail/orderdetail?id={{item.id}}">
       <!-- 图片区域 -->
       <view class="image_boxs" wx:if="{{item.team.goods.length > 0}}">

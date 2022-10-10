@@ -56,7 +56,7 @@ page{
     text-align: center;
 }
 .total {
-    margin: 0 30rpx;
+    margin: 0 24rpx;
     background-color: #FFFFFF;
     padding: 10px;
     margin-bottom: 100px;
@@ -70,7 +70,7 @@ page{
 }
 .fixbottom {
     width: 100vw;
-    padding: 20rpx 0;
+    padding: 35rpx 0;
     background: #FFFFFF;
     position: fixed;
     bottom: 0;
@@ -90,8 +90,8 @@ page{
     margin-right: 8rpx;
 }
 .xgbtn {
-    width: 148rpx;
-    height: 54rpx;
+    width: 152rpx;
+    height: 56rpx;
     border-radius: 27rpx;
     border: 2rpx solid #333333;
     line-height: 54rpx;
@@ -100,8 +100,8 @@ page{
     color: #333333;
 }
 .cancelbtn {
-    width: 148rpx;
-    height: 54rpx;
+    width: 152rpx;
+    height: 56rpx;
     border-radius: 27rpx;
     border: 2rpx solid #333333;
     line-height: 54rpx;
@@ -110,9 +110,16 @@ page{
     color: #333333;
     margin-left: 32rpx;
 }
+.sizeimg{
+    width: 48rpx;
+    height: 48rpx;
+}
+.width{
+    width: 90%;
+}
 .paybtn {
-    width: 124rpx;
-    height: 54rpx;
+    width: 126rpx;
+    height: 56rpx;
     border-radius: 27rpx;
     border: 2rpx solid #44B549;
     line-height: 54rpx;

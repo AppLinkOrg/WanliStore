@@ -257,6 +257,7 @@ class Content extends AppBase {
     var data = this.Base.getMyData();
     var sendtype = data.sendtype;
     let totalprice = 0;
+    let yunfei =0;
     // 每个商品的总价格
     // 数量
     let goods_number = data.goods_number;
@@ -271,6 +272,7 @@ class Content extends AppBase {
           for (let i = 0; i < shopList.length; i++) {
             let aa = shopList[i].mall_number * shopList[i].price
             totalprice += aa
+            yunfei = 0
           }
           this.Base.setMyData({
             totalprice
@@ -334,7 +336,9 @@ class Content extends AppBase {
         let shopList = data.shopList;
         for (let i = 0; i < shopList.length; i++) {
           let aa = shopList[i].mall_number * shopList[i].price
+          let bb = shopList[i].mall_number * shopList[i].shangpin[0].yunfei
           totalprice += aa
+          yunfei += bb
         }
         this.Base.setMyData({
           totalprice
@@ -348,6 +352,7 @@ class Content extends AppBase {
         console.log(guigeprice, '单价');
         // 这里运行了
         totalprice = goods_number * guigeprice;
+        yunfei = goods_number * data.shopList[0].shangpin[0].yunfei
         console.log(totalprice, '总价');
       }
       if (sendtype == 'B') {
@@ -357,6 +362,7 @@ class Content extends AppBase {
           for (let i = 0; i < shopList.length; i++) {
             let aa = shopList[i].mall_number * shopList[i].price
             totalprice += aa
+            yunfei = 0
           }
           this.Base.setMyData({
             totalprice
@@ -387,6 +393,7 @@ class Content extends AppBase {
 
           for (let i = 0; i < shopList.length; i++) {
             let aa = shopList[i].mall_number * shopList[i].price
+            let bb = shopList[i].mall_number * shopList[i].shangpin[0].yunfei
             totalprice += aa
           }
 
@@ -411,8 +418,8 @@ class Content extends AppBase {
     console.log(data)
     console.log(this.Base.options)
     var info = data.shopList;
-    console.log(info[0].shangpin[0].yunfei, '我是运费');
-    var yunfei = sendtype == 'A' ? Number(info[0].shangpin[0].yunfei).toFixed(2) : Number(0).toFixed(2);
+    // console.log(info[0].shangpin[0].yunfei, '我是运费');
+    // yunfei = sendtype == 'A' ? Number(yunfei).toFixed(2) : Number(0).toFixed(2);
     var amount = 0;
     var totalamount = 0;
     var youhui = 0;
@@ -421,7 +428,7 @@ class Content extends AppBase {
     var couponprice = 0;
     // 商品总价，商品价格
     totalamount = Number(totalprice).toFixed(2);
-    yunfei = Number(info[0].shangpin[0].yunfei).toFixed(2);
+    yunfei = Number(yunfei).toFixed(2);
     // 优惠券使用
     if (data.couponid > 0) {
       if (data.couponinfo.type == 'A') {

@@ -23,11 +23,11 @@
     <view class="title_top_text">{{info.sales}}人已付款</view>
   </view>
   <view class="f-36 titele_top_main" style="color:#3A3A3A;">{{info.name}}</view>
-  <view class="margin-top-28">
+  <view class="margin-top-28 margin-left-20 margin-right-20">
     <text class="f-26 txt-99 titele_top_main">{{info.summary}}</text>
   </view>
 
-  <view class="flex-row flex-bottom margin-top-24 titele_top_main">
+  <view class="flex-row flex-bottom titele_top_main">
     <view class="txt-c9 h6">￥</view>
     <view class="txt-c9 h4">{{info.price}}</view>
     <view wx:if="{{info.old_price>0}}" class="h6 titele_top_main" style="color:#A1A3A6;text-decoration: line-through;">￥{{info.old_price}}</view>
@@ -84,10 +84,10 @@
   </view>
 </view>
 
-<view class="height-100"></view>
+<view class="height-150"></view>
 <view class="flex-row flex-center fixbottom ">
 
-  <view class="bottom_left">
+  <view class="bottom_left ">
     <view class="flex-row flex-column " bindtap="backHome">
       <image src="{{uploadpath}}resource/{{res.homeicon}}" class="homeicon"></image>
       <view class="h7 txt-66">首页</view>
@@ -108,8 +108,8 @@
     </view>
   </view>
   <!-- <view class="flex-1"></view> -->
-  <view class="btn_box">
-    <view class="btns butcolor" bindtap="joinshop" data-index="1">加入购物车</view>
+  <view class="btn_box ">
+    <view class="btns butcolor " bindtap="joinshop" data-index="1">加入购物车</view>
     <view class="btns butcolors" bindtap="tobuy" data-id="{{info.id}}" id="/pages/ordersubmit/ordersubmit?goodsid={{info.id}}" data-index="2">立即购买</view>
   </view>
 </view>
@@ -117,7 +117,8 @@
   <view class="test" style="height: 100%">
     <view class="test_top">
       <view class="test_top_left">
-        <image class="test_top_image" src="{{uploadpath}}mall/{{info.imglist[0].img}}" mode="widthFix" />
+        <!-- <image class="test_top_image" wx:for="{{info.guige}}" src="{{uploadpath}}specifications/{{norms == item.id?item.img:''}}" mode="widthFix" /> -->
+        <image class="test_top_image" src="{{uploadpath}}specifications/{{info.guige[0].img}}" mode="widthFix" />
       </view>
       <!-- 总价 -->
       <view class="test_top_right">
@@ -129,7 +130,7 @@
       </view>
       <!-- </view> -->
     </view>
-    <view class="test_main">
+    <view class="test_main" >
       <view style="color: #333333;margin-left: 10px;font-weight:500;font-size:16px;">规格</view>
       <view class="guige">
         <!-- 渲染 -->

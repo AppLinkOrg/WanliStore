@@ -39,20 +39,36 @@
   </view>
   <view style="display: {{flag == 'B' ? 'block' :'none'}};">
     <view class="flex-row flex-column" style=" background: rgba(255, 255, 255, 1); min-height:90vh; width: 100vw;">
-      <view style="width: 645rpx;">
+      <view style="width: 645rpx; ">
         <view style="margin-bottom: 180rpx;">
-          <input id="{{}}" style="margin-top: 56rpx;" bindinput="bindKeyInput" class="inputbox" type="text" placeholder="请输入卡号" value="" />
-          <input id="{{}}" bindinput="bindPawInput" class="inputbox" type="text" password placeholder="请输入卡密" value="" />
-          <view class="text">兑换须知</view>
-          <view style="margin-bottom: 40rpx;">instinfo</view>
-          <view class="text">使用须知</view>
-          <view>{{instinfo.cardused}}
+          
+          <view style="margin-top: 56rpx;" class="inputbox">
+              <input id="{{}}" bindinput="bindKeyInput" type="text" class="height-95 margin-left-40 margin-right-40" placeholder="请输入卡号" placeholder-class="text" value="" />
           </view>
+
+          <view style="margin-top: 56rpx;" class="inputbox">
+              <input id="{{}}" class="f-28 " bindinput="bindPawInput" type="text" class="height-95 margin-left-40 margin-right-40" placeholder="请输入卡密" placeholder-class="text" value="" />
+          </view>
+          <!-- <input id="{{}}" style="margin-top: 56rpx;" bindinput="bindKeyInput" class="inputbox" type="text" placeholder="请输入卡号" placeholder-class="margin-left-40" value="" /> -->
+          <!-- <input id="{{}}" bindinput="bindPawInput" class="inputbox" type="text" password placeholder="请输入卡密" placeholder-class="margin-left-40" value="" /> -->
+          <view class="text">兑换须知:</view>
+          <view style="margin-bottom: 40rpx;" class="f-24 txt-88">{{instinfo.cardused}}</view>
+          <view class="text">使用须知</view>
+          <view  class="f-24 txt-88">{{instinfo.cardxuzhi}}</view>
         </view>
-        <button bindtap="giftCardExhange" class="pay butcolor">确认兑换</button>
+        
+        
       </view>
 
     </view>
   </view>
 
+</view>
+
+
+
+<view style="display: {{flag == 'B' ? 'block' :'none'}};" class="flex-row center w-100" >
+  <view bindtap="giftCardExhange" class="pay flex-row center margin-left-40 margin-right-40 butcolor">
+    <view class="line-height-90 butcolor">确认兑换</view>
+  </view>
 </view>

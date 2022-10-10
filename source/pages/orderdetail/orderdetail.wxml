@@ -16,7 +16,7 @@
                         <view class="txt-33 h5">{{info.address_name}}</view>
                         <view class="txt-33 h5 margin-left-20">{{info.address_mobile}}</view>
                     </view>
-                    <view class="f-30 txt-99" style="font-weight: 500;margin-top: 10px;">{{info.address_address}}</view>
+                    <view class="f-26 txt-99" style="font-weight: 500;margin-top: 10px;">{{info.address_address}}</view>
                 </view>
             </view>
             <view class="h5 txt-33" wx:if="{{info.orderstatus=='A'}}">修改</view>
@@ -43,13 +43,12 @@
 
         <view class="flex-row flex-center dizhibox" wx:if="{{info.orderstatus=='A'}}" bindtap="navigateto" id='/pages/store/store?goodsid={{info.goods_id}}&id={{store_id}}'>
 
-            <view class="flex-1 ">
+            <view class="flex-1">
                 <view>
                     <view class="flex-row flex-center">
                         <view class="ziti">自提</view>
                         <view class="f-36 txt-33" style="font-weight: 500;">{{info.store_name}}</view>
                     </view>
-
                     <view class="flex-row flex-center">
                         <view class="txt-66 h5">{{info.store_address}}</view>
                     </view>
@@ -59,8 +58,8 @@
         </view>
         <view class="flex-row flex-center dizhibox" wx:else>
 
-            <view class="flex-1 ">
-                <view>
+            <view class=" flex-row between w-100">
+                <view class="width">
                     <view class="flex-row flex-center">
                         <view class="ziti">自提</view>
                         <view class="f-36 txt-33" style="font-weight: 500;">{{info.store_name}}</view>
@@ -70,7 +69,16 @@
                         <view class="txt-66 h5">{{info.store_address}}</view>
                     </view>
                 </view>
+                <view class="w-20 flex-row center flex-column flex-center margin-right-20 w-20 ">
+                    <image
+						 class="sizeimg"
+						 bindtap="openMap"
+						 id="{{info.store_address}}"
+						 src="{{uploadpath}}resource/{{res.map}}"
+						/>
+                </view>
             </view>
+            
             <!-- <image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon"></image> -->
         </view>
     </view>
