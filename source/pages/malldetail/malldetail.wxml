@@ -118,7 +118,8 @@
     <view class="test_top">
       <view class="test_top_left">
         <!-- <image class="test_top_image" wx:for="{{info.guige}}" src="{{uploadpath}}specifications/{{norms == item.id?item.img:''}}" mode="widthFix" /> -->
-        <image class="test_top_image" src="{{uploadpath}}specifications/{{info.guige[0].img}}" mode="widthFix" />
+        <image wx:if="{{ norms==-1 }}" class="test_top_image" src="{{uploadpath}}mall/{{info.cover}}" mode="widthFix" />
+        <image wx:if="{{ norms!=-1 && norms == item.id}}" wx:for="{{info.guige}}" class="test_top_image" src="{{uploadpath}}specifications/{{item.img}}" mode="widthFix" />
       </view>
       <!-- 总价 -->
       <view class="test_top_right">

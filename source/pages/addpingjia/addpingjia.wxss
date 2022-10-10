@@ -26,8 +26,9 @@ page{
     width: 40rpx;
     height: 70rpx;
     position: absolute;
-    right: 3px;
-    top: -8px;
+    right: 3rpx;
+    top: 3rpx;
+    bottom: 3rpx;
     z-index: 5;
 }
 

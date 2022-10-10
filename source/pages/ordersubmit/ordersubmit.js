@@ -336,7 +336,7 @@ class Content extends AppBase {
         let shopList = data.shopList;
         for (let i = 0; i < shopList.length; i++) {
           let aa = shopList[i].mall_number * shopList[i].price
-          let bb = shopList[i].mall_number * shopList[i].shangpin[0].yunfei
+          let bb = shopList[i].mall_number * shopList[i].guige[0].yunfei
           totalprice += aa
           yunfei += bb
         }
@@ -352,7 +352,7 @@ class Content extends AppBase {
         console.log(guigeprice, '单价');
         // 这里运行了
         totalprice = goods_number * guigeprice;
-        yunfei = goods_number * data.shopList[0].shangpin[0].yunfei
+        yunfei = goods_number * data.shopList[0].guige[0].yunfei
         console.log(totalprice, '总价');
       }
       if (sendtype == 'B') {
@@ -393,7 +393,7 @@ class Content extends AppBase {
 
           for (let i = 0; i < shopList.length; i++) {
             let aa = shopList[i].mall_number * shopList[i].price
-            let bb = shopList[i].mall_number * shopList[i].shangpin[0].yunfei
+            let bb = shopList[i].mall_number * shopList[i].guige[0].yunfei
             totalprice += aa
           }
 
@@ -543,7 +543,7 @@ class Content extends AppBase {
     // 判断有没有点击过
     // flag = true
     if (data.flag == false) {
-
+      console.log("bbbb")
       return
     } else {
       var flag = false
@@ -697,7 +697,20 @@ class Content extends AppBase {
 
         }, (ret) => {
           console.log("手机号")
-          console.log(ret)
+          if(ret.code==-1){
+            wx.showToast({
+              title: '商品已不在购物车，请在待付款完成支付',
+              icon: 'none',
+              duration: 2000
+            })
+
+            setTimeout(()=>{
+              wx.reLaunch({
+                url: '/pages/orderlist/orderlist?type=A',
+              })
+            }, 2000)
+            
+          }
           var data = this.Base.getMyData();
           var that = this;
           // 判断需要支付的金额是否大于0
@@ -722,9 +735,10 @@ class Content extends AppBase {
                     let flag = true
                     let isgogo = data.isgogo
                     isgogo = false
-                    var amount = (Number(data.totalprice) + Number(data.shopList[0].shangpin[0].yunfei)).toFixed(2);
+                    //更改
+                    var amount = (Number(data.totalprice) + Number(data.yunfei)-Number(data.youhui)).toFixed(2);
                     console.log(amount, '设么的点点滴滴');
-                    var youhui = 0
+                    var youhui = data.youhui
                     that.Base.setMyData({
                       giftcardid,
                       couponid,
@@ -877,7 +891,19 @@ class Content extends AppBase {
         str: data.str
       }, (ret) => {
         console.log("手机号")
-        console.log(ret)
+        if(ret.code==-1){
+          wx.showToast({
+            title: '商品已不在购物车，请在待付款完成支付',
+            icon: 'none',
+            duration: 2000
+          })
+          // data.flag == true
+          setTimeout(()=>{
+            wx.reLaunch({
+              url: '/pages/orderlist/orderlist?type=A',
+            })
+          }, 2000)
+        }
         var data = this.Base.getMyData();
         var that = this;
         // 判断需要支付的金额是否大于0
@@ -903,10 +929,12 @@ class Content extends AppBase {
                   let flag = true
                   let isgogo = data.isgogo
                   isgogo = false
-                  var amount = (Number(data.totalprice) + Number(data.shopList[0].shangpin[0].yunfei)).toFixed(2)
-                  console.log(data.totalprice, '总价', data.shopList[0].shangpin[0].yunfei, 'youhui');
+                  //更改
+                  var amount = (Number(data.totalprice) + Number(data.yunfei)-Number(data.youhui)).toFixed(2);
+                  // var amount = (Number(data.totalprice) + Number(data.shopList[0].guige[0].yunfei)).toFixed(2)
+                  console.log(data.totalprice, '总价', data.yunfei, data.youhui);
                   console.log(amount, '设么的点点滴滴');
-                  var youhui = 0
+                  var youhui = data.youhui
                   that.Base.setMyData({
                     giftcardid,
                     couponid,
@@ -918,6 +946,7 @@ class Content extends AppBase {
 
                 }
               }
+              console.log("requestPayment")
               wx.requestPayment(payret);
             })
           } else {

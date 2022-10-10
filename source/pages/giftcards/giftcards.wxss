@@ -63,3 +63,8 @@
     font-family: PingFangSC-Regular, PingFang SC;
     margin-bottom: 16rpx;
 }
+.bottom{
+    position: fixed;
+    bottom: 10rpx;
+    /* bottom: 20rpx; */
+}

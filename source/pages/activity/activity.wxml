@@ -8,17 +8,34 @@
             </swiper-item>
         </swiper>
         <!-- 活动名称 -->
-        <view class="f-36 ">{{activityinfo.name}}</view>
+        <view class="f-36 margin-left-20">{{activityinfo.name}}</view>
         <!-- 活动信息 -->
         <view class="question padding-top-40">【活动信息】</view>
-        <view class="f-28 margin-top-16">活动时间：{{activityinfo.starttime}}-{{activityinfo.endtime}}</view>
-        <view class="f-28 margin-top-16">报名时间：{{activityinfo.startbaoming}}-{{activityinfo.endbaoming}}</view>
-        <view class="f-28 margin-top-16">活动地点：{{activityinfo.sddress}}</view>
-        <view wx:if="{{activityinfo.price > 0}}" class="f-28 margin-top-16">报名费用：{{activityinfo.price}}</view>
-        <view wx:else class="f-28 margin-top-16">报名费用：免费</view>
+        <view class="f-28 margin-top-16 margin-left-20">活动时间：{{activityinfo.starttime_formatting}}-{{activityinfo.endtime_formatting}}</view>
+        <view class="f-28 margin-top-16 margin-left-20">报名时间：{{activityinfo.startbaoming_formatting}}-{{activityinfo.endbaoming_formatting}}</view>
+        <view class="flex-row between w-100  ">
+            <view class="f-28  margin-left-20 w-90 margin-top-16 margin-bottom-20">活动地点：{{activityinfo.sddress}}</view>
+            <view class="flex-row flex-column flex-center   center">
+                <view class=" ">
+                    <image
+                        class="icon-17 margin-right-20"
+                        bindtap="openMap"
+                        id="{{activityinfo.sddress}}"
+                        src="{{uploadpath}}resource/{{res.daohang}}"
+                    />
+                    <view class="f-20 txt-44B549">导航</view>
+                </view>
+                
+        
+            </view>
+           
+        </view>
+        
+        <view wx:if="{{activityinfo.price > 0}}" class="f-28 margin-left-20">报名费用：{{activityinfo.price}}</view>
+        <view wx:else class="f-28 margin-left-20">报名费用：免费</view>
         <!-- 活动内容 -->
-        <view class="question padding-top-40">【活动内容】</view>
-        <view class="padding-top-16">
+        <view class="question padding-top-40 ">【活动内容】</view>
+        <view class="padding-top-16 margin-left-20">
             <!-- <import src="../../wxParse/wxParse.wxml" />
             <template is="wxParse" data="{{wxParseData:content.nodes}}" /> -->
             <rich-text space="nbsp" nodes="{{activityinfo.content}}"></rich-text>
@@ -35,9 +52,9 @@
                 <!-- 循环这些问题 -->
                 <view wx:for="{{question}}" wx:key='k' wx:for-index="index">
                     <!-- 问题 -->
-                    <view class="flex-row padding-top-40 padding-bottom-40">
+                    <view class="flex-row margin-left-20 padding-top-20 padding-bottom-40">
                         <view style="color: red;" wx:if="{{item.write == 'A'}}">*</view>
-                        <view class="question">{{item.name}}</view>
+                        <view class="question ">{{item.name}}</view>
                     </view>
 
                     <!-- 答案 -->
@@ -46,7 +63,7 @@
                         <!-- 判断是否有选项  选择是而且问题按个表有问题列表-->
                         <view class="flex-row" wx:if="{{item.isxuan == '是' && item.options.length != 0}}">
                             <!-- 单选选择器 -->
-                            <picker name="{{index}}" id="{{index}}" class="answer" range="{{item.options}}" range-key="name" bindchange="bindPickerChange">
+                            <picker name="{{index}}" id="{{index}}" class="answer margin-left-20" range="{{item.options}}" range-key="name" bindchange="bindPickerChange">
                                 {{item.value==''?'请选择':item.value}}
                             </picker>
                             <image src="{{uploadpath}}resource/{{res.select}}" style="width: 28rpx; height: 28rpx;"></image>

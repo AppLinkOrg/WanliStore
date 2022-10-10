@@ -223,7 +223,9 @@ textarea {
 .txt-bold {
   font-weight: bolder;
 }
-
+.txt-44B549{
+  color: #44B549;
+}
 .txt-weight {
   font-weight: 500;
 }
@@ -1024,7 +1026,12 @@ button[disabled][type=primary] {
 .w-100{
   width: 100%;
 }
-
+.w-90{
+  width: 88%;
+}
+.w-80{
+  width: 80%;
+}
 .pay {
   /* width: 100%; */
   width: 670rpx;

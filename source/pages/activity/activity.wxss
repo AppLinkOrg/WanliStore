@@ -1,7 +1,7 @@
 /* pages/activity/activity.wxss */
 .activelist{
     width: 710rpx;
-    margin-left: 20rpx;
+    margin-left: 10rpx;
     margin-bottom: 32rpx;
 }
 .activeimg{
