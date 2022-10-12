@@ -29,7 +29,7 @@
 			<view class="flex-1 flex-row">
 				<!-- 展示内容 -->
 				<image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi" />
-				<view>
+				<view class=" w-90">
 					<view class="f-36 txt-33" style="font-weight: 500;">{{addressinfo.address}}</view>
 
 					<view class="flex-row flex-center">
@@ -84,7 +84,9 @@
 		>
 			<view class="h5 txt-33">提货人</view>
 			<view class="flex-1" />
-			<view class="h5" style="color: #888;">{{addressthr.name}}{{addressthr.mobile}}</view>
+			<view class="h5" style="color: #888;">{{addressthr.name}}</view>
+      <view class="h5 margin-left-20" style="color: #888; ">{{addressthr.mobile}}</view>
+      
 			<image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon" />
 		</view>
 		<view
@@ -95,7 +97,8 @@
 		>
 			<view class="h5 txt-33">提货人</view>
 			<view class="flex-1" />
-			<view class="h5" style="color: #888;">{{addressthr.name}}{{addressthr.mobile}}</view>
+			<view class="h5" style="color: #888;">{{addressthr.name}}</view>
+      <view class="h5 margin-left-20" style="color: #888; ">{{addressthr.mobile}}</view>
 			<image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon" />
 		</view>
 	</view>
@@ -195,7 +198,7 @@
         </view>
 
       </view>
-      <view class="height-50"></view>
+      <view class="height-30"></view>
       <view class="flex-row flex-center" bindtap="navigateto" id="/pages/conponuse/conponuse?goodsid={{shopList[0].id}}&totalamount={{totalamount}}&couponid={{couponid}}">
         <view class="h5 txt-33">优惠券</view>
         <view class="cbox" style="background-image:url({{uploadpath}}resource/{{res.couponbgicon}})">{{keyongcoupon}}张可用</view>

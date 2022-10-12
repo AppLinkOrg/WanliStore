@@ -1,7 +1,7 @@
 /* pages/goodspingjia/goodspingjia.wxss */
 .listbox {
     width: 750rpx;
-    background: #FFFFFF;
+    background: #fafafa;
     box-shadow: 0rpx 0rpx 18rpx 0rpx rgba(0, 0, 0, 0.08);
     margin-top: 24rpx;
 }

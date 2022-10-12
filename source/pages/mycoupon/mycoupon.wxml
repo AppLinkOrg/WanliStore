@@ -1,9 +1,9 @@
 <!--pages/giftcards/giftcards.wxml-->
 
-<view class="flex-row  flex-column" style="background-color: rgba(243, 246, 247, 1); position: relative; min-height: 100vh;">
+<view class="flex-row  flex-column" style="background-color: #fafafa; position: relative; min-height: 100vh;">
     <view class="flex-row navbox">
         <view class="flex-1  flex-row flex-column" wx:for="{{typelist}}" wx:key='k' bindtap="switchtype" id="{{item.value}}">
-            <view class="f-28 txt-weight  text-center titlebox  {{item.value==flag?'':'txt-88'}}" >{{item.name}}</view>
+            <view class="f-28  text-center titlebox  {{item.value==flag?'':'txt-88'}}" >{{item.name}}</view>
             <view class="line {{item.value==flag?'line_color':''}}"></view>
         </view>
     </view>
@@ -14,7 +14,7 @@
             <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
         </view>
         <view wx:else style="margin-bottom: 92rpx; ">
-            <view class="cards" wx:for="{{keshiyonglist}}" wx:key="item">
+            <view class="cards " wx:for="{{keshiyonglist}}" wx:key="item">
                 <view style="margin: 30rpx;">
                     <view class="flex-row">
                         <view class="flex-row flex-column flex-center" style="width: 33.33%; margin-bottom: 24rpx;">

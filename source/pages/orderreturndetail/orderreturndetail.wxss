@@ -14,7 +14,7 @@ page {
     border-radius: 30rpx;
     line-height: 60rpx;
     text-align: center;
-    background: #FFFFFF;
+    background: #fafafa;
 }
 
 .dizhi {
@@ -32,7 +32,7 @@ page {
 .dizhibox {
     margin: 0 22rpx 0 26rpx;
     padding: 22rpx 16rpx 28rpx 24rpx;
-    background: #FFFFFF;
+    background: #fafafa;
     border-radius: 12rpx;
     margin-bottom: 15px;
 }
@@ -41,7 +41,7 @@ page {
     margin: 0px 24rpx;
     display: flex;
     flex-direction: column;
-    background: #FFFFFF;
+    background: #fafafa;
     border-radius: 10px;
     padding: 10px;
 }
@@ -64,7 +64,7 @@ page {
 
 .total {
     margin: 0 30rpx;
-    background-color: #FFFFFF;
+    background-color: #fafafa;
     padding: 10px;
     margin-bottom: 100px;
     border-radius: 10px;
@@ -80,8 +80,8 @@ page {
 
 .fixbottom {
     width: 100vw;
-    padding: 20rpx 0;
-    background: #FFFFFF;
+    padding: 35rpx 0;
+    background: #fafafa;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -205,7 +205,7 @@ page {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    background-color: #FFFFFF;
+    background-color: #fafafa;
     border-radius: 10px;
 }
 

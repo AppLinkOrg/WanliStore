@@ -17,7 +17,7 @@
 					<view>
 						<view class="flex-1 flex-row margin-top-8 di_box">
 							<image src="{{uploadpath}}resource/{{res.didian}}" class="dzimg" />
-							<view class="h6 txt-66">{{item.address}}</view>
+							<view class="h6 txt-66 w-90">{{item.address}}</view>
 						</view>
 					</view>
 				</view>
@@ -44,7 +44,10 @@
 				</view>
 			</view>
 		</view>
-		<view class="txt-66 h5 textbox">常用门店</view>
+
+
+
+		<!-- <view class="txt-66 h5 textbox">常用门店</view>
 		<view
 		 class="listbox"
 		 wx:for="{{usestore}}"
@@ -130,7 +133,10 @@
 
 				</view>
 			</view>
-		</view>
+		</view> -->
+
+
+
 	</view>
 </view>
 

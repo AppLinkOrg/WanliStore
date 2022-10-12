@@ -3,7 +3,7 @@
             <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
         </view>
 <view wx:else  class="flex-row flex-column" style="background-color: rgba(243, 246, 247, 1);  min-height: 100vh;">
-    <view wx:for="{{mygiftcardshiyongjilu}}" class="flex-row flex-column" style="width: 696rpx;height: 204rpx;background: #FFFFFF;border-radius: 32rpx;margin-top: 20rpx;">
+    <view wx:for="{{mygiftcardshiyongjilu}}" class="flex-row flex-column" style="width: 696rpx;height: 204rpx;background: #fafafa;border-radius: 32rpx;margin-top: 20rpx;">
         <view class="flex-row" style="margin: 32rpx auto 32rpx 28rpx;">
         <view>
             <image wx:if="{{item.cardtype=='A'}}" src=" {{uploadpath}}giftcardinfo/{{item.cardcover_image}}" style="width: 236rpx;height: 140rpx;border-radius: 12rpx;background: #CECECE;"></image>

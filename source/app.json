@@ -59,19 +59,22 @@
     }
   },
   "requiredPrivateInfos": [
-		"getLocation"
+    "getLocation",
+    "chooseAddress"
 	],
   "window": {
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": true,
-    "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#fafafa",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fafafa"
+
   },
   "tabBar": {
     "color": "#999999",
     "selectedColor": "#333333",
     "borderStyle": "white",
-    "backgroundColor": "#ffffff",
+    "backgroundColor": "#fafafa",
     "list": [
       {
         "text": "首页",

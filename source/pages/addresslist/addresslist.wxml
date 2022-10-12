@@ -4,7 +4,7 @@
     </view>
     <view wx:else>
         <view wx:for="{{list}}" wx:key="k" class="listbox">
-            <view class="flex-row">
+            <view class="flex-row ">
                 <view class="flex-row" id='{{item.id}}'  bindtap="{{chosetype=='A'?'chosedz':'chosethr'}}">
                     <view>
                         <image wx:if="{{chosetype=='A'}}" src="{{uploadpath}}resource/{{choseid==item.id?res.chose2:res.chose}}" class="icon30"></image>
@@ -33,7 +33,7 @@
     <view class="btns butcolor" bindtap="navigateto" id='/pages/addressinfo/addressinfo'>新建地址</view>
 </view> -->
 
-<view class="flex-row center w-100" >
+<view class="flex-row center w-100 " >
   <view bindtap="navigateto" id='/pages/addressinfo/addressinfo' class="pay flex-row center margin-left-40 margin-right-40 butcolor">
     <view class="line-height-90 butcolor">新建地址</view>
   </view>

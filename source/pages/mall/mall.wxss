@@ -45,9 +45,10 @@ page{
   z-index:2 ;
 }
  .goods {
+  
   width: 302rpx;
   /* height: 540rpx; */
-  background: #FFFFFF;
+  background: white;
   border-radius: 20rpx;
   padding: 0 20rpx 58rpx;
  }

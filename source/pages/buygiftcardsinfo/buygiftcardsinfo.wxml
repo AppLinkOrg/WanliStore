@@ -1,31 +1,35 @@
 <!--pages/buygiftcardsinfo/buygiftcardsinfo.wxml-->
 <!--pages/giftcardselect/giftcardsselect.wxml-->
-<view class="flex-row flex-column">
-    <view style="width: 702rpx; position: relative; min-height: 100vh;">
-        <view style="margin-bottom: 200rpx;">
-            <scaroll-view scroll-x="true" class="flex-row flex-column" style="height: 590rpx; width: 100%; white-space: nowrap; margin-top: 30rpx;">
+<view class="flex-row flex-column ">
+    <view style="width: 100%; position: relative; min-height: 100vh; " class="">
+        <view style="margin-bottom: 200rpx; width: 100%;">
+          <view class="padding-bottom-40" style="background-color: #fafafa; " >
+            <scaroll-view scroll-x="true" class="flex-row flex-column" style="height: 590rpx; white-space: nowrap; margin-top: 30rpx;">
                 <image style="width: 700rpx; height: 420rpx; border-radius: 32rpx; margin-bottom: 30rpx;" src="{{uploadpath}}giftcardinfo/{{cardbanner[coverindex].image}}" alt=""></image>
-                <view style="display: inline-block; width: 100%;">
-                    <view wx:for="{{cardbanner}}" wx:key="item" wx:for-index="index"  bindtap="selectcover" data-coverindex="{{index}}" id="{{item.id}}" class="img {{coverindex==index?'border_green':''}}" style="background-image: url({{uploadpath}}giftcardinfo/{{item.image}});">
+                <view class="" style="display: inline-block; width: 94%; height: 160rpx;" >
+                    <view wx:for="{{cardbanner}}" wx:key="item" wx:for-index="index"  bindtap="selectcover" data-coverindex="{{index}}" id="{{item.id}}" class="img {{ coverindex==index?'border_green':''}}" style="background-image: url({{uploadpath}}giftcardinfo/{{item.image}});">
                         <image wx:if="{{coverindex==index}}" style="width: 36rpx;height: 36rpx; float: right;" src="{{uploadpath}}resource/{{res.coverselect}}"></image>
                     </view>
                 </view>
             </scaroll-view>
+          </view>
+           
             
-            <view class="f-28" style="margin-top: 40rpx; margin-bottom: 16rpx;">选择面额：</view>
-            <scaroll-view scroll-x="true" class="flex-row" style="height: 140rpx; width: 100%; white-space: nowrap;">
-                <view style="height: 150rpx; display: inline-block; width: 100%;">
+            <view class="f-28 margin-left-20" style="margin-top: 40rpx; margin-bottom: 16rpx;">选择面额：</view>
+            <scaroll-view scroll-x="true" class="flex-row padding-left-20" style="height: 140rpx;  white-space: nowrap;">
+                <view style="height: 150rpx; display: inline-block; ">
                     <view wx:for="{{cardprice}}" wx:key="item" wx:for-index="index" id="{{item.id}}" class="price {{priceindex==index?'border_green':''}}" bindtap="selectprice" data-priceindex="{{index}}">
                         <text class="f-20" style="font-size: 20rpx;">￥</text>
-                        <text class="f-40">{{item.cardprice}}</text>
+                        <text class="f-40 txt-weight-500 " style="font-family:  PingFangSC-Regular, PingFang SC;">{{item.cardprice}}</text>
                     </view>
                 </view>
             </scaroll-view>
 
-            <view class="f-28" style="margin-top: 40rpx; margin-bottom: 16rpx;">购买须知</view>
-            <view>
-                <import src="../../wxParse/wxParse.wxml" />
-                <template is="wxParse" data="{{wxParseData:howbuy.nodes}}" />
+            <view class="f-28 margin-left-20" style="margin-top: 40rpx; margin-bottom: 16rpx;">购买须知</view>
+            <view class="margin-left-20 margin-right-20">
+                <view class="f-24 txt-gray">{{cardinfo.howbuy}}</view>
+                <!-- <import src="../../wxParse/wxParse.wxml" />
+                <template is="wxParse"  data="{{wxParseData:howbuy.nodes}}" /> -->
             </view>
         </view>
 

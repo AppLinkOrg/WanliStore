@@ -1,13 +1,13 @@
 <view class="orderRetrunBox">
   <view class="return_reason">
-    <view style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #333333;">申请原因</view>
+    <view style="font-size:28rpx;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #333333;">申请原因</view>
     <!-- <view style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color:#999999;margin-top: 10px;">请您详细填写申请原因和需要申请的商品</view> -->
     <!-- 商品名字 -->
-    <view style="margin-top:15px;border-bottom: 1px solid #EEEEEE;">
+    <view style="margin-top:15px;border-bottom: 1rpx solid #EEEEEE;">
       <!-- <input bindblur="goodsname" style="font-size: 16px;" type="text"></input> -->
-        <textarea placeholder="请您详细填写申请原因和需要申请的商品" value="{{return_name}}" bindinput="goodsname" style="width: 100%;" focus="{{focus}}" />
+        <textarea placeholder="请您详细填写申请原因和需要申请的商品" value="{{return_name}}" bindinput="goodsname" placeholder-style="font-size:28rpx;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #999999;" style="width: 100%;font-size:28rpx;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #333333;" focus="{{focus}}" />
     </view>
-    <view style="margin-top: 15px;">申请金额</view>
+    <view style="margin-top: 15px; font-size:28rpx;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #333333;">申请金额</view>
     <view class="return_number">
       <view class="return_left">
         <text class="h5">¥</text>
@@ -33,7 +33,7 @@
   <view class="return_beizhu">
     <view style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #333333;">订单备注</view>
     <view style="margin-top:10px">
-      <textarea placeholder="请您详细填写申请说明" value="{{contents}}" bindinput="contentsFn" style="width: 100%;" focus="{{focus}}" />
+      <textarea placeholder="请您详细填写申请说明" value="{{contents}}" bindinput="contentsFn" style="width: 100%;font-size:28rpx;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #333333;" placeholder-style="font-size:28rpx;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #999999;" focus="{{focus}}" />
     </view>
 
 
@@ -50,8 +50,8 @@
 
   </view>
   <view class="phone_box" style="font-size:14px;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color:#333333;">
-    <text style="margin:10px 0px">联系电话</text>
-    <input bindblur="getphone" style="margin-left:10px" placeholder="请输入手机号" type="number" />
+    <text style="margin:10px 0px;font-size:28rpx;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #333333;">联系电话</text>
+    <input bindblur="getphone" style="margin-left:10px;font-size:28rpx;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #333333;" placeholder="请输入手机号" placeholder-style="font-size:28rpx;font-family:PingFangSC-Regular, PingFang SC;font-weight:400;color: #999999;" type="number" />
   </view>
   <view class="bottom_btn">
     <view class="btns butcolor" bindtap="setordertrun">提交</view>

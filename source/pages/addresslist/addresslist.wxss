@@ -27,7 +27,7 @@
 .fixbottom {
     width: 100vw;
     padding: 20rpx 0;
-    background: #FFFFFF;
+    background: #fafafa;
     position: fixed;
     left: 0;
     bottom: 0;

@@ -214,10 +214,11 @@ class Content extends AppBase {
     // let shopprice = e.currentTarget.dataset.price;
     // let shopname = e.currentTarget.dataset.name;
     let price = e.target.dataset.price
-
+    let yunfei = e.target.dataset.yunfei
     this.Base.setMyData({
       norms,
       price,
+      yunfei,
       prices: price
       // shopname
     })
@@ -234,6 +235,7 @@ class Content extends AppBase {
     // 规格=？新商品
     let goods_id = this.Base.getMyData().info.id;
     let norms = this.Base.getMyData().norms;
+    let yunfei = this.Base.getMyData().yunfei;
     console.log(norms, '22');
     let price = this.Base.getMyData().price;
     if (norms == '-1') {
@@ -249,7 +251,8 @@ class Content extends AppBase {
         goods_id,
         mall_number: quantity,
         norms,
-        price
+        price,
+        yunfei
       }, res => {
         console.log(res);
         if (res.code == 0) {

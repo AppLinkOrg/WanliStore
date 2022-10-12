@@ -106,7 +106,7 @@
       </view>
     </view>
     <view class="flex-row flex-column" bindtap="tourl">
-      <image src="{{uploadpath}}resource/{{res.myimg}}" class="myimg"></image>
+      <image src="{{uploadpath}}resource/{{res.myimg}}" class="myimg "></image>
     </view>
     <view class="fuwu">
       <view class="txt-33 txt-bold" >会员服务</view>

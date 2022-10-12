@@ -3,20 +3,18 @@
     <view wx:else class="txt-33 f-36" style="font-weight: bold;">{{info.orderstatus_name}}</view>
 </view>
 <view style="margin-bottom: 100px;">
-    <view wx:if="{{info.sendtype=='A'}}" style="margin: 20px 0px;">
+    <view wx:if="{{info.sendtype=='A'}}" style="margin: 5px 0px;">
 
         <view class="flex-row flex-center dizhibox" wx:if='{{info.orderstatus=="A"}}' bindtap="navigateto" id='/pages/addresslist/addresslist?chosetype=A&id={{address_id}}'>
 
             <view class="flex-1 flex-row">
                 <image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi"></image>
-                <view>
-
-
-                    <view class="flex-row flex-center">
-                        <view class="txt-33 h5">{{info.address_name}}</view>
+                <view class="">
+                    <view class="flex-row flex-center margin-left-10">
+                        <view class="txt-33 h5 ">{{info.address_name}}</view>
                         <view class="txt-33 h5 margin-left-20">{{info.address_mobile}}</view>
                     </view>
-                    <view class="f-26 txt-99" style="font-weight: 500;margin-top: 10px;">{{info.address_address}}</view>
+                    <view class="f-26 txt-99 margin-left-10" style="margin-top: 10px;">{{info.address_address}}</view>
                 </view>
             </view>
             <view class="h5 txt-33" wx:if="{{info.orderstatus=='A'}}">修改</view>
@@ -24,14 +22,14 @@
         </view>
         <view class="flex-row flex-center dizhibox" wx:else>
 
-            <view class="flex-1 flex-row">
+            <view class="flex-1 flex-row ">
                 <image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi"></image>
-                <view>
+                <view class=" margin-left-20 " style="width: 90%;">
                     <view class="flex-row flex-center">
                         <view class="txt-33 h5">{{info.address_name}}</view>
                         <view class="txt-33 h5 margin-left-20">{{info.address_mobile}}</view>
                     </view>
-                    <view class="f-36 txt-99" style="font-weight: 500;">{{info.address_address}}</view>
+                    <view class="f-24 txt-99 margin-top-20" >地址：{{info.address_address}}</view>
                 </view>
             </view>
             <!-- <view class="h7 txt-33" wx:if="{{info.orderstatus=='A'}}">修改</view>
@@ -158,7 +156,7 @@
             <view wx:else class="h5" style="color:#44B549;">-¥{{info.couponprice}}</view>
         </view>
     </view>
-    <view class="height-70"></view>
+    <view class="height-30"></view>
     <view class="total">
         <view class="flex-row flex-center">
             <view class="h5 txt-33">商品金额</view>
@@ -170,7 +168,6 @@
             <view class="flex-1"></view>
             <view class="h5 txt-fc " wx:if="{{info.sendtype=='B'}}">暂无</view>
             <view wx:else class="h5 txt-fc ">¥{{info.yunfei}}</view>
-
         </view>
         <view class="flex-row flex-center margin-top-24">
             <view class="h5 txt-33">优惠金额</view>
@@ -182,11 +179,11 @@
             <view class="flex-1"></view>
             <view class="h5 txt-fc ">¥{{info.amount}}</view>
         </view>
-        <view class="height-70"></view>
-        <view class=" ">
-            <view class="h5 txt-33">订单备注</view>
-            <view class="h5 txt-88 margin-top-20">{{info.beizhu}}</view>
-        </view>
+        <!-- <view class="height-70"></view> -->
+    </view>
+    <view class="total ">
+        <view class="h5 txt-33">订单备注</view>
+        <view class="h5 txt-88 margin-top-20">{{info.beizhu}}</view>
     </view>
 </view>
 

@@ -150,9 +150,12 @@ class Content extends AppBase {
     const index = e.currentTarget.dataset.index;
     const specifications_id = e.currentTarget.dataset.spe_id;
     const zhuangtaiid = e.currentTarget.dataset.zhuangtai;
-
+   
     let shoCartList = this.Base.getMyData().shoCartList; // 获取购物车列表
     let value = e.detail.value;
+    if(value==0||value==""){
+      value=1;
+    }
     shoCartList[index].mall_number = value;
 
     var shopcart = new shopcartlist();

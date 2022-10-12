@@ -7,10 +7,18 @@
         </view>
         <view class="flex-row flex-center padding30">
             <view class="txt-33 h5">电话</view>
-            <input type="text" placeholder="请输入您的电话" name='mobile' value="{{info.mobile}}" class="flex-1 txt-33 h5 text-right"/>
+            <input type="number" placeholder="请输入您的电话" name='mobile' value="{{info.mobile}}" class=" flex-1 txt-33 h5 text-right"/>
         </view>
+
+        <!-- <view class="flex-row flex-center padding30">
+          <view class="txt-33 h5">所在地区</view>
+          <view bindtap='select' class="border-orange" style="width: 80%; margin-left: 20rpx;">
+          
+          </view>
+        </view> -->
+
         <view class="flex-row flex-center padding30">
-            <view class="txt-33 h5">地址</view>
+            <view class="txt-33 h5">详细地址</view>
             <input type="text" placeholder="请输入您的地址" name="address" value="{{info.address}}" class="flex-1 txt-33 h5 text-right"/>
         </view>
         <view class="flex-row flex-center padding30">
@@ -19,7 +27,7 @@
             <switch color="#44B549" name='moren' checked="{{info.moren=='Y'?true:false}}"></switch>
         </view>
         <view class="height-220"></view>
-        <view class="flex-row flex-column">
+        <view class="flex-row flex-column" style="position: fixed; bottom: 70rpx; width: 100%;">
             <button class="clear-button butcolor btns" formType="submit">保存</button>
         </view>
     </form>

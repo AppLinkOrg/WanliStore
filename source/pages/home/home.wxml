@@ -3,9 +3,9 @@
     <image src="{{uploadpath}}indexbanner/{{item.img}}" class="hometop" bindtap="tobanner" data-item="{{item}}"></image>
   </swiper-item>
 </swiper>
-<view style="border-radius:10px;position: relative;top: -5px;">
+<view style="border-radius:10px;position: relative;top: -5px; background-color: #fafafa;">
 <view style="min-height: 390rpx;">
-  <view style="width: 100%; min-height: 410rpx;border-radius: 20rpx; z-index: 100; background: #fff; bottom: 88rpx;">
+  <view style="width: 100%; min-height: 410rpx;border-radius: 20rpx; z-index: 100; background: #fafafa; bottom: 88rpx;">
     <view class="flex-row flex-center">
       <view class="video-box">
         <view class="video-txt">在线视频</view>

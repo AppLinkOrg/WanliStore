@@ -41,7 +41,7 @@
  .goods {
     width: 302rpx;
     /* height: 540rpx; */
-    background: #FFFFFF;
+    background: #fafafa;
     border-radius: 20rpx;
     padding: 0 20rpx 58rpx;
    }
@@ -49,7 +49,7 @@
   .integral_goods {
    width: 302rpx;
    /* height: 540rpx; */
-   background: #FFFFFF;
+   background: #fafafa;
    border-radius: 20rpx;
    padding: 0 20rpx 58rpx;
   }

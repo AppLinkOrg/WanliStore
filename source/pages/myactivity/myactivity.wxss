@@ -13,7 +13,7 @@ page{
     top: 0;
     left: 0;
     z-index: 10;
-    background-color: rgba(243, 246, 247, 1);
+    background-color: #fafafa;
     padding-top: 40rpx;
 }
 .fw500 {

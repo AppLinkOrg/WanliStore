@@ -12,32 +12,32 @@ page{
     border-radius: 30rpx;
     line-height: 60rpx;
     text-align: center;
-    background: #FFFFFF;
+    background: #fafafa;
 }
 
 .dizhi {
     width: 40rpx;
     height: 40rpx;
-    margin-right: 16rpx;
+    /* margin-right: 16rpx; */
 }
 
 .righticon {
     width: 28rpx;
     height: 28rpx;
-    margin-left: 16rpx;
+    /* margin-left: 16rpx; */
 }
 .dizhibox {
     margin: 0 22rpx 0 26rpx;
-    padding: 22rpx 16rpx 28rpx 24rpx;
-    background: #FFFFFF;
+    padding: 20rpx 16rpx 20rpx 24rpx;
+    background: #fafafa;
     border-radius: 12rpx;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 .goods {
     margin:0px 24rpx;
     display: flex;
     flex-direction: column;
-    background: #FFFFFF;
+    background: #fafafa;
     border-radius: 10px;
     padding: 10px;
 }
@@ -57,10 +57,10 @@ page{
 }
 .total {
     margin: 0 24rpx;
-    background-color: #FFFFFF;
-    padding: 10px;
-    margin-bottom: 100px;
-    border-radius: 10px;
+    background-color: #fafafa;
+    padding: 10rpx;
+    margin-bottom: 30rpx;
+    border-radius: 10rpx;
 }
 .margin-top-24 {
     margin-top: 24rpx;
@@ -69,9 +69,10 @@ page{
     color: #FC0000;
 }
 .fixbottom {
+   
     width: 100vw;
     padding: 35rpx 0;
-    background: #FFFFFF;
+    background: #fafafa;
     position: fixed;
     bottom: 0;
     left: 0;

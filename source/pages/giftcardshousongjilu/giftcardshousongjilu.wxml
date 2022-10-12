@@ -12,7 +12,7 @@
             <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
         </view>
         <view wx:else>
-            <view wx:for="{{shoudaojilu}}" style="width: 700rpx;background: #FFFFFF;border-radius: 32rpx;margin-top: 20rpx;">
+            <view wx:for="{{shoudaojilu}}" style="width: 700rpx;background: #fafafa;border-radius: 32rpx;margin-top: 20rpx;">
                 <view style=" margin: 32rpx;">
                     <view wx:if="{{item.mygiftcard_cardtype=='A'}}" class="flex-row flex-center" style="border-bottom: 2rpx solid rgba(204, 204, 204, 1); padding-bottom: 32rpx;">
                         <image src=" {{uploadpath}}giftcardinfo/{{item.image}}" style="width: 236rpx;height: 140rpx;border-radius: 12rpx;background: #CECECE;"></image>
@@ -44,7 +44,7 @@
             <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
         </view>
         <view wx:else>
-            <view wx:for="{{zengsongjilu}}" style="width: 700rpx;background: #FFFFFF;border-radius: 32rpx;margin-top: 20rpx;">
+            <view wx:for="{{zengsongjilu}}" style="width: 700rpx;background: #fafafa;border-radius: 32rpx;margin-top: 20rpx;">
                 <view style=" margin: 32rpx;">
                     <view wx:if="{{item.mygiftcard_cardtype=='A'}}" class="flex-row flex-center" style="border-bottom: 2rpx solid rgba(204, 204, 204, 1); padding-bottom: 32rpx;">
                         <image src=" {{uploadpath}}giftcardinfo/{{item.image}}" style="width: 236rpx;height: 140rpx;border-radius: 12rpx;background: #CECECE;"></image>

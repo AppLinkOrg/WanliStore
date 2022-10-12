@@ -1,17 +1,25 @@
 <!--pages/buygiftcards/buygiftcards.wxml-->
-<view class="sing_ddd" bindtap="bindgetUserProfile" wx:if='{{memberinfo.avatarUrl == "" && memberinfo.avatarUrl == ""}}'></view>
-  <view class="sing_ddds" bindtap="bindgetUserProfile" wx:else></view>
 
-<view class="flex-row kongbaitips min-height-100" wx:if="{{cardtype.length<=0}}">
-    <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
-</view>
-<view wx:else>
-    <view class="margin-left-24" wx:for="{{cardtype}}" wx:key="item">
-        <view class="f-36 txt-500" style="line-height: 50px;">{{item.name}}</view>
-        <view class="flex-row flex-wrap" style="gap: 24rpx;">
-            <view wx:for="{{cardlist}}" wx:for-item="listitem" wx:if="{{item.id == listitem.giftcardtype_id}}" wx:key="listitem" bindtap="navigateto" id="/pages/buygiftcardsinfo/buygiftcardsinfo?id={{listitem.id}}">
-                <image class="img" src="{{uploadpath}}giftcardinfo/{{listitem.giftcardcover}}"></image>
-            </view>
-        </view>
-    </view>
+<view style="background-color: #fafafa; width: auto;height: 100vh;">
+    <view class="sing_ddd" bindtap="bindgetUserProfile" wx:if='{{memberinfo.avatarUrl == "" && memberinfo.avatarUrl == ""}}'></view>
+    <view class="sing_ddds" bindtap="bindgetUserProfile" wx:else></view>
+
+  <view class="flex-row kongbaitips min-height-100" wx:if="{{cardtype.length<=0}}">
+      <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+  </view>
+  <view wx:else>
+      <view class="" wx:for="{{cardtype}}" wx:key="item">
+          <view class="f-40 txt-weight-500 txt-500 margin-left-25" style="line-height: 50px;">{{item.name}}</view>
+          <view class="flex-row flex-wrap   " style="gap: 24rpx;">
+              <view class="w-100 " wx:for="{{cardlist}}" wx:for-item="listitem" wx:if="{{item.id == listitem.giftcardtype_id}}" wx:key="listitem" bindtap="navigateto" id="/pages/buygiftcardsinfo/buygiftcardsinfo?id={{listitem.id}}">
+                  <view class="" style="display: inline-block;" wx:for="{{listitem.cardcoverlist}}" wx:for-item="coverlistitem"  wx:key="coverlistitem" bindtap="navigateto" id="/pages/buygiftcardsinfo/buygiftcardsinfo?id={{listitem.id}}">
+                    <image style="display: inline-block;" class="img margin-left-25" src="{{uploadpath}}giftcardinfo/{{coverlistitem.image}}"></image>
+                  </view>
+
+                  <!-- <image class="img" src="{{uploadpath}}giftcardinfo/{{listitem.giftcardcover}}"></image> -->
+              </view>
+          </view>
+          <view class="height-70"></view>
+      </view>
+  </view>
 </view>

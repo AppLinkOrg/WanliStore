@@ -63,7 +63,7 @@
 }
 
 .padding10 {
-    padding: 40rpx 26rpx 10rpx;
+    padding: 30rpx 26rpx;
 }
 
 .details_figure {
@@ -73,7 +73,7 @@
 
 .fixbottom {
     width: 100%;
-    background: #ffffff;
+    background: #fafafa;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -150,7 +150,7 @@
 }
 
 .titele_top_main {
-    margin: 7px 13px;
+    margin: 10px 13px;
 }
 
 .titele_top_main1 {

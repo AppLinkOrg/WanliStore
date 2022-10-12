@@ -4,6 +4,7 @@
     width: 336rpx;
     height: 200rpx;
     border-radius: 12rpx;
+    /* border: 1rpx solid red; */
 }
 /* pages/malldetail/malldetail.wxss */
 .sing_ddd{

@@ -1,161 +1,161 @@
 {
-    "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-    "packOptions": {
-        "ignore": [],
-        "include": []
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
     },
-    "setting": {
-        "urlCheck": true,
-        "es6": false,
-        "enhance": true,
-        "postcss": true,
-        "preloadBackgroundData": false,
-        "minified": true,
-        "newFeature": false,
-        "coverView": true,
-        "nodeModules": false,
-        "autoAudits": false,
-        "showShadowRootInWxmlPanel": true,
-        "scopeDataCheck": false,
-        "uglifyFileName": false,
-        "checkInvalidKey": true,
-        "checkSiteMap": true,
-        "uploadWithSourceMap": true,
-        "compileHotReLoad": false,
-        "useMultiFrameRuntime": true,
-        "useApiHook": true,
-        "useApiHostProcess": true,
-        "babelSetting": {
-            "ignore": [],
-            "disablePlugins": [],
-            "outputPath": ""
-        },
-        "enableEngineNative": false,
-        "bundle": false,
-        "useIsolateContext": false,
-        "useCompilerModule": true,
-        "userConfirmedUseCompilerModuleSwitch": false,
-        "userConfirmedBundleSwitch": false,
-        "packNpmManually": false,
-        "packNpmRelationList": [],
-        "minifyWXSS": true,
-        "lazyloadPlaceholderEnable": false,
-        "useStaticServer": true,
-        "showES6CompileOption": false,
-        "disableUseStrict": false,
-        "useCompilerPlugins": false,
-        "ignoreUploadUnusedFiles": true,
-        "minifyWXML": true
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": false,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "lazyloadPlaceholderEnable": false,
+    "useStaticServer": true,
+    "showES6CompileOption": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true,
+    "minifyWXML": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.22.0",
+  "appid": "wx802dd365b55b23a6",
+  "projectname": "%E7%A2%97%E9%87%8C%E5%B0%8F%E9%93%BA",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "condition": {
+    "plugin": {
+      "list": []
     },
-    "compileType": "miniprogram",
-    "libVersion": "2.22.0",
-    "appid": "wx802dd365b55b23a6",
-    "projectname": "%E7%A2%97%E9%87%8C%E5%B0%8F%E9%93%BA",
-    "simulatorType": "wechat",
-    "simulatorPluginLibVersion": {},
-    "editorSetting": {
-        "tabIndent": "insertSpaces",
-        "tabSize": 2
+    "game": {
+      "list": []
     },
-    "condition": {
-        "plugin": {
-            "list": []
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "起名",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
         },
-        "game": {
-            "list": []
+        {
+          "id": -1,
+          "name": "name",
+          "pathName": "pages/name/name",
+          "query": "",
+          "scene": null
         },
-        "gamePlugin": {
-            "list": []
+        {
+          "name": "在线视频",
+          "pathName": "pages/videolist/videolist",
+          "query": "",
+          "scene": null
         },
-        "miniprogram": {
-            "list": [
-                {
-                    "id": -1,
-                    "name": "起名",
-                    "pathName": "pages/index/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "name",
-                    "pathName": "pages/name/name",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "在线视频",
-                    "pathName": "pages/videolist/videolist",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "商城",
-                    "pathName": "pages/mall/mall",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "商品详情",
-                    "pathName": "pages/malldetail/malldetail",
-                    "query": "id=5",
-                    "scene": null
-                },
-                {
-                    "name": "订单确认",
-                    "pathName": "pages/ordersubmit/ordersubmit",
-                    "query": "goodsid=5",
-                    "scene": null
-                },
-                {
-                    "name": "我的",
-                    "pathName": "pages/my/my",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "支付成功",
-                    "pathName": "pages/paysuccess/paysuccess",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "我的地址",
-                    "pathName": "pages/addresslist/addresslist",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "新增地址",
-                    "pathName": "pages/addressinfo/addressinfo",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "门店自提",
-                    "pathName": "pages/store/store",
-                    "query": "goodsid=1&id=0",
-                    "scene": null
-                },
-                {
-                    "name": "订单列表",
-                    "pathName": "pages/orderlist/orderlist",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "订单详情",
-                    "pathName": "pages/orderdetail/orderdetail",
-                    "query": "id=6",
-                    "scene": null
-                },
-                {
-                    "name": "评价",
-                    "pathName": "pages/addpingjia/addpingjia",
-                    "query": "id=6",
-                    "scene": null
-                }
-            ]
+        {
+          "name": "商城",
+          "pathName": "pages/mall/mall",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "商品详情",
+          "pathName": "pages/malldetail/malldetail",
+          "query": "id=5",
+          "scene": null
+        },
+        {
+          "name": "订单确认",
+          "pathName": "pages/ordersubmit/ordersubmit",
+          "query": "goodsid=5",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "支付成功",
+          "pathName": "pages/paysuccess/paysuccess",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的地址",
+          "pathName": "pages/addresslist/addresslist",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "新增地址",
+          "pathName": "pages/addressinfo/addressinfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "门店自提",
+          "pathName": "pages/store/store",
+          "query": "goodsid=1&id=0",
+          "scene": null
+        },
+        {
+          "name": "订单列表",
+          "pathName": "pages/orderlist/orderlist",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单详情",
+          "pathName": "pages/orderdetail/orderdetail",
+          "query": "id=6",
+          "scene": null
+        },
+        {
+          "name": "评价",
+          "pathName": "pages/addpingjia/addpingjia",
+          "query": "id=6",
+          "scene": null
         }
+      ]
     }
+  }
 }

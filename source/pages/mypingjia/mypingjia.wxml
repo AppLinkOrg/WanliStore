@@ -1,5 +1,5 @@
 <!--pages/mypingjia/mypingjia.wxml-->
-<view class="flex-row flex-column">
+<view class="flex-row flex-column " style="background-color: #fafafa; width: auto; height: 100vh;">
     <view class="height-20"></view>
     <view class="flex-row kongbaitips" wx:if="{{pingjialist.length<=0}}" style="min-height: 90vh;">
         <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>

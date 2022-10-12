@@ -6,7 +6,7 @@ page {
 .sendbox {
     width: 312rpx;
     height: 60rpx;
-    background: #FFFFFF;
+    background: #fafafa;
     border-radius: 30rpx;
     margin: 40rpx 24rpx;
 }
@@ -28,7 +28,7 @@ page {
     border-radius: 30rpx;
     line-height: 60rpx;
     text-align: center;
-    background: #FFFFFF;
+    background: #fafafa;
 }
 
 .dizhi {
@@ -46,20 +46,20 @@ page {
 
 .dizhibox {
     margin: 0 24rpx;
-    padding: 60rpx 24rpx;
-    background: #FFFFFF;
+    padding: 40rpx 24rpx;
+    background: #fafafa;
     border-radius: 20rpx;
-    margin-bottom: 10px;
+    margin-bottom: 30rpx;
 }
 
 .goods {
     /* margin: 0 24rpx;
     padding: 42rpx 24rpx; */
-    margin-top: 10px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+    /* margin-top: 30rpx; */
+    background-color: #fafafa;
+    border-radius: 20rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
 }
 
 .cover {
@@ -79,11 +79,13 @@ page {
 }
 
 .total {
-    margin: 10px 10px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    padding: 13px;
-    margin-bottom: 100px;
+    margin: 30rpx 30rpx;
+    background-color: #fafafa;
+    border-radius: 20rpx;
+    padding: 25rpx;
+    /* padding-top: 30rpx; */
+    margin-bottom: 190rpx;
+    
 }
 
 .margin-top-24 {
@@ -97,7 +99,7 @@ page {
 .fixbottom {
     width: 100vw;
     padding: 20rpx 0;
-    background: #FFFFFF;
+    background: #fafafa;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -107,7 +109,7 @@ page {
 .fixbottomd {
     width: 100vw;
     padding: 20rpx 0;
-    background: #FFFFFF;
+    background: #fafafa;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -204,14 +206,14 @@ page {
 
 .shop_car_tb {
 
-    width: 85px;
-    height: 17px;
-    font-size: 12px;
+    width: 100%;
+    /* height: 34rpx; */
+    font-size: 24rpx;
     font-family: PingFangSC-Regular, PingFang SC;
     font-weight: 400;
     color: #999999;
-    line-height: 17px;
-    margin-bottom: 13px;
+    line-height: 34rpx;
+    margin-bottom: 13rpx;
 }
 
 .shop_car_tc {

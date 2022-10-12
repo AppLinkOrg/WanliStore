@@ -5,7 +5,7 @@ page {
 .return_reason {
     margin: 10px 10px 0px 10px;
 
-    background: #FFFFFF;
+    background: #fafafa;
     border-radius: 10px;
     padding: 10px;
 }
@@ -25,16 +25,16 @@ page {
 .return_mode {
     display: flex;
     margin: 15px 10px;
-    background-color: #FFFFFF;
+    background-color: #fafafa;
     border-radius: 10px;
     justify-content: space-between;
     padding: 10px;
 }
 
 .mode_name {
-    margin: 10px 0;
+    margin: 20rpx 0;
 
-    font-size: 14px;
+    font-size: 28rpx;
     font-family: PingFangSC-Regular, PingFang SC;
     font-weight: 400;
     color: #333333;
@@ -43,13 +43,13 @@ page {
 .return_beizhu {
     margin: 10px 10px;
     padding: 10px 0px 10px 10px;
-    background-color: #FFFFFF;
+    background-color: #fafafa;
     border-radius: 10px;
 }
 
 .uploadimg {
     width: 111px;
-    background: #FFFFFF;
+    background: #fafafa;
     margin-top: 10px;
     height: 111px;
 }
@@ -57,7 +57,7 @@ page {
 .phone_box {
     display: flex;
     margin: 10px;
-    background-color: #FFFFFF;
+    background-color: #fafafa;
     padding: 10px;
     border-radius: 10px;
     align-items: center;

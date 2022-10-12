@@ -3,7 +3,7 @@ page{
     background: #F3F6F7;
 }
 .boxs{
-    background-color: #FFFFFF;
+    background-color: #fafafa;
     margin: 10px;
     height: 100%;
     border-radius: 10px;

@@ -1,4 +1,5 @@
-<view class="flex-row kongbaitips min-height-100" wx:if="{{list.length<=0}}">
+<view style="background-color: #fafafa; width: auto; height: 100vh;">
+  <view class="flex-row kongbaitips min-height-100" wx:if="{{list.length<=0}}">
             <image src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
         </view>
 <view wx:else>
@@ -39,4 +40,5 @@
     </view>
     </view>
     
+</view>
 </view>

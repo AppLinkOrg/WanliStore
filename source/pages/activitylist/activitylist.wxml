@@ -1,16 +1,19 @@
 <!--pages/activitylist/activitylist.wxml-->
-<view class="flex-row kongbaitips min-height-100" wx:if="{{activitylist.length<=0}}">
-    <image  src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+<view style="background-color: #fafafa; width: 100%; height: 100vh;">
+  <view class="flex-row kongbaitips min-height-100" wx:if="{{activitylist.length<=0}}">
+      <image  src="{{uploadpath}}resource/{{res.kongbaiyetubiao}}"></image>
+  </view>
+
+  <view class="activeliat" bindtap="navigateto" id="/pages/activity/activity?id={{item.id}}" wx:for="{{activitylist}}" wx:key='k'>
+      <view   open-type="getUserInfo"  bindtap="{{member.nickName == '' ? 'bindgetUserProfile' : '' }}"  >
+          <image src="{{uploadpath}}activity/{{item.listimg}}" class="activeimg"></image>
+          <view class="flex-row flex-center address">
+          <view class="flex-1"></view>
+          <image src="{{uploadpath}}resource/{{res.address}}" class="sign"></image>
+          <view class="signmene">{{item.city_name}}</view>
+          <view class="flex-1"></view>
+      </view> 
+      </view>
+  </view>
 </view>
 
-<view class="activeliat" bindtap="navigateto" id="/pages/activity/activity?id={{item.id}}" wx:for="{{activitylist}}" wx:key='k'>
-    <view   open-type="getUserInfo"  bindtap="{{member.nickName == '' ? 'bindgetUserProfile' : '' }}"  >
-        <image src="{{uploadpath}}activity/{{item.listimg}}" class="activeimg"></image>
-        <view class="flex-row flex-center address">
-        <view class="flex-1"></view>
-        <image src="{{uploadpath}}resource/{{res.address}}" class="sign"></image>
-        <view class="signmene">{{item.city_name}}</view>
-        <view class="flex-1"></view>
-    </view> 
-    </view>
-</view>

@@ -48,7 +48,7 @@ line-height: 34px;
     margin: 0 24rpx 24rpx;
     padding: 20rpx 22rpx 8rpx 26rpx;
     border-radius: 6rpx;
-    background: #FFFFFF;
+    background: #fafafa;
     position: relative;
 }
 .biaoqian {

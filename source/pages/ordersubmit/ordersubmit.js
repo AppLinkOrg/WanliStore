@@ -274,6 +274,7 @@ class Content extends AppBase {
             totalprice += aa
             yunfei = 0
           }
+          totalprice = Math.round((totalprice)*100)/100;
           this.Base.setMyData({
             totalprice
           })
@@ -321,6 +322,7 @@ class Content extends AppBase {
             let aa = shopList[i].mall_number * shopList[i].price
             totalprice += aa
           }
+          totalprice = Math.round((totalprice)*100)/100;
           this.Base.setMyData({
             totalprice,
             mendianxx: arrdy,
@@ -340,6 +342,7 @@ class Content extends AppBase {
           totalprice += aa
           yunfei += bb
         }
+        totalprice = Math.round((totalprice)*100)/100;
         this.Base.setMyData({
           totalprice
         })
@@ -352,6 +355,7 @@ class Content extends AppBase {
         console.log(guigeprice, '单价');
         // 这里运行了
         totalprice = goods_number * guigeprice;
+        totalprice = Math.round((totalprice)*100)/100;
         yunfei = goods_number * data.shopList[0].guige[0].yunfei
         console.log(totalprice, '总价');
       }
@@ -364,6 +368,7 @@ class Content extends AppBase {
             totalprice += aa
             yunfei = 0
           }
+          totalprice = Math.round((totalprice)*100)/100;
           this.Base.setMyData({
             totalprice
           })
@@ -396,7 +401,7 @@ class Content extends AppBase {
             let bb = shopList[i].mall_number * shopList[i].guige[0].yunfei
             totalprice += aa
           }
-
+          totalprice = Math.round((totalprice)*100)/100;
           this.Base.setMyData({
             totalprice,
             mendianxx: arrdy
@@ -409,7 +414,7 @@ class Content extends AppBase {
     }
 
 
-
+    totalprice = Math.round((totalprice)*100)/100;
     this.Base.setMyData({
       totalprice
     })
@@ -678,6 +683,9 @@ class Content extends AppBase {
           goods_price: data.shopList[0].price,
           // 商品规格
           goods_guige_id: data.shopList[0].guige[0].id,
+          // //如果直接购买
+          // goods_guige_yunfei: data.shopList[0].guige[0].yunfei,
+
           sendtype: data.sendtype,
           price: data.totalprice,
           youhui: data.youhui,

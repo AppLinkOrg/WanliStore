@@ -3,12 +3,12 @@
   height: 930rpx;
 }
 wx-swiper .wx-swiper-dot{
-  width: 40rpx;
+  /* width: 40rpx; */
   border-radius: 10rpx;
   background: rgba(92,81,66,0.8);
 }
 wx-swiper  .wx-swiper-dot-active{
-  width: 40rpx;
+  /* width: 40rpx; */
   border-radius: 10rpx;
   background: rgba(0,0,0,0.18);
 }
@@ -23,21 +23,21 @@ wx-swiper  .wx-swiper-dot-active{
   color: #FFFFFF;
 }
 .videobox {
-  width: 284rpx;
-  height: 366rpx;
+  width: 280rpx;
+  height: 352rpx;
   margin-left: 30rpx;
   margin-top: 12rpx;
 }
 .zaixian {
   font-size: 28rpx;
-  color: #FFFFFF;
+  color: #fafafa;
   margin-top: 16rpx;
   margin-left: 46rpx;
 }
 .rightbox {
   width: 388rpx;
   /* height: 174rpx; */
-  background: #FFFFFF;
+  background: #fafafa;
   box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18);
   border-radius: 8px;
   position: relative;
@@ -72,7 +72,7 @@ wx-swiper  .wx-swiper-dot-active{
 .listbox {
   margin: 12rpx 30rpx;
   padding: 34rpx 12rpx;
-  background: #FFFFFF;
+  background: white;
   box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18);
   border-radius: 20rpx;
 }

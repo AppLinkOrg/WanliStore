@@ -44,9 +44,13 @@
                     </view>
                 </view>
             </view>
-            <view>
-                <button bindtap="use" class="shiyong butcolor">确认使用</button>
-            </view>
         </view>
     </view>
+</view>
+
+
+<view class="flex-row center w-100" >
+  <view bindtap="use" class="pay flex-row center margin-left-40 margin-right-40 butcolor">
+    <view class="line-height-90 butcolor">确认使用</view>
+  </view>
 </view>

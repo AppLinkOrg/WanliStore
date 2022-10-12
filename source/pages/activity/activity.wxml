@@ -38,7 +38,7 @@
         <view class="padding-top-16 margin-left-20">
             <!-- <import src="../../wxParse/wxParse.wxml" />
             <template is="wxParse" data="{{wxParseData:content.nodes}}" /> -->
-            <rich-text space="nbsp" nodes="{{activityinfo.content}}"></rich-text>
+            <rich-text space="nbsp" class="f-28" nodes="{{activityinfo.content}}"></rich-text>
         </view>
 
 
@@ -52,18 +52,18 @@
                 <!-- 循环这些问题 -->
                 <view wx:for="{{question}}" wx:key='k' wx:for-index="index">
                     <!-- 问题 -->
-                    <view class="flex-row margin-left-20 padding-top-20 padding-bottom-40">
+                    <view class="flex-row margin-left-20 padding-top-20 padding-bottom-20">
                         <view style="color: red;" wx:if="{{item.write == 'A'}}">*</view>
-                        <view class="question ">{{item.name}}</view>
+                        <view class="f-28">{{item.name}}</view>
                     </view>
 
                     <!-- 答案 -->
                     <!-- 判断 有没有订单-->
                     <view wx:if="{{activityinfo.orderinfolen.length==0}}">
                         <!-- 判断是否有选项  选择是而且问题按个表有问题列表-->
-                        <view class="flex-row" wx:if="{{item.isxuan == '是' && item.options.length != 0}}">
+                        <view class="flex-row f-28" wx:if="{{item.isxuan == '是' && item.options.length != 0}}">
                             <!-- 单选选择器 -->
-                            <picker name="{{index}}" id="{{index}}" class="answer margin-left-20" range="{{item.options}}" range-key="name" bindchange="bindPickerChange">
+                            <picker name="{{index}}" id="{{index}}" class=" f-28 answer margin-left-20" range="{{item.options}}" range-key="name" bindchange="bindPickerChange">
                                 {{item.value==''?'请选择':item.value}}
                             </picker>
                             <image src="{{uploadpath}}resource/{{res.select}}" style="width: 28rpx; height: 28rpx;"></image>
@@ -87,17 +87,17 @@
                 <view style="display: {{activityinfo.baomingjiangtai == 'B' ? '' : 'none'}};">
                     <!-- 没报名：报名 -->
                     <view style="display: {{activityinfo.baomingid == '' ? 'block' : 'none'}};">
-                        <button class="btns butcolor margin-top-60" formType="submit">报名</button>
+                        <button class="btns butcolor" formType="submit">报名</button>
                     </view>
 
                     <!-- 报了名：取消报名 -->
                     <view style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">
                         <!-- 禁止取消报名 -->
-                        <view wx:if="{{timess < activityinfo.cannot}}">
-                            <button class="btns butcolor margin-top-60" bindtap="removebaoming">取消报名</button>
+                        <view wx:if="{{timess < activityinfo.cannot}}" >
+                            <button class="btns butcolor " bindtap="removebaoming">取消报名</button>
                         </view>
                         <view wx:else>
-                            <button disabled="true" class="btns  margin-top-60" bindtap="removebaoming">取消报名</button>
+                            <button disabled="true" class="btns  " bindtap="removebaoming">取消报名</button>
                         </view>
                     </view>
 
@@ -107,17 +107,17 @@
                 <view style="display: {{activityinfo.baomingjiangtai == 'D' ? '' : 'none'}};">
                 <!-- 没报名 -->
                     <view style="display: {{activityinfo.baomingid == '' ? 'block' : 'none'}};">
-                        <button class="btns  margin-top-60" disabled="true">报名</button>
+                        <button class="btns  " disabled="true">报名</button>
                     </view>
                     <!-- 已经报名 -->
                     <view style="display: {{activityinfo.baomingid == '' ? 'none' : 'block'}};">
                     <!-- 报名时间结束但是还可以取消报名 -->
                         <view wx:if="{{timess < activityinfo.cannot}}">
-                            <button class="btns butcolor margin-top-60" bindtap="removebaoming">取消报名</button>
+                            <button class="btns butcolor " bindtap="removebaoming">取消报名</button>
                         </view>
                         <!-- 报名时间结束，禁止取消报名 -->
                         <view wx:else>
-                            <button disabled="true" class="btns  margin-top-60" bindtap="removebaoming">取消报名</button>
+                            <button disabled="true" class="btns  " bindtap="removebaoming">取消报名</button>
                         </view>
                     </view>
                 </view>

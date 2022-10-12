@@ -20,7 +20,7 @@
 
 .cards {
     width: 700rpx;
-    height: 270rpx;
+    /* height: 270rpx; */
     background-color: #fff;
     border-radius: 32rpx;
     margin-bottom: 24rpx;

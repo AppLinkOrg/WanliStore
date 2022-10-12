@@ -7,6 +7,14 @@
     margin-right: 16rpx;
     background-size: 236rpx 140rpx;
 }
+/* .imgb {
+  width: 236rpx;
+  height: 140rpx;
+  border-radius: 12rpx;
+  display: inline-block;
+  margin-right: 16rpx;
+  background-size: 232rpx 136rpx;
+} */
 
 .price {
     margin-right: 32rpx;
