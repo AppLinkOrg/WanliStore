@@ -27,7 +27,8 @@ import {
               name:'',
               mobile:'',
               address:'',
-              moren:'N'
+              moren:'N',
+              region:[]
           }
       })
     }
@@ -42,6 +43,14 @@ import {
         })
       }
      
+    }
+    getUserProvince(e){
+      console.log(e.detail.value)
+      var region = e.detail.value
+      this.Base.setMyData({
+        region:region
+      })
+
     }
     ismobile(mobile){
       var that = this;
@@ -79,16 +88,28 @@ import {
         console.log(data,'xczxczxc');
         var ismobile = this.ismobile(data.mobile);
         console.log(ismobile);
+        var region = this.Base.getMyData().region;
+
+
+
         if(!data.name){
           // console.log('2323');
           this.Base.toast('请输入姓名');
           return
         }
-        if (!data.address) {
+        if (region==null) {
           // console.log('2323');
-          this.Base.toast('请填写地址');
+          this.Base.toast('请选择省份');
           return
+        }else if(!data.address){
+          // console.log('2323');
+          this.Base.toast('请填写详细地址');
+          return
+        }else{
+          data.address= region[0]+region[1]+region[2]+data.address
         }
+        
+
         if(this.Base.options.id>0){
             data.primary_id=this.Base.options.id;
         }
@@ -128,5 +149,6 @@ import {
 
   body.formSubmit = content.formSubmit;
   body.select = content.select;
+  body.getUserProvince = content.getUserProvince;
   
   Page(body)

@@ -12,7 +12,7 @@
           <view class="f-40 txt-weight-500 txt-500 margin-left-25" style="line-height: 50px;">{{item.name}}</view>
           <view class="flex-row flex-wrap   " style="gap: 24rpx;">
               <view class="w-100 " wx:for="{{cardlist}}" wx:for-item="listitem" wx:if="{{item.id == listitem.giftcardtype_id}}" wx:key="listitem" bindtap="navigateto" id="/pages/buygiftcardsinfo/buygiftcardsinfo?id={{listitem.id}}">
-                  <view class="" style="display: inline-block;" wx:for="{{listitem.cardcoverlist}}" wx:for-item="coverlistitem"  wx:key="coverlistitem" bindtap="navigateto" id="/pages/buygiftcardsinfo/buygiftcardsinfo?id={{listitem.id}}">
+                  <view class="" style="display: inline-block;" wx:for="{{listitem.cardcoverlist}}" wx:for-item="coverlistitem"  wx:key="coverlistitem">
                     <image style="display: inline-block;" class="img margin-left-25" src="{{uploadpath}}giftcardinfo/{{coverlistitem.image}}"></image>
                   </view>
 

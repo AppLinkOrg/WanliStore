@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/mall/mall",  
-    "pages/index/index",  
+    "pages/mall/mall",
+    "pages/index/index",
     "pages/auth/auth",
     "pages/content/content",
     "pages/my/my",
@@ -44,14 +44,14 @@
     "pages/mypingjia/mypingjia",
     "pages/duihuanjilu/duihuanjilu",
     "pages/aboutus/aboutus",
-    "pages/shopcar/shopcar", 
+    "pages/shopcar/shopcar",
     "pages/feedback/feedback",
-    "pages/shopitem/shopitem" ,
-    "pages/pingjiaxiangqing/pingjiaxiangqing" ,
-    "pages/orderreturn/orderreturn" ,
+    "pages/shopitem/shopitem",
+    "pages/pingjiaxiangqing/pingjiaxiangqing",
+    "pages/orderreturn/orderreturn",
     "pages/orderreturndetail/orderreturndetail",
-    "pages/kuaididanhao/kuaididanhao" 
-
+    "pages/kuaididanhao/kuaididanhao",
+    "pages/myhtml/myhtml"
   ],
   "permission": {
     "scope.userLocation": {
@@ -61,14 +61,13 @@
   "requiredPrivateInfos": [
     "getLocation",
     "chooseAddress"
-	],
+  ],
   "window": {
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": true,
     "navigationBarBackgroundColor": "#fafafa",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#fafafa"
-
   },
   "tabBar": {
     "color": "#999999",
@@ -81,13 +80,13 @@
         "pagePath": "pages/home/home",
         "iconPath": "images/icons/a1.png",
         "selectedIconPath": "images/icons/a.png"
-      }, 
+      },
       {
         "text": "商城",
         "pagePath": "pages/mall/mall",
         "iconPath": "images/icons/e1.png",
         "selectedIconPath": "images/icons/e.png"
-      }, 
+      },
       {
         "text": "我的",
         "pagePath": "pages/my/my",

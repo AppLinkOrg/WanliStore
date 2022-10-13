@@ -134,7 +134,7 @@
         </view>
         </view>
 
-        <view class="height-50"></view>
+        <view class="height-20"></view>
         <view class="flex-row flex-center">
             <view class="h5 txt-33">礼品卡</view>
             <view class="flex-1"></view>
@@ -144,7 +144,7 @@
             </view>
             <view wx:else class="h5" style="color:#44B549;">-¥{{info.lipin}}</view>
         </view>
-        <view class="height-50"></view>
+        <view class="height-30"></view>
         <view  class="flex-row flex-center">
             <view class="h5 txt-33">优惠券</view>
             <!-- <view class="cbox" style="background-image:url({{uploadpath}}resource/{{res.couponbgicon}})">0张可用</view> -->
@@ -179,12 +179,17 @@
             <view class="flex-1"></view>
             <view class="h5 txt-fc ">¥{{info.amount}}</view>
         </view>
+        <view class="flex-row flex-center margin-top-24">
+            <view class="h5 txt-33">订单备注</view>
+            <view class="flex-1"></view>
+            <view class="h5 txt-fc ">{{info.beizhu}}</view>
+        </view>
         <!-- <view class="height-70"></view> -->
     </view>
-    <view class="total ">
+    <!-- <view class="total ">
         <view class="h5 txt-33">订单备注</view>
         <view class="h5 txt-88 margin-top-20">{{info.beizhu}}</view>
-    </view>
+    </view> -->
 </view>
 
 <view class="flex-row flex-center fixbottom" wx:if="{{info.orderstatus=='A'}}">

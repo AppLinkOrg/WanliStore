@@ -46,6 +46,7 @@ class Content extends AppBase {
     giftcardsapi.giftcardinfo({
       id: this.Base.options.id
     }, (e) => {
+      
       e.howbuy = ApiUtil.HtmlDecode(e.howbuy)
       WxParse.wxParse('howbuy', 'html', e.howbuy, this, 10)
       this.Base.setMyData({

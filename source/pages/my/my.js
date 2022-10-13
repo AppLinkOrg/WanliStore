@@ -97,7 +97,8 @@ class Content extends AppBase {
       var myimg = data.myimg;
       if(myimg.type=='A'){
         wx.navigateTo({
-          url: '/pages/malldetail/malldetail?id='+myimg.goods_id,
+          // url: '/pages/malldetail/malldetail?id='+myimg.goods_id,
+          url: '/pages/myhtml/myhtml',
         })
       }else if(myimg.type=='B'){
         wx.navigateTo({

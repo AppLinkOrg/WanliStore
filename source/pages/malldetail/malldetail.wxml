@@ -135,7 +135,7 @@
       <view style="color: #333333;margin-left: 10px;font-weight:500;font-size:16px;">规格</view>
       <view class="guige">
         <!-- 渲染 -->
-        <view class="one_guige  {{norms == item.id?'one_guige1':'one_guige' }}" data-price="{{item.price}}" data-id="{{item.id}}" data-yunfei="{{item.yunfei}}" bindtap="getnorms" wx:for="{{info.guige}}">
+        <view class="one_guige  {{norms == item.id?'one_guige1':'one_guige' }}" data-price="{{item.price}}" data-id="{{item.id}}" data-yunfei="{{item.yunfei}}" data-num="{{item.num}}" bindtap="getnorms" wx:for="{{info.guige}}">
           {{item.name}}
         </view>
 

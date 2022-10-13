@@ -2,23 +2,30 @@
     <form  catchsubmit="formSubmit">
 
         <view class="flex-row flex-center padding30">
-            <view class="txt-33 h5">姓名</view>
+            <view class="txt-33 h5">姓名:</view>
             <input type="text" placeholder="请输入您的姓名" name='name' value="{{info.name}}" class="flex-1 txt-33 h5 text-right"/>
         </view>
         <view class="flex-row flex-center padding30">
-            <view class="txt-33 h5">电话</view>
+            <view class="txt-33 h5">电话:</view>
             <input type="number" placeholder="请输入您的电话" name='mobile' value="{{info.mobile}}" class=" flex-1 txt-33 h5 text-right"/>
         </view>
 
-        <!-- <view class="flex-row flex-center padding30">
-          <view class="txt-33 h5">所在地区</view>
-          <view bindtap='select' class="border-orange" style="width: 80%; margin-left: 20rpx;">
-          
+        <view class="flex-row flex-center padding30">
+          <picker mode="region" class="w-100" bindchange="getUserProvince">
+          <view class="txt-33 h5">
+            选择省份:
+            <view class="" style="display: inline-block; float: right;">
+              <text class=" flex-1 txt-33 h5 text-right"  wx:for="{{region}}">{{item}} </text>
+            </view>
+            
           </view>
-        </view> -->
+        </picker>
+        </view>
+        
+
 
         <view class="flex-row flex-center padding30">
-            <view class="txt-33 h5">详细地址</view>
+            <view class="txt-33 h5">详细地址:</view>
             <input type="text" placeholder="请输入您的地址" name="address" value="{{info.address}}" class="flex-1 txt-33 h5 text-right"/>
         </view>
         <view class="flex-row flex-center padding30">

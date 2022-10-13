@@ -114,6 +114,8 @@ class Content extends AppBase {
     let norms = this.Base.getMyData().norms;
     let goods_idss = this.Base.getMyData().goods_idss;
     let id = this.Base.getMyData().goods_id;
+    let num = this.Base.getMyData().num;
+    let kucun = this.Base.getMyData().info.inventory;
     if (norms == '-1') {
       wx.showToast({
         title: '请选择商品规格',
@@ -126,6 +128,10 @@ class Content extends AppBase {
         icon: 'none',
         duration: 2000
       })
+    } else if(Number(kucun)<Number(num)*Number(goods_number)){
+    
+      this.Base.toast('库存不够');
+      return
     } 
     else {
 
@@ -215,13 +221,19 @@ class Content extends AppBase {
     // let shopname = e.currentTarget.dataset.name;
     let price = e.target.dataset.price
     let yunfei = e.target.dataset.yunfei
-    this.Base.setMyData({
-      norms,
-      price,
-      yunfei,
-      prices: price
-      // shopname
-    })
+    let num = e.target.dataset.num
+   
+      this.Base.setMyData({
+        norms,
+        price,
+        yunfei,
+        prices: price,
+        num
+        // shopname
+      })
+  
+
+    
 
 
   }
@@ -236,6 +248,9 @@ class Content extends AppBase {
     let goods_id = this.Base.getMyData().info.id;
     let norms = this.Base.getMyData().norms;
     let yunfei = this.Base.getMyData().yunfei;
+    let num = this.Base.getMyData().num;
+    let kucun = this.Base.getMyData().info.inventory;
+    
     console.log(norms, '22');
     let price = this.Base.getMyData().price;
     if (norms == '-1') {
@@ -244,7 +259,13 @@ class Content extends AppBase {
         icon: 'none',
         duration: 2000
       })
-    } else {
+     
+    } else if(Number(kucun)<Number(num)*Number(quantity)){
+    
+      this.Base.toast('库存不够');
+      return
+    }else {
+  
       console.log(quantity, norms);
       var addshopCar = new addshopCart();
       addshopCar.addshopCart({
