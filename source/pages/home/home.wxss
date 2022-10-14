@@ -27,6 +27,7 @@ wx-swiper  .wx-swiper-dot-active{
   height: 352rpx;
   margin-left: 30rpx;
   margin-top: 12rpx;
+
 }
 .zaixian {
   font-size: 28rpx;
@@ -37,8 +38,8 @@ wx-swiper  .wx-swiper-dot-active{
 .rightbox {
   width: 388rpx;
   /* height: 174rpx; */
-  background: #fafafa;
-  box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18);
+  background: white;
+  /* box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18); */
   border-radius: 8px;
   position: relative;
   margin-left: 20rpx;
@@ -73,7 +74,7 @@ wx-swiper  .wx-swiper-dot-active{
   margin: 12rpx 30rpx;
   padding: 34rpx 12rpx;
   background: white;
-  box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18);
+  /* box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18); */
   border-radius: 20rpx;
 }
 .goodsimg {
@@ -86,7 +87,7 @@ wx-swiper  .wx-swiper-dot-active{
 .btns {
   width: 126rpx;
   height: 48rpx;
-  box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18);
+  /* box-shadow: 0rpx 0rpx 24rpx 0rpx rgba(0,0,0,0.18); */
   border-radius: 24rpx;
   line-height: 48rpx;
   text-align: center;

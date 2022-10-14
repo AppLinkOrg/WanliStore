@@ -15,7 +15,7 @@
 		>
 			<!-- 展示的内容 -->
 			<image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi" />
-			<view class="f-36 txt-33">点击选择地址</view>
+			<view class="h5 txt-33">点击选择地址</view>
 			<view class="flex-1" />
 			<image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon" />
 		</view>
@@ -52,7 +52,7 @@
 		 id='/pages/store/store?goodsid={{shopList[0].shangpin[0].id}}&id={{store_id}}'
 		>
 			<image src="{{uploadpath}}resource/{{res.dizhi}}" class="dizhi" />
-			<view class="f-36 txt-33">点击选择地址</view>
+			<view class="h5 txt-33">点击选择地址</view>
 			<view class="flex-1" />
 			<image src="{{uploadpath}}resource/{{res.righticon}}" class="righticon" />
 		</view>

@@ -10,11 +10,10 @@
       </view>
       <view class="shopcar_main">
         <!-- 商品 -->
-        <view class="main_box" wx:for="{{shoCartList}}" wx:key="{{item.id}}">
+        <view class="main_box" wx:for="{{shoCartList}}" >
           <view class="shop_car">
-
             <!-- 按钮 -->
-            <view class="shop_car_btn">
+            <view class="shop_car_btn"  >
               <checkbox value="{{item.id}}" checked="{{item.checked}}" style="width:70rpx;" bindtap="selectList" data-index="{{index}}" data-id="{{item.id}}"></checkbox>
             </view>
             <!-- 图片-->
@@ -73,7 +72,10 @@
           <view class="shop_car">
             <!-- 按钮 -->
             <view class="shop_car_btn">
-              <checkbox value="{{item.id}}" checked="{{item.checked}}" style="width:70rpx;" bindtap="selectList" data-index="{{index}}" data-id="{{item.id}}"></checkbox>
+             
+              <checkbox wx:if="{{item.shangpin[0].inventory>=item.mall_number*item.guige[0].num}}" value="{{item.id}}" checked="{{item.checked}}" style="width:70rpx;" bindtap="selectList" data-index="{{index}}" data-id="{{item.id}}"></checkbox>
+
+              <view wx:if="{{item.shangpin[0].inventory<item.mall_number*item.guige[0].num}}"  style="width:70rpx;" bindtap="delete" class="f-24 txt-gray" data-id="{{item.id}}">库存不够</view>
             </view>
             <!-- 图片-->
             <view class="shop_car_img">
@@ -87,6 +89,7 @@
               <view class="shop_car_tb">
                 {{item.guige[0].name}}
               </view>
+              <view class="f-20 txt-gray margin-left-10">库存{{item.shangpin[0].inventory}}</view>
               <view class="shop_car_tc">
                 <view class="shop_car_tc_left">
                   <view class="txt-c9 h6">￥</view>
@@ -97,7 +100,7 @@
                   <view class="btn_s btn_1" data-index="{{index}}"  data-spe_id="{{item.specifications_id}}" data-zhuangtai="0" wx:if="{{item.mall_number == 1}}">-</view>
                   <view class="btn_s btn_3" data-index="{{index}}" data-spe_id="{{item.specifications_id}}" data-zhuangtai="0"  bindtap="reducequantity" wx:else>-</view>
                   <input class="btn_input" data-index="{{index}}" data-spe_id="{{item.specifications_id}}"  data-zhuangtai="1" bindblur="editInput" type="number" value="{{item.mall_number}}" />
-                  <view class="btn_s btn_2" data-index="{{index}}" data-spe_id="{{item.specifications_id}}" data-zhuangtai="2"  bindtap="addquantity">+</view>
+                  <view class="btn_s btn_2" data-index="{{index}}" data-spe_id="{{item.specifications_id}}" data-zhuangtai="2" data-kucun="{{item.shangpin[0].inventory}}" data-num="{{item.guige[0].num}}"   bindtap="addquantity">+</view>
                 </view>
               </view>
             </view>

@@ -109,8 +109,8 @@
   </view>
   <!-- <view class="flex-1"></view> -->
   <view class="btn_box ">
-    <view class="btns butcolor " bindtap="joinshop" data-index="1">加入购物车</view>
-    <view class="btns butcolors" bindtap="tobuy" data-id="{{info.id}}" id="/pages/ordersubmit/ordersubmit?goodsid={{info.id}}" data-index="2">立即购买</view>
+    <view class="btns butcolors " bindtap="joinshop" data-index="1">加入购物车</view>
+    <view class="btns butcolor" bindtap="tobuy" data-id="{{info.id}}" id="/pages/ordersubmit/ordersubmit?goodsid={{info.id}}" data-index="2">立即购买</view>
   </view>
 </view>
 <page-container show="{{show}}" position="{{position}}" duration="{{duration}}" round="{{round}}">

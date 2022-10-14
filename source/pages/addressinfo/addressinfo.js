@@ -29,7 +29,8 @@ import {
               address:'',
               moren:'N',
               region:[]
-          }
+          },
+          myregion:[]
       })
     }
     onMyShow() {
@@ -46,9 +47,9 @@ import {
     }
     getUserProvince(e){
       console.log(e.detail.value)
-      var region = e.detail.value
+      var myregion = e.detail.value
       this.Base.setMyData({
-        region:region
+        myregion:myregion
       })
 
     }
@@ -88,7 +89,7 @@ import {
         console.log(data,'xczxczxc');
         var ismobile = this.ismobile(data.mobile);
         console.log(ismobile);
-        var region = this.Base.getMyData().region;
+        var myregion = this.Base.getMyData().myregion;
 
 
 
@@ -97,16 +98,17 @@ import {
           this.Base.toast('请输入姓名');
           return
         }
-        if (region==null) {
+        if (myregion==null) {
           // console.log('2323');
           this.Base.toast('请选择省份');
           return
-        }else if(!data.address){
+        }else{
+          data.region=myregion[0]+myregion[1]+myregion[2];
+        }
+        if(!data.address){
           // console.log('2323');
           this.Base.toast('请填写详细地址');
           return
-        }else{
-          data.address= region[0]+region[1]+region[2]+data.address
         }
         
 

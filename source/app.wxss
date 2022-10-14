@@ -520,6 +520,9 @@ button[disabled][type=primary] {
 .padding-right-30 {
   padding-right: 30rpx;
 }
+.padding-right-50 {
+  padding-right: 50rpx;
+}
 
 .margin-10 {
   margin: 10rpx;
@@ -1041,6 +1044,7 @@ button[disabled][type=primary] {
   border-radius: 48rpx;
   position: fixed;
   bottom: 70rpx;
+  z-index: 10;
 }
 .center{
   justify-content: center;

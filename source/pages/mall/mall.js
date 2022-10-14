@@ -101,4 +101,5 @@ body.getlist = content.getlist;
 body.bindtype = content.bindtype;
 body.changPage = content.bindPage;
 body.pagechange = content.pagechange;
+body.onShareAppMessage = content.onShareAppMessage;
 Page(body)

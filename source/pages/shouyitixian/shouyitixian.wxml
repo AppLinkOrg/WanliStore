@@ -4,7 +4,7 @@
         <view class="flex-row" style="justify-content: center;">
             <image bindtap="navigateback" style="width: 20rpx; height: 36rpx;margin-left: 34rpx;" src="{{uploadpath}}resource/{{res.shouyitixianfanhui}}"></image>
             <view class="flex-1"></view>
-            <view class="txt-white f-34">收益提现</view>
+            <view class="txt-white f-34 padding-right-50">收益提现</view>
             <view class="flex-1"></view>
         </view>
         <view class="flex-row flex-center" style="height: 300rpx;justify-content: center;">
@@ -21,7 +21,7 @@
             <!-- <view class="f-72">￥</view>
             <view class="f-72">23</view> -->
             <view class="flex-1"></view>
-            <view class="f-32" style="color: rgba(25, 108, 239, 1);" bindtap="allamount">全部提现</view>
+            <view class="f-32 txt-gray" bindtap="allamount">全部提现</view>
         </view>
         <view style="border-bottom: 1px solid #E6E6E6; margin-top: 46rpx;"></view>
         <view class="height-24"></view>

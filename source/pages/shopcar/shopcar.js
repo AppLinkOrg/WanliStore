@@ -33,6 +33,7 @@ class Content extends AppBase {
       // 删除页面
       isDelete: false,
       // 删除列表
+      isDaleList: []
 
 
     })
@@ -92,17 +93,55 @@ class Content extends AppBase {
 
   // 增加数量按钮
   addquantity(e) {
+    var that = this
     const index = e.currentTarget.dataset.index;
     // 购物车Id
     const specifications_id = e.currentTarget.dataset.spe_id;
     const zhuangtaiid = e.currentTarget.dataset.zhuangtai;
+    const kucun = e.currentTarget.dataset.kucun;
+    const num = e.currentTarget.dataset.num;
 
     let shoCartList = this.Base.getMyData().shoCartList; // 获取购物车列表
     let mall_number = shoCartList[index].mall_number;
-    console.log('原来的值', mall_number);
 
+    let id = shoCartList[index].id;
 
+    let isDaleList = this.Base.getMyData().isDaleList;
+    console.log('原来的值', isDaleList);
+    console.log('原来的值', e,id);
     mall_number++;
+    
+    if(kucun<num*mall_number&&isDaleList.length>0){
+      for(let i=0;i<isDaleList.length;i++){
+        if(isDaleList[i]==id){
+          isDaleList.splice(i, 1);
+          console.log(isDaleList)
+         
+          const checked = shoCartList[index].checked; //获取当前商品的选中状态
+          shoCartList[index].checked = false; // 改变状态
+          this.Base.setMyData({
+            shoCartList: shoCartList
+          });
+          let aa = shoCartList.some(item => item.checked == false);
+          if (aa == false) {
+            this.Base.setMyData({
+              selectAllStatus: true
+            })
+          } else {
+            this.Base.setMyData({
+              selectAllStatus: false
+            })
+          }
+      
+          this.getTotalPrice(); //重新获取总价
+        }
+      }
+    }
+    this.Base.setMyData({
+      isDaleList: isDaleList
+    })
+
+    
     shoCartList[index].mall_number = mall_number;
 
     var shopcart = new shopcartlist();
@@ -250,6 +289,12 @@ class Content extends AppBase {
 
   // 跳转订单
   tobuy(e) {
+    let totalPrice = this.Base.getMyData().totalPrice;
+    if(totalPrice<=0){
+      this.Base.toast('请选择商品');
+      return
+    }
+
 
     var data = this.Base.getMyData();
 
@@ -257,6 +302,34 @@ class Content extends AppBase {
 
     let shopList = shoCartList.filter(ele => ele.checked == true);
     console.log('被选中的', shopList);
+    for(var i=0;i<shopList.length;i++){
+      let kucun=shopList[i].shangpin[0].inventory;
+      let buynum=shopList[i].mall_number*shopList[i].guige[0].num;
+      if(kucun<buynum){
+        this.Base.toast(shopList[i].shangpin[0].name+'库存不够，请重新选择商品！');
+        return
+      }else if(shopList.length>1){
+        for(var i=0;i<shopList.length-1;i++){
+          for(var j=i+1;j<shopList.length;j++){
+            console.log(i,j)
+            if(shopList[i].goods_id==shopList[j].goods_id){
+              let kucun=shopList[i].shangpin[0].inventory;
+              let buynum=shopList[i].mall_number*shopList[i].guige[0].num+ shopList[j].mall_number*shopList[j].guige[0].num;
+              if(kucun<buynum){
+                this.Base.toast(shopList[i].shangpin[0].name+'库存不够，请重新选择商品！');
+                return
+              }
+            }
+          }
+        }
+      } 
+
+    }
+
+    
+    
+     
+
     // let shop_id= [];
     // let shop_dd = {};
     // for (let i = 0; i < shoCartList.length; i++) {
@@ -321,6 +394,35 @@ class Content extends AppBase {
     })
 
   }
+  //清空失效购物车
+  delete(e){
+    let that = this
+    console.log(e,"清掉该商品")
+    var id = e.currentTarget.dataset.id
+    wx.showModal({
+      title: '提示',
+      content: '该商品库存不够，您确定将该商品移除购物车？',
+      success(res) {
+        if (res.confirm) {
+          var deleshopCart = new deleteshopcart();
+          deleshopCart.deleteshopcart({
+            idlist:id
+          }, res => {
+            if (res.code == 0) {
+              wx.showToast({
+                title: '移出成功',
+                icon: 'success',
+                duration: 2000
+              })
+              that.onLoad();
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  }
 
 }
 
@@ -338,4 +440,6 @@ body.selectAll = content.selectAll;
 body.tobuy = content.tobuy;
 body.toDelete = content.toDelete;
 body.deleshopcart = content.deleshopcart;
+body.delete = content.delete;
+
 Page(body)

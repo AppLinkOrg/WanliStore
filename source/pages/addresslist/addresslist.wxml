@@ -16,7 +16,7 @@
                             <view class="txt-33 h5 margin-left-30">{{item.mobile}}</view>
                             <view class="moren" wx:if="{{item.moren=='Y'}}">默认</view>
                         </view>
-                        <view class="h7 txt-88  flex-1 margin-top-5">{{item.address}}</view>
+                        <view class="h7 txt-88  flex-1 margin-top-5">{{item.region}}{{item.address}}</view>
                     </view>
                 </view>
                 <view id='{{item.id}}'  bindtap="{{chosetype=='A'?'chosedz':'chosethr'}}" class="flex-1"></view>

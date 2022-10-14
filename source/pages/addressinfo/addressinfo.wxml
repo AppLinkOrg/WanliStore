@@ -11,11 +11,14 @@
         </view>
 
         <view class="flex-row flex-center padding30">
-          <picker mode="region" class="w-100" bindchange="getUserProvince">
+          <picker mode="region" value="{{region}}" custom-item="{{customItem}}" class="w-100" bindchange="getUserProvince">
           <view class="txt-33 h5">
             选择省份:
             <view class="" style="display: inline-block; float: right;">
-              <text class=" flex-1 txt-33 h5 text-right"  wx:for="{{region}}">{{item}} </text>
+              <text wx:if="{{info.region!=''&&myregion.length==0}}" class="flex-1 txt-33 h5 text-right">{{info.region}} </text>
+              <!-- {{info.region==''||myregion.length!=0}} -->
+              <text wx:if="{{info.region==''||myregion.length!=0}}" class="flex-1 txt-33 h5 text-right" wx:for="{{region}}"></text>
+              <text class="flex-1 txt-33 h5 text-right">{{myregion[0]}}{{myregion[1]}}{{myregion[2]}}</text>
             </view>
             
           </view>

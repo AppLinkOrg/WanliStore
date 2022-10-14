@@ -3,7 +3,7 @@
     <view wx:else class="txt-33 f-36" style="font-weight: bold;">{{info.orderstatus_name}}</view>
 </view>
 <view style="margin-bottom: 100px;">
-    <view wx:if="{{info.sendtype=='A'}}" style="margin: 5px 0px;">
+    <view wx:if="{{info.sendtype=='A'}}" style="margin-bottom: 20rpx;">
 
         <view class="flex-row flex-center dizhibox" wx:if='{{info.orderstatus=="A"}}' bindtap="navigateto" id='/pages/addresslist/addresslist?chosetype=A&id={{address_id}}'>
 
@@ -37,7 +37,7 @@
         </view>
 
     </view>
-    <view style="margin-bottom: 20px;" wx:else>
+    <view style="margin-bottom: 20rpx;" wx:else>
 
         <view class="flex-row flex-center dizhibox" wx:if="{{info.orderstatus=='A'}}" bindtap="navigateto" id='/pages/store/store?goodsid={{info.goods_id}}&id={{store_id}}'>
 

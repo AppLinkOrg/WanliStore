@@ -50,11 +50,11 @@ page{
   /* height: 540rpx; */
   background: white;
   border-radius: 20rpx;
-  padding: 0 20rpx 58rpx;
+  padding: 0 19rpx 58rpx 20rpx ;
  }
  .cover {
   width: 279rpx;
-  height: 194rpx;
+  height: 279rpx;
  }
 
  .txt-c9 {

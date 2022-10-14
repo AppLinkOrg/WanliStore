@@ -103,6 +103,7 @@ export class AppBase {
        * 用户点击右上角分享
        */
       onShareAppMessage: base.onShareAppMessage,
+      onShareTimeline:base.onShareTimeline,
       onMyShow: base.onMyShow,
       phonenoCallback: base.phonenoCallback,
       viewPhoto: base.viewPhoto,
@@ -1134,12 +1135,16 @@ navigateto(e){
 }
 
 onShareAppMessage(e){
-  console.log("???走没");
-  console.log(e);
-  console.log(this.Base.getMyData().memberinfo.id)
   return{
     title:'请分享给你的好友',    // 转发标题
-    path: '/pages/my/my?member_id='+this.Base.getMyData().memberinfo.id,  // 当前页面 path ，必须是以 / 开头的完整路径 
+    path: '/pages/home/home?member_id='+this.Base.getMyData().memberinfo.id,  // 当前页面 path ，必须是以 / 开头的完整路径 
   }
 }
+onShareTimeline(e){
+  return {
+    title:'请分享给你的好友',    // 转发标题
+    path: '/pages/home/home?member_id='+this.Base.getMyData().memberinfo.id,  // 当前页面 path ，必须是以 / 开头的完整路径 
+  }
+}
+
 }

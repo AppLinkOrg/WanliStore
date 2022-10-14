@@ -128,8 +128,8 @@
         <view wx:else>
             <form catchsubmit="formSubmit" id="submit">
                 <view style="display: {{question.length == 0?'none':'block'}};" class="question padding-top-40">【报名信息填写】</view>
-                <view wx:for="{{question}}" wx:key='k' wx:for-index="index">
-                    <view class="question padding-top-40 padding-bottom-40">{{item.name}}</view>
+                <view class=" margin-left-20" wx:for="{{question}}" wx:key='k' wx:for-index="index">
+                    <view class="question padding-top-20 padding-bottom-20 f-28">{{item.name}}</view>
                     <view wx:if="{{activityinfo.orderinfolen.length==0}}">
                         <view class="flex-row" wx:if="{{item.isxuan == '是' && item.options.length != 0}}">
                             <picker name="{{index}}" class="answer f-28" style="width: 100%; height: 112rpx;" range-key="name" bindchange="bindPickerChange" id="{{index}}" range="{{item.options}}" value="{{index}}">
@@ -141,7 +141,7 @@
                             <input  name="{{index}}" value="{{item.value}}" placeholder="请输入" bindinput="bindKeyInput" id="{{index}}" class="answer f-28" type="text" />
                         </view>
                     </view>
-                    <view wx:if="{{activityinfo.orderinfolen.length > 0}}">
+                    <view wx:if="{{activityinfo.orderinfolen.length > 0}}" class="f-28">
                         {{activityinfo.answer[index].answer}}
                     </view>
                 </view>

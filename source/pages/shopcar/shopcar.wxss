@@ -117,7 +117,8 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   margin: 0px 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between
+  justify-content: space-between;
+  width: 60%;
 }
 
 .shop_car_ta {
@@ -129,6 +130,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: 100%;
 }
 
 .shop_car_tb {
@@ -140,9 +142,10 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #999999;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   padding-left: 10rpx;
   padding-top: 2rpx;
+  width: 90%;
 }
 
 .shop_car_tc {

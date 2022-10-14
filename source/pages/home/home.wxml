@@ -1,11 +1,12 @@
+<view style="background-color: #fafafa; height: 100vh; " >
 <swiper class="hometop" autoplay='{{true}}' interval="5000" circular="{{true}}" indicator-dots="{{true}}">
   <swiper-item wx:for="{{indexbanner}}" wx:key='k'>
     <image src="{{uploadpath}}indexbanner/{{item.img}}" class="hometop" bindtap="tobanner" data-item="{{item}}"></image>
   </swiper-item>
 </swiper>
-<view style="border-radius:10px;position: relative;top: -5px; background-color: #fafafa;">
+<view style="border-radius:10px;position: relative;top: -10rpx; bottom: 0rpx; background-color: #fafafa;">
 <view style="min-height: 390rpx;">
-  <view style="width: 100%; min-height: 410rpx;border-radius: 20rpx; z-index: 100; background: #fafafa; bottom: 88rpx;">
+  <view class=""  style="width: 100%; min-height: 370rpx;border-radius: 20rpx; z-index: 100; background: #fafafa; bottom: 88rpx;">
     <view class="flex-row flex-center">
       <view class="video-box">
         <view class="video-txt">在线视频</view>
@@ -32,7 +33,7 @@
     </view>
   </view>
 </view>
-<view>
+<view class="" >
   <view class="listbox" wx:for="{{list}}" wx:key='k' bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}'>
     <view class="flex-row flex-center">
       <image src="{{uploadpath}}mall/{{item.cover}}" class="goodsimg"></image>
@@ -47,10 +48,12 @@
             ￥{{item.old_price}}
           </view>
           <view class="flex-1"></view>
-          <view class="btns butcolor">立即购买</view>
+          <view class="btns butcolor margin-right-20">立即购买</view>
         </view>
       </view>
     </view>
   </view>
 </view>
+</view>
+
 </view>

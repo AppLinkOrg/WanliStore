@@ -58,6 +58,8 @@ class Content extends AppBase {
       this.Base.toast("此功能未开放")
     }
   }
+
+
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -65,4 +67,5 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tobanner = content.tobanner;
 body.shipingkaiguan = content.shipingkaiguan;
+body.onShareAppMessage = content.onShareAppMessage;
 Page(body)

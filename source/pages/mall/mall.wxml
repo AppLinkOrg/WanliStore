@@ -7,7 +7,7 @@
 <scroll-view scroll-x="true" class="tab-h" >
     <view class="tab-item {{idx==0?'margin-left-26 ':''}}" bindtap="bindtype" id='{{item.id}}' wx:for='{{typelist}}' wx:for-index='idx'>
         <view class="flex-row flex-column">
-            <view class="txt-d {{typeid==item.id?'typetext-color':''}}">{{item.name}}</view>
+            <view class="txt-d typetext-color">{{item.name}}</view>
             <view class="typeline {{typeid==item.id?'typeline-bg':''}}"></view>
         </view>
     </view>
@@ -18,11 +18,11 @@
     <view class="flex-row">
         <view class="flex-1 flex-row flex-column">
             <view bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}' wx:for="{{goodslist}}" wx:key='k' wx:for-index="idx" wx:if="{{idx%2==0}}" class="goods border-bg margin-bottom-25">
-                <view class="height-70"></view>
+                <view class="height-50"></view>
                 <view class="flex-row flex-column">
                     <image src="{{uploadpath}}mall/{{item.cover}}" class="cover" ></image>
                 </view>
-                <view class="margin-top">{{item.name}}</view>
+                <view class="margin-top-30 margin-right-5 margin-left-5">{{item.name}}</view>
                 <view class="flex-row flex-bottom margin-top-20">
                     <view class="txt-c9 h6">￥</view>
                     <view class="txt-c9 h4">{{item.price}}</view>
@@ -34,11 +34,11 @@
         </view>
         <view class="flex-1 flex-row flex-column">
             <view bindtap="navigateto" id='/pages/malldetail/malldetail?id={{item.id}}' wx:for="{{goodslist}}" wx:key='k' wx:for-index="idx" wx:if="{{idx%2!=0}}" class="goods border-bg margin-bottom-25">
-                <view class="height-70"></view>
+                <view class="height-50"></view>
                 <view class="flex-row flex-column">
                     <image src="{{uploadpath}}mall/{{item.cover}}" class="cover"></image>
                 </view>
-                <view class="margin-top">{{item.name}}</view>
+                <view class="margin-top-30 margin-right-5 margin-left-5">{{item.name}}</view>
                 <view class="flex-row flex-bottom margin-top-20">
                     <view class="txt-c9 h6">￥</view>
                     <view class="txt-c9 h4">{{item.price}}</view>
