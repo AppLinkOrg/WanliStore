@@ -1,6 +1,7 @@
-<view class="margin26">
+<view class="margin26 flex-row between">
     <view wx:if="{{(info.sendtype=='B'&&info.orderstatus=='B')}}" class="txt-33 f-36">待取货</view>
     <view wx:else class="txt-33 f-36" style="font-weight: bold;">{{info.orderstatus_name}}</view>
+    <view wx:if="{{info.orderstatus=='A'}}" class="f-24 margin-top-20 txt-gray">剩{{str}}自动取消</view>
 </view>
 <view style="margin-bottom: 100px;">
     <view wx:if="{{info.sendtype=='A'}}" style="margin-bottom: 20rpx;">

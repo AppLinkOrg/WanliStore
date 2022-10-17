@@ -11,8 +11,12 @@ import { OrderApi } from "../../apis/order.api";
 import { WechatApi } from "../../apis/wechat.api";
 import { MemberApi } from "../../apis/member.api";
 import { MallApi } from "../../apis/mall.api";
-  
+import {
+  ApiUtil
+} from "../../apis/apiutil.js";
   class Content extends AppBase {
+    timer=null;
+
     constructor() {
       super();
     }
@@ -27,6 +31,7 @@ import { MallApi } from "../../apis/mall.api";
           address_id:0,
           store_id:0
       })
+      
     }
     onMyShow() {
       var that = this;
@@ -39,6 +44,7 @@ import { MallApi } from "../../apis/mall.api";
             memberapi.addressinfo({id:this.Base.getMyData().address_id},(addressinfo)=>{
                 info.address_name = addressinfo.name;
                 info.address_mobile = addressinfo.mobile;
+                info.address_region = addressinfo.region;
                 info.address_address = addressinfo.address;
                 this.Base.setMyData({
                     info
@@ -61,8 +67,18 @@ import { MallApi } from "../../apis/mall.api";
             }
           
         }
-       
+        if (info.orderstatus=='A') {
+          that.daojishi()
+        }
+
+
       })
+    }
+    onHide(){
+      let end = setInterval(function () { }, 10000);
+      for (let i = 1; i <= end; i++) {
+          clearInterval(i);
+      }
     }
     switchtype(e){
         var orderstatus = e.currentTarget.id;
@@ -151,6 +167,15 @@ import { MallApi } from "../../apis/mall.api";
             }
         })
     }
+    cancelorder2(){
+      var that = this;
+      var info = this.Base.getMyData().info;
+      var orderapi = new OrderApi();
+      orderapi.cancelorder({id:info.id},(ret)=>{
+        that.onMyShow();
+    })
+
+  }
     refundorder(){
         var that = this;
         var id = this.Base.getMyData().info.id;
@@ -241,6 +266,66 @@ import { MallApi } from "../../apis/mall.api";
             }
         })
     }
+    daojishi(){
+      var that =this
+      var info=this.Base.getMyData().info
+      var submit_time = info.submit_time   //提交时间
+      var instinfo=this.Base.getMyData().instinfo
+      var time=instinfo.time;
+      var cancel_time=time*60*1000
+
+      var new_time=new Date().getTime() //现在时间
+      var sub_time=new Date(submit_time.replace(/-/g, '/')).getTime()
+  
+      console.log(new_time,'new_time');
+      console.log(sub_time,'sub_time');
+  
+      var differ_time2=new_time-sub_time
+      var differ_time=cancel_time-differ_time2
+
+      console.log(differ_time,'cancel_time',cancel_time,new_time,sub_time);
+  
+      this.timer = setInterval(()=> {
+        if (differ_time<=0) {
+          // 这个订单结束
+          console.log('进来了');
+          that.cancelorder2()
+          // clearInterval(that.timer)
+          let end = setInterval(function () { }, 10000);
+      for (let i = 1; i <= end; i++) {
+          clearInterval(i);
+      }
+          return
+        }else{
+             var str = ApiUtil.Timedata(differ_time)
+         differ_time=differ_time*1-1000
+  
+         if (str=='') {
+          that.Base.setMyData({str:'0秒'})
+          // clearInterval(that.timer)
+          let end = setInterval(function () { }, 10000);
+      for (let i = 1; i <= end; i++) {
+          clearInterval(i);
+      }
+         
+         }else{
+          that.Base.setMyData({str})
+         }
+        
+        console.log('fff',differ_time);
+        }
+      },1000)
+      
+    }
+    onUnload(){
+      console.log("onUnload!!! " +this.timer);
+      // clearInterval(this.timer);
+      let end = setInterval(function () { }, 10000);
+      for (let i = 1; i <= end; i++) {
+          clearInterval(i);
+      }
+    }
+  
   }
   var content = new Content();
   var body = content.generateBodyJson();
@@ -249,8 +334,10 @@ import { MallApi } from "../../apis/mall.api";
   body.switchtype = content.switchtype;
   body.bindpay = content.bindpay;
   body.cancelorder = content.cancelorder;
+  body.cancelorder2 = content.cancelorder2;
   body.refundorder = content.refundorder;
   body.shouhuo = content.shouhuo;
   body.xiugaidz = content.xiugaidz;
   body.shanchuorder = content.shanchuorder;
+  body.daojishi = content.daojishi;
   Page(body)

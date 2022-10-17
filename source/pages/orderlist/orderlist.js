@@ -49,9 +49,9 @@ class Content extends AppBase {
             that.Base.setMyData({
                 list
             })
-         
+          
         })
-
+        
        
     }
 

@@ -50,7 +50,7 @@ page{
   /* height: 540rpx; */
   background: white;
   border-radius: 20rpx;
-  padding: 0 19rpx 58rpx 20rpx ;
+  padding: 0 19rpx 30rpx 20rpx ;
  }
  .cover {
   width: 279rpx;
