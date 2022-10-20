@@ -549,7 +549,6 @@ class Content extends AppBase {
     // flag = true
     if (data.flag == false) {
       console.log("bbbb")
-      return
     } else {
       var flag = false
     }
