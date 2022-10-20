@@ -1,5 +1,5 @@
 <!--pages/giftcardsinfo/giftcardsinfo.wxml-->
-<view style="background-color: rgba(243, 246, 247, 1); min-height: 100vh; position: relative;">
+<view style="background-color:#fafafa; min-height: 100vh; position: relative;">
     <view class="flex-row flex-column" style="margin-top: 40rpx;">
         <image wx:if="{{cardinfo.cardtype=='A'}}" class="img" src="{{uploadpath}}giftcardinfo/{{cardinfo.cardcover_image}}"></image>
         <image wx:if="{{cardinfo.cardtype=='B'}}" class="img" src="{{uploadpath}}giftcardinfo/{{cardinfo.cover}}"></image>
@@ -8,19 +8,21 @@
         <view class="f">卡 号：{{cardinfo.buynum}}</view>
         <view class="f">面 值：{{cardinfo.giftcardprice_cardprice}}元</view>
         <view class="f">使用须知 ：</view>
-        <view>
+        <view class="margin-left-5">
+          <view class="f-24 txt-gray">{{cardinfo.howuse}}</view>
+        </view>
+        <!-- <view>
             <import src="../../wxParse/wxParse.wxml" />
             <template is="wxParse" data="{{wxParseData:howuse.nodes}}" />
-        </view>
+        </view> -->
     </view>
 
     <view wx:if="{{cardinfo.cardtype=='B'}}" class="" style="width: 700rpx;margin-top: 32rpx; margin-left: 26rpx;">
         <view  class="f">卡 号：{{cardinfo.exchangecard_id_name}}</view>
         <view  class="f">面 值：{{cardinfo.shiwukaprice}}元</view>
         <view class="f">使用须知 ：</view>
-        <view>
-            <import src="../../wxParse/wxParse.wxml" />
-            <template is="wxParse" data="{{wxParseData:howuse.nodes}}" />
+        <view class="margin-left-5">
+          <view class="f-24 txt-gray">{{cardinfo.howuse}}</view>
         </view>
     </view>
     <view  class="flex-row" style="position: absolute; bottom: 44rpx; width: 100%;">

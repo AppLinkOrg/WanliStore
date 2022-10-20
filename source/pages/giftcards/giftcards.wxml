@@ -75,3 +75,8 @@
     <view class="line-height-90 butcolor">确认兑换</view>
   </view>
 </view>
+
+<button wx:if="{{memberinfo==null||(memberinfo!=null && memberinfo.avatarUrl=='')}}"  hover-class="none" open-type="getUserInfo" class="shouquanbutton" bindtap="bindgetUserProfile">
+</button>
+<button open-type="getPhoneNumber" class="shouquanbutton1 " hover-class="none" wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.mobile=='')}}" bindgetphonenumber="getPhoneNo">
+</button>

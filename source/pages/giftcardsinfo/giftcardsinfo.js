@@ -47,8 +47,8 @@ import {
 
       giftcardsapi.mygiftcardinfo({id:this.Base.options.id},(e)=>{
         console.log(e)
-        e.howuse = ApiUtil.HtmlDecode(e.howuse)
-        WxParse.wxParse('howuse' , 'html', e.howuse, that,10) 
+        // e.howuse = ApiUtil.HtmlDecode(e.howuse)
+        // WxParse.wxParse('howuse' , 'html', e.howuse, that,10) 
         this.Base.setMyData({
           cardinfo: e
         })

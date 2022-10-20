@@ -2,6 +2,31 @@
 .h174 {
     height: 174rpx;
 }
+.shouquanbutton{
+  position: absolute;
+  width: 100%;
+  height: 220rpx;
+  top: 380rpx;
+  z-index: 99;
+  /* border: 1rpx solid red; */
+  border: none;
+}
+.shouquanbutton1{
+  position: absolute;
+  width: 100%;
+  height: 220rpx;
+  top: 380rpx;
+  z-index: 80;
+  /* border: 1rpx solid red; */
+  border: none;
+}
+
+.shouquanbutton::after {
+  border: 0;
+}
+.shouquanbutton1::after {
+  border: 0;
+}
 .padding36 {
     padding-left: 36rpx;
     padding-right: 40rpx;
@@ -173,3 +198,4 @@
     justify-content: center;
     height: 140rpx;
   }
+ 
