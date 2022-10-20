@@ -726,9 +726,12 @@ class Content extends AppBase {
               wechatapi.prepay({
                 id: ret.return
               }, (payret) => {
-
+                wx.showModal({
+                  title: '测试',
+                  content: JSON.stringify(payret),
+                  })  ;
                 payret.complete = function (e) {
-
+                  console.log("payret进来了")
                   var data = that.Base.getMyData();
                   if (e.errMsg == "requestPayment:ok") {
                     wx.reLaunch({
@@ -921,7 +924,12 @@ class Content extends AppBase {
             wechatapi.prepay({
               id: ret.return
             }, (payret) => {
+              wx.showModal({
+                title: '测试',
+                content: JSON.stringify(payret),
+                })  ;
               payret.complete = function (e) {
+                console.log("payret进来了")
                 let datas = that.Base.getMyData();
                 if (e.errMsg == "requestPayment:ok") {
                   console.log(datas, '222');
