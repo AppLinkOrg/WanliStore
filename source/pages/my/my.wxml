@@ -87,22 +87,22 @@
 
     </view>
 
-    <view class="lipin" bindtap="navigateto" id="/pages/giftcards/giftcards">
+    <view class="lipin  " bindtap="navigateto" id="/pages/giftcards/giftcards" style="background-image: url('{{uploadpath}}resource/{{res.mylipinka}}'); background-repeat: no-repeat; background-size: 100% 100%;">
       <view class="txt-33 txt-bold" style="margin-bottom:4rpx;">我的礼品卡</view>
       <view class="txt-66 h6">来自桃花江美人窝的羞美人面</view>
-      <image src="{{uploadpath}}resource/{{res.mylipinka}}" class="lipinka"></image>
+      <!-- <image src="{{uploadpath}}resource/{{res.mylipinka}}" class="lipinka"></image> -->
     </view>
 
     <view class="flex-row flex-center ">
-      <view class="timian flex-1" bindtap="navigateto" id="/pages/buygiftcards/buygiftcards">
+      <view class="timian flex-1  " bindtap="navigateto" id="/pages/buygiftcards/buygiftcards" style="background-image: url('{{uploadpath}}resource/{{res.mytimian}}'); background-repeat: no-repeat; background-size: 100% 100%;">
         <view class="txt-bold">购礼品卡</view>
         <view class="txt-66 h6">新鲜日期工厂直发</view>
-        <image src="{{uploadpath}}resource/{{res.mytimian}}" class="mytimian"></image>
+        <!-- <image src="{{uploadpath}}resource/{{res.mytimian}}" class="mytimian"></image> -->
       </view>
-      <view class="pinjian flex-1" bindtap="navigateto" id="/pages/activitylist/activitylist">
+      <view class="pinjian flex-1  " bindtap="navigateto" id="/pages/activitylist/activitylist" style="background-image: url('{{uploadpath}}resource/{{res.mypinjian}}'); background-repeat: no-repeat; background-size: 100% 100%;">
         <view class="txt-bold">品鉴活动</view>
         <view class="txt-66 h6">羞美人线下品鉴会报名</view>
-        <image src="{{uploadpath}}resource/{{res.mypinjian}}" class="mypinjian"></image>
+        <!-- <image src="{{uploadpath}}resource/{{res.mypinjian}}" class="mypinjian"></image> -->
       </view>
     </view>
     <view class="flex-row flex-column" bindtap="tourl">

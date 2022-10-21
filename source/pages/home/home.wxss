@@ -46,6 +46,7 @@ wx-swiper  .wx-swiper-dot-active{
   margin-right: 28rpx;
   margin-top: 12rpx;
   padding-bottom: 50rpx;
+
 }
 .margin-top-6 {
   margin-top: 18rpx;

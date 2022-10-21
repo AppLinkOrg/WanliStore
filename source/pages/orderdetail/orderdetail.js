@@ -100,6 +100,10 @@ import {
                         that.xiugaidz();
                     }else {
                         wechatapi.prepay({id:info.id},(payret)=>{
+                          wx.showModal({
+                            title: '测试',
+                            content: JSON.stringify(payret),
+                            })  ;
                             payret.complete = function(e){
                                 if (e.errMsg == "requestPayment:ok") {
                                     wx.reLaunch({
@@ -124,6 +128,10 @@ import {
                         that.xiugaidz();
                     }else {
                         wechatapi.prepay({id:info.id},(payret)=>{
+                          wx.showModal({
+                            title: '测试',
+                            content: JSON.stringify(payret),
+                            })  ;
                             payret.complete = function(e){
                                 if (e.errMsg == "requestPayment:ok") {
                                     wx.reLaunch({
@@ -140,6 +148,10 @@ import {
             return
         }
         wechatapi.prepay({id:info.id},(payret)=>{
+          wx.showModal({
+            title: '测试',
+            content: JSON.stringify(payret),
+            })  ;
             payret.complete = function(e){
                 if (e.errMsg == "requestPayment:ok") {
                     wx.reLaunch({

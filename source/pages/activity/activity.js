@@ -179,7 +179,7 @@ class Content extends AppBase {
     if(money > 0){
       console.log(this.money)
       if(ret.code=='0'){
-        wechatapi.baomingpay({id:ret.return},(payret)=>{
+        wechatapi.baomingpay({id:ret.return},()=>{
           payret.complete = function(e){
             if (e.errMsg == "requestPayment:ok") {
               wx.navigateTo({
