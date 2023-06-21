@@ -28,13 +28,10 @@ import {
               mobile:'',
               address:'',
               moren:'N',
-              region:[]
+              region:""
           },
-          myregion:[]
+          myregion:[],
       })
-    }
-    onMyShow() {
-      var that = this;
       var memberapi = new MemberApi();
       if(this.Base.options.id>0){
         memberapi.addressinfo({id:this.Base.options.id},(info)=>{
@@ -43,13 +40,16 @@ import {
             })
         })
       }
+    }
+    onMyShow() {
+      var that = this;
      
     }
     getUserProvince(e){
       console.log(e.detail.value)
       var myregion = e.detail.value
       this.Base.setMyData({
-        myregion:myregion
+        myregion:myregion,
       })
 
     }
@@ -90,20 +90,16 @@ import {
         var ismobile = this.ismobile(data.mobile);
         console.log(ismobile);
         var myregion = this.Base.getMyData().myregion;
-
-
-
+        data.region=myregion[0]+myregion[1]+myregion[2] || this.Base.getMyData().info.region;
         if(!data.name){
           // console.log('2323');
           this.Base.toast('请输入姓名');
           return
         }
-        if (myregion==null) {
+        if (data.region== "" || data.region == null) {
           // console.log('2323');
           this.Base.toast('请选择省份');
           return
-        }else{
-          data.region=myregion[0]+myregion[1]+myregion[2];
         }
         if(!data.address){
           // console.log('2323');

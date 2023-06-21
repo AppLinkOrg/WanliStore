@@ -9,7 +9,6 @@
             <view class="txt-33 h5">电话:</view>
             <input type="number" placeholder="请输入您的电话" name='mobile' value="{{info.mobile}}" class=" flex-1 txt-33 h5 text-right"/>
         </view>
-
         <view class="flex-row flex-center padding30">
           <picker mode="region" value="{{region}}" custom-item="{{customItem}}" class="w-100" bindchange="getUserProvince">
           <view class="txt-33 h5">
