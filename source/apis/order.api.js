@@ -41,6 +41,70 @@ export class OrderApi{
         })
     }
 
+    addreturunorder(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'order/addreturunorder',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
+    amendedpetition(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'order/amendedpetition',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
     cancelorder(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -73,6 +137,38 @@ export class OrderApi{
         })
     }
 
+    changeyunfei(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'order/changeyunfei',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
     createorder(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -83,6 +179,38 @@ export class OrderApi{
         console.log(json);
         wx.request({
             url: ApiConfig.GetApiUrl() + 'order/createorder',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
+    delectreturnorder(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'order/delectreturnorder',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -265,6 +393,38 @@ export class OrderApi{
         })
     }
 
+    pingjiatupianxiangqing(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'order/pingjiatupianxiangqing',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
     shouhuo(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -361,134 +521,6 @@ export class OrderApi{
         })
     }
 
-    shopitemList(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'shopitemlist/shopitemlist',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    pingjiaxinagqing(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'pingjiaxinagqing/pingjiaxinagqing',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    pingjiatupianxiangqing(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'order/pingjiatupianxiangqing',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    addreturunorder(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'order/addreturunorder',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
     updatereturnorder(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -499,103 +531,6 @@ export class OrderApi{
         console.log(json);
         wx.request({
             url: ApiConfig.GetApiUrl() + 'order/updatereturnorder',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    delectreturnorder(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'order/delectreturnorder',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    
-    delectreturnorder(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'order/delectreturnorder',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    amendedpetition(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'order/amendedpetition',
             data: json,
             method: 'POST',
             dataType: 'json',

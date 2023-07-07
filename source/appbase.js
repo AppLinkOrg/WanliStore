@@ -696,6 +696,37 @@ export class AppBase {
       }
     })
   }
+  uploadAvatarUrl(modul,filePath,callback, completecallback){
+    wx.uploadFile({
+      url: ApiConfig.GetFileUploadAPI(), //仅为示例，非真实的接口地址
+      filePath: filePath,
+      name: 'file',
+      formData: {
+        'module': modul,
+        "field": "file"
+      },
+      success: function(res) {
+        console.log(res);
+        var data = res.data
+        if (data.substr(0, 7) == "success") {
+          data = data.split("|");
+          var photo = data[2];
+          callback(photo);
+        } else {
+          console.error(res.data);
+          wx.showToast({
+            title: '上传失败，请重试',
+            icon: 'warn',
+            duration: 2000
+          })
+        }
+        //do something
+      }
+    });
+    if (completecallback != undefined) {
+      completecallback();
+    }
+  }
 
   takeImage(modul, callback) {
     wx.chooseImage({

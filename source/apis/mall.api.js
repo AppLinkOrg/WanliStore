@@ -105,7 +105,7 @@ export class MallApi{
         })
     }
 
-    getsuoshustore(json, callback, showLoading = true) {
+    pingjialistc(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -114,7 +114,7 @@ export class MallApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'mall/suoshustore',
+            url: ApiConfig.GetApiUrl() + 'mall/pingjialistc',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -201,38 +201,6 @@ export class MallApi{
         })
     }
 
-    usestore(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'mall/usestore',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
     suoshustore(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -265,7 +233,7 @@ export class MallApi{
         })
     }
 
-    pingjialistc(json, callback, showLoading = true) {
+    updatamallis(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -274,7 +242,7 @@ export class MallApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'mall/pingjialistc',
+            url: ApiConfig.GetApiUrl() + 'mall/updatamallis',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -297,7 +265,7 @@ export class MallApi{
         })
     }
 
-    updatamallis(json, callback, showLoading = true) {
+    usestore(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -306,7 +274,7 @@ export class MallApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'mall/updatamallis',
+            url: ApiConfig.GetApiUrl() + 'mall/usestore',
             data: json,
             method: 'POST',
             dataType: 'json',

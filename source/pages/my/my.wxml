@@ -3,11 +3,11 @@
   <view class="flex-row flex-center padding36">
 
     <!-- 获取头像和昵称 -->
-    <button open-type="getUserInfo" class="clear-button " hover-class="none" bindtap="bindgetUserProfile">
+    <button  class="clear-button " hover-class="none"  bindtap="navtoPage" data-page='myinfo' data-param='nickName={{memberinfo.nickName}}'>
       <view class="touxiang" wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.avatarUrl=='')}}"></view>
       <image src="{{memberinfo.avatarUrl}}" class="touxiang" wx:else></image>
     </button>
-    <view class="flex-1">
+    <view class="flex-1" bindtap="navtoPage" data-page='myinfo' data-param='nickName={{memberinfo.nickName}}'>
       <view class="flex-row flex-center">
         <button open-type="getPhoneNumber" class="clear-button " hover-class="none" wx:if="{{ memberinfo==null || (memberinfo!=null && memberinfo.mobile=='')}}" bindgetphonenumber="getPhoneNo">
           <view class="txt-white h4 ">点击授权手机号</view>

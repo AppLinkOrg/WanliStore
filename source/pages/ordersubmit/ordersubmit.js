@@ -726,10 +726,10 @@ class Content extends AppBase {
               wechatapi.prepay({
                 id: ret.return
               }, (payret) => {
-                wx.showModal({
-                  title: '测试',
-                  content: JSON.stringify(payret),
-                  })  ;
+                // wx.showModal({
+                //   title: '测试',
+                //   content: JSON.stringify(payret),
+                //   })  ;
                 payret.complete = function (e) {
                   console.log("payret进来了")
                   var data = that.Base.getMyData();

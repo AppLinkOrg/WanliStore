@@ -51,7 +51,8 @@
     "pages/orderreturn/orderreturn",
     "pages/orderreturndetail/orderreturndetail",
     "pages/kuaididanhao/kuaididanhao",
-    "pages/myhtml/myhtml"
+    "pages/myhtml/myhtml",
+    "pages/myinfo/myinfo"
   ],
   "permission": {
     "scope.userLocation": {

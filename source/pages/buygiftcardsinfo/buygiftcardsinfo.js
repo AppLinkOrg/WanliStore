@@ -128,10 +128,10 @@ class Content extends AppBase {
           wechatapi.prepaygiftcard({
             id: ret.return
           }, (payret) => {
-            wx.showModal({
-              title: '测试',
-              content: JSON.stringify(payret),
-              })  ;
+            // wx.showModal({
+            //   title: '测试',
+            //   content: JSON.stringify(payret),
+            //   })  ;
             payret.complete = function (e) {
               if (e.errMsg == "requestPayment:ok") {
                 wx.reLaunch({

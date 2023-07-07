@@ -5,6 +5,7 @@ import { InstApi } from "../../apis/inst.api.js";
 import {
   MallApi
 } from "../../apis/mall.api.js";
+import { MemberApi } from "../../apis/member.api";
 
 class Content extends AppBase {
   constructor() {
@@ -14,7 +15,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    // wx.setNavigationBarTitle({
+    // wx.setNavigationBarTitle({ 
     //   title: "商品详情"
     // })
   }
@@ -31,6 +32,17 @@ class Content extends AppBase {
     orderby:"r_main.shouyepaixu"},(list)=>{
       this.Base.setMyData({
         list
+      })
+    })
+
+
+    this.Base.setMyData({
+      u_member_id:this.Base.options.member_id
+    })
+    var memberapi = new MemberApi();
+    memberapi.addmember({u_member_id:this.Base.getMyData().u_member_id},(e)=>{
+      this.Base.setMyData({
+        addmember:e
       })
     })
   }

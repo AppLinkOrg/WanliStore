@@ -21,6 +21,9 @@ import {
 import {
   shopcartlist
 } from '../../apis/shopCartList';
+import {
+  MemberApi
+} from "../../apis/member.api";
 class Content extends AppBase {
   constructor() {
     super();
@@ -42,8 +45,6 @@ class Content extends AppBase {
       prices: 0
 
     })
-
-
 
   }
   onMyShow() {
@@ -81,6 +82,19 @@ class Content extends AppBase {
       that.Base.setMyData({
         // infoList:newArr,
         shoCartList
+      })
+    })
+
+    that.Base.setMyData({
+      // infoList:newArr,
+      u_member_id: this.Base.options.member_id
+    })
+    var memberapi = new MemberApi();
+    memberapi.addmember({
+      u_member_id: this.Base.getMyData().u_member_id
+    }, (e) => {
+      this.Base.setMyData({
+        addmember: e
       })
     })
   }
@@ -122,18 +136,17 @@ class Content extends AppBase {
         icon: 'none',
         duration: 2000
       })
-    }else if(goods_number == '0'){
+    } else if (goods_number == '0') {
       wx.showToast({
         title: '商品的数量不能为0',
         icon: 'none',
         duration: 2000
       })
-    } else if(Number(kucun)<Number(num)*Number(goods_number)){
-    
+    } else if (Number(kucun) < Number(num) * Number(goods_number)) {
+
       this.Base.toast('库存不够');
       return
-    } 
-    else {
+    } else {
 
       wx.navigateTo({
         url: '/pages/ordersubmit/ordersubmit?goodsid',
@@ -149,7 +162,11 @@ class Content extends AppBase {
         },
         success: function (res) {
           // 通过 eventChannel 向被打开页面传送数据
-          res.eventChannel.emit('shop_id', { id: goods_idss, goods_number: goods_number, guige_id: norms })
+          res.eventChannel.emit('shop_id', {
+            id: goods_idss,
+            goods_number: goods_number,
+            guige_id: norms
+          })
         }
       })
     }
@@ -222,18 +239,18 @@ class Content extends AppBase {
     let price = e.target.dataset.price
     let yunfei = e.target.dataset.yunfei
     let num = e.target.dataset.num
-   
-      this.Base.setMyData({
-        norms,
-        price,
-        yunfei,
-        prices: price,
-        num
-        // shopname
-      })
-  
 
-    
+    this.Base.setMyData({
+      norms,
+      price,
+      yunfei,
+      prices: price,
+      num
+      // shopname
+    })
+
+
+
 
 
   }
@@ -250,7 +267,7 @@ class Content extends AppBase {
     let yunfei = this.Base.getMyData().yunfei;
     let num = this.Base.getMyData().num;
     let kucun = this.Base.getMyData().info.inventory;
-    
+
     console.log(norms, '22');
     let price = this.Base.getMyData().price;
     if (norms == '-1') {
@@ -259,13 +276,13 @@ class Content extends AppBase {
         icon: 'none',
         duration: 2000
       })
-     
-    } else if(Number(kucun)<Number(num)*Number(quantity)){
-    
+
+    } else if (Number(kucun) < Number(num) * Number(quantity)) {
+
       this.Base.toast('库存不够');
       return
-    }else {
-  
+    } else {
+
       console.log(quantity, norms);
       var addshopCar = new addshopCart();
       addshopCar.addshopCart({
@@ -288,6 +305,19 @@ class Content extends AppBase {
           this.onMyShow();
         }
       })
+    }
+  }
+  onShareAppMessage(e) {
+    console.log(this.Base.options.id)
+    return {
+      title: '请分享给你的好友', // 转发标题
+      path: '/pages/malldetail/malldetail?member_id=' + this.Base.getMyData().memberinfo.id + '&id=' + this.Base.options.id, // 当前页面 path ，必须是以 / 开头的完整路径 
+    }
+  }
+  onShareTimeline(e) {
+    return {
+      title: '请分享给你的好友', // 转发标题
+      path: '/pages/malldetail/malldetail?member_id=' + this.Base.getMyData().memberinfo.id + '&id=' + this.Base.options.id, // 当前页面 path ，必须是以 / 开头的完整路径 
     }
   }
 }

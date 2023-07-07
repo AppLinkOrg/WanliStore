@@ -27,7 +27,6 @@ class Content extends AppBase {
     this.Base.setMyData({
       u_member_id:this.Base.options.member_id
     })
-
     var memberapi = new MemberApi();
     memberapi.addmember({u_member_id:that.Base.getMyData().u_member_id},(e)=>{
       this.Base.setMyData({
